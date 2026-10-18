@@ -121,6 +121,7 @@
         <button data-p="1">1Y</button><button data-p="3">3Y</button>
         <button data-p="5" class="on">5Y</button>
       </span>
+      <span class="chip" id="schoolToggle" style="margin-left:4px">Show schools</span>
       <span class="note" id="metricNote" style="margin:0 0 0 6px"></span>
     </div>
     <div id="map"></div>
@@ -183,6 +184,29 @@
     <p class="note">Permitted housing units by structure type (U.S. Census Building Permits Survey, annual). 5+ unit = multifamily.</p>
   </section>
 
+  <!-- SCHOOLS -->
+  <section class="card full">
+    <h2>Schools · Davis School District + charters</h2>
+    <div class="h2sub" id="schoolCap"></div>
+    <div class="row2">
+      <div>
+        <svg id="gradeChart" viewBox="0 0 560 220" width="100%" height="220" role="img"></svg>
+        <div class="chartlegend"><span><span class="dot" style="background:var(--c0)"></span>Enrollment by grade (Davis School District)</span></div>
+      </div>
+      <div>
+        <div class="donuts">
+          <div><svg id="charterDonut" viewBox="0 0 150 150" width="150" height="150"></svg>
+            <div class="donut-cap">Charter vs district</div></div>
+          <div style="align-self:center">
+            <svg id="enrollTrend" viewBox="0 0 230 120" width="230" height="120"></svg>
+            <div class="donut-cap">District enrollment '19–'23</div></div>
+        </div>
+        <div class="stockstats" id="schoolStats"></div>
+      </div>
+    </div>
+    <p class="note">School figures are district-based (schools don't nest in cities). Projected new students = recent 3-yr permits × district student yield (an estimate). Source: NCES Common Core of Data.</p>
+  </section>
+
   <!-- ROW: income distribution | metrics table -->
   <section class="full row2">
     <div class="card">
@@ -203,7 +227,7 @@
       <thead><tr>
         <th>#</th><th>City</th><th class="n" id="rankHdr">Value</th><th class="n">Pop</th>
         <th class="n">Demand</th><th class="n">Afford</th><th class="n">Supply</th>
-        <th class="n">Econ</th><th class="n">Stock</th>
+        <th class="n">Econ</th><th class="n">Stock</th><th class="n">School</th>
       </tr></thead>
       <tbody id="rankBody"></tbody>
     </table>
@@ -250,7 +274,8 @@ const TREND_SERIES=[
   {key:"unemployment_rate",label:"Unemployment %",color:CAT[4],scale:100,on:true},
 ];
 const RADAR_AXES=[["demand","Demand"],["affordability","Afford."],
-  ["supply_tightness","Supply"],["economic","Economic"],["stock_quality","Stock"]];
+  ["supply_tightness","Supply"],["economic","Economic"],["stock_quality","Stock"],
+  ["school_demand","School"]];
 
 const fmt={
   usd0:v=>v==null?"—":"$"+Math.round(v).toLocaleString(),
@@ -295,6 +320,9 @@ async function boot(){
     document.querySelectorAll("#growthToggle button").forEach(x=>x.classList.remove("on"));
     b.classList.add("on"); S.period=+b.dataset.p; refreshMetric();
   });
+  document.getElementById("schoolToggle").onclick=function(){
+    this.classList.toggle("on"); toggleSchools(this.classList.contains("on"));
+  };
 }
 
 function buildMetricChips(){
@@ -404,7 +432,7 @@ function select(gid){
   document.getElementById("selMetrics").innerHTML=rows.map(([k,v,x])=>
     `<tr><td>${k}</td><td>${v}<span class="moe">${x}</span></td></tr>`).join("");
 
-  drawPopTrend(a); drawRadar(gid); drawTrend(); drawHousing(a); drawPermits(a); drawIncome(a); highlight();
+  drawPopTrend(a); drawRadar(gid); drawTrend(); drawHousing(a); drawPermits(a); drawSchools(a); drawIncome(a); highlight();
 }
 
 /* ---------- line chart helper ---------- */
@@ -536,6 +564,64 @@ function drawPermits(a){
     `${rate==null?"—":rate.toFixed(1)} per 1,000 residents`;
 }
 
+/* ---------- schools (district-based) ---------- */
+function drawMiniLine(svg,obj,color){
+  svg.innerHTML="";const W=230,H=120,L=32,R=10,T=12,B=20;
+  const ys=Object.keys(obj).map(Number).sort((a,b)=>a-b);const vals=ys.map(y=>obj[String(y)]);
+  if(!vals.length)return;
+  const lo=Math.min(...vals),hi=Math.max(...vals),pad=(hi-lo)*0.25||1;
+  const X=x=>L+(x-ys[0])/((ys.at(-1)-ys[0])||1)*(W-L-R);
+  const Y=v=>T+(1-(v-(lo-pad))/((hi+pad)-(lo-pad)))*(H-T-B);
+  [lo,hi].forEach(v=>{const yy=Y(v);const t=el("text",{x:L-4,y:yy+3,fill:"#6b7a9c","font-size":9,"text-anchor":"end"});t.textContent=Math.round(v/1000)+"k";svg.appendChild(t);});
+  const pts=ys.map((y,i)=>[X(y),Y(vals[i])]);
+  svg.appendChild(el("path",{d:pts.map((p,i)=>(i?"L":"M")+p[0]+" "+p[1]).join(" "),fill:"none",stroke:color,"stroke-width":2}));
+  pts.forEach(p=>svg.appendChild(el("circle",{cx:p[0],cy:p[1],r:2.5,fill:color})));
+  [0,ys.length-1].forEach(i=>{const t=el("text",{x:X(ys[i]),y:H-6,fill:"#6b7a9c","font-size":9,"text-anchor":"middle"});t.textContent=ys[i];svg.appendChild(t);});
+}
+function drawSchools(a){
+  const sc=(S.byId["49011"].schools)||{};
+  const cap=document.getElementById("schoolCap");
+  if(!sc.enrollment_by_grade){cap.textContent="No school data.";return;}
+  // enrollment by grade bars
+  const svg=document.getElementById("gradeChart");svg.innerHTML="";
+  const g=sc.enrollment_by_grade;const W=560,H=220,L=40,R=10,T=12,B=26;
+  const max=Math.max(...g.map(x=>x.enrollment),1),step=(W-L-R)/g.length,bw=step*0.68;
+  const Y=v=>T+(1-v/max)*(H-T-B);
+  for(let i=0;i<=4;i++){const v=max*i/4,yy=Y(v);
+    svg.appendChild(el("line",{x1:L,y1:yy,x2:W-R,y2:yy,stroke:"#24324e","stroke-width":1}));
+    const t=el("text",{x:L-5,y:yy+3,fill:"#6b7a9c","font-size":9,"text-anchor":"end"});t.textContent=(v/1000).toFixed(0)+"k";svg.appendChild(t);}
+  g.forEach((x,i)=>{const cx=L+step*i+step/2,y1=Y(x.enrollment);
+    svg.appendChild(el("rect",{x:cx-bw/2,y:y1,width:bw,height:Math.max(0,Y(0)-y1),fill:CAT[0],rx:2}));
+    const xl=el("text",{x:cx,y:H-8,fill:"#6b7a9c","font-size":9,"text-anchor":"middle"});xl.textContent=x.grade;svg.appendChild(xl);});
+  // charter donut + trend
+  const dist=sc.county_total_enrollment-sc.charter_enrollment;
+  donut(document.getElementById("charterDonut"),[{v:dist,c:CAT[0]},{v:sc.charter_enrollment,c:CAT[1]}]);
+  drawMiniLine(document.getElementById("enrollTrend"),sc.enrollment_trend,CAT[4]);
+  // stats
+  const d=a.derived,sd=(S.scores[a.geoid]||{}).school_demand;
+  document.getElementById("schoolStats").innerHTML=[
+    [fmt.num(sc.county_total_enrollment),"Enrollment"],
+    [`${sc.n_schools} (${sc.n_charter} chtr)`,"Schools"],
+    [fmt.pct(sc.charter_share),"Charter share"],
+    [d.student_yield==null?"—":d.student_yield.toFixed(2),"Student yield"],
+    [fmt.num(d.projected_new_students),short(a)+" proj."],
+    [sd==null?"—":sd.toFixed(0),"School demand"],
+  ].map(([v,l])=>`<div class="s"><b>${v}</b><span>${l}</span></div>`).join("");
+  const yrs=Object.keys(sc.enrollment_trend);const first=sc.enrollment_trend[yrs[0]],last=sc.enrollment_trend[yrs.at(-1)];
+  const dir=last>first?"up":last<first?"down":"flat";
+  cap.textContent=`${sc.district.name}: ${fmt.num(sc.county_total_enrollment)} students across ${sc.n_schools} schools (${sc.n_charter} charter, ${fmt.pct(sc.charter_share)}). District enrollment ${dir} 2019→2023.`;
+}
+function toggleSchools(on){
+  if(S.schoolLayer){S.schoolLayer.remove();S.schoolLayer=null;}
+  if(!on)return;
+  const locs=((S.byId["49011"].schools||{}).locations)||[];
+  S.schoolLayer=L.layerGroup(locs.filter(l=>l.lat&&l.lon).map(l=>
+    L.circleMarker([l.lat,l.lon],{radius:Math.max(3,Math.sqrt(l.enrollment||100)/6),
+      color:"#0e1626",weight:1,fillColor:l.charter?CAT[1]:CAT[0],fillOpacity:.9})
+      .bindTooltip(`<b>${l.name}</b><br>${l.charter?"Charter":"District"} · ${l.enrollment||"—"} students`)
+  )).addTo(S.map);
+}
+
 /* ---------- income distribution ---------- */
 function drawIncome(a){
   const svg=document.getElementById("incDist");svg.innerHTML="";
@@ -564,7 +650,7 @@ function renderRank(){
       <td class="n">${fmt[m.fmt](r.v)}</td><td class="n">${fmt.num(r.a.population)}</td>
       <td class="n">${g("demand")}</td><td class="n">${g("affordability")}</td>
       <td class="n">${g("supply_tightness")}</td><td class="n">${g("economic")}</td>
-      <td class="n">${g("stock_quality")}</td></tr>`;}).join("");
+      <td class="n">${g("stock_quality")}</td><td class="n">${g("school_demand")}</td></tr>`;}).join("");
   document.querySelectorAll("#rankBody tr").forEach(tr=>tr.onclick=()=>select(tr.dataset.geoid));
   highlight();
 }

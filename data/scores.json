@@ -12,7 +12,7 @@
         "supply_tightness": 32.1,
         "economic": 25.0,
         "stock_quality": 25.0,
-        "school_demand": null
+        "school_demand": 71.4
       },
       "input_pct": {
         "growth_5y": 21.4,
@@ -25,7 +25,8 @@
         "median_hh_income": 28.6,
         "unemployment_rate(inv)": 21.4,
         "pre1980_share(inv)": 7.1,
-        "overcrowded_share(inv)": 42.9
+        "overcrowded_share(inv)": 42.9,
+        "projected_new_students": 71.4
       }
     },
     {
@@ -37,7 +38,7 @@
         "supply_tightness": 53.6,
         "economic": 60.7,
         "stock_quality": 60.7,
-        "school_demand": null
+        "school_demand": 35.7
       },
       "input_pct": {
         "growth_5y": 0.0,
@@ -50,7 +51,8 @@
         "median_hh_income": 57.1,
         "unemployment_rate(inv)": 64.3,
         "pre1980_share(inv)": 28.6,
-        "overcrowded_share(inv)": 92.9
+        "overcrowded_share(inv)": 92.9,
+        "projected_new_students": 28.6
       }
     },
     {
@@ -62,7 +64,7 @@
         "supply_tightness": 14.3,
         "economic": 17.9,
         "stock_quality": 17.9,
-        "school_demand": null
+        "school_demand": 89.3
       },
       "input_pct": {
         "growth_5y": 57.1,
@@ -75,7 +77,8 @@
         "median_hh_income": 0.0,
         "unemployment_rate(inv)": 35.7,
         "pre1980_share(inv)": 21.4,
-        "overcrowded_share(inv)": 14.3
+        "overcrowded_share(inv)": 14.3,
+        "projected_new_students": 85.7
       }
     },
     {
@@ -87,7 +90,7 @@
         "supply_tightness": 67.9,
         "economic": 17.9,
         "stock_quality": 67.9,
-        "school_demand": null
+        "school_demand": 57.1
       },
       "input_pct": {
         "growth_5y": 64.3,
@@ -100,7 +103,8 @@
         "median_hh_income": 35.7,
         "unemployment_rate(inv)": 0.0,
         "pre1980_share(inv)": 71.4,
-        "overcrowded_share(inv)": 64.3
+        "overcrowded_share(inv)": 64.3,
+        "projected_new_students": 50.0
       }
     },
     {
@@ -112,7 +116,7 @@
         "supply_tightness": 46.4,
         "economic": 39.3,
         "stock_quality": 67.9,
-        "school_demand": null
+        "school_demand": 50.0
       },
       "input_pct": {
         "growth_5y": 50.0,
@@ -125,7 +129,8 @@
         "median_hh_income": 64.3,
         "unemployment_rate(inv)": 14.3,
         "pre1980_share(inv)": 78.6,
-        "overcrowded_share(inv)": 57.1
+        "overcrowded_share(inv)": 57.1,
+        "projected_new_students": 64.3
       }
     },
     {
@@ -137,7 +142,7 @@
         "supply_tightness": 89.3,
         "economic": 100.0,
         "stock_quality": 60.7,
-        "school_demand": null
+        "school_demand": 12.5
       },
       "input_pct": {
         "growth_5y": 7.1,
@@ -150,7 +155,8 @@
         "median_hh_income": 100.0,
         "unemployment_rate(inv)": 100.0,
         "pre1980_share(inv)": 42.9,
-        "overcrowded_share(inv)": 78.6
+        "overcrowded_share(inv)": 78.6,
+        "projected_new_students": 3.6
       }
     },
     {
@@ -162,7 +168,7 @@
         "supply_tightness": 67.9,
         "economic": 57.1,
         "stock_quality": 60.7,
-        "school_demand": null
+        "school_demand": 32.1
       },
       "input_pct": {
         "growth_5y": 28.6,
@@ -175,7 +181,8 @@
         "median_hh_income": 71.4,
         "unemployment_rate(inv)": 42.9,
         "pre1980_share(inv)": 35.7,
-        "overcrowded_share(inv)": 85.7
+        "overcrowded_share(inv)": 85.7,
+        "projected_new_students": 57.1
       }
     },
     {
@@ -187,7 +194,7 @@
         "supply_tightness": 25.0,
         "economic": 35.7,
         "stock_quality": 39.3,
-        "school_demand": null
+        "school_demand": 71.4
       },
       "input_pct": {
         "growth_5y": 71.4,
@@ -200,7 +207,8 @@
         "median_hh_income": 21.4,
         "unemployment_rate(inv)": 50.0,
         "pre1980_share(inv)": 57.1,
-        "overcrowded_share(inv)": 21.4
+        "overcrowded_share(inv)": 21.4,
+        "projected_new_students": 92.9
       }
     },
     {
@@ -212,7 +220,7 @@
         "supply_tightness": 71.4,
         "economic": 10.7,
         "stock_quality": 25.0,
-        "school_demand": null
+        "school_demand": 48.2
       },
       "input_pct": {
         "growth_5y": 92.9,
@@ -225,7 +233,8 @@
         "median_hh_income": 14.3,
         "unemployment_rate(inv)": 7.1,
         "pre1980_share(inv)": 50.0,
-        "overcrowded_share(inv)": 0.0
+        "overcrowded_share(inv)": 0.0,
+        "projected_new_students": 39.3
       }
     },
     {
@@ -237,7 +246,7 @@
         "supply_tightness": 71.4,
         "economic": 85.7,
         "stock_quality": 96.4,
-        "school_demand": null
+        "school_demand": 60.7
       },
       "input_pct": {
         "growth_5y": 78.6,
@@ -250,7 +259,8 @@
         "median_hh_income": 92.9,
         "unemployment_rate(inv)": 78.6,
         "pre1980_share(inv)": 92.9,
-        "overcrowded_share(inv)": 100.0
+        "overcrowded_share(inv)": 100.0,
+        "projected_new_students": 21.4
       }
     },
     {
@@ -262,7 +272,7 @@
         "supply_tightness": 14.3,
         "economic": 17.9,
         "stock_quality": 3.6,
-        "school_demand": null
+        "school_demand": 58.9
       },
       "input_pct": {
         "growth_5y": 42.9,
@@ -275,7 +285,8 @@
         "median_hh_income": 7.1,
         "unemployment_rate(inv)": 28.6,
         "pre1980_share(inv)": 0.0,
-        "overcrowded_share(inv)": 7.1
+        "overcrowded_share(inv)": 7.1,
+        "projected_new_students": 39.3
       }
     },
     {
@@ -287,7 +298,7 @@
         "supply_tightness": 28.6,
         "economic": 85.7,
         "stock_quality": 75.0,
-        "school_demand": null
+        "school_demand": 50.0
       },
       "input_pct": {
         "growth_5y": 100.0,
@@ -300,7 +311,8 @@
         "median_hh_income": 78.6,
         "unemployment_rate(inv)": 92.9,
         "pre1980_share(inv)": 100.0,
-        "overcrowded_share(inv)": 50.0
+        "overcrowded_share(inv)": 50.0,
+        "projected_new_students": 100.0
       }
     },
     {
@@ -312,7 +324,7 @@
         "supply_tightness": 57.1,
         "economic": 78.6,
         "stock_quality": 25.0,
-        "school_demand": null
+        "school_demand": 8.9
       },
       "input_pct": {
         "growth_5y": 35.7,
@@ -325,7 +337,8 @@
         "median_hh_income": 85.7,
         "unemployment_rate(inv)": 71.4,
         "pre1980_share(inv)": 14.3,
-        "overcrowded_share(inv)": 35.7
+        "overcrowded_share(inv)": 35.7,
+        "projected_new_students": 3.6
       }
     },
     {
@@ -337,7 +350,7 @@
         "supply_tightness": 39.3,
         "economic": 67.9,
         "stock_quality": 78.6,
-        "school_demand": null
+        "school_demand": 53.6
       },
       "input_pct": {
         "growth_5y": 85.7,
@@ -350,7 +363,8 @@
         "median_hh_income": 50.0,
         "unemployment_rate(inv)": 85.7,
         "pre1980_share(inv)": 85.7,
-        "overcrowded_share(inv)": 71.4
+        "overcrowded_share(inv)": 71.4,
+        "projected_new_students": 78.6
       }
     },
     {
@@ -362,7 +376,7 @@
         "supply_tightness": 71.4,
         "economic": 50.0,
         "stock_quality": 46.4,
-        "school_demand": null
+        "school_demand": 50.0
       },
       "input_pct": {
         "growth_5y": 14.3,
@@ -375,7 +389,8 @@
         "median_hh_income": 42.9,
         "unemployment_rate(inv)": 57.1,
         "pre1980_share(inv)": 64.3,
-        "overcrowded_share(inv)": 28.6
+        "overcrowded_share(inv)": 28.6,
+        "projected_new_students": 14.3
       }
     }
   ]

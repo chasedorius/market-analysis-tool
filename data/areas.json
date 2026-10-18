@@ -1,6 +1,6 @@
 {
   "meta": {
-    "built_at": "2026-10-18T02:52:49+00:00",
+    "built_at": "2026-10-18T03:10:51+00:00",
     "acs_dataset": "acs/acs5",
     "current_vintage": 2024,
     "trend_vintages": [
@@ -227,7 +227,9 @@
         "overcrowded_share": 0.03144942044163432,
         "attached_share": 0.14441489274750136,
         "multifamily_share": 0.16065561175282067,
-        "permit_rate": null
+        "permit_rate": null,
+        "student_yield": 0.7074163855795857,
+        "projected_new_students": null
       }
     },
     {
@@ -471,7 +473,1098 @@
         "overcrowded_share": 0.025638592465428444,
         "attached_share": 0.11451947815584179,
         "multifamily_share": 0.11343574979938616,
-        "permit_rate": 3.958
+        "permit_rate": 3.958,
+        "student_yield": 0.7074163855795857,
+        "projected_new_students": 3671
+      },
+      "schools": {
+        "source": "NCES Common Core of Data via Urban Institute Education Data API",
+        "year": 2023,
+        "county_geoid": "49011",
+        "district": {
+          "leaid": "4900210",
+          "name": "Davis School District"
+        },
+        "county_total_enrollment": 82003,
+        "charter_enrollment": 9504,
+        "charter_share": 0.11589819884638367,
+        "n_schools": 112,
+        "n_charter": 15,
+        "enrollment_by_grade": [
+          {
+            "grade": "PK",
+            "enrollment": 1773
+          },
+          {
+            "grade": "K",
+            "enrollment": 4232
+          },
+          {
+            "grade": "1",
+            "enrollment": 4404
+          },
+          {
+            "grade": "2",
+            "enrollment": 5024
+          },
+          {
+            "grade": "3",
+            "enrollment": 4965
+          },
+          {
+            "grade": "4",
+            "enrollment": 5196
+          },
+          {
+            "grade": "5",
+            "enrollment": 5375
+          },
+          {
+            "grade": "6",
+            "enrollment": 5395
+          },
+          {
+            "grade": "7",
+            "enrollment": 5671
+          },
+          {
+            "grade": "8",
+            "enrollment": 5900
+          },
+          {
+            "grade": "9",
+            "enrollment": 5992
+          },
+          {
+            "grade": "10",
+            "enrollment": 6211
+          },
+          {
+            "grade": "11",
+            "enrollment": 6291
+          },
+          {
+            "grade": "12",
+            "enrollment": 6070
+          }
+        ],
+        "enrollment_trend": {
+          "2019": 74773,
+          "2020": 72082,
+          "2021": 74486,
+          "2022": 73459,
+          "2023": 72499
+        },
+        "locations": [
+          {
+            "name": "Wasatch Peak Academy",
+            "lat": 40.849411,
+            "lon": -111.931034,
+            "charter": true,
+            "enrollment": 503,
+            "low": 0,
+            "high": 6
+          },
+          {
+            "name": "Spectrum Academy - NSL",
+            "lat": 40.852654,
+            "lon": -111.932266,
+            "charter": true,
+            "enrollment": 861,
+            "low": 0,
+            "high": 12
+          },
+          {
+            "name": "Syracuse Arts Academy - Antelope",
+            "lat": 41.088772,
+            "lon": -112.082019,
+            "charter": true,
+            "enrollment": 1002,
+            "low": 0,
+            "high": 9
+          },
+          {
+            "name": "Syracuse Arts Academy - North",
+            "lat": 41.109057,
+            "lon": -112.055174,
+            "charter": true,
+            "enrollment": 738,
+            "low": 0,
+            "high": 6
+          },
+          {
+            "name": "Legacy Preparatory Academy",
+            "lat": 40.867494,
+            "lon": -111.916763,
+            "charter": true,
+            "enrollment": 982,
+            "low": 0,
+            "high": 9
+          },
+          {
+            "name": "Monticello Academy West Point",
+            "lat": 41.1191,
+            "lon": -112.085658,
+            "charter": true,
+            "enrollment": 426,
+            "low": 0,
+            "high": 6
+          },
+          {
+            "name": "No. UT. Acad. for Math Engineering & Science",
+            "lat": 41.099045,
+            "lon": -111.982266,
+            "charter": true,
+            "enrollment": 713,
+            "low": 10,
+            "high": 12
+          },
+          {
+            "name": "North Davis Preparatory Academy",
+            "lat": 41.067099,
+            "lon": -111.998223,
+            "charter": true,
+            "enrollment": 969,
+            "low": 0,
+            "high": 9
+          },
+          {
+            "name": "Jefferson Academy",
+            "lat": 41.01157,
+            "lon": -111.958241,
+            "charter": true,
+            "enrollment": 571,
+            "low": 0,
+            "high": 6
+          },
+          {
+            "name": "Highmark Charter School",
+            "lat": 41.126327,
+            "lon": -111.914313,
+            "charter": true,
+            "enrollment": 664,
+            "low": 0,
+            "high": 9
+          },
+          {
+            "name": "Voyage Academy",
+            "lat": 41.141152,
+            "lon": -112.055622,
+            "charter": true,
+            "enrollment": 532,
+            "low": 0,
+            "high": 6
+          },
+          {
+            "name": "Leadership Learning Academy",
+            "lat": 41.099611,
+            "lon": -111.966988,
+            "charter": true,
+            "enrollment": 500,
+            "low": 0,
+            "high": 6
+          },
+          {
+            "name": "Utah Career Path High School",
+            "lat": 41.0291,
+            "lon": -111.925111,
+            "charter": true,
+            "enrollment": 164,
+            "low": 9,
+            "high": 12
+          },
+          {
+            "name": "Ascent Academies of Utah Farmington",
+            "lat": 40.979694,
+            "lon": -111.902393,
+            "charter": true,
+            "enrollment": 423,
+            "low": 0,
+            "high": 9
+          },
+          {
+            "name": "Leadership Academy of Utah",
+            "lat": 41.095638,
+            "lon": -111.994051,
+            "charter": true,
+            "enrollment": 456,
+            "low": 6,
+            "high": 12
+          },
+          {
+            "name": "Northridge High",
+            "lat": 41.09516,
+            "lon": -111.970445,
+            "charter": false,
+            "enrollment": 1955,
+            "low": 10,
+            "high": 12
+          },
+          {
+            "name": "Adelaide School",
+            "lat": 40.85001,
+            "lon": -111.899687,
+            "charter": false,
+            "enrollment": 423,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Boulton School",
+            "lat": 40.860811,
+            "lon": -111.885069,
+            "charter": false,
+            "enrollment": 460,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Bountiful High",
+            "lat": 40.881661,
+            "lon": -111.871403,
+            "charter": false,
+            "enrollment": 1526,
+            "low": 10,
+            "high": 12
+          },
+          {
+            "name": "Bountiful Jr High",
+            "lat": 40.894172,
+            "lon": -111.881665,
+            "charter": false,
+            "enrollment": 617,
+            "low": 7,
+            "high": 9
+          },
+          {
+            "name": "Bountiful School",
+            "lat": 40.873535,
+            "lon": -111.882873,
+            "charter": false,
+            "enrollment": 465,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "H C Burton School",
+            "lat": 41.032546,
+            "lon": -111.919558,
+            "charter": false,
+            "enrollment": 733,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Centerville Jr High",
+            "lat": 40.910407,
+            "lon": -111.878065,
+            "charter": false,
+            "enrollment": 1002,
+            "low": 7,
+            "high": 9
+          },
+          {
+            "name": "Centerville School",
+            "lat": 40.92086,
+            "lon": -111.876567,
+            "charter": false,
+            "enrollment": 374,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Central Davis Jr High",
+            "lat": 41.069225,
+            "lon": -111.965148,
+            "charter": false,
+            "enrollment": 930,
+            "low": 7,
+            "high": 9
+          },
+          {
+            "name": "Clearfield High",
+            "lat": 41.100545,
+            "lon": -112.005573,
+            "charter": false,
+            "enrollment": 2058,
+            "low": 10,
+            "high": 12
+          },
+          {
+            "name": "Clinton School",
+            "lat": 41.139256,
+            "lon": -112.047503,
+            "charter": false,
+            "enrollment": 501,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Crestview School",
+            "lat": 41.069987,
+            "lon": -111.97035,
+            "charter": false,
+            "enrollment": 301,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Davis High",
+            "lat": 41.029313,
+            "lon": -111.931099,
+            "charter": false,
+            "enrollment": 2225,
+            "low": 10,
+            "high": 12
+          },
+          {
+            "name": "Doxey School",
+            "lat": 41.127699,
+            "lon": -112.030229,
+            "charter": false,
+            "enrollment": 289,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "King School",
+            "lat": 41.075242,
+            "lon": -111.953563,
+            "charter": false,
+            "enrollment": 486,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Farmington School",
+            "lat": 40.977567,
+            "lon": -111.889264,
+            "charter": false,
+            "enrollment": 472,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Fremont School",
+            "lat": 41.150113,
+            "lon": -112.028537,
+            "charter": false,
+            "enrollment": 275,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Hill Field School",
+            "lat": 41.108183,
+            "lon": -112.005397,
+            "charter": false,
+            "enrollment": 471,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Holbrook School",
+            "lat": 40.891779,
+            "lon": -111.86053,
+            "charter": false,
+            "enrollment": 532,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Taylor School",
+            "lat": 40.907004,
+            "lon": -111.874879,
+            "charter": false,
+            "enrollment": 349,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Kaysville Jr High",
+            "lat": 41.028522,
+            "lon": -111.935975,
+            "charter": false,
+            "enrollment": 909,
+            "low": 7,
+            "high": 9
+          },
+          {
+            "name": "Kaysville School",
+            "lat": 41.035613,
+            "lon": -111.935622,
+            "charter": false,
+            "enrollment": 504,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Layton High",
+            "lat": 41.065241,
+            "lon": -111.959246,
+            "charter": false,
+            "enrollment": 2211,
+            "low": 10,
+            "high": 12
+          },
+          {
+            "name": "Layton School",
+            "lat": 41.059643,
+            "lon": -111.972902,
+            "charter": false,
+            "enrollment": 566,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Muir School",
+            "lat": 40.864709,
+            "lon": -111.870737,
+            "charter": false,
+            "enrollment": 649,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Lincoln School",
+            "lat": 41.088497,
+            "lon": -111.976795,
+            "charter": false,
+            "enrollment": 694,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Meadowbrook School",
+            "lat": 40.896927,
+            "lon": -111.888791,
+            "charter": false,
+            "enrollment": 358,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Millcreek Jr High",
+            "lat": 40.879804,
+            "lon": -111.875305,
+            "charter": false,
+            "enrollment": 710,
+            "low": 7,
+            "high": 9
+          },
+          {
+            "name": "Eagle Bay School",
+            "lat": 40.981453,
+            "lon": -111.929047,
+            "charter": false,
+            "enrollment": 495,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "North Davis Jr High",
+            "lat": 41.102516,
+            "lon": -112.011052,
+            "charter": false,
+            "enrollment": 964,
+            "low": 7,
+            "high": 9
+          },
+          {
+            "name": "North Layton Jr High",
+            "lat": 41.090026,
+            "lon": -111.98627,
+            "charter": false,
+            "enrollment": 962,
+            "low": 7,
+            "high": 9
+          },
+          {
+            "name": "Oak Hills School",
+            "lat": 40.883125,
+            "lon": -111.855252,
+            "charter": false,
+            "enrollment": 483,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Orchard School",
+            "lat": 40.842694,
+            "lon": -111.906422,
+            "charter": false,
+            "enrollment": 630,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Woods Cross School",
+            "lat": 40.877918,
+            "lon": -111.899244,
+            "charter": false,
+            "enrollment": 495,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "South Clearfield School",
+            "lat": 41.102856,
+            "lon": -112.008029,
+            "charter": false,
+            "enrollment": 717,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "South Davis Jr High",
+            "lat": 40.862136,
+            "lon": -111.888172,
+            "charter": false,
+            "enrollment": 977,
+            "low": 7,
+            "high": 9
+          },
+          {
+            "name": "South Weber School",
+            "lat": 41.13175,
+            "lon": -111.94768,
+            "charter": false,
+            "enrollment": 853,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Sunset Jr High",
+            "lat": 41.137281,
+            "lon": -112.029729,
+            "charter": false,
+            "enrollment": 931,
+            "low": 7,
+            "high": 9
+          },
+          {
+            "name": "Sunset School",
+            "lat": 41.142629,
+            "lon": -112.030344,
+            "charter": false,
+            "enrollment": 297,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Syracuse School",
+            "lat": 41.092249,
+            "lon": -112.063785,
+            "charter": false,
+            "enrollment": 822,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Tolman School",
+            "lat": 40.901168,
+            "lon": -111.875406,
+            "charter": false,
+            "enrollment": 367,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Vae View School",
+            "lat": 41.083607,
+            "lon": -111.99855,
+            "charter": false,
+            "enrollment": 390,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Valley View School",
+            "lat": 40.875705,
+            "lon": -111.868186,
+            "charter": false,
+            "enrollment": 445,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Viewmont High",
+            "lat": 40.900682,
+            "lon": -111.882744,
+            "charter": false,
+            "enrollment": 1538,
+            "low": 10,
+            "high": 12
+          },
+          {
+            "name": "Wasatch School",
+            "lat": 41.113284,
+            "lon": -112.022245,
+            "charter": false,
+            "enrollment": 525,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "West Bountiful School",
+            "lat": 40.895225,
+            "lon": -111.89987,
+            "charter": false,
+            "enrollment": 693,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "West Point School",
+            "lat": 41.118616,
+            "lon": -112.098074,
+            "charter": false,
+            "enrollment": 1066,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Whitesides School",
+            "lat": 41.063627,
+            "lon": -111.952885,
+            "charter": false,
+            "enrollment": 398,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Woods Cross High",
+            "lat": 40.868951,
+            "lon": -111.895343,
+            "charter": false,
+            "enrollment": 1613,
+            "low": 10,
+            "high": 12
+          },
+          {
+            "name": "Fairfield Jr High",
+            "lat": 41.050115,
+            "lon": -111.940224,
+            "charter": false,
+            "enrollment": 987,
+            "low": 7,
+            "high": 9
+          },
+          {
+            "name": "Windridge School",
+            "lat": 41.013552,
+            "lon": -111.923411,
+            "charter": false,
+            "enrollment": 526,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Mountain View School",
+            "lat": 41.104796,
+            "lon": -111.928086,
+            "charter": false,
+            "enrollment": 687,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Renaissance Academy",
+            "lat": 41.0305,
+            "lon": -111.9276,
+            "charter": false,
+            "enrollment": 56,
+            "low": 0,
+            "high": 12
+          },
+          {
+            "name": "Creekside School",
+            "lat": 41.050077,
+            "lon": -111.942736,
+            "charter": false,
+            "enrollment": 565,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Bluff Ridge School",
+            "lat": 41.075715,
+            "lon": -112.040848,
+            "charter": false,
+            "enrollment": 932,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Lakeside School",
+            "lat": 41.124555,
+            "lon": -112.082273,
+            "charter": false,
+            "enrollment": 832,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Stewart School",
+            "lat": 40.931197,
+            "lon": -111.879907,
+            "charter": false,
+            "enrollment": 552,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Cook School",
+            "lat": 41.093599,
+            "lon": -112.0488,
+            "charter": false,
+            "enrollment": 672,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Morgan School",
+            "lat": 41.051708,
+            "lon": -111.919714,
+            "charter": false,
+            "enrollment": 631,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "East Layton School",
+            "lat": 41.080208,
+            "lon": -111.918741,
+            "charter": false,
+            "enrollment": 560,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Holt School",
+            "lat": 41.120513,
+            "lon": -112.044198,
+            "charter": false,
+            "enrollment": 485,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Knowlton School",
+            "lat": 41.000119,
+            "lon": -111.905241,
+            "charter": false,
+            "enrollment": 724,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Family Enrichment Center",
+            "lat": 41.029286,
+            "lon": -111.927639,
+            "charter": false,
+            "enrollment": 245,
+            "low": -1,
+            "high": -1
+          },
+          {
+            "name": "Columbia School",
+            "lat": 41.027415,
+            "lon": -111.938846,
+            "charter": false,
+            "enrollment": 593,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Farmington Jr High",
+            "lat": 40.977818,
+            "lon": -111.892864,
+            "charter": false,
+            "enrollment": 1275,
+            "low": 7,
+            "high": 9
+          },
+          {
+            "name": "Mueller Park Jr High",
+            "lat": 40.872633,
+            "lon": -111.861153,
+            "charter": false,
+            "enrollment": 1084,
+            "low": 7,
+            "high": 9
+          },
+          {
+            "name": "Heritage School",
+            "lat": 41.045442,
+            "lon": -111.991637,
+            "charter": false,
+            "enrollment": 647,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Star Transition",
+            "lat": 40.97925,
+            "lon": -111.882177,
+            "charter": false,
+            "enrollment": null,
+            "low": 7,
+            "high": 12
+          },
+          {
+            "name": "Adams School",
+            "lat": 41.09494,
+            "lon": -111.925513,
+            "charter": false,
+            "enrollment": 652,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Reading School",
+            "lat": 40.947957,
+            "lon": -111.884371,
+            "charter": false,
+            "enrollment": 462,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Mountain High",
+            "lat": 41.028489,
+            "lon": -111.927971,
+            "charter": false,
+            "enrollment": 213,
+            "low": 10,
+            "high": 12
+          },
+          {
+            "name": "Syracuse Jr High",
+            "lat": 41.093048,
+            "lon": -112.065604,
+            "charter": false,
+            "enrollment": 1253,
+            "low": 7,
+            "high": 9
+          },
+          {
+            "name": "Antelope School",
+            "lat": 41.087193,
+            "lon": -112.027046,
+            "charter": false,
+            "enrollment": 685,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "West Clinton School",
+            "lat": 41.140536,
+            "lon": -112.080273,
+            "charter": false,
+            "enrollment": 795,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Davis Connect K-6",
+            "lat": 40.980796,
+            "lon": -111.886593,
+            "charter": false,
+            "enrollment": 137,
+            "low": 0,
+            "high": 8
+          },
+          {
+            "name": "West Point Jr High",
+            "lat": 41.120705,
+            "lon": -112.079639,
+            "charter": false,
+            "enrollment": 1558,
+            "low": 7,
+            "high": 9
+          },
+          {
+            "name": "Sand Springs School",
+            "lat": 41.063483,
+            "lon": -112.025213,
+            "charter": false,
+            "enrollment": 705,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Parkside School",
+            "lat": 41.146516,
+            "lon": -112.053964,
+            "charter": false,
+            "enrollment": 416,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Ellison Park School",
+            "lat": 41.071932,
+            "lon": -111.999373,
+            "charter": false,
+            "enrollment": 583,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Syracuse High",
+            "lat": 41.10539,
+            "lon": -112.06273,
+            "charter": false,
+            "enrollment": 2566,
+            "low": 10,
+            "high": 12
+          },
+          {
+            "name": "Snow Horse School",
+            "lat": 41.022399,
+            "lon": -111.956069,
+            "charter": false,
+            "enrollment": 509,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Buffalo Point School",
+            "lat": 41.086149,
+            "lon": -112.096112,
+            "charter": false,
+            "enrollment": 1014,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Legacy Jr High",
+            "lat": 41.066111,
+            "lon": -112.027582,
+            "charter": false,
+            "enrollment": 1090,
+            "low": 7,
+            "high": 9
+          },
+          {
+            "name": "Foxboro School",
+            "lat": 40.853403,
+            "lon": -111.940594,
+            "charter": false,
+            "enrollment": 527,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Endeavour School",
+            "lat": 41.00347,
+            "lon": -111.93913,
+            "charter": false,
+            "enrollment": 678,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Centennial Jr High",
+            "lat": 41.022399,
+            "lon": -111.956069,
+            "charter": false,
+            "enrollment": 1000,
+            "low": 7,
+            "high": 9
+          },
+          {
+            "name": "Odyssey School",
+            "lat": 40.869692,
+            "lon": -111.933322,
+            "charter": false,
+            "enrollment": 599,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Kay's Creek Elementary",
+            "lat": 41.032731,
+            "lon": -111.988574,
+            "charter": false,
+            "enrollment": 714,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Canyon Creek School",
+            "lat": 40.968359,
+            "lon": -111.910479,
+            "charter": false,
+            "enrollment": 798,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Farmington High",
+            "lat": 40.966098,
+            "lon": -111.899585,
+            "charter": false,
+            "enrollment": 2172,
+            "low": 10,
+            "high": 12
+          },
+          {
+            "name": "Shoreline Junior High",
+            "lat": 41.042376,
+            "lon": -111.997796,
+            "charter": false,
+            "enrollment": 1178,
+            "low": 7,
+            "high": 9
+          },
+          {
+            "name": "Davis Connect 7-8",
+            "lat": 40.980796,
+            "lon": -111.886593,
+            "charter": false,
+            "enrollment": null,
+            "low": null,
+            "high": null
+          },
+          {
+            "name": "Sunburst School",
+            "lat": 41.055065,
+            "lon": -112.013463,
+            "charter": false,
+            "enrollment": 862,
+            "low": -1,
+            "high": 6
+          },
+          {
+            "name": "Davis Connect 7-12",
+            "lat": 41.092052,
+            "lon": -111.988813,
+            "charter": false,
+            "enrollment": 310,
+            "low": 7,
+            "high": 12
+          },
+          {
+            "name": "Catalyst Center",
+            "lat": 41.042298,
+            "lon": -111.962647,
+            "charter": false,
+            "enrollment": null,
+            "low": 9,
+            "high": 12
+          },
+          {
+            "name": "Vista Education Campus",
+            "lat": 40.97925,
+            "lon": -111.882177,
+            "charter": false,
+            "enrollment": 264,
+            "low": 7,
+            "high": 12
+          }
+        ]
       }
     },
     {
@@ -716,7 +1809,9 @@
         "overcrowded_share": 0.019279763134338636,
         "attached_share": 0.17324350336862368,
         "multifamily_share": 0.134809111324992,
-        "permit_rate": 1.199
+        "permit_rate": 1.199,
+        "student_yield": 0.7074163855795857,
+        "projected_new_students": 275
       },
       "overlap_share": 1.0
     },
@@ -962,7 +2057,9 @@
         "overcrowded_share": 0.003629450397511234,
         "attached_share": 0.1302248126561199,
         "multifamily_share": 0.11673605328892589,
-        "permit_rate": 1.019
+        "permit_rate": 1.019,
+        "student_yield": 0.7074163855795857,
+        "projected_new_students": 62
       },
       "overlap_share": 1.0
     },
@@ -1208,7 +2305,9 @@
         "overcrowded_share": 0.04446219382321619,
         "attached_share": 0.20345457565188507,
         "multifamily_share": 0.18377345955821292,
-        "permit_rate": 5.399
+        "permit_rate": 5.399,
+        "student_yield": 0.7074163855795857,
+        "projected_new_students": 389
       },
       "overlap_share": 1.0
     },
@@ -1454,7 +2553,9 @@
         "overcrowded_share": 0.015924988837624648,
         "attached_share": 0.03647282847517211,
         "multifamily_share": 0.024315218983448073,
-        "permit_rate": 2.202
+        "permit_rate": 2.202,
+        "student_yield": 0.7074163855795857,
+        "projected_new_students": 124
       },
       "overlap_share": 1.0
     },
@@ -1700,7 +2801,9 @@
         "overcrowded_share": 0.0178942987931752,
         "attached_share": 0.12003767998923429,
         "multifamily_share": 0.1250168214237653,
-        "permit_rate": 3.978
+        "permit_rate": 3.978,
+        "student_yield": 0.7074163855795857,
+        "projected_new_students": 217
       },
       "overlap_share": 1.0
     },
@@ -1946,7 +3049,9 @@
         "overcrowded_share": 0.005037783375314861,
         "attached_share": 0.0458395615346288,
         "multifamily_share": 0.026905829596412557,
-        "permit_rate": 0.83
+        "permit_rate": 0.83,
+        "student_yield": 0.7074163855795857,
+        "projected_new_students": 13
       },
       "overlap_share": 1.0
     },
@@ -2192,7 +3297,9 @@
         "overcrowded_share": 0.0039482342618995395,
         "attached_share": 0.07019426854137598,
         "multifamily_share": 0.023398089513791992,
-        "permit_rate": 1.634
+        "permit_rate": 1.634,
+        "student_yield": 0.7074163855795857,
+        "projected_new_students": 192
       },
       "overlap_share": 1.0
     },
@@ -2438,7 +3545,9 @@
         "overcrowded_share": 0.032830555455559955,
         "attached_share": 0.08917852855427885,
         "multifamily_share": 0.16353970159492368,
-        "permit_rate": 5.223
+        "permit_rate": 5.223,
+        "student_yield": 0.7074163855795857,
+        "projected_new_students": 899
       },
       "overlap_share": 1.0
     },
@@ -2684,7 +3793,9 @@
         "overcrowded_share": 0.06161666253409373,
         "attached_share": 0.15705476967718535,
         "multifamily_share": 0.20215209769072665,
-        "permit_rate": 0.937
+        "permit_rate": 0.937,
+        "student_yield": 0.7074163855795857,
+        "projected_new_students": 63
       },
       "overlap_share": 1.0
     },
@@ -2930,7 +4041,9 @@
         "overcrowded_share": 0.0,
         "attached_share": 0.1284823284823285,
         "multifamily_share": 0.021205821205821207,
-        "permit_rate": 3.574
+        "permit_rate": 3.574,
+        "student_yield": 0.7074163855795857,
+        "projected_new_students": 44
       },
       "overlap_share": 1.0
     },
@@ -3176,7 +4289,9 @@
         "overcrowded_share": 0.059233449477351915,
         "attached_share": 0.21608040201005024,
         "multifamily_share": 0.07426018983807929,
-        "permit_rate": 13.066
+        "permit_rate": 13.066,
+        "student_yield": 0.7074163855795857,
+        "projected_new_students": 63
       },
       "overlap_share": 1.0
     },
@@ -3422,7 +4537,9 @@
         "overcrowded_share": 0.018002263141652094,
         "attached_share": 0.04477166451099393,
         "multifamily_share": 0.01800815839219978,
-        "permit_rate": 8.989
+        "permit_rate": 8.989,
+        "student_yield": 0.7074163855795857,
+        "projected_new_students": 998
       },
       "overlap_share": 1.0
     },
@@ -3668,7 +4785,9 @@
         "overcrowded_share": 0.021670190274841437,
         "attached_share": 0.05469915464942814,
         "multifamily_share": 0.0,
-        "permit_rate": 0.676
+        "permit_rate": 0.676,
+        "student_yield": 0.7074163855795857,
+        "projected_new_students": 13
       },
       "overlap_share": 1.0
     },
@@ -3914,7 +5033,9 @@
         "overcrowded_share": 0.01,
         "attached_share": 0.08256382400869093,
         "multifamily_share": 0.020640956002172733,
-        "permit_rate": 9.305
+        "permit_rate": 9.305,
+        "student_yield": 0.7074163855795857,
+        "projected_new_students": 284
       },
       "overlap_share": 1.0
     },
@@ -4160,7 +5281,9 @@
         "overcrowded_share": 0.03095169221868672,
         "attached_share": 0.08403361344537816,
         "multifamily_share": 0.12128851540616246,
-        "permit_rate": 0.781
+        "permit_rate": 0.781,
+        "student_yield": 0.7074163855795857,
+        "projected_new_students": 30
       },
       "overlap_share": 1.0
     }

@@ -103,6 +103,15 @@ def main() -> None:
     else:
         print("No data/permits.json (run pipeline.fetch_bps) — permit_rate will be null")
 
+    # NCES school data (from pipeline.fetch_schools), if present.
+    schools_doc = {}
+    schf = DATA / "schools.json"
+    if schf.exists():
+        schools_doc = json.loads(schf.read_text(encoding="utf-8"))
+        print(f"Loaded schools (enrollment {schools_doc.get('county_total_enrollment'):,})")
+    else:
+        print("No data/schools.json (run pipeline.fetch_schools) — school metrics will be null")
+
     client = CensusClient(acs["base_url"], acs["path"], acs["key_env"])
 
     print(f"Fetching ACS {year} (acs/acs5) for Utah, Davis County, and places...")
@@ -111,6 +120,11 @@ def main() -> None:
     place_vars_all = fetch_level(client, year, tables, "place:*", f"state:{state}")
     place_vars = {gid: v for gid, v in place_vars_all.items() if gid in davis_places}
     print(f"  places in Utah: {len(place_vars_all)}; kept in Davis County: {len(place_vars)}")
+
+    # Student yield (county-level): K-12 enrollment per occupied housing unit.
+    county_occ = county_vars.get(geography["county_geoid"], {}).get("B25002_002E")
+    school_total = schools_doc.get("county_total_enrollment")
+    student_yield = (school_total / county_occ) if (school_total and county_occ) else None
 
     print(f"Fetching per-year time series {SERIES_YEARS}...")
     series = build_series(client, SERIES_YEARS, state, county, set(davis_places))
@@ -131,6 +145,11 @@ def main() -> None:
         pop = mm["metrics"].get("population")
         derived["permit_rate"] = (round(cur["total"] / pop * 1000, 3)
                                   if cur and pop else None)
+        perm3 = (sum((perm.get(str(y)) or {}).get("total", 0) for y in (2022, 2023, 2024))
+                 if perm else None)
+        derived["student_yield"] = student_yield
+        derived["projected_new_students"] = (round(perm3 * student_yield)
+                                             if perm3 is not None and student_yield else None)
         rec = {
             "geoid": geoid,
             "level": level,
@@ -146,6 +165,8 @@ def main() -> None:
         }
         if level == "place":
             rec["overlap_share"] = davis_places[geoid]["overlap_share"]
+        if level == "county":
+            rec["schools"] = schools_doc
         return rec, {**mm["metrics"], **derived}
 
     for gid, vm in state_vars.items():

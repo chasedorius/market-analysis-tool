@@ -13,6 +13,9 @@
     "pre1980_share": "built_pre1980 / built_total",
     "overcrowded_share": "overcrowded / crowd_total",
     "permit_rate": "permits_total_units (current year) / population * 1000",
+    "student_yield": "county K-12 enrollment / county occupied housing units",
+    "projected_new_students": "units permitted last 3 years * student_yield (estimate of future students)",
+    "charter_share": "charter enrollment / total enrollment (county, district-based)",
     "attached_share": "(units_1_attached + units_2 + units_3_4) / units_structure_total",
     "multifamily_share": "units_5plus / units_structure_total"
   },
@@ -82,11 +85,10 @@
     "school_demand": {
       "label": "School demand",
       "inputs": [
-        "enrollment_trend",
         "pipeline_ratio",
         "projected_new_students"
       ],
-      "status": "pending_data"
+      "status": null
     }
   },
   "percentile_method": "average_rank"
