@@ -174,6 +174,15 @@
     </div>
   </section>
 
+  <!-- PERMITS -->
+  <section class="card full">
+    <h2>Permits &amp; new homes · 2019 → 2024</h2>
+    <div class="h2sub" id="permCap"></div>
+    <svg id="permChart" viewBox="0 0 900 230" width="100%" height="230" role="img"></svg>
+    <div class="chartlegend" id="permLegend"></div>
+    <p class="note">Permitted housing units by structure type (U.S. Census Building Permits Survey, annual). 5+ unit = multifamily.</p>
+  </section>
+
   <!-- ROW: income distribution | metrics table -->
   <section class="full row2">
     <div class="card">
@@ -231,6 +240,7 @@ const MAP_METRICS={
   unemployment_rate:{label:"Unemployment",fmt:"pct",derived:true,note:"ACS place-level unemployment."},
   vacancy_rate:{label:"Vacancy",fmt:"pct",derived:true,note:"Vacant ÷ total housing units."},
   renter_share:{label:"Renters",fmt:"pct",derived:true,note:"Renter-occupied ÷ occupied units."},
+  permit_rate:{label:"Permits/1k",fmt:"ratio",derived:true,note:"Permitted housing units per 1,000 residents (Building Permits Survey, current year)."},
 };
 // trend-chart series (all small numbers -> one shared axis; direct-labeled)
 const TREND_SERIES=[
@@ -388,11 +398,13 @@ function select(gid){
     ["Price-to-income",fmt.ratio(d.price_to_income)+"×",""],
     ["Under-5 pipeline ratio",fmt.ratio(d.pipeline_ratio),""],
     ["Median age",fmt.ratio(a.metrics.median_age),""],
+    ["Permits 2024 (units)",fmt.num((a.permits&&a.permits["2024"]||{}).total),""],
+    ["Permits / 1,000 residents",fmt.ratio(d.permit_rate),""],
   ];
   document.getElementById("selMetrics").innerHTML=rows.map(([k,v,x])=>
     `<tr><td>${k}</td><td>${v}<span class="moe">${x}</span></td></tr>`).join("");
 
-  drawPopTrend(a); drawRadar(gid); drawTrend(); drawHousing(a); drawIncome(a); highlight();
+  drawPopTrend(a); drawRadar(gid); drawTrend(); drawHousing(a); drawPermits(a); drawIncome(a); highlight();
 }
 
 /* ---------- line chart helper ---------- */
@@ -491,6 +503,37 @@ function drawHousing(a){
   document.getElementById("pre1980").textContent=fmt.pct(a.derived.pre1980_share);
   document.getElementById("overcrowd").textContent=fmt.pct(a.derived.overcrowded_share);
   document.getElementById("attached").textContent=fmt.pct(a.derived.attached_share);
+}
+
+/* ---------- permits (stacked bars by structure type) ---------- */
+function drawPermits(a){
+  const svg=document.getElementById("permChart");svg.innerHTML="";
+  const yrs=Object.keys(a.permits||{}).map(Number).sort((x,y)=>x-y);
+  const cap=document.getElementById("permCap"),leg=document.getElementById("permLegend");
+  if(!yrs.length){cap.textContent="No permit data for this area.";leg.innerHTML="";return;}
+  const keys=[["single_family","Single-family",CAT[0]],["units_2_4","2–4 unit",CAT[3]],
+              ["multifamily_5plus","5+ unit (multifamily)",CAT[1]]];
+  const W=900,H=230,L=48,R=16,T=14,B=28;
+  const totals=yrs.map(y=>keys.reduce((s,k)=>s+(a.permits[String(y)][k[0]]||0),0));
+  const max=Math.max(...totals,1),step=(W-L-R)/yrs.length,bw=step*0.6;
+  const Y=v=>T+(1-v/max)*(H-T-B);
+  for(let i=0;i<=4;i++){const v=max*i/4,yy=Y(v);
+    svg.appendChild(el("line",{x1:L,y1:yy,x2:W-R,y2:yy,stroke:"#24324e","stroke-width":1}));
+    const t=el("text",{x:L-6,y:yy+3,fill:"#6b7a9c","font-size":11,"text-anchor":"end"});
+    t.textContent=Math.round(v);svg.appendChild(t);}
+  yrs.forEach((y,i)=>{const cx=L+step*i+step/2;let base=0;const p=a.permits[String(y)];
+    keys.forEach(k=>{const v=p[k[0]]||0;if(v<=0)return;const y0=Y(base),y1=Y(base+v);
+      svg.appendChild(el("rect",{x:cx-bw/2,y:y1,width:bw,height:Math.max(0,y0-y1-2),fill:k[2],rx:2}));
+      base+=v;});
+    const tt=el("text",{x:cx,y:Y(base)-5,fill:"#c6d2ea","font-size":11,"text-anchor":"middle"});
+    tt.textContent=totals[i];svg.appendChild(tt);
+    const xl=el("text",{x:cx,y:H-8,fill:"#6b7a9c","font-size":11,"text-anchor":"middle"});
+    xl.textContent=y;svg.appendChild(xl);});
+  leg.innerHTML=keys.map(k=>`<span><span class="dot" style="background:${k[2]}"></span>${k[1]}</span>`).join("");
+  const cur=a.permits["2024"]||{};const rate=a.derived.permit_rate;
+  cap.textContent=`${short(a)}: ${cur.total||0} units permitted in 2024 `+
+    `(${cur.single_family||0} SF / ${cur.units_2_4||0} in 2–4 / ${cur.multifamily_5plus||0} in 5+) · `+
+    `${rate==null?"—":rate.toFixed(1)} per 1,000 residents`;
 }
 
 /* ---------- income distribution ---------- */

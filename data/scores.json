@@ -9,7 +9,7 @@
       "scores": {
         "demand": 33.3,
         "affordability": 25.0,
-        "supply_tightness": 0.0,
+        "supply_tightness": 32.1,
         "economic": 25.0,
         "stock_quality": 25.0,
         "school_demand": null
@@ -21,6 +21,7 @@
         "rent_to_income(inv)": 42.9,
         "price_to_income(inv)": 7.1,
         "vacancy_rate(inv)": 0.0,
+        "permit_rate(inv)": 64.3,
         "median_hh_income": 28.6,
         "unemployment_rate(inv)": 21.4,
         "pre1980_share(inv)": 7.1,
@@ -33,7 +34,7 @@
       "scores": {
         "demand": 21.4,
         "affordability": 39.3,
-        "supply_tightness": 35.7,
+        "supply_tightness": 53.6,
         "economic": 60.7,
         "stock_quality": 60.7,
         "school_demand": null
@@ -45,6 +46,7 @@
         "rent_to_income(inv)": 21.4,
         "price_to_income(inv)": 57.1,
         "vacancy_rate(inv)": 35.7,
+        "permit_rate(inv)": 71.4,
         "median_hh_income": 57.1,
         "unemployment_rate(inv)": 64.3,
         "pre1980_share(inv)": 28.6,
@@ -57,7 +59,7 @@
       "scores": {
         "demand": 78.6,
         "affordability": 7.1,
-        "supply_tightness": 7.1,
+        "supply_tightness": 14.3,
         "economic": 17.9,
         "stock_quality": 17.9,
         "school_demand": null
@@ -69,6 +71,7 @@
         "rent_to_income(inv)": 0.0,
         "price_to_income(inv)": 14.3,
         "vacancy_rate(inv)": 7.1,
+        "permit_rate(inv)": 21.4,
         "median_hh_income": 0.0,
         "unemployment_rate(inv)": 35.7,
         "pre1980_share(inv)": 21.4,
@@ -81,7 +84,7 @@
       "scores": {
         "demand": 57.1,
         "affordability": 82.1,
-        "supply_tightness": 85.7,
+        "supply_tightness": 67.9,
         "economic": 17.9,
         "stock_quality": 67.9,
         "school_demand": null
@@ -93,6 +96,7 @@
         "rent_to_income(inv)": 64.3,
         "price_to_income(inv)": 100.0,
         "vacancy_rate(inv)": 85.7,
+        "permit_rate(inv)": 50.0,
         "median_hh_income": 35.7,
         "unemployment_rate(inv)": 0.0,
         "pre1980_share(inv)": 71.4,
@@ -105,7 +109,7 @@
       "scores": {
         "demand": 54.8,
         "affordability": 35.7,
-        "supply_tightness": 57.1,
+        "supply_tightness": 46.4,
         "economic": 39.3,
         "stock_quality": 67.9,
         "school_demand": null
@@ -117,6 +121,7 @@
         "rent_to_income(inv)": 71.4,
         "price_to_income(inv)": 0.0,
         "vacancy_rate(inv)": 57.1,
+        "permit_rate(inv)": 35.7,
         "median_hh_income": 64.3,
         "unemployment_rate(inv)": 14.3,
         "pre1980_share(inv)": 78.6,
@@ -129,7 +134,7 @@
       "scores": {
         "demand": 9.5,
         "affordability": 53.6,
-        "supply_tightness": 92.9,
+        "supply_tightness": 89.3,
         "economic": 100.0,
         "stock_quality": 60.7,
         "school_demand": null
@@ -141,6 +146,7 @@
         "rent_to_income(inv)": 78.6,
         "price_to_income(inv)": 28.6,
         "vacancy_rate(inv)": 92.9,
+        "permit_rate(inv)": 85.7,
         "median_hh_income": 100.0,
         "unemployment_rate(inv)": 100.0,
         "pre1980_share(inv)": 42.9,
@@ -153,7 +159,7 @@
       "scores": {
         "demand": 28.6,
         "affordability": 60.7,
-        "supply_tightness": 78.6,
+        "supply_tightness": 67.9,
         "economic": 57.1,
         "stock_quality": 60.7,
         "school_demand": null
@@ -165,6 +171,7 @@
         "rent_to_income(inv)": 85.7,
         "price_to_income(inv)": 35.7,
         "vacancy_rate(inv)": 78.6,
+        "permit_rate(inv)": 57.1,
         "median_hh_income": 71.4,
         "unemployment_rate(inv)": 42.9,
         "pre1980_share(inv)": 35.7,
@@ -177,7 +184,7 @@
       "scores": {
         "demand": 59.5,
         "affordability": 39.3,
-        "supply_tightness": 21.4,
+        "supply_tightness": 25.0,
         "economic": 35.7,
         "stock_quality": 39.3,
         "school_demand": null
@@ -189,6 +196,7 @@
         "rent_to_income(inv)": 35.7,
         "price_to_income(inv)": 42.9,
         "vacancy_rate(inv)": 21.4,
+        "permit_rate(inv)": 28.6,
         "median_hh_income": 21.4,
         "unemployment_rate(inv)": 50.0,
         "pre1980_share(inv)": 57.1,
@@ -201,7 +209,7 @@
       "scores": {
         "demand": 73.8,
         "affordability": 14.3,
-        "supply_tightness": 64.3,
+        "supply_tightness": 71.4,
         "economic": 10.7,
         "stock_quality": 25.0,
         "school_demand": null
@@ -213,6 +221,7 @@
         "rent_to_income(inv)": 7.1,
         "price_to_income(inv)": 21.4,
         "vacancy_rate(inv)": 64.3,
+        "permit_rate(inv)": 78.6,
         "median_hh_income": 14.3,
         "unemployment_rate(inv)": 7.1,
         "pre1980_share(inv)": 50.0,
@@ -225,7 +234,7 @@
       "scores": {
         "demand": 81.0,
         "affordability": 96.4,
-        "supply_tightness": 100.0,
+        "supply_tightness": 71.4,
         "economic": 85.7,
         "stock_quality": 96.4,
         "school_demand": null
@@ -237,6 +246,7 @@
         "rent_to_income(inv)": 100.0,
         "price_to_income(inv)": 92.9,
         "vacancy_rate(inv)": 100.0,
+        "permit_rate(inv)": 42.9,
         "median_hh_income": 92.9,
         "unemployment_rate(inv)": 78.6,
         "pre1980_share(inv)": 92.9,
@@ -249,7 +259,7 @@
       "scores": {
         "demand": 52.4,
         "affordability": 39.3,
-        "supply_tightness": 28.6,
+        "supply_tightness": 14.3,
         "economic": 17.9,
         "stock_quality": 3.6,
         "school_demand": null
@@ -261,6 +271,7 @@
         "rent_to_income(inv)": 28.6,
         "price_to_income(inv)": 50.0,
         "vacancy_rate(inv)": 28.6,
+        "permit_rate(inv)": 0.0,
         "median_hh_income": 7.1,
         "unemployment_rate(inv)": 28.6,
         "pre1980_share(inv)": 0.0,
@@ -273,7 +284,7 @@
       "scores": {
         "demand": 66.7,
         "affordability": 39.3,
-        "supply_tightness": 42.9,
+        "supply_tightness": 28.6,
         "economic": 85.7,
         "stock_quality": 75.0,
         "school_demand": null
@@ -285,6 +296,7 @@
         "rent_to_income(inv)": 14.3,
         "price_to_income(inv)": 64.3,
         "vacancy_rate(inv)": 42.9,
+        "permit_rate(inv)": 14.3,
         "median_hh_income": 78.6,
         "unemployment_rate(inv)": 92.9,
         "pre1980_share(inv)": 100.0,
@@ -297,7 +309,7 @@
       "scores": {
         "demand": 21.4,
         "affordability": 82.1,
-        "supply_tightness": 14.3,
+        "supply_tightness": 57.1,
         "economic": 78.6,
         "stock_quality": 25.0,
         "school_demand": null
@@ -309,6 +321,7 @@
         "rent_to_income(inv)": 92.9,
         "price_to_income(inv)": 71.4,
         "vacancy_rate(inv)": 14.3,
+        "permit_rate(inv)": 100.0,
         "median_hh_income": 85.7,
         "unemployment_rate(inv)": 71.4,
         "pre1980_share(inv)": 14.3,
@@ -321,7 +334,7 @@
       "scores": {
         "demand": 69.0,
         "affordability": 67.9,
-        "supply_tightness": 71.4,
+        "supply_tightness": 39.3,
         "economic": 67.9,
         "stock_quality": 78.6,
         "school_demand": null
@@ -333,6 +346,7 @@
         "rent_to_income(inv)": 50.0,
         "price_to_income(inv)": 85.7,
         "vacancy_rate(inv)": 71.4,
+        "permit_rate(inv)": 7.1,
         "median_hh_income": 50.0,
         "unemployment_rate(inv)": 85.7,
         "pre1980_share(inv)": 85.7,
@@ -345,7 +359,7 @@
       "scores": {
         "demand": 42.9,
         "affordability": 67.9,
-        "supply_tightness": 50.0,
+        "supply_tightness": 71.4,
         "economic": 50.0,
         "stock_quality": 46.4,
         "school_demand": null
@@ -357,6 +371,7 @@
         "rent_to_income(inv)": 57.1,
         "price_to_income(inv)": 78.6,
         "vacancy_rate(inv)": 50.0,
+        "permit_rate(inv)": 92.9,
         "median_hh_income": 42.9,
         "unemployment_rate(inv)": 57.1,
         "pre1980_share(inv)": 64.3,

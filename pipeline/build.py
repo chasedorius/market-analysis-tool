@@ -94,6 +94,15 @@ def main() -> None:
     county = geography["county_fips"]
     davis_places = davis_place_overlap(geography)
 
+    # Building Permits Survey data (from pipeline.fetch_bps), if present.
+    permits_doc = {}
+    pf = DATA / "permits.json"
+    if pf.exists():
+        permits_doc = json.loads(pf.read_text(encoding="utf-8")).get("areas", {})
+        print(f"Loaded permits for {len(permits_doc)} areas from data/permits.json")
+    else:
+        print("No data/permits.json (run pipeline.fetch_bps) — permit_rate will be null")
+
     client = CensusClient(acs["base_url"], acs["path"], acs["key_env"])
 
     print(f"Fetching ACS {year} (acs/acs5) for Utah, Davis County, and places...")
@@ -117,6 +126,11 @@ def main() -> None:
         name = varmap.get("NAME", geoid)
         mm = compute_metrics(varmap, sources)
         derived = compute_derived(mm["metrics"], trend.get(geoid, {}))
+        perm = permits_doc.get(geoid, {})
+        cur = perm.get(str(year))
+        pop = mm["metrics"].get("population")
+        derived["permit_rate"] = (round(cur["total"] / pop * 1000, 3)
+                                  if cur and pop else None)
         rec = {
             "geoid": geoid,
             "level": level,
@@ -125,6 +139,7 @@ def main() -> None:
             "population": mm["metrics"].get("population"),
             "pop_trend": {str(y): trend.get(geoid, {}).get(y) for y in SERIES_YEARS},
             "series": series.get(geoid, {}),
+            "permits": perm,
             "metrics": mm["metrics"],
             "moe": mm["moe"],
             "derived": derived,

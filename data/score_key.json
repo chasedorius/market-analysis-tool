@@ -12,6 +12,7 @@
     "unemployment_rate": "unemployed / labor_force",
     "pre1980_share": "built_pre1980 / built_total",
     "overcrowded_share": "overcrowded / crowd_total",
+    "permit_rate": "permits_total_units (current year) / population * 1000",
     "attached_share": "(units_1_attached + units_2 + units_3_4) / units_structure_total",
     "multifamily_share": "units_5plus / units_structure_total"
   },
@@ -44,6 +45,10 @@
       "inputs": [
         {
           "metric": "vacancy_rate",
+          "invert": true
+        },
+        {
+          "metric": "permit_rate",
           "invert": true
         }
       ],

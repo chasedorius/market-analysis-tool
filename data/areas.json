@@ -1,6 +1,6 @@
 {
   "meta": {
-    "built_at": "2026-10-16T20:43:10+00:00",
+    "built_at": "2026-10-18T02:52:49+00:00",
     "acs_dataset": "acs/acs5",
     "current_vintage": 2024,
     "trend_vintages": [
@@ -99,6 +99,7 @@
           "price_to_income": 5.1425929428577435
         }
       },
+      "permits": {},
       "metrics": {
         "population": 3392331,
         "median_age": 32,
@@ -225,7 +226,8 @@
         "pre1980_share": 0.35490507312001623,
         "overcrowded_share": 0.03144942044163432,
         "attached_share": 0.14441489274750136,
-        "multifamily_share": 0.16065561175282067
+        "multifamily_share": 0.16065561175282067,
+        "permit_rate": null
       }
     },
     {
@@ -302,6 +304,44 @@
           "unemployment_rate": 0.027298933865961182,
           "rent_to_income": 0.17542657191299016,
           "price_to_income": 4.558818224450778
+        }
+      },
+      "permits": {
+        "2019": {
+          "single_family": 1496,
+          "units_2_4": 30,
+          "multifamily_5plus": 216,
+          "total": 1742
+        },
+        "2020": {
+          "single_family": 1946,
+          "units_2_4": 37,
+          "multifamily_5plus": 434,
+          "total": 2417
+        },
+        "2021": {
+          "single_family": 2004,
+          "units_2_4": 6,
+          "multifamily_5plus": 1802,
+          "total": 3812
+        },
+        "2022": {
+          "single_family": 1346,
+          "units_2_4": 27,
+          "multifamily_5plus": 802,
+          "total": 2175
+        },
+        "2023": {
+          "single_family": 684,
+          "units_2_4": 35,
+          "multifamily_5plus": 828,
+          "total": 1547
+        },
+        "2024": {
+          "single_family": 920,
+          "units_2_4": 40,
+          "multifamily_5plus": 508,
+          "total": 1468
         }
       },
       "metrics": {
@@ -430,7 +470,8 @@
         "pre1980_share": 0.31873195509559143,
         "overcrowded_share": 0.025638592465428444,
         "attached_share": 0.11451947815584179,
-        "multifamily_share": 0.11343574979938616
+        "multifamily_share": 0.11343574979938616,
+        "permit_rate": 3.958
       }
     },
     {
@@ -507,6 +548,44 @@
           "unemployment_rate": 0.031070916905444126,
           "rent_to_income": 0.17922412559049483,
           "price_to_income": 5.078971226797728
+        }
+      },
+      "permits": {
+        "2019": {
+          "single_family": 25,
+          "units_2_4": 0,
+          "multifamily_5plus": 41,
+          "total": 66
+        },
+        "2020": {
+          "single_family": 29,
+          "units_2_4": 19,
+          "multifamily_5plus": 0,
+          "total": 48
+        },
+        "2021": {
+          "single_family": 42,
+          "units_2_4": 2,
+          "multifamily_5plus": 28,
+          "total": 72
+        },
+        "2022": {
+          "single_family": 8,
+          "units_2_4": 0,
+          "multifamily_5plus": 20,
+          "total": 28
+        },
+        "2023": {
+          "single_family": 20,
+          "units_2_4": 0,
+          "multifamily_5plus": 287,
+          "total": 307
+        },
+        "2024": {
+          "single_family": 27,
+          "units_2_4": 0,
+          "multifamily_5plus": 27,
+          "total": 54
         }
       },
       "metrics": {
@@ -636,7 +715,8 @@
         "pre1980_share": 0.6302855309592557,
         "overcrowded_share": 0.019279763134338636,
         "attached_share": 0.17324350336862368,
-        "multifamily_share": 0.134809111324992
+        "multifamily_share": 0.134809111324992,
+        "permit_rate": 1.199
       },
       "overlap_share": 1.0
     },
@@ -714,6 +794,44 @@
           "unemployment_rate": 0.02349777881692775,
           "rent_to_income": 0.18692438885730528,
           "price_to_income": 4.314139527328839
+        }
+      },
+      "permits": {
+        "2019": {
+          "single_family": 13,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 13
+        },
+        "2020": {
+          "single_family": 38,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 38
+        },
+        "2021": {
+          "single_family": 40,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 40
+        },
+        "2022": {
+          "single_family": 61,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 61
+        },
+        "2023": {
+          "single_family": 9,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 9
+        },
+        "2024": {
+          "single_family": 17,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 17
         }
       },
       "metrics": {
@@ -843,7 +961,8 @@
         "pre1980_share": 0.38218151540383016,
         "overcrowded_share": 0.003629450397511234,
         "attached_share": 0.1302248126561199,
-        "multifamily_share": 0.11673605328892589
+        "multifamily_share": 0.11673605328892589,
+        "permit_rate": 1.019
       },
       "overlap_share": 1.0
     },
@@ -921,6 +1040,44 @@
           "unemployment_rate": 0.028358582696882434,
           "rent_to_income": 0.25098350884164516,
           "price_to_income": 4.952645870587456
+        }
+      },
+      "permits": {
+        "2019": {
+          "single_family": 0,
+          "units_2_4": 8,
+          "multifamily_5plus": 44,
+          "total": 52
+        },
+        "2020": {
+          "single_family": 52,
+          "units_2_4": 6,
+          "multifamily_5plus": 176,
+          "total": 234
+        },
+        "2021": {
+          "single_family": 115,
+          "units_2_4": 4,
+          "multifamily_5plus": 841,
+          "total": 960
+        },
+        "2022": {
+          "single_family": 67,
+          "units_2_4": 0,
+          "multifamily_5plus": 203,
+          "total": 270
+        },
+        "2023": {
+          "single_family": 68,
+          "units_2_4": 12,
+          "multifamily_5plus": 19,
+          "total": 99
+        },
+        "2024": {
+          "single_family": 181,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 181
         }
       },
       "metrics": {
@@ -1050,7 +1207,8 @@
         "pre1980_share": 0.3929579804019266,
         "overcrowded_share": 0.04446219382321619,
         "attached_share": 0.20345457565188507,
-        "multifamily_share": 0.18377345955821292
+        "multifamily_share": 0.18377345955821292,
+        "permit_rate": 5.399
       },
       "overlap_share": 1.0
     },
@@ -1128,6 +1286,44 @@
           "unemployment_rate": 0.04862066175875738,
           "rent_to_income": 0.17536189476220804,
           "price_to_income": 3.8650876981599738
+        }
+      },
+      "permits": {
+        "2019": {
+          "single_family": 109,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 109
+        },
+        "2020": {
+          "single_family": 130,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 130
+        },
+        "2021": {
+          "single_family": 151,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 151
+        },
+        "2022": {
+          "single_family": 85,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 85
+        },
+        "2023": {
+          "single_family": 38,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 38
+        },
+        "2024": {
+          "single_family": 52,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 52
         }
       },
       "metrics": {
@@ -1257,7 +1453,8 @@
         "pre1980_share": 0.20594697524534936,
         "overcrowded_share": 0.015924988837624648,
         "attached_share": 0.03647282847517211,
-        "multifamily_share": 0.024315218983448073
+        "multifamily_share": 0.024315218983448073,
+        "permit_rate": 2.202
       },
       "overlap_share": 1.0
     },
@@ -1335,6 +1532,44 @@
           "unemployment_rate": 0.03199041998118211,
           "rent_to_income": 0.16670593224332092,
           "price_to_income": 5.110022145785233
+        }
+      },
+      "permits": {
+        "2019": {
+          "single_family": 80,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 80
+        },
+        "2020": {
+          "single_family": 128,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 128
+        },
+        "2021": {
+          "single_family": 172,
+          "units_2_4": 0,
+          "multifamily_5plus": 325,
+          "total": 497
+        },
+        "2022": {
+          "single_family": 85,
+          "units_2_4": 0,
+          "multifamily_5plus": 30,
+          "total": 115
+        },
+        "2023": {
+          "single_family": 91,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 91
+        },
+        "2024": {
+          "single_family": 101,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 101
         }
       },
       "metrics": {
@@ -1464,7 +1699,8 @@
         "pre1980_share": 0.1774996635715247,
         "overcrowded_share": 0.0178942987931752,
         "attached_share": 0.12003767998923429,
-        "multifamily_share": 0.1250168214237653
+        "multifamily_share": 0.1250168214237653,
+        "permit_rate": 3.978
       },
       "overlap_share": 1.0
     },
@@ -1542,6 +1778,44 @@
           "unemployment_rate": 0.0017152658662092624,
           "rent_to_income": 0.16480071652485445,
           "price_to_income": 4.746266322621002
+        }
+      },
+      "permits": {
+        "2019": {
+          "single_family": 7,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 7
+        },
+        "2020": {
+          "single_family": 21,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 21
+        },
+        "2021": {
+          "single_family": 6,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 6
+        },
+        "2022": {
+          "single_family": 10,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 10
+        },
+        "2023": {
+          "single_family": 4,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 4
+        },
+        "2024": {
+          "single_family": 5,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 5
         }
       },
       "metrics": {
@@ -1671,7 +1945,8 @@
         "pre1980_share": 0.2859990034877927,
         "overcrowded_share": 0.005037783375314861,
         "attached_share": 0.0458395615346288,
-        "multifamily_share": 0.026905829596412557
+        "multifamily_share": 0.026905829596412557,
+        "permit_rate": 0.83
       },
       "overlap_share": 1.0
     },
@@ -1749,6 +2024,44 @@
           "unemployment_rate": 0.028059740091808366,
           "rent_to_income": 0.13873979522800053,
           "price_to_income": 4.688557124171215
+        }
+      },
+      "permits": {
+        "2019": {
+          "single_family": 111,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 111
+        },
+        "2020": {
+          "single_family": 106,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 106
+        },
+        "2021": {
+          "single_family": 159,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 159
+        },
+        "2022": {
+          "single_family": 142,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 142
+        },
+        "2023": {
+          "single_family": 76,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 76
+        },
+        "2024": {
+          "single_family": 54,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 54
         }
       },
       "metrics": {
@@ -1878,7 +2191,8 @@
         "pre1980_share": 0.3024578727058066,
         "overcrowded_share": 0.0039482342618995395,
         "attached_share": 0.07019426854137598,
-        "multifamily_share": 0.023398089513791992
+        "multifamily_share": 0.023398089513791992,
+        "permit_rate": 1.634
       },
       "overlap_share": 1.0
     },
@@ -1956,6 +2270,44 @@
           "unemployment_rate": 0.027691685756636573,
           "rent_to_income": 0.18009367681498828,
           "price_to_income": 4.661397345823575
+        }
+      },
+      "permits": {
+        "2019": {
+          "single_family": 446,
+          "units_2_4": 10,
+          "multifamily_5plus": 0,
+          "total": 456
+        },
+        "2020": {
+          "single_family": 580,
+          "units_2_4": 0,
+          "multifamily_5plus": 154,
+          "total": 734
+        },
+        "2021": {
+          "single_family": 430,
+          "units_2_4": 0,
+          "multifamily_5plus": 20,
+          "total": 450
+        },
+        "2022": {
+          "single_family": 241,
+          "units_2_4": 0,
+          "multifamily_5plus": 347,
+          "total": 588
+        },
+        "2023": {
+          "single_family": 87,
+          "units_2_4": 8,
+          "multifamily_5plus": 153,
+          "total": 248
+        },
+        "2024": {
+          "single_family": 125,
+          "units_2_4": 12,
+          "multifamily_5plus": 298,
+          "total": 435
         }
       },
       "metrics": {
@@ -2085,7 +2437,8 @@
         "pre1980_share": 0.25614817355513636,
         "overcrowded_share": 0.032830555455559955,
         "attached_share": 0.08917852855427885,
-        "multifamily_share": 0.16353970159492368
+        "multifamily_share": 0.16353970159492368,
+        "permit_rate": 5.223
       },
       "overlap_share": 1.0
     },
@@ -2163,6 +2516,44 @@
           "unemployment_rate": 0.03899892522647014,
           "rent_to_income": 0.19718670833045826,
           "price_to_income": 4.906010034796495
+        }
+      },
+      "permits": {
+        "2019": {
+          "single_family": 87,
+          "units_2_4": 0,
+          "multifamily_5plus": 36,
+          "total": 123
+        },
+        "2020": {
+          "single_family": 197,
+          "units_2_4": 12,
+          "multifamily_5plus": 0,
+          "total": 209
+        },
+        "2021": {
+          "single_family": 97,
+          "units_2_4": 0,
+          "multifamily_5plus": 171,
+          "total": 268
+        },
+        "2022": {
+          "single_family": 49,
+          "units_2_4": 0,
+          "multifamily_5plus": 10,
+          "total": 59
+        },
+        "2023": {
+          "single_family": 8,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 8
+        },
+        "2024": {
+          "single_family": 5,
+          "units_2_4": 0,
+          "multifamily_5plus": 17,
+          "total": 22
         }
       },
       "metrics": {
@@ -2292,7 +2683,8 @@
         "pre1980_share": 0.2737274815620844,
         "overcrowded_share": 0.06161666253409373,
         "attached_share": 0.15705476967718535,
-        "multifamily_share": 0.20215209769072665
+        "multifamily_share": 0.20215209769072665,
+        "permit_rate": 0.937
       },
       "overlap_share": 1.0
     },
@@ -2370,6 +2762,44 @@
           "unemployment_rate": 0.013123359580052493,
           "rent_to_income": 0.12718614718614718,
           "price_to_income": 3.9624819624819625
+        }
+      },
+      "permits": {
+        "2019": {
+          "single_family": 131,
+          "units_2_4": 2,
+          "multifamily_5plus": 0,
+          "total": 133
+        },
+        "2020": {
+          "single_family": 80,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 80
+        },
+        "2021": {
+          "single_family": 60,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 60
+        },
+        "2022": {
+          "single_family": 19,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 19
+        },
+        "2023": {
+          "single_family": 5,
+          "units_2_4": 4,
+          "multifamily_5plus": 5,
+          "total": 14
+        },
+        "2024": {
+          "single_family": 29,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 29
         }
       },
       "metrics": {
@@ -2499,7 +2929,8 @@
         "pre1980_share": 0.13804573804573805,
         "overcrowded_share": 0.0,
         "attached_share": 0.1284823284823285,
-        "multifamily_share": 0.021205821205821207
+        "multifamily_share": 0.021205821205821207,
+        "permit_rate": 3.574
       },
       "overlap_share": 1.0
     },
@@ -2577,6 +3008,44 @@
           "unemployment_rate": 0.028857837181044958,
           "rent_to_income": 0.18165627782724844,
           "price_to_income": 4.354145932638416
+        }
+      },
+      "permits": {
+        "2019": {
+          "single_family": 1,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 1
+        },
+        "2020": {
+          "single_family": 0,
+          "units_2_4": 0,
+          "multifamily_5plus": 36,
+          "total": 36
+        },
+        "2021": {
+          "single_family": 0,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 0
+        },
+        "2022": {
+          "single_family": 0,
+          "units_2_4": 0,
+          "multifamily_5plus": 13,
+          "total": 13
+        },
+        "2023": {
+          "single_family": 0,
+          "units_2_4": 3,
+          "multifamily_5plus": 0,
+          "total": 3
+        },
+        "2024": {
+          "single_family": 0,
+          "units_2_4": 0,
+          "multifamily_5plus": 73,
+          "total": 73
         }
       },
       "metrics": {
@@ -2706,7 +3175,8 @@
         "pre1980_share": 0.8860971524288107,
         "overcrowded_share": 0.059233449477351915,
         "attached_share": 0.21608040201005024,
-        "multifamily_share": 0.07426018983807929
+        "multifamily_share": 0.07426018983807929,
+        "permit_rate": 13.066
       },
       "overlap_share": 1.0
     },
@@ -2784,6 +3254,44 @@
           "unemployment_rate": 0.011737854581023801,
           "rent_to_income": 0.1924417166880241,
           "price_to_income": 4.2962163620422205
+        }
+      },
+      "permits": {
+        "2019": {
+          "single_family": 310,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 310
+        },
+        "2020": {
+          "single_family": 373,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 373
+        },
+        "2021": {
+          "single_family": 449,
+          "units_2_4": 0,
+          "multifamily_5plus": 417,
+          "total": 866
+        },
+        "2022": {
+          "single_family": 332,
+          "units_2_4": 15,
+          "multifamily_5plus": 179,
+          "total": 526
+        },
+        "2023": {
+          "single_family": 213,
+          "units_2_4": 0,
+          "multifamily_5plus": 353,
+          "total": 566
+        },
+        "2024": {
+          "single_family": 234,
+          "units_2_4": 4,
+          "multifamily_5plus": 81,
+          "total": 319
         }
       },
       "metrics": {
@@ -2913,7 +3421,8 @@
         "pre1980_share": 0.10496468013133022,
         "overcrowded_share": 0.018002263141652094,
         "attached_share": 0.04477166451099393,
-        "multifamily_share": 0.01800815839219978
+        "multifamily_share": 0.01800815839219978,
+        "permit_rate": 8.989
       },
       "overlap_share": 1.0
     },
@@ -2991,6 +3500,44 @@
           "unemployment_rate": 0.018721299894030378,
           "rent_to_income": 0.1373290229991345,
           "price_to_income": 4.2861687096368515
+        }
+      },
+      "permits": {
+        "2019": {
+          "single_family": 48,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 48
+        },
+        "2020": {
+          "single_family": 28,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 28
+        },
+        "2021": {
+          "single_family": 20,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 20
+        },
+        "2022": {
+          "single_family": 8,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 8
+        },
+        "2023": {
+          "single_family": 7,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 7
+        },
+        "2024": {
+          "single_family": 4,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 4
         }
       },
       "metrics": {
@@ -3120,7 +3667,8 @@
         "pre1980_share": 0.45997016409746394,
         "overcrowded_share": 0.021670190274841437,
         "attached_share": 0.05469915464942814,
-        "multifamily_share": 0.0
+        "multifamily_share": 0.0,
+        "permit_rate": 0.676
       },
       "overlap_share": 1.0
     },
@@ -3198,6 +3746,44 @@
           "unemployment_rate": 0.012280701754385965,
           "rent_to_income": 0.17728504312809168,
           "price_to_income": 4.069203808198066
+        }
+      },
+      "permits": {
+        "2019": {
+          "single_family": 70,
+          "units_2_4": 0,
+          "multifamily_5plus": 60,
+          "total": 130
+        },
+        "2020": {
+          "single_family": 102,
+          "units_2_4": 0,
+          "multifamily_5plus": 48,
+          "total": 150
+        },
+        "2021": {
+          "single_family": 222,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 222
+        },
+        "2022": {
+          "single_family": 204,
+          "units_2_4": 12,
+          "multifamily_5plus": 0,
+          "total": 216
+        },
+        "2023": {
+          "single_family": 55,
+          "units_2_4": 8,
+          "multifamily_5plus": 11,
+          "total": 74
+        },
+        "2024": {
+          "single_family": 75,
+          "units_2_4": 24,
+          "multifamily_5plus": 12,
+          "total": 111
         }
       },
       "metrics": {
@@ -3327,7 +3913,8 @@
         "pre1980_share": 0.1656708310700706,
         "overcrowded_share": 0.01,
         "attached_share": 0.08256382400869093,
-        "multifamily_share": 0.020640956002172733
+        "multifamily_share": 0.020640956002172733,
+        "permit_rate": 9.305
       },
       "overlap_share": 1.0
     },
@@ -3405,6 +3992,44 @@
           "unemployment_rate": 0.023834665862120984,
           "rent_to_income": 0.17630223239839726,
           "price_to_income": 4.1263283641522115
+        }
+      },
+      "permits": {
+        "2019": {
+          "single_family": 49,
+          "units_2_4": 10,
+          "multifamily_5plus": 35,
+          "total": 94
+        },
+        "2020": {
+          "single_family": 77,
+          "units_2_4": 0,
+          "multifamily_5plus": 20,
+          "total": 97
+        },
+        "2021": {
+          "single_family": 38,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 38
+        },
+        "2022": {
+          "single_family": 32,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 32
+        },
+        "2023": {
+          "single_family": 2,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 2
+        },
+        "2024": {
+          "single_family": 9,
+          "units_2_4": 0,
+          "multifamily_5plus": 0,
+          "total": 9
         }
       },
       "metrics": {
@@ -3534,7 +4159,8 @@
         "pre1980_share": 0.2518207282913165,
         "overcrowded_share": 0.03095169221868672,
         "attached_share": 0.08403361344537816,
-        "multifamily_share": 0.12128851540616246
+        "multifamily_share": 0.12128851540616246,
+        "permit_rate": 0.781
       },
       "overlap_share": 1.0
     }

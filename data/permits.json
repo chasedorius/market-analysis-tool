@@ -1,0 +1,622 @@
+{
+  "source": "U.S. Census Bureau, Building Permits Survey (annual)",
+  "years": [
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "note": "Permitted housing units by structure type. 5+ unit = multifamily.",
+  "areas": {
+    "49011": {
+      "2019": {
+        "single_family": 1496,
+        "units_2_4": 30,
+        "multifamily_5plus": 216,
+        "total": 1742
+      },
+      "2020": {
+        "single_family": 1946,
+        "units_2_4": 37,
+        "multifamily_5plus": 434,
+        "total": 2417
+      },
+      "2021": {
+        "single_family": 2004,
+        "units_2_4": 6,
+        "multifamily_5plus": 1802,
+        "total": 3812
+      },
+      "2022": {
+        "single_family": 1346,
+        "units_2_4": 27,
+        "multifamily_5plus": 802,
+        "total": 2175
+      },
+      "2023": {
+        "single_family": 684,
+        "units_2_4": 35,
+        "multifamily_5plus": 828,
+        "total": 1547
+      },
+      "2024": {
+        "single_family": 920,
+        "units_2_4": 40,
+        "multifamily_5plus": 508,
+        "total": 1468
+      }
+    },
+    "4907690": {
+      "2019": {
+        "single_family": 25,
+        "units_2_4": 0,
+        "multifamily_5plus": 41,
+        "total": 66
+      },
+      "2020": {
+        "single_family": 29,
+        "units_2_4": 19,
+        "multifamily_5plus": 0,
+        "total": 48
+      },
+      "2021": {
+        "single_family": 42,
+        "units_2_4": 2,
+        "multifamily_5plus": 28,
+        "total": 72
+      },
+      "2022": {
+        "single_family": 8,
+        "units_2_4": 0,
+        "multifamily_5plus": 20,
+        "total": 28
+      },
+      "2023": {
+        "single_family": 20,
+        "units_2_4": 0,
+        "multifamily_5plus": 287,
+        "total": 307
+      },
+      "2024": {
+        "single_family": 27,
+        "units_2_4": 0,
+        "multifamily_5plus": 27,
+        "total": 54
+      }
+    },
+    "4911980": {
+      "2019": {
+        "single_family": 13,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 13
+      },
+      "2020": {
+        "single_family": 38,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 38
+      },
+      "2021": {
+        "single_family": 40,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 40
+      },
+      "2022": {
+        "single_family": 61,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 61
+      },
+      "2023": {
+        "single_family": 9,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 9
+      },
+      "2024": {
+        "single_family": 17,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 17
+      }
+    },
+    "4913850": {
+      "2019": {
+        "single_family": 0,
+        "units_2_4": 8,
+        "multifamily_5plus": 44,
+        "total": 52
+      },
+      "2020": {
+        "single_family": 52,
+        "units_2_4": 6,
+        "multifamily_5plus": 176,
+        "total": 234
+      },
+      "2021": {
+        "single_family": 115,
+        "units_2_4": 4,
+        "multifamily_5plus": 841,
+        "total": 960
+      },
+      "2022": {
+        "single_family": 67,
+        "units_2_4": 0,
+        "multifamily_5plus": 203,
+        "total": 270
+      },
+      "2023": {
+        "single_family": 68,
+        "units_2_4": 12,
+        "multifamily_5plus": 19,
+        "total": 99
+      },
+      "2024": {
+        "single_family": 181,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 181
+      }
+    },
+    "4914290": {
+      "2019": {
+        "single_family": 109,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 109
+      },
+      "2020": {
+        "single_family": 130,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 130
+      },
+      "2021": {
+        "single_family": 151,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 151
+      },
+      "2022": {
+        "single_family": 85,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 85
+      },
+      "2023": {
+        "single_family": 38,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 38
+      },
+      "2024": {
+        "single_family": 52,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 52
+      }
+    },
+    "4924740": {
+      "2019": {
+        "single_family": 80,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 80
+      },
+      "2020": {
+        "single_family": 128,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 128
+      },
+      "2021": {
+        "single_family": 172,
+        "units_2_4": 0,
+        "multifamily_5plus": 325,
+        "total": 497
+      },
+      "2022": {
+        "single_family": 85,
+        "units_2_4": 0,
+        "multifamily_5plus": 30,
+        "total": 115
+      },
+      "2023": {
+        "single_family": 91,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 91
+      },
+      "2024": {
+        "single_family": 101,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 101
+      }
+    },
+    "4927490": {
+      "2019": {
+        "single_family": 7,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 7
+      },
+      "2020": {
+        "single_family": 21,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 21
+      },
+      "2021": {
+        "single_family": 6,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 6
+      },
+      "2022": {
+        "single_family": 10,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 10
+      },
+      "2023": {
+        "single_family": 4,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 4
+      },
+      "2024": {
+        "single_family": 5,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 5
+      }
+    },
+    "4940360": {
+      "2019": {
+        "single_family": 111,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 111
+      },
+      "2020": {
+        "single_family": 106,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 106
+      },
+      "2021": {
+        "single_family": 159,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 159
+      },
+      "2022": {
+        "single_family": 142,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 142
+      },
+      "2023": {
+        "single_family": 76,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 76
+      },
+      "2024": {
+        "single_family": 54,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 54
+      }
+    },
+    "4943660": {
+      "2019": {
+        "single_family": 446,
+        "units_2_4": 10,
+        "multifamily_5plus": 0,
+        "total": 456
+      },
+      "2020": {
+        "single_family": 580,
+        "units_2_4": 0,
+        "multifamily_5plus": 154,
+        "total": 734
+      },
+      "2021": {
+        "single_family": 430,
+        "units_2_4": 0,
+        "multifamily_5plus": 20,
+        "total": 450
+      },
+      "2022": {
+        "single_family": 241,
+        "units_2_4": 0,
+        "multifamily_5plus": 347,
+        "total": 588
+      },
+      "2023": {
+        "single_family": 87,
+        "units_2_4": 8,
+        "multifamily_5plus": 153,
+        "total": 248
+      },
+      "2024": {
+        "single_family": 125,
+        "units_2_4": 12,
+        "multifamily_5plus": 298,
+        "total": 435
+      }
+    },
+    "4955210": {
+      "2019": {
+        "single_family": 87,
+        "units_2_4": 0,
+        "multifamily_5plus": 36,
+        "total": 123
+      },
+      "2020": {
+        "single_family": 197,
+        "units_2_4": 12,
+        "multifamily_5plus": 0,
+        "total": 209
+      },
+      "2021": {
+        "single_family": 97,
+        "units_2_4": 0,
+        "multifamily_5plus": 171,
+        "total": 268
+      },
+      "2022": {
+        "single_family": 49,
+        "units_2_4": 0,
+        "multifamily_5plus": 10,
+        "total": 59
+      },
+      "2023": {
+        "single_family": 8,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 8
+      },
+      "2024": {
+        "single_family": 5,
+        "units_2_4": 0,
+        "multifamily_5plus": 17,
+        "total": 22
+      }
+    },
+    "4971180": {
+      "2019": {
+        "single_family": 131,
+        "units_2_4": 2,
+        "multifamily_5plus": 0,
+        "total": 133
+      },
+      "2020": {
+        "single_family": 80,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 80
+      },
+      "2021": {
+        "single_family": 60,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 60
+      },
+      "2022": {
+        "single_family": 19,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 19
+      },
+      "2023": {
+        "single_family": 5,
+        "units_2_4": 4,
+        "multifamily_5plus": 5,
+        "total": 14
+      },
+      "2024": {
+        "single_family": 29,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 29
+      }
+    },
+    "4974480": {
+      "2019": {
+        "single_family": 1,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 1
+      },
+      "2020": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 36,
+        "total": 36
+      },
+      "2021": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 0
+      },
+      "2022": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 13,
+        "total": 13
+      },
+      "2023": {
+        "single_family": 0,
+        "units_2_4": 3,
+        "multifamily_5plus": 0,
+        "total": 3
+      },
+      "2024": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 73,
+        "total": 73
+      }
+    },
+    "4974810": {
+      "2019": {
+        "single_family": 310,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 310
+      },
+      "2020": {
+        "single_family": 373,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 373
+      },
+      "2021": {
+        "single_family": 449,
+        "units_2_4": 0,
+        "multifamily_5plus": 417,
+        "total": 866
+      },
+      "2022": {
+        "single_family": 332,
+        "units_2_4": 15,
+        "multifamily_5plus": 179,
+        "total": 526
+      },
+      "2023": {
+        "single_family": 213,
+        "units_2_4": 0,
+        "multifamily_5plus": 353,
+        "total": 566
+      },
+      "2024": {
+        "single_family": 234,
+        "units_2_4": 4,
+        "multifamily_5plus": 81,
+        "total": 319
+      }
+    },
+    "4982840": {
+      "2019": {
+        "single_family": 48,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 48
+      },
+      "2020": {
+        "single_family": 28,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 28
+      },
+      "2021": {
+        "single_family": 20,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 20
+      },
+      "2022": {
+        "single_family": 8,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 8
+      },
+      "2023": {
+        "single_family": 7,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 7
+      },
+      "2024": {
+        "single_family": 4,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 4
+      }
+    },
+    "4983390": {
+      "2019": {
+        "single_family": 70,
+        "units_2_4": 0,
+        "multifamily_5plus": 60,
+        "total": 130
+      },
+      "2020": {
+        "single_family": 102,
+        "units_2_4": 0,
+        "multifamily_5plus": 48,
+        "total": 150
+      },
+      "2021": {
+        "single_family": 222,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 222
+      },
+      "2022": {
+        "single_family": 204,
+        "units_2_4": 12,
+        "multifamily_5plus": 0,
+        "total": 216
+      },
+      "2023": {
+        "single_family": 55,
+        "units_2_4": 8,
+        "multifamily_5plus": 11,
+        "total": 74
+      },
+      "2024": {
+        "single_family": 75,
+        "units_2_4": 24,
+        "multifamily_5plus": 12,
+        "total": 111
+      }
+    },
+    "4985370": {
+      "2019": {
+        "single_family": 49,
+        "units_2_4": 10,
+        "multifamily_5plus": 35,
+        "total": 94
+      },
+      "2020": {
+        "single_family": 77,
+        "units_2_4": 0,
+        "multifamily_5plus": 20,
+        "total": 97
+      },
+      "2021": {
+        "single_family": 38,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 38
+      },
+      "2022": {
+        "single_family": 32,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 32
+      },
+      "2023": {
+        "single_family": 2,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 2
+      },
+      "2024": {
+        "single_family": 9,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 9
+      }
+    }
+  }
+}
