@@ -1,0 +1,68 @@
+# Use-case modules. A module is a saved set of metrics, scores and buy-box presets
+# layered on the core data — adding one never changes the pipeline. Core views never
+# depend on a module.
+#
+# Buy-box presets are EMPTY until you set your own thresholds. A buy box is a set of
+# min/max limits on any metric or score (e.g. a floor on growth_5y, a ceiling on
+# rent_to_income). Fill `buy_box` under each module when you're ready.
+
+modules:
+  land_acquisition:
+    label: Land acquisition
+    decision: Where to buy land and build
+    scores: [demand, affordability, economic]
+    metrics: [growth_5y, growth_3y, rent_to_income, price_to_income]
+    buy_box: {}      # e.g. {growth_5y: {min: 0.05}, rent_to_income: {max: 0.30}}
+
+  multifamily:
+    label: Multifamily and rentals
+    decision: Where rental demand outruns supply
+    scores: [demand, supply_tightness, economic]
+    metrics: [renter_share, vacancy_rate, multifamily_share, growth_5y]
+    buy_box: {}
+
+  townhomes:
+    label: Townhomes and residential
+    decision: Where for-sale housing has demand
+    scores: [demand, affordability, economic]
+    metrics: [price_to_income, owner_share, attached_share, growth_5y]
+    buy_box: {}
+
+  underwriting_context:
+    label: Underwriting context
+    decision: Market support for a deal or lender package
+    scores: [demand, economic, supply_tightness]
+    metrics: [population, growth_5y, median_hh_income, vacancy_rate, median_gross_rent]
+    buy_box: {}
+
+  # --- Data-gated: need sources beyond the Phase 1 Census core ---
+  schools:
+    label: Schools
+    decision: Whether an area has enough students
+    status: pending_data            # NCES enrollment + charter + births
+    scores: [school_demand, demand]
+    metrics: [pipeline_ratio]
+    buy_box: {}
+
+  industrial:
+    label: Industrial
+    decision: Where warehouse/logistics/flex demand is building
+    status: pending_data            # County Business Patterns, QCEW, LODES
+    scores: [economic]
+    metrics: []
+    buy_box: {}
+
+  retail:
+    label: Retail
+    decision: Where population and income support new retail
+    status: pending_data            # County Business Patterns, QCEW
+    scores: [demand, economic]
+    metrics: [growth_5y, median_hh_income]
+    buy_box: {}
+
+  custom:
+    label: Custom
+    decision: Anything else
+    scores: []
+    metrics: []
+    buy_box: {}

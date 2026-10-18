@@ -1,0 +1,36 @@
+# Geography for Phase 1 (Davis County, Utah).
+#
+# state   = peer group for scores (Phase 1 peer set is the Davis County cities below;
+#           all-Utah ranking arrives in Phase 2).
+# county  = the primary area.
+# places  = the 15 incorporated cities in Davis County, with their 7-digit place GEOID
+#           and overlap_share (the fraction of the city that lies inside Davis County).
+#
+# PHASE 1 SIMPLIFICATION: this list is curated and verified against the ACS place list
+# (2026-10-16). All 15 Davis County cities lie wholly within the county, so overlap_share
+# is 1.0 for each. Phase 2 replaces this with a crosswalk derived from an authoritative
+# Census relationship file so cities that cross county lines get a fractional share.
+
+state_fips: "49"
+state_name: Utah
+
+county_fips: "011"
+county_geoid: "49011"
+county_name: Davis County
+
+places:
+  - {geoid: "4907690", place_fips: "07690", name: "Bountiful",        overlap_share: 1.0}
+  - {geoid: "4911980", place_fips: "11980", name: "Centerville",      overlap_share: 1.0}
+  - {geoid: "4913850", place_fips: "13850", name: "Clearfield",       overlap_share: 1.0}
+  - {geoid: "4914290", place_fips: "14290", name: "Clinton",          overlap_share: 1.0}
+  - {geoid: "4924740", place_fips: "24740", name: "Farmington",       overlap_share: 1.0}
+  - {geoid: "4927490", place_fips: "27490", name: "Fruit Heights",    overlap_share: 1.0}
+  - {geoid: "4940360", place_fips: "40360", name: "Kaysville",        overlap_share: 1.0}
+  - {geoid: "4943660", place_fips: "43660", name: "Layton",           overlap_share: 1.0}
+  - {geoid: "4955210", place_fips: "55210", name: "North Salt Lake",  overlap_share: 1.0}
+  - {geoid: "4971180", place_fips: "71180", name: "South Weber",      overlap_share: 1.0}
+  - {geoid: "4974480", place_fips: "74480", name: "Sunset",           overlap_share: 1.0}
+  - {geoid: "4974810", place_fips: "74810", name: "Syracuse",         overlap_share: 1.0}
+  - {geoid: "4982840", place_fips: "82840", name: "West Bountiful",   overlap_share: 1.0}
+  - {geoid: "4983390", place_fips: "83390", name: "West Point",       overlap_share: 1.0}
+  - {geoid: "4985370", place_fips: "85370", name: "Woods Cross",      overlap_share: 1.0}

@@ -1,0 +1,3542 @@
+{
+  "meta": {
+    "built_at": "2026-10-16T20:43:10+00:00",
+    "acs_dataset": "acs/acs5",
+    "current_vintage": 2024,
+    "trend_vintages": [
+      2019,
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "county": "Davis County, Utah (49011)",
+    "peer_set": "Davis County cities (15)",
+    "n_places": 15,
+    "sources": [
+      "U.S. Census Bureau, ACS 5-Year Detailed Tables"
+    ],
+    "notes": [
+      "Population and 1/3/5-year change come from ACS B01003 across vintages (5-year period estimates); the PEP API is unavailable for the 2020s.",
+      "Phase 1 scores rank Davis County cities against each other; all-Utah ranking arrives in Phase 2.",
+      "School demand score and the schools/industrial/retail modules await non-Census sources (NCES, BLS, HUD, Building Permits)."
+    ]
+  },
+  "areas": [
+    {
+      "geoid": "49",
+      "level": "state",
+      "name": "Utah",
+      "vintage": 2024,
+      "population": 3392331,
+      "pop_trend": {
+        "2019": 3096848,
+        "2020": 3151239,
+        "2021": 3231370,
+        "2022": 3283809,
+        "2023": 3331187,
+        "2024": 3392331
+      },
+      "series": {
+        "2019": {
+          "population": 3096848,
+          "median_hh_income": 71621,
+          "median_gross_rent": 1037,
+          "median_home_value": 279100,
+          "vacancy_rate": 0.10100063286947435,
+          "unemployment_rate": 0.03576485952348295,
+          "rent_to_income": 0.17374792309518158,
+          "price_to_income": 3.896901746694405
+        },
+        "2020": {
+          "population": 3151239,
+          "median_hh_income": 74197,
+          "median_gross_rent": 1090,
+          "median_home_value": 305400,
+          "vacancy_rate": 0.09638597619349965,
+          "unemployment_rate": 0.03624615469471974,
+          "rent_to_income": 0.1762874509751068,
+          "price_to_income": 4.116069382859145
+        },
+        "2021": {
+          "population": 3231370,
+          "median_hh_income": 79133,
+          "median_gross_rent": 1171,
+          "median_home_value": 339700,
+          "vacancy_rate": 0.08813576367508323,
+          "unemployment_rate": 0.03529062744757822,
+          "rent_to_income": 0.17757446324542225,
+          "price_to_income": 4.29277292659194
+        },
+        "2022": {
+          "population": 3283809,
+          "median_hh_income": 86833,
+          "median_gross_rent": 1302,
+          "median_home_value": 408500,
+          "vacancy_rate": 0.08586819466496481,
+          "unemployment_rate": 0.03352084411687373,
+          "rent_to_income": 0.17993159282761162,
+          "price_to_income": 4.704432646574459
+        },
+        "2023": {
+          "population": 3331187,
+          "median_hh_income": 91750,
+          "median_gross_rent": 1405,
+          "median_home_value": 455000,
+          "vacancy_rate": 0.08229610370452324,
+          "unemployment_rate": 0.03413769002977453,
+          "rent_to_income": 0.18376021798365122,
+          "price_to_income": 4.959128065395095
+        },
+        "2024": {
+          "population": 3392331,
+          "median_hh_income": 95166,
+          "median_gross_rent": 1496,
+          "median_home_value": 489400,
+          "vacancy_rate": 0.08062818152988063,
+          "unemployment_rate": 0.03560305178656391,
+          "rent_to_income": 0.18863879957127547,
+          "price_to_income": 5.1425929428577435
+        }
+      },
+      "metrics": {
+        "population": 3392331,
+        "median_age": 32,
+        "median_hh_income": 95166,
+        "per_capita_income": 40873,
+        "median_gross_rent": 1496,
+        "median_home_value": 489400,
+        "housing_units": 1223468,
+        "occupied_units": 1124822,
+        "vacant_units": 98646,
+        "owner_occupied": 790144,
+        "renter_occupied": 334678,
+        "tenure_total": 1124822,
+        "pop_under5": 235458,
+        "pop_5to9": 261035,
+        "labor_force": 1778106,
+        "employed": 1714800,
+        "unemployed": 63306,
+        "units_1_detached": 813940,
+        "units_1_attached": 97325,
+        "units_2": 30036,
+        "units_3_4": 49326,
+        "units_5plus": 196557,
+        "units_mobile": 35323,
+        "units_structure_total": 1223468,
+        "built_total": 1223468,
+        "built_pre1980": 434215,
+        "crowd_total": 1124822,
+        "overcrowded": 35375,
+        "income_distribution": [
+          {
+            "label": "< $10k",
+            "count": 34621
+          },
+          {
+            "label": "$10-15k",
+            "count": 22197
+          },
+          {
+            "label": "$15-20k",
+            "count": 21540
+          },
+          {
+            "label": "$20-25k",
+            "count": 23317
+          },
+          {
+            "label": "$25-30k",
+            "count": 25937
+          },
+          {
+            "label": "$30-35k",
+            "count": 30217
+          },
+          {
+            "label": "$35-40k",
+            "count": 33221
+          },
+          {
+            "label": "$40-45k",
+            "count": 32321
+          },
+          {
+            "label": "$45-50k",
+            "count": 33820
+          },
+          {
+            "label": "$50-60k",
+            "count": 69446
+          },
+          {
+            "label": "$60-75k",
+            "count": 105215
+          },
+          {
+            "label": "$75-100k",
+            "count": 159514
+          },
+          {
+            "label": "$100-125k",
+            "count": 136104
+          },
+          {
+            "label": "$125-150k",
+            "count": 107143
+          },
+          {
+            "label": "$150-200k",
+            "count": 133801
+          },
+          {
+            "label": "$200k+",
+            "count": 156408
+          }
+        ]
+      },
+      "moe": {
+        "median_age": 0.1,
+        "median_hh_income": 774,
+        "per_capita_income": 264,
+        "median_gross_rent": 9,
+        "median_home_value": 1629,
+        "housing_units": 257,
+        "occupied_units": 2819,
+        "vacant_units": 2794,
+        "owner_occupied": 5369,
+        "renter_occupied": 4794,
+        "tenure_total": 2819,
+        "labor_force": 5198,
+        "employed": 5795,
+        "unemployed": 2254
+      },
+      "derived": {
+        "growth_1y": 0.01835501879660313,
+        "growth_3y": 0.049811999244902316,
+        "growth_5y": 0.09541411138034543,
+        "vacancy_rate": 0.08062818152988063,
+        "owner_share": 0.7024613672207691,
+        "renter_share": 0.29753863277923087,
+        "pipeline_ratio": 0.9020169709042849,
+        "rent_to_income": 0.18863879957127547,
+        "price_to_income": 5.1425929428577435,
+        "unemployment_rate": 0.03560305178656391,
+        "pre1980_share": 0.35490507312001623,
+        "overcrowded_share": 0.03144942044163432,
+        "attached_share": 0.14441489274750136,
+        "multifamily_share": 0.16065561175282067
+      }
+    },
+    {
+      "geoid": "49011",
+      "level": "county",
+      "name": "Davis County, Utah",
+      "vintage": 2024,
+      "population": 370924,
+      "pop_trend": {
+        "2019": 345767,
+        "2020": 350761,
+        "2021": 358831,
+        "2022": 363032,
+        "2023": 366742,
+        "2024": 370924
+      },
+      "series": {
+        "2019": {
+          "population": 345767,
+          "median_hh_income": 83310,
+          "median_gross_rent": 1105,
+          "median_home_value": 290300,
+          "vacancy_rate": 0.0394682444164745,
+          "unemployment_rate": 0.027451235987012063,
+          "rent_to_income": 0.159164566078502,
+          "price_to_income": 3.4845756811907336
+        },
+        "2020": {
+          "population": 350761,
+          "median_hh_income": 87570,
+          "median_gross_rent": 1167,
+          "median_home_value": 320100,
+          "vacancy_rate": 0.03180199237041457,
+          "unemployment_rate": 0.025611175785797437,
+          "rent_to_income": 0.15991778006166496,
+          "price_to_income": 3.655361425145598
+        },
+        "2021": {
+          "population": 358831,
+          "median_hh_income": 92765,
+          "median_gross_rent": 1238,
+          "median_home_value": 351400,
+          "vacancy_rate": 0.03382096952859881,
+          "unemployment_rate": 0.024414868694080636,
+          "rent_to_income": 0.16014660701773298,
+          "price_to_income": 3.7880666199536464
+        },
+        "2022": {
+          "population": 363032,
+          "median_hh_income": 101285,
+          "median_gross_rent": 1407,
+          "median_home_value": 423200,
+          "vacancy_rate": 0.03430372226383902,
+          "unemployment_rate": 0.024578555688609657,
+          "rent_to_income": 0.16669793157920718,
+          "price_to_income": 4.178308732783729
+        },
+        "2023": {
+          "population": 366742,
+          "median_hh_income": 108058,
+          "median_gross_rent": 1516,
+          "median_home_value": 470500,
+          "vacancy_rate": 0.032947942756428095,
+          "unemployment_rate": 0.025175596976142384,
+          "rent_to_income": 0.1683540320938755,
+          "price_to_income": 4.3541431453478685
+        },
+        "2024": {
+          "population": 370924,
+          "median_hh_income": 110884,
+          "median_gross_rent": 1621,
+          "median_home_value": 505500,
+          "vacancy_rate": 0.04103276830549558,
+          "unemployment_rate": 0.027298933865961182,
+          "rent_to_income": 0.17542657191299016,
+          "price_to_income": 4.558818224450778
+        }
+      },
+      "metrics": {
+        "population": 370924,
+        "median_age": 32.5,
+        "median_hh_income": 110884,
+        "per_capita_income": 42483,
+        "median_gross_rent": 1621,
+        "median_home_value": 505500,
+        "housing_units": 120879,
+        "occupied_units": 115919,
+        "vacant_units": 4960,
+        "owner_occupied": 89654,
+        "renter_occupied": 26265,
+        "tenure_total": 115919,
+        "pop_under5": 25970,
+        "pop_5to9": 30850,
+        "labor_force": 189751,
+        "employed": 184571,
+        "unemployed": 5180,
+        "units_1_detached": 90107,
+        "units_1_attached": 7177,
+        "units_2": 1849,
+        "units_3_4": 4817,
+        "units_5plus": 13712,
+        "units_mobile": 3169,
+        "units_structure_total": 120879,
+        "built_total": 120879,
+        "built_pre1980": 38528,
+        "crowd_total": 115919,
+        "overcrowded": 2972,
+        "income_distribution": [
+          {
+            "label": "< $10k",
+            "count": 2835
+          },
+          {
+            "label": "$10-15k",
+            "count": 1740
+          },
+          {
+            "label": "$15-20k",
+            "count": 2005
+          },
+          {
+            "label": "$20-25k",
+            "count": 1944
+          },
+          {
+            "label": "$25-30k",
+            "count": 1802
+          },
+          {
+            "label": "$30-35k",
+            "count": 1925
+          },
+          {
+            "label": "$35-40k",
+            "count": 2492
+          },
+          {
+            "label": "$40-45k",
+            "count": 2374
+          },
+          {
+            "label": "$45-50k",
+            "count": 3097
+          },
+          {
+            "label": "$50-60k",
+            "count": 5713
+          },
+          {
+            "label": "$60-75k",
+            "count": 9755
+          },
+          {
+            "label": "$75-100k",
+            "count": 15497
+          },
+          {
+            "label": "$100-125k",
+            "count": 15340
+          },
+          {
+            "label": "$125-150k",
+            "count": 12621
+          },
+          {
+            "label": "$150-200k",
+            "count": 17394
+          },
+          {
+            "label": "$200k+",
+            "count": 19385
+          }
+        ]
+      },
+      "moe": {
+        "median_age": 0.2,
+        "median_hh_income": 2880,
+        "per_capita_income": 846,
+        "median_gross_rent": 36,
+        "median_home_value": 8456,
+        "housing_units": 82,
+        "occupied_units": 587,
+        "vacant_units": 593,
+        "owner_occupied": 1274,
+        "renter_occupied": 1210,
+        "tenure_total": 587,
+        "labor_force": 1688,
+        "employed": 1816,
+        "unemployed": 639
+      },
+      "derived": {
+        "growth_1y": 0.011403111724318458,
+        "growth_3y": 0.03370110163280207,
+        "growth_5y": 0.07275708786552794,
+        "vacancy_rate": 0.04103276830549558,
+        "owner_share": 0.7734193704224501,
+        "renter_share": 0.22658062957754985,
+        "pipeline_ratio": 0.8418152350081037,
+        "rent_to_income": 0.17542657191299016,
+        "price_to_income": 4.558818224450778,
+        "unemployment_rate": 0.027298933865961182,
+        "pre1980_share": 0.31873195509559143,
+        "overcrowded_share": 0.025638592465428444,
+        "attached_share": 0.11451947815584179,
+        "multifamily_share": 0.11343574979938616
+      }
+    },
+    {
+      "geoid": "4907690",
+      "level": "place",
+      "name": "Bountiful city, Utah",
+      "vintage": 2024,
+      "population": 45023,
+      "pop_trend": {
+        "2019": 43901,
+        "2020": 43991,
+        "2021": 45496,
+        "2022": 45353,
+        "2023": 45093,
+        "2024": 45023
+      },
+      "series": {
+        "2019": {
+          "population": 43901,
+          "median_hh_income": 77823,
+          "median_gross_rent": 1071,
+          "median_home_value": 316300,
+          "vacancy_rate": 0.047306698469489164,
+          "unemployment_rate": 0.019052672197568975,
+          "rent_to_income": 0.1651439805712964,
+          "price_to_income": 4.064351155827969
+        },
+        "2020": {
+          "population": 43991,
+          "median_hh_income": 83660,
+          "median_gross_rent": 1148,
+          "median_home_value": 343900,
+          "vacancy_rate": 0.05233607379185883,
+          "unemployment_rate": 0.023421826155927774,
+          "rent_to_income": 0.16466650729141763,
+          "price_to_income": 4.110686110447047
+        },
+        "2021": {
+          "population": 45496,
+          "median_hh_income": 89365,
+          "median_gross_rent": 1221,
+          "median_home_value": 375100,
+          "vacancy_rate": 0.0610079575596817,
+          "unemployment_rate": 0.02491972321468952,
+          "rent_to_income": 0.16395680635595591,
+          "price_to_income": 4.197392715268841
+        },
+        "2022": {
+          "population": 45353,
+          "median_hh_income": 96060,
+          "median_gross_rent": 1410,
+          "median_home_value": 443800,
+          "vacancy_rate": 0.0650380301663014,
+          "unemployment_rate": 0.02627757102659526,
+          "rent_to_income": 0.17613991255465333,
+          "price_to_income": 4.620029148448886
+        },
+        "2023": {
+          "population": 45093,
+          "median_hh_income": 103723,
+          "median_gross_rent": 1467,
+          "median_home_value": 488900,
+          "vacancy_rate": 0.050743542916775373,
+          "unemployment_rate": 0.02916425486441961,
+          "rent_to_income": 0.1697212768624124,
+          "price_to_income": 4.7135158065231435
+        },
+        "2024": {
+          "population": 45023,
+          "median_hh_income": 104785,
+          "median_gross_rent": 1565,
+          "median_home_value": 532200,
+          "vacancy_rate": 0.06814244465832531,
+          "unemployment_rate": 0.031070916905444126,
+          "rent_to_income": 0.17922412559049483,
+          "price_to_income": 5.078971226797728
+        }
+      },
+      "metrics": {
+        "population": 45023,
+        "median_age": 32.7,
+        "median_hh_income": 104785,
+        "per_capita_income": 42416,
+        "median_gross_rent": 1565,
+        "median_home_value": 532200,
+        "housing_units": 15585,
+        "occupied_units": 14523,
+        "vacant_units": 1062,
+        "owner_occupied": 10358,
+        "renter_occupied": 4165,
+        "tenure_total": 14523,
+        "pop_under5": 3430,
+        "pop_5to9": 3265,
+        "labor_force": 22336,
+        "employed": 21642,
+        "unemployed": 694,
+        "units_1_detached": 10784,
+        "units_1_attached": 924,
+        "units_2": 488,
+        "units_3_4": 1288,
+        "units_5plus": 2101,
+        "units_mobile": 0,
+        "units_structure_total": 15585,
+        "built_total": 15585,
+        "built_pre1980": 9823,
+        "crowd_total": 14523,
+        "overcrowded": 280,
+        "income_distribution": [
+          {
+            "label": "< $10k",
+            "count": 319
+          },
+          {
+            "label": "$10-15k",
+            "count": 263
+          },
+          {
+            "label": "$15-20k",
+            "count": 288
+          },
+          {
+            "label": "$20-25k",
+            "count": 319
+          },
+          {
+            "label": "$25-30k",
+            "count": 272
+          },
+          {
+            "label": "$30-35k",
+            "count": 354
+          },
+          {
+            "label": "$35-40k",
+            "count": 422
+          },
+          {
+            "label": "$40-45k",
+            "count": 518
+          },
+          {
+            "label": "$45-50k",
+            "count": 387
+          },
+          {
+            "label": "$50-60k",
+            "count": 789
+          },
+          {
+            "label": "$60-75k",
+            "count": 1181
+          },
+          {
+            "label": "$75-100k",
+            "count": 1879
+          },
+          {
+            "label": "$100-125k",
+            "count": 1770
+          },
+          {
+            "label": "$125-150k",
+            "count": 1589
+          },
+          {
+            "label": "$150-200k",
+            "count": 2144
+          },
+          {
+            "label": "$200k+",
+            "count": 2029
+          }
+        ]
+      },
+      "moe": {
+        "population": 46,
+        "median_age": 1.2,
+        "median_hh_income": 8822,
+        "per_capita_income": 2461,
+        "median_gross_rent": 110,
+        "median_home_value": 23211,
+        "housing_units": 511,
+        "occupied_units": 506,
+        "vacant_units": 241,
+        "owner_occupied": 530,
+        "renter_occupied": 415,
+        "tenure_total": 506,
+        "labor_force": 855,
+        "employed": 877,
+        "unemployed": 200
+      },
+      "derived": {
+        "growth_1y": -0.0015523473709888453,
+        "growth_3y": -0.010396518375241779,
+        "growth_5y": 0.02555750438486595,
+        "vacancy_rate": 0.06814244465832531,
+        "owner_share": 0.7132135233767128,
+        "renter_share": 0.2867864766232872,
+        "pipeline_ratio": 1.0505359877488514,
+        "rent_to_income": 0.17922412559049483,
+        "price_to_income": 5.078971226797728,
+        "unemployment_rate": 0.031070916905444126,
+        "pre1980_share": 0.6302855309592557,
+        "overcrowded_share": 0.019279763134338636,
+        "attached_share": 0.17324350336862368,
+        "multifamily_share": 0.134809111324992
+      },
+      "overlap_share": 1.0
+    },
+    {
+      "geoid": "4911980",
+      "level": "place",
+      "name": "Centerville city, Utah",
+      "vintage": 2024,
+      "population": 16679,
+      "pop_trend": {
+        "2019": 17404,
+        "2020": 17527,
+        "2021": 16711,
+        "2022": 16740,
+        "2023": 16692,
+        "2024": 16679
+      },
+      "series": {
+        "2019": {
+          "population": 17404,
+          "median_hh_income": 93344,
+          "median_gross_rent": 1157,
+          "median_home_value": 321700,
+          "vacancy_rate": 0.03213610586011342,
+          "unemployment_rate": 0.017786797182762326,
+          "rent_to_income": 0.14874014398354474,
+          "price_to_income": 3.4463918409324648
+        },
+        "2020": {
+          "population": 17527,
+          "median_hh_income": 100230,
+          "median_gross_rent": 1244,
+          "median_home_value": 349400,
+          "vacancy_rate": 0.01365983674829252,
+          "unemployment_rate": 0.016318918288844853,
+          "rent_to_income": 0.14893744387907812,
+          "price_to_income": 3.485982240846054
+        },
+        "2021": {
+          "population": 16711,
+          "median_hh_income": 107808,
+          "median_gross_rent": 1376,
+          "median_home_value": 374800,
+          "vacancy_rate": 0.017446882017619625,
+          "unemployment_rate": 0.012709888059701493,
+          "rent_to_income": 0.15316117542297417,
+          "price_to_income": 3.4765509053131494
+        },
+        "2022": {
+          "population": 16740,
+          "median_hh_income": 113697,
+          "median_gross_rent": 1462,
+          "median_home_value": 452600,
+          "vacancy_rate": 0.02575107296137339,
+          "unemployment_rate": 0.014451885794853719,
+          "rent_to_income": 0.15430486292514314,
+          "price_to_income": 3.9807558686684783
+        },
+        "2023": {
+          "population": 16692,
+          "median_hh_income": 117831,
+          "median_gross_rent": 1548,
+          "median_home_value": 492700,
+          "vacancy_rate": 0.03466351031450795,
+          "unemployment_rate": 0.015873015873015872,
+          "rent_to_income": 0.15764951498332358,
+          "price_to_income": 4.181412361772369
+        },
+        "2024": {
+          "population": 16679,
+          "median_hh_income": 123130,
+          "median_gross_rent": 1918,
+          "median_home_value": 531200,
+          "vacancy_rate": 0.03646960865945046,
+          "unemployment_rate": 0.02349777881692775,
+          "rent_to_income": 0.18692438885730528,
+          "price_to_income": 4.314139527328839
+        }
+      },
+      "metrics": {
+        "population": 16679,
+        "median_age": 39.5,
+        "median_hh_income": 123130,
+        "per_capita_income": 48984,
+        "median_gross_rent": 1918,
+        "median_home_value": 531200,
+        "housing_units": 6005,
+        "occupied_units": 5786,
+        "vacant_units": 219,
+        "owner_occupied": 5089,
+        "renter_occupied": 697,
+        "tenure_total": 5786,
+        "pop_under5": 927,
+        "pop_5to9": 1094,
+        "labor_force": 8554,
+        "employed": 8353,
+        "unemployed": 201,
+        "units_1_detached": 4522,
+        "units_1_attached": 494,
+        "units_2": 134,
+        "units_3_4": 154,
+        "units_5plus": 701,
+        "units_mobile": 0,
+        "units_structure_total": 6005,
+        "built_total": 6005,
+        "built_pre1980": 2295,
+        "crowd_total": 5786,
+        "overcrowded": 21,
+        "income_distribution": [
+          {
+            "label": "< $10k",
+            "count": 79
+          },
+          {
+            "label": "$10-15k",
+            "count": 14
+          },
+          {
+            "label": "$15-20k",
+            "count": 124
+          },
+          {
+            "label": "$20-25k",
+            "count": 84
+          },
+          {
+            "label": "$25-30k",
+            "count": 64
+          },
+          {
+            "label": "$30-35k",
+            "count": 179
+          },
+          {
+            "label": "$35-40k",
+            "count": 116
+          },
+          {
+            "label": "$40-45k",
+            "count": 64
+          },
+          {
+            "label": "$45-50k",
+            "count": 108
+          },
+          {
+            "label": "$50-60k",
+            "count": 373
+          },
+          {
+            "label": "$60-75k",
+            "count": 255
+          },
+          {
+            "label": "$75-100k",
+            "count": 734
+          },
+          {
+            "label": "$100-125k",
+            "count": 785
+          },
+          {
+            "label": "$125-150k",
+            "count": 659
+          },
+          {
+            "label": "$150-200k",
+            "count": 1131
+          },
+          {
+            "label": "$200k+",
+            "count": 1017
+          }
+        ]
+      },
+      "moe": {
+        "population": 33,
+        "median_age": 2.9,
+        "median_hh_income": 8415,
+        "per_capita_income": 2981,
+        "median_gross_rent": 238,
+        "median_home_value": 36005,
+        "housing_units": 252,
+        "occupied_units": 242,
+        "vacant_units": 136,
+        "owner_occupied": 284,
+        "renter_occupied": 162,
+        "tenure_total": 242,
+        "labor_force": 441,
+        "employed": 434,
+        "unemployed": 80
+      },
+      "derived": {
+        "growth_1y": -0.000778816199376947,
+        "growth_3y": -0.0019149063491113638,
+        "growth_5y": -0.04165709032406344,
+        "vacancy_rate": 0.03646960865945046,
+        "owner_share": 0.879536812996889,
+        "renter_share": 0.12046318700311096,
+        "pipeline_ratio": 0.8473491773308958,
+        "rent_to_income": 0.18692438885730528,
+        "price_to_income": 4.314139527328839,
+        "unemployment_rate": 0.02349777881692775,
+        "pre1980_share": 0.38218151540383016,
+        "overcrowded_share": 0.003629450397511234,
+        "attached_share": 0.1302248126561199,
+        "multifamily_share": 0.11673605328892589
+      },
+      "overlap_share": 1.0
+    },
+    {
+      "geoid": "4913850",
+      "level": "place",
+      "name": "Clearfield city, Utah",
+      "vintage": 2024,
+      "population": 33523,
+      "pop_trend": {
+        "2019": 31364,
+        "2020": 31622,
+        "2021": 31802,
+        "2022": 32369,
+        "2023": 32895,
+        "2024": 33523
+      },
+      "series": {
+        "2019": {
+          "population": 31364,
+          "median_hh_income": 60260,
+          "median_gross_rent": 1098,
+          "median_home_value": 194300,
+          "vacancy_rate": 0.06586594343277799,
+          "unemployment_rate": 0.03246327387198321,
+          "rent_to_income": 0.21865250580816462,
+          "price_to_income": 3.224361101891802
+        },
+        "2020": {
+          "population": 31622,
+          "median_hh_income": 62374,
+          "median_gross_rent": 1117,
+          "median_home_value": 222300,
+          "vacancy_rate": 0.05040922619047619,
+          "unemployment_rate": 0.031820822306848254,
+          "rent_to_income": 0.21489723282136788,
+          "price_to_income": 3.5639849937473946
+        },
+        "2021": {
+          "population": 31802,
+          "median_hh_income": 64689,
+          "median_gross_rent": 1196,
+          "median_home_value": 241300,
+          "vacancy_rate": 0.053258777156476304,
+          "unemployment_rate": 0.02704135737009544,
+          "rent_to_income": 0.22186152205166257,
+          "price_to_income": 3.7301550495447446
+        },
+        "2022": {
+          "population": 32369,
+          "median_hh_income": 69889,
+          "median_gross_rent": 1372,
+          "median_home_value": 303300,
+          "vacancy_rate": 0.047992863514719,
+          "unemployment_rate": 0.02997151734852408,
+          "rent_to_income": 0.23557355234729357,
+          "price_to_income": 4.339738728555281
+        },
+        "2023": {
+          "population": 32895,
+          "median_hh_income": 75429,
+          "median_gross_rent": 1459,
+          "median_home_value": 342000,
+          "vacancy_rate": 0.04710206872969738,
+          "unemployment_rate": 0.030262401838728213,
+          "rent_to_income": 0.23211231754365033,
+          "price_to_income": 4.534065147357118
+        },
+        "2024": {
+          "population": 33523,
+          "median_hh_income": 75495,
+          "median_gross_rent": 1579,
+          "median_home_value": 373900,
+          "vacancy_rate": 0.06427503736920777,
+          "unemployment_rate": 0.028358582696882434,
+          "rent_to_income": 0.25098350884164516,
+          "price_to_income": 4.952645870587456
+        }
+      },
+      "metrics": {
+        "population": 33523,
+        "median_age": 30.3,
+        "median_hh_income": 75495,
+        "per_capita_income": 31758,
+        "median_gross_rent": 1579,
+        "median_home_value": 373900,
+        "housing_units": 12042,
+        "occupied_units": 11268,
+        "vacant_units": 774,
+        "owner_occupied": 6598,
+        "renter_occupied": 4670,
+        "tenure_total": 11268,
+        "pop_under5": 3078,
+        "pop_5to9": 2583,
+        "labor_force": 15974,
+        "employed": 15521,
+        "unemployed": 453,
+        "units_1_detached": 6664,
+        "units_1_attached": 1096,
+        "units_2": 395,
+        "units_3_4": 959,
+        "units_5plus": 2213,
+        "units_mobile": 708,
+        "units_structure_total": 12042,
+        "built_total": 12042,
+        "built_pre1980": 4732,
+        "crowd_total": 11268,
+        "overcrowded": 501,
+        "income_distribution": [
+          {
+            "label": "< $10k",
+            "count": 454
+          },
+          {
+            "label": "$10-15k",
+            "count": 296
+          },
+          {
+            "label": "$15-20k",
+            "count": 501
+          },
+          {
+            "label": "$20-25k",
+            "count": 110
+          },
+          {
+            "label": "$25-30k",
+            "count": 183
+          },
+          {
+            "label": "$30-35k",
+            "count": 337
+          },
+          {
+            "label": "$35-40k",
+            "count": 523
+          },
+          {
+            "label": "$40-45k",
+            "count": 204
+          },
+          {
+            "label": "$45-50k",
+            "count": 548
+          },
+          {
+            "label": "$50-60k",
+            "count": 755
+          },
+          {
+            "label": "$60-75k",
+            "count": 1703
+          },
+          {
+            "label": "$75-100k",
+            "count": 1794
+          },
+          {
+            "label": "$100-125k",
+            "count": 1400
+          },
+          {
+            "label": "$125-150k",
+            "count": 833
+          },
+          {
+            "label": "$150-200k",
+            "count": 957
+          },
+          {
+            "label": "$200k+",
+            "count": 670
+          }
+        ]
+      },
+      "moe": {
+        "population": 43,
+        "median_age": 1,
+        "median_hh_income": 6364,
+        "per_capita_income": 2125,
+        "median_gross_rent": 73,
+        "median_home_value": 11643,
+        "housing_units": 406,
+        "occupied_units": 413,
+        "vacant_units": 203,
+        "owner_occupied": 448,
+        "renter_occupied": 458,
+        "tenure_total": 413,
+        "labor_force": 760,
+        "employed": 742,
+        "unemployed": 176
+      },
+      "derived": {
+        "growth_1y": 0.019091047271621826,
+        "growth_3y": 0.05411609332746368,
+        "growth_5y": 0.06883688305063129,
+        "vacancy_rate": 0.06427503736920777,
+        "owner_share": 0.5855520056798013,
+        "renter_share": 0.4144479943201988,
+        "pipeline_ratio": 1.1916376306620209,
+        "rent_to_income": 0.25098350884164516,
+        "price_to_income": 4.952645870587456,
+        "unemployment_rate": 0.028358582696882434,
+        "pre1980_share": 0.3929579804019266,
+        "overcrowded_share": 0.04446219382321619,
+        "attached_share": 0.20345457565188507,
+        "multifamily_share": 0.18377345955821292
+      },
+      "overlap_share": 1.0
+    },
+    {
+      "geoid": "4914290",
+      "level": "place",
+      "name": "Clinton city, Utah",
+      "vintage": 2024,
+      "population": 23612,
+      "pop_trend": {
+        "2019": 21890,
+        "2020": 22191,
+        "2021": 23192,
+        "2022": 23389,
+        "2023": 23492,
+        "2024": 23612
+      },
+      "series": {
+        "2019": {
+          "population": 21890,
+          "median_hh_income": 82161,
+          "median_gross_rent": 1348,
+          "median_home_value": 243400,
+          "vacancy_rate": 0.03238679969301612,
+          "unemployment_rate": 0.02273359933191055,
+          "rent_to_income": 0.19688173220871216,
+          "price_to_income": 2.962476113971349
+        },
+        "2020": {
+          "population": 22191,
+          "median_hh_income": 88023,
+          "median_gross_rent": 1441,
+          "median_home_value": 267400,
+          "vacancy_rate": 0.019122257053291535,
+          "unemployment_rate": 0.055226464959445914,
+          "rent_to_income": 0.19644865546504892,
+          "price_to_income": 3.037842382104677
+        },
+        "2021": {
+          "population": 23192,
+          "median_hh_income": 90397,
+          "median_gross_rent": 1534,
+          "median_home_value": 305400,
+          "vacancy_rate": 0.018344584678602876,
+          "unemployment_rate": 0.057232321475167436,
+          "rent_to_income": 0.20363507638527828,
+          "price_to_income": 3.378430700133854
+        },
+        "2022": {
+          "population": 23389,
+          "median_hh_income": 102712,
+          "median_gross_rent": 1710,
+          "median_home_value": 372900,
+          "vacancy_rate": 0.012393036293892004,
+          "unemployment_rate": 0.053398474329304876,
+          "rent_to_income": 0.1997819144793208,
+          "price_to_income": 3.6305397616636808
+        },
+        "2023": {
+          "population": 23492,
+          "median_hh_income": 109915,
+          "median_gross_rent": 1760,
+          "median_home_value": 412200,
+          "vacancy_rate": 0.02365498341266407,
+          "unemployment_rate": 0.05308920658807792,
+          "rent_to_income": 0.19214847836964927,
+          "price_to_income": 3.750170586362189
+        },
+        "2024": {
+          "population": 23612,
+          "median_hh_income": 116194,
+          "median_gross_rent": 1698,
+          "median_home_value": 449100,
+          "vacancy_rate": 0.015819540061520435,
+          "unemployment_rate": 0.04862066175875738,
+          "rent_to_income": 0.17536189476220804,
+          "price_to_income": 3.8650876981599738
+        }
+      },
+      "metrics": {
+        "population": 23612,
+        "median_age": 33,
+        "median_hh_income": 116194,
+        "per_capita_income": 36709,
+        "median_gross_rent": 1698,
+        "median_home_value": 449100,
+        "housing_units": 6827,
+        "occupied_units": 6719,
+        "vacant_units": 108,
+        "owner_occupied": 6108,
+        "renter_occupied": 611,
+        "tenure_total": 6719,
+        "pop_under5": 1839,
+        "pop_5to9": 1777,
+        "labor_force": 12361,
+        "employed": 11760,
+        "unemployed": 601,
+        "units_1_detached": 6405,
+        "units_1_attached": 161,
+        "units_2": 25,
+        "units_3_4": 63,
+        "units_5plus": 166,
+        "units_mobile": 0,
+        "units_structure_total": 6827,
+        "built_total": 6827,
+        "built_pre1980": 1406,
+        "crowd_total": 6719,
+        "overcrowded": 107,
+        "income_distribution": [
+          {
+            "label": "< $10k",
+            "count": 59
+          },
+          {
+            "label": "$10-15k",
+            "count": 22
+          },
+          {
+            "label": "$15-20k",
+            "count": 87
+          },
+          {
+            "label": "$20-25k",
+            "count": 103
+          },
+          {
+            "label": "$25-30k",
+            "count": 64
+          },
+          {
+            "label": "$30-35k",
+            "count": 73
+          },
+          {
+            "label": "$35-40k",
+            "count": 68
+          },
+          {
+            "label": "$40-45k",
+            "count": 126
+          },
+          {
+            "label": "$45-50k",
+            "count": 104
+          },
+          {
+            "label": "$50-60k",
+            "count": 290
+          },
+          {
+            "label": "$60-75k",
+            "count": 496
+          },
+          {
+            "label": "$75-100k",
+            "count": 1327
+          },
+          {
+            "label": "$100-125k",
+            "count": 940
+          },
+          {
+            "label": "$125-150k",
+            "count": 876
+          },
+          {
+            "label": "$150-200k",
+            "count": 1244
+          },
+          {
+            "label": "$200k+",
+            "count": 840
+          }
+        ]
+      },
+      "moe": {
+        "population": 33,
+        "median_age": 1.3,
+        "median_hh_income": 7839,
+        "per_capita_income": 2503,
+        "median_gross_rent": 223,
+        "median_home_value": 11372,
+        "housing_units": 356,
+        "occupied_units": 358,
+        "vacant_units": 96,
+        "owner_occupied": 349,
+        "renter_occupied": 165,
+        "tenure_total": 358,
+        "labor_force": 676,
+        "employed": 699,
+        "unemployed": 352
+      },
+      "derived": {
+        "growth_1y": 0.00510812191384301,
+        "growth_3y": 0.018109692997585376,
+        "growth_5y": 0.07866605756052993,
+        "vacancy_rate": 0.015819540061520435,
+        "owner_share": 0.9090638487870218,
+        "renter_share": 0.09093615121297813,
+        "pipeline_ratio": 1.0348902644907148,
+        "rent_to_income": 0.17536189476220804,
+        "price_to_income": 3.8650876981599738,
+        "unemployment_rate": 0.04862066175875738,
+        "pre1980_share": 0.20594697524534936,
+        "overcrowded_share": 0.015924988837624648,
+        "attached_share": 0.03647282847517211,
+        "multifamily_share": 0.024315218983448073
+      },
+      "overlap_share": 1.0
+    },
+    {
+      "geoid": "4924740",
+      "level": "place",
+      "name": "Farmington city, Utah",
+      "vintage": 2024,
+      "population": 25389,
+      "pop_trend": {
+        "2019": 23847,
+        "2020": 24439,
+        "2021": 23990,
+        "2022": 24463,
+        "2023": 24934,
+        "2024": 25389
+      },
+      "series": {
+        "2019": {
+          "population": 23847,
+          "median_hh_income": 106488,
+          "median_gross_rent": 1178,
+          "median_home_value": 386500,
+          "vacancy_rate": 0.047954866008462625,
+          "unemployment_rate": 0.02455295098675067,
+          "rent_to_income": 0.13274735181428893,
+          "price_to_income": 3.629516940875967
+        },
+        "2020": {
+          "population": 24439,
+          "median_hh_income": 99208,
+          "median_gross_rent": 1215,
+          "median_home_value": 419700,
+          "vacancy_rate": 0.03130263896687254,
+          "unemployment_rate": 0.020744124084118375,
+          "rent_to_income": 0.1469639545197968,
+          "price_to_income": 4.230505604386743
+        },
+        "2021": {
+          "population": 23990,
+          "median_hh_income": 107559,
+          "median_gross_rent": 1315,
+          "median_home_value": 431900,
+          "vacancy_rate": 0.03416104492608009,
+          "unemployment_rate": 0.020338983050847456,
+          "rent_to_income": 0.14671017766993,
+          "price_to_income": 4.015470578938071
+        },
+        "2022": {
+          "population": 24463,
+          "median_hh_income": 115278,
+          "median_gross_rent": 1446,
+          "median_home_value": 558300,
+          "vacancy_rate": 0.03433777154870357,
+          "unemployment_rate": 0.021874131059412365,
+          "rent_to_income": 0.150523083328996,
+          "price_to_income": 4.8430750013012025
+        },
+        "2023": {
+          "population": 24934,
+          "median_hh_income": 120432,
+          "median_gross_rent": 1644,
+          "median_home_value": 618400,
+          "vacancy_rate": 0.03393267540894957,
+          "unemployment_rate": 0.022200515051949206,
+          "rent_to_income": 0.16381028298126743,
+          "price_to_income": 5.13484788096187
+        },
+        "2024": {
+          "population": 25389,
+          "median_hh_income": 127338,
+          "median_gross_rent": 1769,
+          "median_home_value": 650700,
+          "vacancy_rate": 0.029874848607186113,
+          "unemployment_rate": 0.03199041998118211,
+          "rent_to_income": 0.16670593224332092,
+          "price_to_income": 5.110022145785233
+        }
+      },
+      "metrics": {
+        "population": 25389,
+        "median_age": 32.6,
+        "median_hh_income": 127338,
+        "per_capita_income": 46413,
+        "median_gross_rent": 1769,
+        "median_home_value": 650700,
+        "housing_units": 7431,
+        "occupied_units": 7209,
+        "vacant_units": 222,
+        "owner_occupied": 5842,
+        "renter_occupied": 1367,
+        "tenure_total": 7209,
+        "pop_under5": 1676,
+        "pop_5to9": 2342,
+        "labor_force": 11691,
+        "employed": 11317,
+        "unemployed": 374,
+        "units_1_detached": 5514,
+        "units_1_attached": 667,
+        "units_2": 41,
+        "units_3_4": 184,
+        "units_5plus": 929,
+        "units_mobile": 91,
+        "units_structure_total": 7431,
+        "built_total": 7431,
+        "built_pre1980": 1319,
+        "crowd_total": 7209,
+        "overcrowded": 129,
+        "income_distribution": [
+          {
+            "label": "< $10k",
+            "count": 122
+          },
+          {
+            "label": "$10-15k",
+            "count": 93
+          },
+          {
+            "label": "$15-20k",
+            "count": 127
+          },
+          {
+            "label": "$20-25k",
+            "count": 88
+          },
+          {
+            "label": "$25-30k",
+            "count": 35
+          },
+          {
+            "label": "$30-35k",
+            "count": 128
+          },
+          {
+            "label": "$35-40k",
+            "count": 71
+          },
+          {
+            "label": "$40-45k",
+            "count": 64
+          },
+          {
+            "label": "$45-50k",
+            "count": 315
+          },
+          {
+            "label": "$50-60k",
+            "count": 179
+          },
+          {
+            "label": "$60-75k",
+            "count": 368
+          },
+          {
+            "label": "$75-100k",
+            "count": 905
+          },
+          {
+            "label": "$100-125k",
+            "count": 1016
+          },
+          {
+            "label": "$125-150k",
+            "count": 857
+          },
+          {
+            "label": "$150-200k",
+            "count": 1209
+          },
+          {
+            "label": "$200k+",
+            "count": 1632
+          }
+        ]
+      },
+      "moe": {
+        "population": 73,
+        "median_age": 1.2,
+        "median_hh_income": 10136,
+        "per_capita_income": 3003,
+        "median_gross_rent": 132,
+        "median_home_value": 19893,
+        "housing_units": 307,
+        "occupied_units": 315,
+        "vacant_units": 140,
+        "owner_occupied": 348,
+        "renter_occupied": 233,
+        "tenure_total": 315,
+        "labor_force": 494,
+        "employed": 494,
+        "unemployed": 144
+      },
+      "derived": {
+        "growth_1y": 0.01824817518248175,
+        "growth_3y": 0.058315964985410584,
+        "growth_5y": 0.06466222166310227,
+        "vacancy_rate": 0.029874848607186113,
+        "owner_share": 0.8103759189901512,
+        "renter_share": 0.1896240810098488,
+        "pipeline_ratio": 0.7156276686592656,
+        "rent_to_income": 0.16670593224332092,
+        "price_to_income": 5.110022145785233,
+        "unemployment_rate": 0.03199041998118211,
+        "pre1980_share": 0.1774996635715247,
+        "overcrowded_share": 0.0178942987931752,
+        "attached_share": 0.12003767998923429,
+        "multifamily_share": 0.1250168214237653
+      },
+      "overlap_share": 1.0
+    },
+    {
+      "geoid": "4927490",
+      "level": "place",
+      "name": "Fruit Heights city, Utah",
+      "vintage": 2024,
+      "population": 6023,
+      "pop_trend": {
+        "2019": 6172,
+        "2020": 6205,
+        "2021": 5969,
+        "2022": 6018,
+        "2023": 6036,
+        "2024": 6023
+      },
+      "series": {
+        "2019": {
+          "population": 6172,
+          "median_hh_income": 97488,
+          "median_gross_rent": 1669,
+          "median_home_value": 396000,
+          "vacancy_rate": 0.044556962025316456,
+          "unemployment_rate": 0.0351182197496523,
+          "rent_to_income": 0.20544066962087643,
+          "price_to_income": 4.062038404726736
+        },
+        "2020": {
+          "population": 6205,
+          "median_hh_income": 98438,
+          "median_gross_rent": 1520,
+          "median_home_value": 436400,
+          "vacancy_rate": 0.03389830508474576,
+          "unemployment_rate": 0.014527027027027028,
+          "rent_to_income": 0.18529429691785693,
+          "price_to_income": 4.4332473231881995
+        },
+        "2021": {
+          "population": 5969,
+          "median_hh_income": 104593,
+          "median_gross_rent": 1538,
+          "median_home_value": 472800,
+          "vacancy_rate": 0.012486992715920915,
+          "unemployment_rate": 0.013673318551367332,
+          "rent_to_income": 0.17645540332527032,
+          "price_to_income": 4.5203789928580305
+        },
+        "2022": {
+          "population": 6018,
+          "median_hh_income": 117123,
+          "median_gross_rent": 1640,
+          "median_home_value": 628300,
+          "vacancy_rate": 0.02198852772466539,
+          "unemployment_rate": 0.00815024805102764,
+          "rent_to_income": 0.1680284828769755,
+          "price_to_income": 5.364445924370107
+        },
+        "2023": {
+          "population": 6036,
+          "median_hh_income": 134500,
+          "median_gross_rent": 1727,
+          "median_home_value": 654800,
+          "vacancy_rate": 0.01118133203694701,
+          "unemployment_rate": 0.0,
+          "rent_to_income": 0.1540817843866171,
+          "price_to_income": 4.868401486988848
+        },
+        "2024": {
+          "population": 6023,
+          "median_hh_income": 140679,
+          "median_gross_rent": 1932,
+          "median_home_value": 667700,
+          "vacancy_rate": 0.01096163428001993,
+          "unemployment_rate": 0.0017152658662092624,
+          "rent_to_income": 0.16480071652485445,
+          "price_to_income": 4.746266322621002
+        }
+      },
+      "metrics": {
+        "population": 6023,
+        "median_age": 41.5,
+        "median_hh_income": 140679,
+        "per_capita_income": 69387,
+        "median_gross_rent": 1932,
+        "median_home_value": 667700,
+        "housing_units": 2007,
+        "occupied_units": 1985,
+        "vacant_units": 22,
+        "owner_occupied": 1900,
+        "renter_occupied": 85,
+        "tenure_total": 1985,
+        "pop_under5": 290,
+        "pop_5to9": 492,
+        "labor_force": 2915,
+        "employed": 2910,
+        "unemployed": 5,
+        "units_1_detached": 1800,
+        "units_1_attached": 82,
+        "units_2": 10,
+        "units_3_4": 0,
+        "units_5plus": 54,
+        "units_mobile": 61,
+        "units_structure_total": 2007,
+        "built_total": 2007,
+        "built_pre1980": 574,
+        "crowd_total": 1985,
+        "overcrowded": 10,
+        "income_distribution": [
+          {
+            "label": "< $10k",
+            "count": 36
+          },
+          {
+            "label": "$10-15k",
+            "count": 23
+          },
+          {
+            "label": "$15-20k",
+            "count": 24
+          },
+          {
+            "label": "$20-25k",
+            "count": 20
+          },
+          {
+            "label": "$25-30k",
+            "count": 0
+          },
+          {
+            "label": "$30-35k",
+            "count": 7
+          },
+          {
+            "label": "$35-40k",
+            "count": 44
+          },
+          {
+            "label": "$40-45k",
+            "count": 25
+          },
+          {
+            "label": "$45-50k",
+            "count": 23
+          },
+          {
+            "label": "$50-60k",
+            "count": 20
+          },
+          {
+            "label": "$60-75k",
+            "count": 116
+          },
+          {
+            "label": "$75-100k",
+            "count": 334
+          },
+          {
+            "label": "$100-125k",
+            "count": 176
+          },
+          {
+            "label": "$125-150k",
+            "count": 268
+          },
+          {
+            "label": "$150-200k",
+            "count": 374
+          },
+          {
+            "label": "$200k+",
+            "count": 495
+          }
+        ]
+      },
+      "moe": {
+        "population": 26,
+        "median_age": 3.9,
+        "median_hh_income": 13965,
+        "per_capita_income": 16633,
+        "median_gross_rent": 343,
+        "median_home_value": 34611,
+        "housing_units": 154,
+        "occupied_units": 156,
+        "vacant_units": 26,
+        "owner_occupied": 165,
+        "renter_occupied": 67,
+        "tenure_total": 156,
+        "labor_force": 276,
+        "employed": 278,
+        "unemployed": 9
+      },
+      "derived": {
+        "growth_1y": -0.0021537442014579193,
+        "growth_3y": 0.009046741497738315,
+        "growth_5y": -0.024141283214517174,
+        "vacancy_rate": 0.01096163428001993,
+        "owner_share": 0.9571788413098237,
+        "renter_share": 0.042821158690176324,
+        "pipeline_ratio": 0.5894308943089431,
+        "rent_to_income": 0.16480071652485445,
+        "price_to_income": 4.746266322621002,
+        "unemployment_rate": 0.0017152658662092624,
+        "pre1980_share": 0.2859990034877927,
+        "overcrowded_share": 0.005037783375314861,
+        "attached_share": 0.0458395615346288,
+        "multifamily_share": 0.026905829596412557
+      },
+      "overlap_share": 1.0
+    },
+    {
+      "geoid": "4940360",
+      "level": "place",
+      "name": "Kaysville city, Utah",
+      "vintage": 2024,
+      "population": 33053,
+      "pop_trend": {
+        "2019": 31494,
+        "2020": 31957,
+        "2021": 32438,
+        "2022": 32714,
+        "2023": 32861,
+        "2024": 33053
+      },
+      "series": {
+        "2019": {
+          "population": 31494,
+          "median_hh_income": 99597,
+          "median_gross_rent": 948,
+          "median_home_value": 339500,
+          "vacancy_rate": 0.007405719494132391,
+          "unemployment_rate": 0.02912270559329383,
+          "rent_to_income": 0.11422030784059761,
+          "price_to_income": 3.4087372109601697
+        },
+        "2020": {
+          "population": 31957,
+          "median_hh_income": 103730,
+          "median_gross_rent": 1077,
+          "median_home_value": 368700,
+          "vacancy_rate": 0.009865470852017937,
+          "unemployment_rate": 0.029301224944320713,
+          "rent_to_income": 0.12459269256724188,
+          "price_to_income": 3.554420129181529
+        },
+        "2021": {
+          "population": 32438,
+          "median_hh_income": 110700,
+          "median_gross_rent": 1145,
+          "median_home_value": 410900,
+          "vacancy_rate": 0.009837898267188373,
+          "unemployment_rate": 0.023712183156173343,
+          "rent_to_income": 0.12411924119241192,
+          "price_to_income": 3.711833785004517
+        },
+        "2022": {
+          "population": 32714,
+          "median_hh_income": 121867,
+          "median_gross_rent": 1342,
+          "median_home_value": 513500,
+          "vacancy_rate": 0.011428571428571429,
+          "unemployment_rate": 0.025856368205263856,
+          "rent_to_income": 0.1321440586869292,
+          "price_to_income": 4.213609919010068
+        },
+        "2023": {
+          "population": 32861,
+          "median_hh_income": 128996,
+          "median_gross_rent": 1423,
+          "median_home_value": 583700,
+          "vacancy_rate": 0.016737311161830234,
+          "unemployment_rate": 0.023352190501249835,
+          "rent_to_income": 0.13237619771155695,
+          "price_to_income": 4.524946509969301
+        },
+        "2024": {
+          "population": 33053,
+          "median_hh_income": 133026,
+          "median_gross_rent": 1538,
+          "median_home_value": 623700,
+          "vacancy_rate": 0.021358806482773426,
+          "unemployment_rate": 0.028059740091808366,
+          "rent_to_income": 0.13873979522800053,
+          "price_to_income": 4.688557124171215
+        }
+      },
+      "metrics": {
+        "population": 33053,
+        "median_age": 32.4,
+        "median_hh_income": 133026,
+        "per_capita_income": 46147,
+        "median_gross_rent": 1538,
+        "median_home_value": 623700,
+        "housing_units": 9317,
+        "occupied_units": 9118,
+        "vacant_units": 199,
+        "owner_occupied": 8091,
+        "renter_occupied": 1027,
+        "tenure_total": 9118,
+        "pop_under5": 1772,
+        "pop_5to9": 3445,
+        "labor_force": 15467,
+        "employed": 15033,
+        "unemployed": 434,
+        "units_1_detached": 8263,
+        "units_1_attached": 436,
+        "units_2": 68,
+        "units_3_4": 150,
+        "units_5plus": 218,
+        "units_mobile": 182,
+        "units_structure_total": 9317,
+        "built_total": 9317,
+        "built_pre1980": 2818,
+        "crowd_total": 9118,
+        "overcrowded": 36,
+        "income_distribution": [
+          {
+            "label": "< $10k",
+            "count": 207
+          },
+          {
+            "label": "$10-15k",
+            "count": 135
+          },
+          {
+            "label": "$15-20k",
+            "count": 129
+          },
+          {
+            "label": "$20-25k",
+            "count": 193
+          },
+          {
+            "label": "$25-30k",
+            "count": 95
+          },
+          {
+            "label": "$30-35k",
+            "count": 104
+          },
+          {
+            "label": "$35-40k",
+            "count": 85
+          },
+          {
+            "label": "$40-45k",
+            "count": 124
+          },
+          {
+            "label": "$45-50k",
+            "count": 145
+          },
+          {
+            "label": "$50-60k",
+            "count": 356
+          },
+          {
+            "label": "$60-75k",
+            "count": 438
+          },
+          {
+            "label": "$75-100k",
+            "count": 701
+          },
+          {
+            "label": "$100-125k",
+            "count": 1523
+          },
+          {
+            "label": "$125-150k",
+            "count": 858
+          },
+          {
+            "label": "$150-200k",
+            "count": 1378
+          },
+          {
+            "label": "$200k+",
+            "count": 2647
+          }
+        ]
+      },
+      "moe": {
+        "population": 40,
+        "median_age": 2,
+        "median_hh_income": 15048,
+        "per_capita_income": 2773,
+        "median_gross_rent": 228,
+        "median_home_value": 26456,
+        "housing_units": 396,
+        "occupied_units": 386,
+        "vacant_units": 120,
+        "owner_occupied": 468,
+        "renter_occupied": 274,
+        "tenure_total": 386,
+        "labor_force": 641,
+        "employed": 649,
+        "unemployed": 125
+      },
+      "derived": {
+        "growth_1y": 0.005842792367852469,
+        "growth_3y": 0.01895924532955176,
+        "growth_5y": 0.049501492347748775,
+        "vacancy_rate": 0.021358806482773426,
+        "owner_share": 0.8873656503619215,
+        "renter_share": 0.11263434963807853,
+        "pipeline_ratio": 0.5143686502177068,
+        "rent_to_income": 0.13873979522800053,
+        "price_to_income": 4.688557124171215,
+        "unemployment_rate": 0.028059740091808366,
+        "pre1980_share": 0.3024578727058066,
+        "overcrowded_share": 0.0039482342618995395,
+        "attached_share": 0.07019426854137598,
+        "multifamily_share": 0.023398089513791992
+      },
+      "overlap_share": 1.0
+    },
+    {
+      "geoid": "4943660",
+      "level": "place",
+      "name": "Layton city, Utah",
+      "vintage": 2024,
+      "population": 83286,
+      "pop_trend": {
+        "2019": 76197,
+        "2020": 77268,
+        "2021": 80858,
+        "2022": 81726,
+        "2023": 82512,
+        "2024": 83286
+      },
+      "series": {
+        "2019": {
+          "population": 76197,
+          "median_hh_income": 77426,
+          "median_gross_rent": 1022,
+          "median_home_value": 260400,
+          "vacancy_rate": 0.03686654391161636,
+          "unemployment_rate": 0.03255306435270583,
+          "rent_to_income": 0.15839640430863017,
+          "price_to_income": 3.3632113243613255
+        },
+        "2020": {
+          "population": 77268,
+          "median_hh_income": 81067,
+          "median_gross_rent": 1084,
+          "median_home_value": 285100,
+          "vacancy_rate": 0.03073786560025092,
+          "unemployment_rate": 0.022571442870727192,
+          "rent_to_income": 0.16045986653015407,
+          "price_to_income": 3.5168440919239643
+        },
+        "2021": {
+          "population": 80858,
+          "median_hh_income": 85224,
+          "median_gross_rent": 1182,
+          "median_home_value": 320000,
+          "vacancy_rate": 0.03318559350441357,
+          "unemployment_rate": 0.022080609509476556,
+          "rent_to_income": 0.16643199098845396,
+          "price_to_income": 3.7548108514033607
+        },
+        "2022": {
+          "population": 81726,
+          "median_hh_income": 93453,
+          "median_gross_rent": 1314,
+          "median_home_value": 387900,
+          "vacancy_rate": 0.02959738846572361,
+          "unemployment_rate": 0.02329909698766113,
+          "rent_to_income": 0.168726525633206,
+          "price_to_income": 4.150749574652499
+        },
+        "2023": {
+          "population": 82512,
+          "median_hh_income": 99188,
+          "median_gross_rent": 1455,
+          "median_home_value": 437400,
+          "vacancy_rate": 0.033126293995859216,
+          "unemployment_rate": 0.022912515848578157,
+          "rent_to_income": 0.17602935839012784,
+          "price_to_income": 4.4098076380207285
+        },
+        "2024": {
+          "population": 83286,
+          "median_hh_income": 102480,
+          "median_gross_rent": 1538,
+          "median_home_value": 477700,
+          "vacancy_rate": 0.04719602126564912,
+          "unemployment_rate": 0.027691685756636573,
+          "rent_to_income": 0.18009367681498828,
+          "price_to_income": 4.661397345823575
+        }
+      },
+      "metrics": {
+        "population": 83286,
+        "median_age": 32.3,
+        "median_hh_income": 102480,
+        "per_capita_income": 42444,
+        "median_gross_rent": 1538,
+        "median_home_value": 477700,
+        "housing_units": 29155,
+        "occupied_units": 27779,
+        "vacant_units": 1376,
+        "owner_occupied": 20152,
+        "renter_occupied": 7627,
+        "tenure_total": 27779,
+        "pop_under5": 5822,
+        "pop_5to9": 6628,
+        "labor_force": 44526,
+        "employed": 43293,
+        "unemployed": 1233,
+        "units_1_detached": 20192,
+        "units_1_attached": 1515,
+        "units_2": 135,
+        "units_3_4": 950,
+        "units_5plus": 4768,
+        "units_mobile": 1595,
+        "units_structure_total": 29155,
+        "built_total": 29155,
+        "built_pre1980": 7468,
+        "crowd_total": 27779,
+        "overcrowded": 912,
+        "income_distribution": [
+          {
+            "label": "< $10k",
+            "count": 882
+          },
+          {
+            "label": "$10-15k",
+            "count": 647
+          },
+          {
+            "label": "$15-20k",
+            "count": 389
+          },
+          {
+            "label": "$20-25k",
+            "count": 733
+          },
+          {
+            "label": "$25-30k",
+            "count": 663
+          },
+          {
+            "label": "$30-35k",
+            "count": 452
+          },
+          {
+            "label": "$35-40k",
+            "count": 535
+          },
+          {
+            "label": "$40-45k",
+            "count": 650
+          },
+          {
+            "label": "$45-50k",
+            "count": 724
+          },
+          {
+            "label": "$50-60k",
+            "count": 1356
+          },
+          {
+            "label": "$60-75k",
+            "count": 2614
+          },
+          {
+            "label": "$75-100k",
+            "count": 3688
+          },
+          {
+            "label": "$100-125k",
+            "count": 3464
+          },
+          {
+            "label": "$125-150k",
+            "count": 2590
+          },
+          {
+            "label": "$150-200k",
+            "count": 3855
+          },
+          {
+            "label": "$200k+",
+            "count": 4537
+          }
+        ]
+      },
+      "moe": {
+        "population": 57,
+        "median_age": 1,
+        "median_hh_income": 4649,
+        "per_capita_income": 1762,
+        "median_gross_rent": 80,
+        "median_home_value": 10695,
+        "housing_units": 560,
+        "occupied_units": 590,
+        "vacant_units": 352,
+        "owner_occupied": 727,
+        "renter_occupied": 647,
+        "tenure_total": 590,
+        "labor_force": 1048,
+        "employed": 1075,
+        "unemployed": 298
+      },
+      "derived": {
+        "growth_1y": 0.009380453752181502,
+        "growth_3y": 0.030027950233743106,
+        "growth_5y": 0.09303515886452222,
+        "vacancy_rate": 0.04719602126564912,
+        "owner_share": 0.725440080636452,
+        "renter_share": 0.274559919363548,
+        "pipeline_ratio": 0.8783946891973446,
+        "rent_to_income": 0.18009367681498828,
+        "price_to_income": 4.661397345823575,
+        "unemployment_rate": 0.027691685756636573,
+        "pre1980_share": 0.25614817355513636,
+        "overcrowded_share": 0.032830555455559955,
+        "attached_share": 0.08917852855427885,
+        "multifamily_share": 0.16353970159492368
+      },
+      "overlap_share": 1.0
+    },
+    {
+      "geoid": "4955210",
+      "level": "place",
+      "name": "North Salt Lake city, Utah",
+      "vintage": 2024,
+      "population": 23474,
+      "pop_trend": {
+        "2019": 20402,
+        "2020": 20721,
+        "2021": 21411,
+        "2022": 21875,
+        "2023": 23239,
+        "2024": 23474
+      },
+      "series": {
+        "2019": {
+          "population": 20402,
+          "median_hh_income": 85185,
+          "median_gross_rent": 1158,
+          "median_home_value": 303200,
+          "vacancy_rate": 0.030036630036630037,
+          "unemployment_rate": 0.024566984800282785,
+          "rent_to_income": 0.16312731114632859,
+          "price_to_income": 3.5593120854610554
+        },
+        "2020": {
+          "population": 20721,
+          "median_hh_income": 80064,
+          "median_gross_rent": 1268,
+          "median_home_value": 338400,
+          "vacancy_rate": 0.022557431497370606,
+          "unemployment_rate": 0.02884530824026031,
+          "rent_to_income": 0.19004796163069546,
+          "price_to_income": 4.226618705035971
+        },
+        "2021": {
+          "population": 21411,
+          "median_hh_income": 84661,
+          "median_gross_rent": 1305,
+          "median_home_value": 364100,
+          "vacancy_rate": 0.033342189160467585,
+          "unemployment_rate": 0.03166838311019567,
+          "rent_to_income": 0.18497301000460661,
+          "price_to_income": 4.300681541677986
+        },
+        "2022": {
+          "population": 21875,
+          "median_hh_income": 94365,
+          "median_gross_rent": 1507,
+          "median_home_value": 427800,
+          "vacancy_rate": 0.03219575016097875,
+          "unemployment_rate": 0.03107530417625781,
+          "rent_to_income": 0.19163884914957877,
+          "price_to_income": 4.533460499125735
+        },
+        "2023": {
+          "population": 23239,
+          "median_hh_income": 106885,
+          "median_gross_rent": 1613,
+          "median_home_value": 469800,
+          "vacancy_rate": 0.027825871877318824,
+          "unemployment_rate": 0.04160174509192895,
+          "rent_to_income": 0.1810918276652477,
+          "price_to_income": 4.395378210225943
+        },
+        "2024": {
+          "population": 23474,
+          "median_hh_income": 101447,
+          "median_gross_rent": 1667,
+          "median_home_value": 497700,
+          "vacancy_rate": 0.024785394752750576,
+          "unemployment_rate": 0.03899892522647014,
+          "rent_to_income": 0.19718670833045826,
+          "price_to_income": 4.906010034796495
+        }
+      },
+      "metrics": {
+        "population": 23474,
+        "median_age": 32.7,
+        "median_hh_income": 101447,
+        "per_capita_income": 43892,
+        "median_gross_rent": 1667,
+        "median_home_value": 497700,
+        "housing_units": 8271,
+        "occupied_units": 8066,
+        "vacant_units": 205,
+        "owner_occupied": 5388,
+        "renter_occupied": 2678,
+        "tenure_total": 8066,
+        "pop_under5": 1754,
+        "pop_5to9": 1782,
+        "labor_force": 13026,
+        "employed": 12518,
+        "unemployed": 508,
+        "units_1_detached": 4881,
+        "units_1_attached": 626,
+        "units_2": 99,
+        "units_3_4": 574,
+        "units_5plus": 1672,
+        "units_mobile": 419,
+        "units_structure_total": 8271,
+        "built_total": 8271,
+        "built_pre1980": 2264,
+        "crowd_total": 8066,
+        "overcrowded": 497,
+        "income_distribution": [
+          {
+            "label": "< $10k",
+            "count": 300
+          },
+          {
+            "label": "$10-15k",
+            "count": 46
+          },
+          {
+            "label": "$15-20k",
+            "count": 133
+          },
+          {
+            "label": "$20-25k",
+            "count": 59
+          },
+          {
+            "label": "$25-30k",
+            "count": 72
+          },
+          {
+            "label": "$30-35k",
+            "count": 108
+          },
+          {
+            "label": "$35-40k",
+            "count": 143
+          },
+          {
+            "label": "$40-45k",
+            "count": 333
+          },
+          {
+            "label": "$45-50k",
+            "count": 205
+          },
+          {
+            "label": "$50-60k",
+            "count": 591
+          },
+          {
+            "label": "$60-75k",
+            "count": 815
+          },
+          {
+            "label": "$75-100k",
+            "count": 1129
+          },
+          {
+            "label": "$100-125k",
+            "count": 940
+          },
+          {
+            "label": "$125-150k",
+            "count": 947
+          },
+          {
+            "label": "$150-200k",
+            "count": 1042
+          },
+          {
+            "label": "$200k+",
+            "count": 1203
+          }
+        ]
+      },
+      "moe": {
+        "population": 35,
+        "median_age": 2.1,
+        "median_hh_income": 9849,
+        "per_capita_income": 3701,
+        "median_gross_rent": 99,
+        "median_home_value": 27581,
+        "housing_units": 411,
+        "occupied_units": 410,
+        "vacant_units": 125,
+        "owner_occupied": 480,
+        "renter_occupied": 355,
+        "tenure_total": 410,
+        "labor_force": 581,
+        "employed": 636,
+        "unemployed": 224
+      },
+      "derived": {
+        "growth_1y": 0.010112311200998321,
+        "growth_3y": 0.0963523422539816,
+        "growth_5y": 0.15057347318890305,
+        "vacancy_rate": 0.024785394752750576,
+        "owner_share": 0.6679890900074387,
+        "renter_share": 0.3320109099925614,
+        "pipeline_ratio": 0.9842873176206509,
+        "rent_to_income": 0.19718670833045826,
+        "price_to_income": 4.906010034796495,
+        "unemployment_rate": 0.03899892522647014,
+        "pre1980_share": 0.2737274815620844,
+        "overcrowded_share": 0.06161666253409373,
+        "attached_share": 0.15705476967718535,
+        "multifamily_share": 0.20215209769072665
+      },
+      "overlap_share": 1.0
+    },
+    {
+      "geoid": "4971180",
+      "level": "place",
+      "name": "South Weber city, Utah",
+      "vintage": 2024,
+      "population": 8115,
+      "pop_trend": {
+        "2019": 7381,
+        "2020": 7631,
+        "2021": 7801,
+        "2022": 7939,
+        "2023": 8037,
+        "2024": 8115
+      },
+      "series": {
+        "2019": {
+          "population": 7381,
+          "median_hh_income": 107848,
+          "median_gross_rent": 1341,
+          "median_home_value": 337800,
+          "vacancy_rate": 0.0411275415896488,
+          "unemployment_rate": 0.056485949474879366,
+          "rent_to_income": 0.14920999925821526,
+          "price_to_income": 3.132186039611305
+        },
+        "2020": {
+          "population": 7631,
+          "median_hh_income": 115639,
+          "median_gross_rent": 1227,
+          "median_home_value": 362700,
+          "vacancy_rate": 0.027777777777777776,
+          "unemployment_rate": 0.052400619514713476,
+          "rent_to_income": 0.12732728577728966,
+          "price_to_income": 3.1364850958586636
+        },
+        "2021": {
+          "population": 7801,
+          "median_hh_income": 120365,
+          "median_gross_rent": 1608,
+          "median_home_value": 376200,
+          "vacancy_rate": 0.013071895424836602,
+          "unemployment_rate": 0.035423037716615695,
+          "rent_to_income": 0.16031238316786442,
+          "price_to_income": 3.1254932912391475
+        },
+        "2022": {
+          "population": 7939,
+          "median_hh_income": 130769,
+          "median_gross_rent": 2000,
+          "median_home_value": 458700,
+          "vacancy_rate": 0.011168384879725086,
+          "unemployment_rate": 0.026994744386048732,
+          "rent_to_income": 0.18352973564070996,
+          "price_to_income": 3.507712072433069
+        },
+        "2023": {
+          "population": 8037,
+          "median_hh_income": 132667,
+          "median_gross_rent": 1450,
+          "median_home_value": 488700,
+          "vacancy_rate": 0.010067114093959731,
+          "unemployment_rate": 0.03032508491023775,
+          "rent_to_income": 0.13115544935816745,
+          "price_to_income": 3.683659086283703
+        },
+        "2024": {
+          "population": 8115,
+          "median_hh_income": 138600,
+          "median_gross_rent": 1469,
+          "median_home_value": 549200,
+          "vacancy_rate": 0.006237006237006237,
+          "unemployment_rate": 0.013123359580052493,
+          "rent_to_income": 0.12718614718614718,
+          "price_to_income": 3.9624819624819625
+        }
+      },
+      "metrics": {
+        "population": 8115,
+        "median_age": 34.4,
+        "median_hh_income": 138600,
+        "per_capita_income": 42924,
+        "median_gross_rent": 1469,
+        "median_home_value": 549200,
+        "housing_units": 2405,
+        "occupied_units": 2390,
+        "vacant_units": 15,
+        "owner_occupied": 2271,
+        "renter_occupied": 119,
+        "tenure_total": 2390,
+        "pop_under5": 655,
+        "pop_5to9": 520,
+        "labor_force": 4191,
+        "employed": 4136,
+        "unemployed": 55,
+        "units_1_detached": 2045,
+        "units_1_attached": 223,
+        "units_2": 45,
+        "units_3_4": 41,
+        "units_5plus": 51,
+        "units_mobile": 0,
+        "units_structure_total": 2405,
+        "built_total": 2405,
+        "built_pre1980": 332,
+        "crowd_total": 2390,
+        "overcrowded": 0,
+        "income_distribution": [
+          {
+            "label": "< $10k",
+            "count": 38
+          },
+          {
+            "label": "$10-15k",
+            "count": 28
+          },
+          {
+            "label": "$15-20k",
+            "count": 9
+          },
+          {
+            "label": "$20-25k",
+            "count": 52
+          },
+          {
+            "label": "$25-30k",
+            "count": 47
+          },
+          {
+            "label": "$30-35k",
+            "count": 0
+          },
+          {
+            "label": "$35-40k",
+            "count": 15
+          },
+          {
+            "label": "$40-45k",
+            "count": 18
+          },
+          {
+            "label": "$45-50k",
+            "count": 70
+          },
+          {
+            "label": "$50-60k",
+            "count": 74
+          },
+          {
+            "label": "$60-75k",
+            "count": 240
+          },
+          {
+            "label": "$75-100k",
+            "count": 219
+          },
+          {
+            "label": "$100-125k",
+            "count": 247
+          },
+          {
+            "label": "$125-150k",
+            "count": 245
+          },
+          {
+            "label": "$150-200k",
+            "count": 737
+          },
+          {
+            "label": "$200k+",
+            "count": 351
+          }
+        ]
+      },
+      "moe": {
+        "population": 34,
+        "median_age": 3,
+        "median_hh_income": 15060,
+        "per_capita_income": 3937,
+        "median_gross_rent": 711,
+        "median_home_value": 42170,
+        "housing_units": 187,
+        "occupied_units": 184,
+        "vacant_units": 25,
+        "owner_occupied": 178,
+        "renter_occupied": 86,
+        "tenure_total": 184,
+        "labor_force": 398,
+        "employed": 400,
+        "unemployed": 45
+      },
+      "derived": {
+        "growth_1y": 0.009705113848450915,
+        "growth_3y": 0.040251249839764136,
+        "growth_5y": 0.09944451971277604,
+        "vacancy_rate": 0.006237006237006237,
+        "owner_share": 0.9502092050209205,
+        "renter_share": 0.0497907949790795,
+        "pipeline_ratio": 1.2596153846153846,
+        "rent_to_income": 0.12718614718614718,
+        "price_to_income": 3.9624819624819625,
+        "unemployment_rate": 0.013123359580052493,
+        "pre1980_share": 0.13804573804573805,
+        "overcrowded_share": 0.0,
+        "attached_share": 0.1284823284823285,
+        "multifamily_share": 0.021205821205821207
+      },
+      "overlap_share": 1.0
+    },
+    {
+      "geoid": "4974480",
+      "level": "place",
+      "name": "Sunset city, Utah",
+      "vintage": 2024,
+      "population": 5587,
+      "pop_trend": {
+        "2019": 5278,
+        "2020": 5309,
+        "2021": 5454,
+        "2022": 5443,
+        "2023": 5567,
+        "2024": 5587
+      },
+      "series": {
+        "2019": {
+          "population": 5278,
+          "median_hh_income": 62281,
+          "median_gross_rent": 858,
+          "median_home_value": 166700,
+          "vacancy_rate": 0.05304740406320542,
+          "unemployment_rate": 0.04530138524897042,
+          "rent_to_income": 0.16531526468746488,
+          "price_to_income": 2.676578731876495
+        },
+        "2020": {
+          "population": 5309,
+          "median_hh_income": 63697,
+          "median_gross_rent": 962,
+          "median_home_value": 181800,
+          "vacancy_rate": 0.04045893719806763,
+          "unemployment_rate": 0.04259927797833935,
+          "rent_to_income": 0.18123302510322306,
+          "price_to_income": 2.8541375574987833
+        },
+        "2021": {
+          "population": 5454,
+          "median_hh_income": 62950,
+          "median_gross_rent": 968,
+          "median_home_value": 213200,
+          "vacancy_rate": 0.0412071967498549,
+          "unemployment_rate": 0.036828135368281355,
+          "rent_to_income": 0.184527402700556,
+          "price_to_income": 3.3868149324861
+        },
+        "2022": {
+          "population": 5443,
+          "median_hh_income": 64604,
+          "median_gross_rent": 1046,
+          "median_home_value": 256600,
+          "vacancy_rate": 0.025146198830409357,
+          "unemployment_rate": 0.030697364030697363,
+          "rent_to_income": 0.19429137514704972,
+          "price_to_income": 3.971890285431243
+        },
+        "2023": {
+          "population": 5567,
+          "median_hh_income": 74250,
+          "median_gross_rent": 1166,
+          "median_home_value": 296900,
+          "vacancy_rate": 0.015160022459292532,
+          "unemployment_rate": 0.027904155292690323,
+          "rent_to_income": 0.18844444444444444,
+          "price_to_income": 3.998653198653199
+        },
+        "2024": {
+          "population": 5587,
+          "median_hh_income": 76364,
+          "median_gross_rent": 1156,
+          "median_home_value": 332500,
+          "vacancy_rate": 0.038525963149078725,
+          "unemployment_rate": 0.028857837181044958,
+          "rent_to_income": 0.18165627782724844,
+          "price_to_income": 4.354145932638416
+        }
+      },
+      "metrics": {
+        "population": 5587,
+        "median_age": 30.4,
+        "median_hh_income": 76364,
+        "per_capita_income": 29527,
+        "median_gross_rent": 1156,
+        "median_home_value": 332500,
+        "housing_units": 1791,
+        "occupied_units": 1722,
+        "vacant_units": 69,
+        "owner_occupied": 1115,
+        "renter_occupied": 607,
+        "tenure_total": 1722,
+        "pop_under5": 397,
+        "pop_5to9": 371,
+        "labor_force": 3292,
+        "employed": 3197,
+        "unemployed": 95,
+        "units_1_detached": 1271,
+        "units_1_attached": 105,
+        "units_2": 110,
+        "units_3_4": 172,
+        "units_5plus": 133,
+        "units_mobile": 0,
+        "units_structure_total": 1791,
+        "built_total": 1791,
+        "built_pre1980": 1587,
+        "crowd_total": 1722,
+        "overcrowded": 102,
+        "income_distribution": [
+          {
+            "label": "< $10k",
+            "count": 26
+          },
+          {
+            "label": "$10-15k",
+            "count": 61
+          },
+          {
+            "label": "$15-20k",
+            "count": 2
+          },
+          {
+            "label": "$20-25k",
+            "count": 0
+          },
+          {
+            "label": "$25-30k",
+            "count": 71
+          },
+          {
+            "label": "$30-35k",
+            "count": 48
+          },
+          {
+            "label": "$35-40k",
+            "count": 100
+          },
+          {
+            "label": "$40-45k",
+            "count": 80
+          },
+          {
+            "label": "$45-50k",
+            "count": 96
+          },
+          {
+            "label": "$50-60k",
+            "count": 209
+          },
+          {
+            "label": "$60-75k",
+            "count": 138
+          },
+          {
+            "label": "$75-100k",
+            "count": 293
+          },
+          {
+            "label": "$100-125k",
+            "count": 229
+          },
+          {
+            "label": "$125-150k",
+            "count": 183
+          },
+          {
+            "label": "$150-200k",
+            "count": 115
+          },
+          {
+            "label": "$200k+",
+            "count": 71
+          }
+        ]
+      },
+      "moe": {
+        "population": 492,
+        "median_age": 2.2,
+        "median_hh_income": 13558,
+        "per_capita_income": 3110,
+        "median_gross_rent": 88,
+        "median_home_value": 14034,
+        "housing_units": 182,
+        "occupied_units": 184,
+        "vacant_units": 75,
+        "owner_occupied": 182,
+        "renter_occupied": 166,
+        "tenure_total": 184,
+        "labor_force": 371,
+        "employed": 382,
+        "unemployed": 69
+      },
+      "derived": {
+        "growth_1y": 0.0035925992455541583,
+        "growth_3y": 0.024385771910524386,
+        "growth_5y": 0.058544903372489576,
+        "vacancy_rate": 0.038525963149078725,
+        "owner_share": 0.6475029036004646,
+        "renter_share": 0.3524970963995354,
+        "pipeline_ratio": 1.0700808625336926,
+        "rent_to_income": 0.18165627782724844,
+        "price_to_income": 4.354145932638416,
+        "unemployment_rate": 0.028857837181044958,
+        "pre1980_share": 0.8860971524288107,
+        "overcrowded_share": 0.059233449477351915,
+        "attached_share": 0.21608040201005024,
+        "multifamily_share": 0.07426018983807929
+      },
+      "overlap_share": 1.0
+    },
+    {
+      "geoid": "4974810",
+      "level": "place",
+      "name": "Syracuse city, Utah",
+      "vintage": 2024,
+      "population": 35488,
+      "pop_trend": {
+        "2019": 29331,
+        "2020": 30366,
+        "2021": 31715,
+        "2022": 32798,
+        "2023": 34009,
+        "2024": 35488
+      },
+      "series": {
+        "2019": {
+          "population": 29331,
+          "median_hh_income": 99625,
+          "median_gross_rent": 1514,
+          "median_home_value": 316200,
+          "vacancy_rate": 0.0360894821406501,
+          "unemployment_rate": 0.022916666666666665,
+          "rent_to_income": 0.1823638644918444,
+          "price_to_income": 3.1739021329987454
+        },
+        "2020": {
+          "population": 30366,
+          "median_hh_income": 103522,
+          "median_gross_rent": 1766,
+          "median_home_value": 340900,
+          "vacancy_rate": 0.02801223241590214,
+          "unemployment_rate": 0.014257982462012183,
+          "rent_to_income": 0.20471010992832442,
+          "price_to_income": 3.293019841193176
+        },
+        "2021": {
+          "population": 31715,
+          "median_hh_income": 114864,
+          "median_gross_rent": 1823,
+          "median_home_value": 375800,
+          "vacancy_rate": 0.030399635659797336,
+          "unemployment_rate": 0.014055970621755096,
+          "rent_to_income": 0.19045131633932302,
+          "price_to_income": 3.2716952221757905
+        },
+        "2022": {
+          "population": 32798,
+          "median_hh_income": 125602,
+          "median_gross_rent": 2044,
+          "median_home_value": 466700,
+          "vacancy_rate": 0.03870258383727323,
+          "unemployment_rate": 0.011619373776908023,
+          "rent_to_income": 0.19528351459371665,
+          "price_to_income": 3.7157051639305108
+        },
+        "2023": {
+          "population": 34009,
+          "median_hh_income": 132459,
+          "median_gross_rent": 2006,
+          "median_home_value": 531600,
+          "vacancy_rate": 0.03398720234973251,
+          "unemployment_rate": 0.010025062656641603,
+          "rent_to_income": 0.18173170565986457,
+          "price_to_income": 4.013317328380857
+        },
+        "2024": {
+          "population": 35488,
+          "median_hh_income": 133443,
+          "median_gross_rent": 2140,
+          "median_home_value": 573300,
+          "vacancy_rate": 0.03283255397472888,
+          "unemployment_rate": 0.011737854581023801,
+          "rent_to_income": 0.1924417166880241,
+          "price_to_income": 4.2962163620422205
+        }
+      },
+      "metrics": {
+        "population": 35488,
+        "median_age": 28.7,
+        "median_hh_income": 133443,
+        "per_capita_income": 41662,
+        "median_gross_rent": 2140,
+        "median_home_value": 573300,
+        "housing_units": 10051,
+        "occupied_units": 9721,
+        "vacant_units": 330,
+        "owner_occupied": 8721,
+        "renter_occupied": 1000,
+        "tenure_total": 9721,
+        "pop_under5": 2097,
+        "pop_5to9": 4090,
+        "labor_force": 18402,
+        "employed": 18186,
+        "unemployed": 216,
+        "units_1_detached": 9373,
+        "units_1_attached": 274,
+        "units_2": 6,
+        "units_3_4": 170,
+        "units_5plus": 181,
+        "units_mobile": 28,
+        "units_structure_total": 10051,
+        "built_total": 10051,
+        "built_pre1980": 1055,
+        "crowd_total": 9721,
+        "overcrowded": 175,
+        "income_distribution": [
+          {
+            "label": "< $10k",
+            "count": 133
+          },
+          {
+            "label": "$10-15k",
+            "count": 53
+          },
+          {
+            "label": "$15-20k",
+            "count": 75
+          },
+          {
+            "label": "$20-25k",
+            "count": 74
+          },
+          {
+            "label": "$25-30k",
+            "count": 39
+          },
+          {
+            "label": "$30-35k",
+            "count": 21
+          },
+          {
+            "label": "$35-40k",
+            "count": 229
+          },
+          {
+            "label": "$40-45k",
+            "count": 56
+          },
+          {
+            "label": "$45-50k",
+            "count": 123
+          },
+          {
+            "label": "$50-60k",
+            "count": 322
+          },
+          {
+            "label": "$60-75k",
+            "count": 648
+          },
+          {
+            "label": "$75-100k",
+            "count": 1145
+          },
+          {
+            "label": "$100-125k",
+            "count": 1342
+          },
+          {
+            "label": "$125-150k",
+            "count": 1440
+          },
+          {
+            "label": "$150-200k",
+            "count": 1892
+          },
+          {
+            "label": "$200k+",
+            "count": 2129
+          }
+        ]
+      },
+      "moe": {
+        "population": 50,
+        "median_age": 1.8,
+        "median_hh_income": 4452,
+        "per_capita_income": 2689,
+        "median_gross_rent": 102,
+        "median_home_value": 14033,
+        "housing_units": 366,
+        "occupied_units": 322,
+        "vacant_units": 189,
+        "owner_occupied": 507,
+        "renter_occupied": 366,
+        "tenure_total": 322,
+        "labor_force": 1146,
+        "employed": 1153,
+        "unemployed": 107
+      },
+      "derived": {
+        "growth_1y": 0.043488488341321414,
+        "growth_3y": 0.11896578905880498,
+        "growth_5y": 0.20991442501108043,
+        "vacancy_rate": 0.03283255397472888,
+        "owner_share": 0.8971299249048452,
+        "renter_share": 0.10287007509515482,
+        "pipeline_ratio": 0.5127139364303178,
+        "rent_to_income": 0.1924417166880241,
+        "price_to_income": 4.2962163620422205,
+        "unemployment_rate": 0.011737854581023801,
+        "pre1980_share": 0.10496468013133022,
+        "overcrowded_share": 0.018002263141652094,
+        "attached_share": 0.04477166451099393,
+        "multifamily_share": 0.01800815839219978
+      },
+      "overlap_share": 1.0
+    },
+    {
+      "geoid": "4982840",
+      "level": "place",
+      "name": "West Bountiful city, Utah",
+      "vintage": 2024,
+      "population": 5915,
+      "pop_trend": {
+        "2019": 5627,
+        "2020": 5724,
+        "2021": 5871,
+        "2022": 5905,
+        "2023": 5920,
+        "2024": 5915
+      },
+      "series": {
+        "2019": {
+          "population": 5627,
+          "median_hh_income": 95652,
+          "median_gross_rent": 1374,
+          "median_home_value": 314500,
+          "vacancy_rate": 0.006232294617563739,
+          "unemployment_rate": 0.02982681205901219,
+          "rent_to_income": 0.17237485886337975,
+          "price_to_income": 3.287960523564588
+        },
+        "2020": {
+          "population": 5724,
+          "median_hh_income": 99797,
+          "median_gross_rent": 1607,
+          "median_home_value": 342600,
+          "vacancy_rate": 0.0071154898741105635,
+          "unemployment_rate": 0.022447043945621244,
+          "rent_to_income": 0.19323226149082637,
+          "price_to_income": 3.432968926921651
+        },
+        "2021": {
+          "population": 5871,
+          "median_hh_income": 110906,
+          "median_gross_rent": 1578,
+          "median_home_value": 390700,
+          "vacancy_rate": 0.007878151260504201,
+          "unemployment_rate": 0.008763060330299966,
+          "rent_to_income": 0.17073918453465098,
+          "price_to_income": 3.52280309451247
+        },
+        "2022": {
+          "population": 5905,
+          "median_hh_income": 123379,
+          "median_gross_rent": 1574,
+          "median_home_value": 448000,
+          "vacancy_rate": 0.021134020618556702,
+          "unemployment_rate": 0.013917175831636116,
+          "rent_to_income": 0.15308926154369867,
+          "price_to_income": 3.63108794851636
+        },
+        "2023": {
+          "population": 5920,
+          "median_hh_income": 127344,
+          "median_gross_rent": 1632,
+          "median_home_value": 530500,
+          "vacancy_rate": 0.018867924528301886,
+          "unemployment_rate": 0.009048136083966703,
+          "rent_to_income": 0.15378816434225406,
+          "price_to_income": 4.165881392134691
+        },
+        "2024": {
+          "population": 5915,
+          "median_hh_income": 135179,
+          "median_gross_rent": 1547,
+          "median_home_value": 579400,
+          "vacancy_rate": 0.0591745400298359,
+          "unemployment_rate": 0.018721299894030378,
+          "rent_to_income": 0.1373290229991345,
+          "price_to_income": 4.2861687096368515
+        }
+      },
+      "metrics": {
+        "population": 5915,
+        "median_age": 42.3,
+        "median_hh_income": 135179,
+        "per_capita_income": 49903,
+        "median_gross_rent": 1547,
+        "median_home_value": 579400,
+        "housing_units": 2011,
+        "occupied_units": 1892,
+        "vacant_units": 119,
+        "owner_occupied": 1655,
+        "renter_occupied": 237,
+        "tenure_total": 1892,
+        "pop_under5": 356,
+        "pop_5to9": 622,
+        "labor_force": 2831,
+        "employed": 2778,
+        "unemployed": 53,
+        "units_1_detached": 1844,
+        "units_1_attached": 110,
+        "units_2": 0,
+        "units_3_4": 0,
+        "units_5plus": 0,
+        "units_mobile": 57,
+        "units_structure_total": 2011,
+        "built_total": 2011,
+        "built_pre1980": 925,
+        "crowd_total": 1892,
+        "overcrowded": 41,
+        "income_distribution": [
+          {
+            "label": "< $10k",
+            "count": 57
+          },
+          {
+            "label": "$10-15k",
+            "count": 28
+          },
+          {
+            "label": "$15-20k",
+            "count": 21
+          },
+          {
+            "label": "$20-25k",
+            "count": 26
+          },
+          {
+            "label": "$25-30k",
+            "count": 58
+          },
+          {
+            "label": "$30-35k",
+            "count": 0
+          },
+          {
+            "label": "$35-40k",
+            "count": 25
+          },
+          {
+            "label": "$40-45k",
+            "count": 38
+          },
+          {
+            "label": "$45-50k",
+            "count": 0
+          },
+          {
+            "label": "$50-60k",
+            "count": 87
+          },
+          {
+            "label": "$60-75k",
+            "count": 108
+          },
+          {
+            "label": "$75-100k",
+            "count": 147
+          },
+          {
+            "label": "$100-125k",
+            "count": 331
+          },
+          {
+            "label": "$125-150k",
+            "count": 185
+          },
+          {
+            "label": "$150-200k",
+            "count": 421
+          },
+          {
+            "label": "$200k+",
+            "count": 360
+          }
+        ]
+      },
+      "moe": {
+        "population": 20,
+        "median_age": 7.2,
+        "median_hh_income": 29868,
+        "per_capita_income": 9888,
+        "median_gross_rent": 1034,
+        "median_home_value": 43724,
+        "housing_units": 177,
+        "occupied_units": 162,
+        "vacant_units": 122,
+        "owner_occupied": 185,
+        "renter_occupied": 133,
+        "tenure_total": 162,
+        "labor_force": 323,
+        "employed": 326,
+        "unemployed": 52
+      },
+      "derived": {
+        "growth_1y": -0.0008445945945945946,
+        "growth_3y": 0.007494464316130131,
+        "growth_5y": 0.05118180202594633,
+        "vacancy_rate": 0.0591745400298359,
+        "owner_share": 0.8747357293868921,
+        "renter_share": 0.12526427061310783,
+        "pipeline_ratio": 0.572347266881029,
+        "rent_to_income": 0.1373290229991345,
+        "price_to_income": 4.2861687096368515,
+        "unemployment_rate": 0.018721299894030378,
+        "pre1980_share": 0.45997016409746394,
+        "overcrowded_share": 0.021670190274841437,
+        "attached_share": 0.05469915464942814,
+        "multifamily_share": 0.0
+      },
+      "overlap_share": 1.0
+    },
+    {
+      "geoid": "4983390",
+      "level": "place",
+      "name": "West Point city, Utah",
+      "vintage": 2024,
+      "population": 11929,
+      "pop_trend": {
+        "2019": 10615,
+        "2020": 10829,
+        "2021": 10963,
+        "2022": 11226,
+        "2023": 11559,
+        "2024": 11929
+      },
+      "series": {
+        "2019": {
+          "population": 10615,
+          "median_hh_income": 92655,
+          "median_gross_rent": 1515,
+          "median_home_value": 254500,
+          "vacancy_rate": 0.008953168044077135,
+          "unemployment_rate": 0.01568844592100406,
+          "rent_to_income": 0.19621175327829043,
+          "price_to_income": 2.7467486913820087
+        },
+        "2020": {
+          "population": 10829,
+          "median_hh_income": 99226,
+          "median_gross_rent": 1505,
+          "median_home_value": 302400,
+          "vacancy_rate": 0.011284434118818453,
+          "unemployment_rate": 0.010166209456188478,
+          "rent_to_income": 0.18200874770725414,
+          "price_to_income": 3.04758833370286
+        },
+        "2021": {
+          "population": 10963,
+          "median_hh_income": 103975,
+          "median_gross_rent": 1235,
+          "median_home_value": 335100,
+          "vacancy_rate": 0.0,
+          "unemployment_rate": 0.010306009196131283,
+          "rent_to_income": 0.14253426304400096,
+          "price_to_income": 3.222890117816783
+        },
+        "2022": {
+          "population": 11226,
+          "median_hh_income": 114801,
+          "median_gross_rent": 1541,
+          "median_home_value": 376100,
+          "vacancy_rate": 0.011166617690273288,
+          "unemployment_rate": 0.009375960651706117,
+          "rent_to_income": 0.16107873624794208,
+          "price_to_income": 3.2761038666910567
+        },
+        "2023": {
+          "population": 11559,
+          "median_hh_income": 118660,
+          "median_gross_rent": 1600,
+          "median_home_value": 437800,
+          "vacancy_rate": 0.007963594994311717,
+          "unemployment_rate": 0.010415159843772602,
+          "rent_to_income": 0.16180684308107196,
+          "price_to_income": 3.689533119838193
+        },
+        "2024": {
+          "population": 11929,
+          "median_hh_income": 120687,
+          "median_gross_rent": 1783,
+          "median_home_value": 491100,
+          "vacancy_rate": 0.022270505160239002,
+          "unemployment_rate": 0.012280701754385965,
+          "rent_to_income": 0.17728504312809168,
+          "price_to_income": 4.069203808198066
+        }
+      },
+      "metrics": {
+        "population": 11929,
+        "median_age": 33.9,
+        "median_hh_income": 120687,
+        "per_capita_income": 43310,
+        "median_gross_rent": 1783,
+        "median_home_value": 491100,
+        "housing_units": 3682,
+        "occupied_units": 3600,
+        "vacant_units": 82,
+        "owner_occupied": 3176,
+        "renter_occupied": 424,
+        "tenure_total": 3600,
+        "pop_under5": 509,
+        "pop_5to9": 746,
+        "labor_force": 6840,
+        "employed": 6756,
+        "unemployed": 84,
+        "units_1_detached": 3302,
+        "units_1_attached": 166,
+        "units_2": 75,
+        "units_3_4": 63,
+        "units_5plus": 76,
+        "units_mobile": 0,
+        "units_structure_total": 3682,
+        "built_total": 3682,
+        "built_pre1980": 610,
+        "crowd_total": 3600,
+        "overcrowded": 36,
+        "income_distribution": [
+          {
+            "label": "< $10k",
+            "count": 25
+          },
+          {
+            "label": "$10-15k",
+            "count": 15
+          },
+          {
+            "label": "$15-20k",
+            "count": 0
+          },
+          {
+            "label": "$20-25k",
+            "count": 41
+          },
+          {
+            "label": "$25-30k",
+            "count": 95
+          },
+          {
+            "label": "$30-35k",
+            "count": 91
+          },
+          {
+            "label": "$35-40k",
+            "count": 53
+          },
+          {
+            "label": "$40-45k",
+            "count": 22
+          },
+          {
+            "label": "$45-50k",
+            "count": 71
+          },
+          {
+            "label": "$50-60k",
+            "count": 166
+          },
+          {
+            "label": "$60-75k",
+            "count": 248
+          },
+          {
+            "label": "$75-100k",
+            "count": 505
+          },
+          {
+            "label": "$100-125k",
+            "count": 657
+          },
+          {
+            "label": "$125-150k",
+            "count": 565
+          },
+          {
+            "label": "$150-200k",
+            "count": 449
+          },
+          {
+            "label": "$200k+",
+            "count": 597
+          }
+        ]
+      },
+      "moe": {
+        "population": 28,
+        "median_age": 4.2,
+        "median_hh_income": 10156,
+        "per_capita_income": 4863,
+        "median_gross_rent": 186,
+        "median_home_value": 35457,
+        "housing_units": 251,
+        "occupied_units": 216,
+        "vacant_units": 88,
+        "owner_occupied": 331,
+        "renter_occupied": 217,
+        "tenure_total": 216,
+        "labor_force": 541,
+        "employed": 540,
+        "unemployed": 67
+      },
+      "derived": {
+        "growth_1y": 0.032009689419499956,
+        "growth_3y": 0.08811456718051629,
+        "growth_5y": 0.12378709373528027,
+        "vacancy_rate": 0.022270505160239002,
+        "owner_share": 0.8822222222222222,
+        "renter_share": 0.11777777777777777,
+        "pipeline_ratio": 0.6823056300268097,
+        "rent_to_income": 0.17728504312809168,
+        "price_to_income": 4.069203808198066,
+        "unemployment_rate": 0.012280701754385965,
+        "pre1980_share": 0.1656708310700706,
+        "overcrowded_share": 0.01,
+        "attached_share": 0.08256382400869093,
+        "multifamily_share": 0.020640956002172733
+      },
+      "overlap_share": 1.0
+    },
+    {
+      "geoid": "4985370",
+      "level": "place",
+      "name": "Woods Cross city, Utah",
+      "vintage": 2024,
+      "population": 11531,
+      "pop_trend": {
+        "2019": 11340,
+        "2020": 11423,
+        "2021": 11372,
+        "2022": 11432,
+        "2023": 11490,
+        "2024": 11531
+      },
+      "series": {
+        "2019": {
+          "population": 11340,
+          "median_hh_income": 77433,
+          "median_gross_rent": 1243,
+          "median_home_value": 268700,
+          "vacancy_rate": 0.06309233685350664,
+          "unemployment_rate": 0.03469387755102041,
+          "rent_to_income": 0.19263104877765294,
+          "price_to_income": 3.470096728784885
+        },
+        "2020": {
+          "population": 11423,
+          "median_hh_income": 85453,
+          "median_gross_rent": 1184,
+          "median_home_value": 299500,
+          "vacancy_rate": 0.035918367346938776,
+          "unemployment_rate": 0.020502543548635732,
+          "rent_to_income": 0.16626683674066445,
+          "price_to_income": 3.504850619638866
+        },
+        "2021": {
+          "population": 11372,
+          "median_hh_income": 89441,
+          "median_gross_rent": 1213,
+          "median_home_value": 339000,
+          "vacancy_rate": 0.03303218520609825,
+          "unemployment_rate": 0.026589242053789732,
+          "rent_to_income": 0.1627441553649892,
+          "price_to_income": 3.7902080701244394
+        },
+        "2022": {
+          "population": 11432,
+          "median_hh_income": 101742,
+          "median_gross_rent": 1417,
+          "median_home_value": 419300,
+          "vacancy_rate": 0.045133991537376586,
+          "unemployment_rate": 0.022671190623072178,
+          "rent_to_income": 0.16712861944919502,
+          "price_to_income": 4.121208547109355
+        },
+        "2023": {
+          "population": 11490,
+          "median_hh_income": 115335,
+          "median_gross_rent": 1572,
+          "median_home_value": 472600,
+          "vacancy_rate": 0.03898635477582846,
+          "unemployment_rate": 0.021413276231263382,
+          "rent_to_income": 0.16355833008193524,
+          "price_to_income": 4.09762864698487
+        },
+        "2024": {
+          "population": 11531,
+          "median_hh_income": 120543,
+          "median_gross_rent": 1771,
+          "median_home_value": 497400,
+          "vacancy_rate": 0.03165266106442577,
+          "unemployment_rate": 0.023834665862120984,
+          "rent_to_income": 0.17630223239839726,
+          "price_to_income": 4.1263283641522115
+        }
+      },
+      "metrics": {
+        "population": 11531,
+        "median_age": 32.1,
+        "median_hh_income": 120543,
+        "per_capita_income": 46530,
+        "median_gross_rent": 1771,
+        "median_home_value": 497400,
+        "housing_units": 3570,
+        "occupied_units": 3457,
+        "vacant_units": 113,
+        "owner_occupied": 2799,
+        "renter_occupied": 658,
+        "tenure_total": 3457,
+        "pop_under5": 1097,
+        "pop_5to9": 957,
+        "labor_force": 6629,
+        "employed": 6471,
+        "unemployed": 158,
+        "units_1_detached": 2799,
+        "units_1_attached": 210,
+        "units_2": 41,
+        "units_3_4": 49,
+        "units_5plus": 433,
+        "units_mobile": 28,
+        "units_structure_total": 3570,
+        "built_total": 3570,
+        "built_pre1980": 899,
+        "crowd_total": 3457,
+        "overcrowded": 107,
+        "income_distribution": [
+          {
+            "label": "< $10k",
+            "count": 98
+          },
+          {
+            "label": "$10-15k",
+            "count": 8
+          },
+          {
+            "label": "$15-20k",
+            "count": 74
+          },
+          {
+            "label": "$20-25k",
+            "count": 42
+          },
+          {
+            "label": "$25-30k",
+            "count": 15
+          },
+          {
+            "label": "$30-35k",
+            "count": 14
+          },
+          {
+            "label": "$35-40k",
+            "count": 34
+          },
+          {
+            "label": "$40-45k",
+            "count": 33
+          },
+          {
+            "label": "$45-50k",
+            "count": 82
+          },
+          {
+            "label": "$50-60k",
+            "count": 123
+          },
+          {
+            "label": "$60-75k",
+            "count": 241
+          },
+          {
+            "label": "$75-100k",
+            "count": 547
+          },
+          {
+            "label": "$100-125k",
+            "count": 504
+          },
+          {
+            "label": "$125-150k",
+            "count": 457
+          },
+          {
+            "label": "$150-200k",
+            "count": 417
+          },
+          {
+            "label": "$200k+",
+            "count": 768
+          }
+        ]
+      },
+      "moe": {
+        "population": 20,
+        "median_age": 2.8,
+        "median_hh_income": 12989,
+        "per_capita_income": 5887,
+        "median_gross_rent": 165,
+        "median_home_value": 33357,
+        "housing_units": 200,
+        "occupied_units": 196,
+        "vacant_units": 103,
+        "owner_occupied": 211,
+        "renter_occupied": 194,
+        "tenure_total": 196,
+        "labor_force": 439,
+        "employed": 450,
+        "unemployed": 97
+      },
+      "derived": {
+        "growth_1y": 0.003568320278503046,
+        "growth_3y": 0.013981709461836089,
+        "growth_5y": 0.016843033509700175,
+        "vacancy_rate": 0.03165266106442577,
+        "owner_share": 0.8096615562626555,
+        "renter_share": 0.19033844373734451,
+        "pipeline_ratio": 1.1462904911180773,
+        "rent_to_income": 0.17630223239839726,
+        "price_to_income": 4.1263283641522115,
+        "unemployment_rate": 0.023834665862120984,
+        "pre1980_share": 0.2518207282913165,
+        "overcrowded_share": 0.03095169221868672,
+        "attached_share": 0.08403361344537816,
+        "multifamily_share": 0.12128851540616246
+      },
+      "overlap_share": 1.0
+    }
+  ]
+}

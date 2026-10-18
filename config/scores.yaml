@@ -1,0 +1,63 @@
+# Every derived ratio and composite score, in one place. The in-app "Score key"
+# view must match this file exactly, so nothing on screen is a black box.
+#
+# Composite scores run 0-100. Each score is the average PERCENTILE RANK of its
+# inputs among areas in the peer set (Phase 1 peer set = Davis County cities).
+# `invert: true` means lower raw values are better (e.g. a lower rent-to-income
+# ratio ranks higher).
+
+# --- Derived ratios (computed in pipeline/transform.py; documented here) ---
+derived_metrics:
+  growth_1y:         "(population[2024] - population[2023]) / population[2023]"
+  growth_3y:         "(population[2024] - population[2021]) / population[2021]"
+  growth_5y:         "(population[2024] - population[2019]) / population[2019]"
+  vacancy_rate:      "vacant_units / housing_units"
+  owner_share:       "owner_occupied / tenure_total"
+  renter_share:      "renter_occupied / tenure_total"
+  pipeline_ratio:    "pop_under5 / pop_5to9"            # > 1 means a growing under-5 pipeline
+  rent_to_income:    "median_gross_rent * 12 / median_hh_income"
+  price_to_income:   "median_home_value / median_hh_income"
+  unemployment_rate: "unemployed / labor_force"
+  pre1980_share:     "built_pre1980 / built_total"
+  overcrowded_share: "overcrowded / crowd_total"
+  attached_share:    "(units_1_attached + units_2 + units_3_4) / units_structure_total"
+  multifamily_share: "units_5plus / units_structure_total"
+  # permit_rate:     "permits_per_year / population * 1000"   # pending Building Permits Survey
+
+# --- Composite scores ---
+# Each input is either a metric name, or {metric: NAME, invert: true}.
+scores:
+  demand:
+    label: Demand
+    inputs: [growth_5y, growth_1y, pipeline_ratio]
+  affordability:
+    label: Affordability
+    inputs:
+      - {metric: rent_to_income, invert: true}
+      - {metric: price_to_income, invert: true}
+      # - {metric: income_vs_ami}        # pending HUD income limits
+  supply_tightness:
+    label: Supply tightness
+    inputs:
+      - {metric: vacancy_rate, invert: true}
+      # - {metric: permit_rate, invert: true}   # pending Building Permits Survey
+  economic:
+    label: Economic
+    inputs:
+      - median_hh_income
+      - {metric: unemployment_rate, invert: true}
+      # - employment_growth              # pending BLS QCEW
+  stock_quality:
+    label: Stock quality
+    inputs:
+      - {metric: pre1980_share, invert: true}      # newer stock ranks higher
+      - {metric: overcrowded_share, invert: true}  # less overcrowding ranks higher
+  school_demand:
+    label: School demand
+    status: pending_data                 # needs NCES enrollment (schools module)
+    inputs: [enrollment_trend, pipeline_ratio, projected_new_students]
+
+# Percentile-rank method: among the peer set, pct = rank / (n - 1) * 100 using
+# average ranks for ties; ascending unless the input is inverted. Areas missing an
+# input are scored on the inputs they do have (and flagged).
+percentile_method: average_rank

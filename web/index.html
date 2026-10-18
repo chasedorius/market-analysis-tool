@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Market Analysis — Davis County</title>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+  :root{
+    --bg:#131c30; --bg2:#0f1726; --card:#1b2740; --card2:#22304d;
+    --ink:#e7ecf7; --muted:#95a3c4; --faint:#6b7a9c; --line:#2b3a5c;
+    --accent:#1f9fd4; --good:#36c08a; --bad:#e2687a; --warn:#d8a33a;
+    /* validated dark categorical palette (fixed order) */
+    --c0:#1f9fd4; --c1:#cf6f2b; --c2:#e0539a; --c3:#8b6ef0; --c4:#15a271; --c5:#b58a1a;
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none !important}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:14px/1.45 "Segoe UI",system-ui,-apple-system,sans-serif}
+  a{color:var(--accent)}
+  .topbar{display:flex;align-items:center;gap:14px;padding:12px 20px;
+    background:var(--bg2);border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .brand{font-weight:700;font-size:16px;letter-spacing:.01em}
+  .brand span{color:var(--accent)}
+  .topbar .ctx{color:var(--muted);font-size:13px}
+  .topbar .spacer{flex:1}
+  .pill{background:var(--card);border:1px solid var(--line);border-radius:999px;
+    padding:5px 12px;color:var(--ink);font-size:13px}
+  main{max-width:1320px;margin:0 auto;padding:16px;display:grid;gap:16px;
+    grid-template-columns:1.35fr 1fr}
+  @media(max-width:1000px){main{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:14px 16px}
+  .card h2{margin:0 0 4px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--muted);font-weight:650}
+  .card .h2sub{color:var(--faint);font-size:12px;margin-bottom:10px}
+  .full{grid-column:1 / -1}
+  .row3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .row2{display:grid;grid-template-columns:1.1fr 1fr;gap:16px}
+  @media(max-width:1000px){.row3,.row2{grid-template-columns:1fr}}
+  /* chips / toggles */
+  .chips{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+  .chip{background:var(--card2);border:1px solid var(--line);color:var(--muted);
+    border-radius:999px;padding:5px 11px;font-size:12.5px;cursor:pointer;user-select:none}
+  .chip:hover{color:var(--ink)}
+  .chip.on{background:var(--accent);border-color:var(--accent);color:#06222e;font-weight:650}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;margin-left:4px}
+  .seg button{border:0;background:var(--card2);color:var(--muted);padding:5px 12px;cursor:pointer;font:inherit}
+  .seg button.on{background:var(--accent);color:#06222e;font-weight:650}
+  select{background:var(--card2);color:var(--ink);border:1px solid var(--line);
+    border-radius:8px;padding:6px 10px;font:inherit}
+  #map{height:420px;border-radius:12px;border:1px solid var(--line);background:#0c1322}
+  .leaflet-tile{filter:grayscale(.3) brightness(.78) contrast(1.02)}
+  .leaflet-container{background:#0c1322}
+  .rampbar{height:12px;border-radius:7px;margin:10px 0 4px}
+  .ramprow{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
+  .legend{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-top:8px}
+  .legend .sw{display:flex;align-items:center;gap:6px}
+  .legend i{width:13px;height:13px;border-radius:3px;display:inline-block}
+  .note{color:var(--faint);font-size:12px;margin-top:8px}
+  /* deltas */
+  .selhead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+  .selhead .name{font-size:20px;font-weight:700}
+  .selhead .pop{color:var(--muted);font-size:13px}
+  .deltas{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:8px}
+  .delta{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+  .delta .k{color:var(--faint);font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+  .delta .k b{color:var(--muted)}
+  .delta .v{font-size:22px;font-weight:700;margin-top:3px}
+  .delta .v.up{color:var(--good)} .delta .v.down{color:var(--bad)}
+  .delta .from{color:var(--faint);font-size:11px;margin-top:2px}
+  /* tables */
+  table{width:100%;border-collapse:collapse}
+  th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);font-size:13px}
+  th{color:var(--faint);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+  tbody tr.clickable{cursor:pointer}
+  tbody tr.clickable:hover{background:var(--card2)}
+  tbody tr.active{background:#24406a}
+  .kv td{border:0;padding:5px 8px}
+  .kv td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+  .kv td .moe{color:var(--faint);font-size:11px;margin-left:6px}
+  /* chart bits */
+  .chartlegend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:6px}
+  .chartlegend .dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:5px;vertical-align:middle}
+  .donuts{display:flex;gap:18px;justify-content:space-around;flex-wrap:wrap}
+  .donut-cap{text-align:center;color:var(--muted);font-size:12px;margin-top:4px}
+  .stockstats{display:flex;gap:18px;justify-content:center;margin-top:8px;flex-wrap:wrap}
+  .stockstats .s{text-align:center}
+  .stockstats .s b{display:block;font-size:18px;color:var(--ink)}
+  .stockstats .s span{color:var(--faint);font-size:11px}
+  details{margin-top:4px}
+  summary{cursor:pointer;color:var(--accent);font-weight:600}
+  code{background:#101a2e;color:#b9c6e6;padding:1px 6px;border-radius:5px;font-size:12px}
+  .defs{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;margin-top:10px;font-size:12px;color:var(--muted)}
+  .defs b{color:var(--ink)}
+  .tip{position:fixed;pointer-events:none;background:#0b1322;border:1px solid var(--line);
+    border-radius:8px;padding:6px 9px;font-size:12px;color:var(--ink);opacity:0;transition:opacity .08s;z-index:9}
+  .foot{max-width:1320px;margin:0 auto;padding:4px 16px 26px;color:var(--faint);font-size:12px}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand">◈ <span>Census</span> Market Dashboard</div>
+  <div class="ctx" id="ctx">Loading…</div>
+  <div class="spacer"></div>
+  <span class="pill" id="pillCounty">Davis County</span>
+  <span class="pill" id="pillYear">2024</span>
+</div>
+
+<main>
+  <!-- MAP -->
+  <section class="card">
+    <div class="chips" id="metricChips"></div>
+    <div class="chips" style="margin-top:-4px">
+      <span class="seg" id="growthToggle">
+        <button data-p="1">1Y</button><button data-p="3">3Y</button>
+        <button data-p="5" class="on">5Y</button>
+      </span>
+      <span class="note" id="metricNote" style="margin:0 0 0 6px"></span>
+    </div>
+    <div id="map"></div>
+    <div class="rampbar" id="rampbar"></div>
+    <div class="ramprow"><span id="rampLo"></span><span id="rampHi"></span></div>
+    <div class="legend" id="legend"></div>
+  </section>
+
+  <!-- DELTAS + POP TREND -->
+  <section class="card">
+    <h2>Population growth · point-in-time deltas</h2>
+    <div class="selhead"><span class="name" id="selName">—</span>
+      <span class="pop" id="selPop"></span></div>
+    <div class="deltas" id="deltas"></div>
+    <svg id="popTrend" viewBox="0 0 440 150" width="100%" height="150" role="img"></svg>
+  </section>
+
+  <!-- ROW: radar | trend | housing -->
+  <section class="full row3">
+    <div class="card">
+      <h2>Market profile vs. peers</h2>
+      <div class="h2sub" id="radarCity">—</div>
+      <svg id="radar" viewBox="0 0 300 260" width="100%" height="260" role="img"></svg>
+      <div class="chartlegend">
+        <span><span class="dot" style="background:var(--accent)"></span><b id="radarName">city</b></span>
+        <span><span class="dot" style="background:#5f6f90"></span>Peer median (50)</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Trend 2019 → 2024</h2>
+      <div class="chips" id="trendChips"></div>
+      <svg id="trend" viewBox="0 0 440 210" width="100%" height="210" role="img"></svg>
+      <div class="chartlegend" id="trendLegend"></div>
+    </div>
+
+    <div class="card">
+      <h2>Housing stock</h2>
+      <div class="donuts">
+        <div><svg id="donutStruct" viewBox="0 0 150 150" width="150" height="150"></svg>
+          <div class="donut-cap">Structure type</div></div>
+        <div><svg id="donutTenure" viewBox="0 0 150 150" width="150" height="150"></svg>
+          <div class="donut-cap">Tenure split</div></div>
+      </div>
+      <div class="chartlegend" id="structLegend"></div>
+      <div class="stockstats">
+        <div class="s"><b id="pre1980">—</b><span>Pre-1980 stock</span></div>
+        <div class="s"><b id="overcrowd">—</b><span>Overcrowded (&gt;1/room)</span></div>
+        <div class="s"><b id="attached">—</b><span>Attached/townhome</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROW: income distribution | metrics table -->
+  <section class="full row2">
+    <div class="card">
+      <h2>Income distribution</h2>
+      <div class="h2sub" id="incCap"></div>
+      <svg id="incDist" viewBox="0 0 440 260" width="100%" height="260" role="img"></svg>
+    </div>
+    <div class="card">
+      <h2>Selected area · key metrics</h2>
+      <table class="kv"><tbody id="selMetrics"></tbody></table>
+    </div>
+  </section>
+
+  <!-- SCREENER -->
+  <section class="card full">
+    <h2>Cities ranked by selected metric</h2>
+    <table>
+      <thead><tr>
+        <th>#</th><th>City</th><th class="n" id="rankHdr">Value</th><th class="n">Pop</th>
+        <th class="n">Demand</th><th class="n">Afford</th><th class="n">Supply</th>
+        <th class="n">Econ</th><th class="n">Stock</th>
+      </tr></thead>
+      <tbody id="rankBody"></tbody>
+    </table>
+  </section>
+
+  <!-- SCORE KEY -->
+  <section class="card full">
+    <h2>Score key</h2>
+    <details><summary>How every score and ratio is computed</summary>
+      <div id="scoreKey" style="margin-top:10px"></div>
+      <p class="note">From <code>config/scores.yaml</code> via <code>data/score_key.json</code>.</p>
+    </details>
+  </section>
+</main>
+<div class="foot" id="foot"></div>
+<div class="tip" id="tip"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
+        integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+const DATA="../data";
+const CAT=["#1f9fd4","#cf6f2b","#e0539a","#8b6ef0","#15a271","#b58a1a"];
+const SEQ=["#163243","#1a4c63","#1f7793","#2aa7d0","#6cc8e6","#b3e2f3"]; // dark→light cyan
+const SVGNS="http://www.w3.org/2000/svg";
+
+// metrics shown on the map (chips). growth uses the diverging scale.
+const MAP_METRICS={
+  pop_growth:{label:"Pop. Growth",growth:true,fmt:"pct",
+    note:"Percent population change over the selected period (ACS 5-yr estimates). Red = decline, green = growth."},
+  median_hh_income:{label:"HH Income",fmt:"usd0"},
+  median_gross_rent:{label:"Median Rent",fmt:"usd0"},
+  median_home_value:{label:"Home Value",fmt:"usd0"},
+  unemployment_rate:{label:"Unemployment",fmt:"pct",derived:true,note:"ACS place-level unemployment."},
+  vacancy_rate:{label:"Vacancy",fmt:"pct",derived:true,note:"Vacant ÷ total housing units."},
+  renter_share:{label:"Renters",fmt:"pct",derived:true,note:"Renter-occupied ÷ occupied units."},
+};
+// trend-chart series (all small numbers -> one shared axis; direct-labeled)
+const TREND_SERIES=[
+  {key:"rent_to_income",label:"Rent-to-income %",color:CAT[2],scale:100,on:true},
+  {key:"price_to_income",label:"Price-to-income ×",color:CAT[3],scale:1,on:true},
+  {key:"vacancy_rate",label:"Vacancy %",color:CAT[1],scale:100,on:true},
+  {key:"unemployment_rate",label:"Unemployment %",color:CAT[4],scale:100,on:true},
+];
+const RADAR_AXES=[["demand","Demand"],["affordability","Afford."],
+  ["supply_tightness","Supply"],["economic","Economic"],["stock_quality","Stock"]];
+
+const fmt={
+  usd0:v=>v==null?"—":"$"+Math.round(v).toLocaleString(),
+  pct:v=>v==null?"—":(v*100).toFixed(1)+"%",
+  ratio:v=>v==null?"—":v.toFixed(2),
+  num:v=>v==null?"—":Math.round(v).toLocaleString(),
+};
+const S={meta:{},byId:{},places:[],scores:{},geo:null,key:{},
+  metric:"pop_growth",period:5,sel:null,layer:null,map:null,
+  trendOn:Object.fromEntries(TREND_SERIES.map(s=>[s.key,s.on]))};
+
+function el(tag,attrs){const e=document.createElementNS(SVGNS,tag);
+  for(const k in attrs) e.setAttribute(k,attrs[k]); return e;}
+function short(a){return a.name.replace(/ (city|town|CDP), Utah$/,"");}
+function mval(a,key,period){
+  if(key==="pop_growth") return a.derived["growth_"+period+"y"];
+  const m=MAP_METRICS[key]; return (m&&m.derived?a.derived:a.metrics)[key];
+}
+
+async function boot(){
+  const [meta,areas,scores,key,geo]=await Promise.all([
+    fetch(`${DATA}/meta.json`).then(r=>r.json()),
+    fetch(`${DATA}/areas.json`).then(r=>r.json()),
+    fetch(`${DATA}/scores.json`).then(r=>r.json()),
+    fetch(`${DATA}/score_key.json`).then(r=>r.json()),
+    fetch(`${DATA}/geo/davis_places.geojson`).then(r=>r.json()),
+  ]);
+  S.meta=meta; S.geo=geo; S.key=key;
+  S.byId=Object.fromEntries(areas.areas.map(a=>[a.geoid,a]));
+  S.places=areas.areas.filter(a=>a.level==="place").sort((a,b)=>(b.population||0)-(a.population||0));
+  S.scores=Object.fromEntries(scores.areas.map(s=>[s.geoid,s.scores]));
+
+  document.getElementById("ctx").textContent=
+    `${meta.county} · ACS ${meta.current_vintage} 5-year · built ${meta.built_at.slice(0,10)}`;
+  document.getElementById("foot").textContent="Source: "+meta.sources.join("; ")+". "+meta.notes.join(" ");
+  document.getElementById("pillYear").textContent=meta.current_vintage;
+
+  buildMetricChips(); buildTrendChips(); buildScoreKey();
+  initMap(); select(S.places[0].geoid); refreshMetric();
+
+  document.querySelectorAll("#growthToggle button").forEach(b=>b.onclick=()=>{
+    document.querySelectorAll("#growthToggle button").forEach(x=>x.classList.remove("on"));
+    b.classList.add("on"); S.period=+b.dataset.p; refreshMetric();
+  });
+}
+
+function buildMetricChips(){
+  const box=document.getElementById("metricChips");
+  box.innerHTML=Object.entries(MAP_METRICS).map(([k,m])=>
+    `<span class="chip${k===S.metric?' on':''}" data-k="${k}">${m.label}</span>`).join("");
+  box.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{
+    S.metric=c.dataset.k;
+    box.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",x===c));
+    refreshMetric();
+  });
+}
+function buildTrendChips(){
+  const box=document.getElementById("trendChips");
+  box.innerHTML=TREND_SERIES.map(s=>
+    `<span class="chip${S.trendOn[s.key]?' on':''}" data-k="${s.key}"
+      style="${S.trendOn[s.key]?`background:${s.color};border-color:${s.color};color:#06120a`:''}">${s.label}</span>`).join("");
+  box.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{
+    S.trendOn[c.dataset.k]=!S.trendOn[c.dataset.k]; buildTrendChips(); drawTrend();
+  });
+}
+
+/* ---------- MAP ---------- */
+function initMap(){
+  S.map=L.map("map",{scrollWheelZoom:false,attributionControl:true});
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {maxZoom:18,attribution:"&copy; OpenStreetMap"}).addTo(S.map);
+}
+function bins(vals){const v=vals.filter(x=>x!=null).sort((a,b)=>a-b);
+  if(!v.length)return[];const q=p=>v[Math.min(v.length-1,Math.floor(p*v.length))];
+  return[q(1/6),q(2/6),q(3/6),q(4/6),q(5/6)];}
+function growthColor(v){
+  if(v==null)return"#2a3550";
+  if(v<-0.02)return"#c0392b"; if(v<0)return"#e07a52"; if(v<0.03)return"#8b95a6";
+  if(v<0.06)return"#74b36a"; if(v<0.12)return"#46a05c"; return"#2e8b57";}
+function seqColor(v,brk){if(v==null)return"#2a3550";let i=0;while(i<brk.length&&v>brk[i])i++;return SEQ[i];}
+function colorFor(a){const m=MAP_METRICS[S.metric];const v=mval(a,S.metric,S.period);
+  return m.growth?growthColor(v):seqColor(v,S._brk);}
+
+function refreshMetric(){
+  const m=MAP_METRICS[S.metric];
+  const vals=S.places.map(a=>mval(a,S.metric,S.period));
+  S._brk=m.growth?null:bins(vals);
+  if(S.layer)S.layer.remove();
+  S.layer=L.geoJSON(S.geo,{
+    style:f=>styleFor(f.properties.geoid),
+    onEachFeature:(f,l)=>{const a=S.byId[f.properties.geoid];
+      l.on("click",()=>select(f.properties.geoid));
+      l.on("mousemove",e=>showTip(e.originalEvent,`<b>${short(a)}</b><br>${m.label}: ${fmt[m.fmt](mval(a,S.metric,S.period))}`));
+      l.on("mouseout",hideTip);}
+  }).addTo(S.map);
+  S.map.fitBounds(S.layer.getBounds(),{padding:[14,14]});
+  document.getElementById("growthToggle").hidden=!m.growth;
+  document.getElementById("metricNote").textContent=m.note||"";
+  renderRamp(m,vals); renderRank(); highlight();
+}
+function styleFor(gid){const sel=gid===S.sel;
+  return{color:sel?"#ffffff":"#0e1626",weight:sel?3:1,fillOpacity:.85,fillColor:colorFor(S.byId[gid])};}
+function highlight(){if(!S.layer)return;
+  S.layer.eachLayer(l=>{l.setStyle(styleFor(l.feature.properties.geoid));
+    if(l.feature.properties.geoid===S.sel)l.bringToFront();});
+  document.querySelectorAll("#rankBody tr").forEach(tr=>
+    tr.classList.toggle("active",tr.dataset.geoid===S.sel));}
+function renderRamp(m,vals){
+  const bar=document.getElementById("rampbar");
+  const vv=vals.filter(x=>x!=null);
+  if(m.growth){
+    bar.style.background="linear-gradient(90deg,#c0392b,#e07a52,#8b95a6,#74b36a,#2e8b57)";
+    document.getElementById("rampLo").textContent=fmt.pct(Math.min(...vv));
+    document.getElementById("rampHi").textContent=fmt.pct(Math.max(...vv));
+    document.getElementById("legend").innerHTML="";
+  }else{
+    bar.style.background=`linear-gradient(90deg,${SEQ.join(",")})`;
+    document.getElementById("rampLo").textContent=fmt[m.fmt](Math.min(...vv));
+    document.getElementById("rampHi").textContent=fmt[m.fmt](Math.max(...vv));
+    document.getElementById("legend").innerHTML="";
+  }
+}
+
+/* ---------- SELECT + panels ---------- */
+function select(gid){
+  S.sel=gid; const a=S.byId[gid]; const d=a.derived;
+  document.getElementById("selName").textContent=short(a);
+  document.getElementById("selPop").textContent=`${fmt.num(a.population)} people · GEOID ${gid}`;
+  const card=(k,yrs,p)=>{const v=d["growth_"+p+"y"];const cls=v==null?"":v>=0?"up":"down";
+    const s=v==null?"—":(v>=0?"+":"")+(v*100).toFixed(1)+"%";
+    const base=a.pop_trend[String(2024-p)];
+    return `<div class="delta"><div class="k">${yrs}</div><div class="v ${cls}">${s}</div>
+      <div class="from">from ${fmt.num(base)}</div></div>`;};
+  document.getElementById("deltas").innerHTML=
+    card("1y","1-YR 23→24",1)+card("3y","3-YR 21→24",3)+card("5y","5-YR 19→24",5);
+
+  const rows=[
+    ["Median household income",fmt.usd0(a.metrics.median_hh_income),"± "+fmt.usd0(a.moe.median_hh_income)],
+    ["Median gross rent",fmt.usd0(a.metrics.median_gross_rent),""],
+    ["Median home value",fmt.usd0(a.metrics.median_home_value),""],
+    ["Owner / renter share",fmt.pct(d.owner_share)+" / "+fmt.pct(d.renter_share),""],
+    ["Vacancy rate",fmt.pct(d.vacancy_rate),""],
+    ["Unemployment rate",fmt.pct(d.unemployment_rate),""],
+    ["Rent-to-income",fmt.pct(d.rent_to_income),""],
+    ["Price-to-income",fmt.ratio(d.price_to_income)+"×",""],
+    ["Under-5 pipeline ratio",fmt.ratio(d.pipeline_ratio),""],
+    ["Median age",fmt.ratio(a.metrics.median_age),""],
+  ];
+  document.getElementById("selMetrics").innerHTML=rows.map(([k,v,x])=>
+    `<tr><td>${k}</td><td>${v}<span class="moe">${x}</span></td></tr>`).join("");
+
+  drawPopTrend(a); drawRadar(gid); drawTrend(); drawHousing(a); drawIncome(a); highlight();
+}
+
+/* ---------- line chart helper ---------- */
+function lineChart(svg,{series,xvals,yfmt,ymin=null}){
+  svg.innerHTML="";const W=440,H=svg===document.getElementById("popTrend")?150:210;
+  const L=46,R=12,T=12,B=26;
+  const xs=xvals, xmin=Math.min(...xs),xmax=Math.max(...xs);
+  let allY=[];series.forEach(s=>s.pts.forEach(p=>{if(p.y!=null)allY.push(p.y)}));
+  if(!allY.length){return;}
+  let lo=ymin!=null?ymin:Math.min(...allY),hi=Math.max(...allY);
+  if(lo===hi){hi=lo+1;} const pad=(hi-lo)*0.12; hi+=pad; if(ymin==null)lo-=pad;
+  const X=x=>L+(x-xmin)/(xmax-xmin||1)*(W-L-R);
+  const Y=y=>T+(1-(y-lo)/(hi-lo))*(H-T-B);
+  // gridlines + y labels
+  for(let i=0;i<=4;i++){const yv=lo+(hi-lo)*i/4;const yy=Y(yv);
+    svg.appendChild(el("line",{x1:L,y1:yy,x2:W-R,y2:yy,stroke:"#24324e","stroke-width":1}));
+    const t=el("text",{x:L-6,y:yy+3,fill:"#6b7a9c","font-size":10,"text-anchor":"end"});
+    t.textContent=yfmt(yv);svg.appendChild(t);}
+  // x labels
+  xs.forEach(xv=>{const t=el("text",{x:X(xv),y:H-8,fill:"#6b7a9c","font-size":10,"text-anchor":"middle"});
+    t.textContent=xv;svg.appendChild(t);});
+  // series
+  series.forEach(s=>{
+    const pts=s.pts.filter(p=>p.y!=null);
+    if(pts.length>1){const dpath=pts.map((p,i)=>(i?"L":"M")+X(p.x)+" "+Y(p.y)).join(" ");
+      svg.appendChild(el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":2.2}));}
+    pts.forEach(p=>svg.appendChild(el("circle",{cx:X(p.x),cy:Y(p.y),r:3,fill:s.color})));
+    if(pts.length){const last=pts[pts.length-1];
+      const t=el("text",{x:X(last.x)+5,y:Y(last.y)+3,fill:s.color,"font-size":10});
+      t.textContent=s.endLabel||"";svg.appendChild(t);}
+  });
+}
+function drawPopTrend(a){
+  const xs=Object.keys(a.pop_trend).map(Number).sort((x,y)=>x-y);
+  const pts=xs.map(y=>({x:y,y:a.pop_trend[String(y)]}));
+  lineChart(document.getElementById("popTrend"),
+    {series:[{color:CAT[0],pts,endLabel:fmt.num(pts[pts.length-1].y)}],xvals:xs,
+     yfmt:v=>Math.round(v/1000)+"k"});
+}
+function drawTrend(){
+  const a=S.byId[S.sel];const yrs=Object.keys(a.series).map(Number).sort((x,y)=>x-y);
+  const series=TREND_SERIES.filter(s=>S.trendOn[s.key]).map(s=>({
+    color:s.color,
+    pts:yrs.map(y=>({x:y,y:a.series[String(y)][s.key]==null?null:a.series[String(y)][s.key]*s.scale})),
+    endLabel:(()=>{const v=a.series["2024"][s.key];return v==null?"":(s.scale===1?v.toFixed(1):(v*100).toFixed(1));})()
+  }));
+  lineChart(document.getElementById("trend"),{series,xvals:yrs,yfmt:v=>v.toFixed(0)});
+  document.getElementById("trendLegend").innerHTML=TREND_SERIES.map(s=>
+    `<span style="opacity:${S.trendOn[s.key]?1:.4}"><span class="dot" style="background:${s.color}"></span>${s.label}</span>`).join("");
+}
+
+/* ---------- radar ---------- */
+function drawRadar(gid){
+  const svg=document.getElementById("radar");svg.innerHTML="";
+  const cx=150,cy=128,R=92,n=RADAR_AXES.length;
+  const pt=(i,r)=>{const a=-Math.PI/2+i*2*Math.PI/n;return[cx+Math.cos(a)*r,cy+Math.sin(a)*r];};
+  [0.25,0.5,0.75,1].forEach(f=>{const poly=RADAR_AXES.map((_,i)=>pt(i,R*f).join(",")).join(" ");
+    svg.appendChild(el("polygon",{points:poly,fill:"none",stroke:f===0.5?"#4a5a7e":"#283552","stroke-dasharray":f===0.5?"4 3":"","stroke-width":1}));});
+  RADAR_AXES.forEach((ax,i)=>{const[x,y]=pt(i,R);
+    svg.appendChild(el("line",{x1:cx,y1:cy,x2:x,y2:y,stroke:"#283552","stroke-width":1}));
+    const[lx,ly]=pt(i,R+16);const t=el("text",{x:lx,y:ly,fill:"#95a3c4","font-size":11,"text-anchor":"middle","dominant-baseline":"middle"});
+    t.textContent=ax[1];svg.appendChild(t);});
+  const sc=S.scores[gid]||{};
+  const poly=RADAR_AXES.map((ax,i)=>{const v=sc[ax[0]];return pt(i,v==null?0:R*v/100).join(",");}).join(" ");
+  svg.appendChild(el("polygon",{points:poly,fill:"rgba(31,159,212,.25)",stroke:CAT[0],"stroke-width":2}));
+  RADAR_AXES.forEach((ax,i)=>{const v=sc[ax[0]];if(v==null)return;const[x,y]=pt(i,R*v/100);
+    svg.appendChild(el("circle",{cx:x,cy:y,r:3,fill:CAT[0]}));});
+  document.getElementById("radarCity").textContent=short(S.byId[gid])+" vs. the 15 Davis County cities";
+  document.getElementById("radarName").textContent=short(S.byId[gid]);
+}
+
+/* ---------- donuts + housing ---------- */
+function donut(svg,slices){
+  svg.innerHTML="";const cx=75,cy=75,r=52,w=20;let a0=-Math.PI/2;
+  const tot=slices.reduce((s,x)=>s+x.v,0)||1;
+  slices.forEach(s=>{const a1=a0+s.v/tot*2*Math.PI;
+    const x0=cx+Math.cos(a0)*r,y0=cy+Math.sin(a0)*r,x1=cx+Math.cos(a1)*r,y1=cy+Math.sin(a1)*r;
+    const large=(a1-a0)>Math.PI?1:0;
+    svg.appendChild(el("path",{d:`M ${x0} ${y0} A ${r} ${r} 0 ${large} 1 ${x1} ${y1}`,
+      fill:"none",stroke:s.c,"stroke-width":w,"stroke-linecap":"butt"}));
+    a0=a1;});
+}
+function drawHousing(a){
+  const m=a.metrics;
+  const sf=(m.units_1_detached||0)+(m.units_1_attached||0);
+  const mf=(m.units_5plus||0);const mid=(m.units_2||0)+(m.units_3_4||0);
+  const other=(m.units_mobile||0)+Math.max(0,(m.units_structure_total||0)-sf-mf-mid);
+  donut(document.getElementById("donutStruct"),
+    [{v:sf,c:CAT[0]},{v:mid,c:CAT[3]},{v:mf,c:CAT[1]},{v:other,c:CAT[5]}]);
+  donut(document.getElementById("donutTenure"),
+    [{v:m.owner_occupied||0,c:CAT[0]},{v:m.renter_occupied||0,c:CAT[1]}]);
+  document.getElementById("structLegend").innerHTML=
+    [["Single-family",CAT[0]],["2–4 units",CAT[3]],["Multifamily 5+",CAT[1]],["Mobile/other",CAT[5]],
+     ["Owner",CAT[0]],["Renter",CAT[1]]].slice(0,4).map(([l,c])=>
+      `<span><span class="dot" style="background:${c}"></span>${l}</span>`).join("");
+  document.getElementById("pre1980").textContent=fmt.pct(a.derived.pre1980_share);
+  document.getElementById("overcrowd").textContent=fmt.pct(a.derived.overcrowded_share);
+  document.getElementById("attached").textContent=fmt.pct(a.derived.attached_share);
+}
+
+/* ---------- income distribution ---------- */
+function drawIncome(a){
+  const svg=document.getElementById("incDist");svg.innerHTML="";
+  const dist=a.metrics.income_distribution;const tot=dist.reduce((s,b)=>s+(b.count||0),0)||1;
+  const W=440,H=260,L=70,R=40,T=8,B=8;const n=dist.length;const bh=(H-T-B)/n;
+  const max=Math.max(...dist.map(b=>b.count||0))||1;
+  dist.forEach((b,i)=>{const y=T+i*bh;const w=(b.count||0)/max*(W-L-R);
+    svg.appendChild(el("rect",{x:L,y:y+2,width:Math.max(0,w),height:bh-4,rx:3,fill:CAT[0],opacity:.85}));
+    const lab=el("text",{x:L-6,y:y+bh/2+3,fill:"#95a3c4","font-size":10,"text-anchor":"end"});
+    lab.textContent=b.label;svg.appendChild(lab);
+    const val=el("text",{x:L+w+5,y:y+bh/2+3,fill:"#6b7a9c","font-size":10});
+    val.textContent=((b.count||0)/tot*100).toFixed(0)+"%";svg.appendChild(val);});
+  // median income headroom note
+  const mi=a.metrics.median_hh_income;
+  document.getElementById("incCap").textContent=
+    `Median household income ${fmt.usd0(mi)} · ${dist.length} brackets (share of households)`;
+}
+
+/* ---------- screener ---------- */
+function renderRank(){
+  const m=MAP_METRICS[S.metric];document.getElementById("rankHdr").textContent=m.label;
+  const rows=S.places.map(a=>({a,v:mval(a,S.metric,S.period)})).sort((x,y)=>(y.v??-1e9)-(x.v??-1e9));
+  document.getElementById("rankBody").innerHTML=rows.map((r,i)=>{
+    const s=S.scores[r.a.geoid]||{};const g=k=>s[k]==null?"—":s[k].toFixed(0);
+    return `<tr class="clickable" data-geoid="${r.a.geoid}"><td>${i+1}</td><td>${short(r.a)}</td>
+      <td class="n">${fmt[m.fmt](r.v)}</td><td class="n">${fmt.num(r.a.population)}</td>
+      <td class="n">${g("demand")}</td><td class="n">${g("affordability")}</td>
+      <td class="n">${g("supply_tightness")}</td><td class="n">${g("economic")}</td>
+      <td class="n">${g("stock_quality")}</td></tr>`;}).join("");
+  document.querySelectorAll("#rankBody tr").forEach(tr=>tr.onclick=()=>select(tr.dataset.geoid));
+  highlight();
+}
+
+/* ---------- score key ---------- */
+function buildScoreKey(){
+  const k=S.key;
+  const scoreList=Object.entries(k.scores).map(([n,s])=>{
+    const ins=(s.inputs||[]).map(i=>typeof i==="string"?i:`${i.metric}${i.invert?" (inverted)":""}`).join(", ");
+    const pend=s.status==="pending_data"?" <em>(pending data)</em>":"";
+    return `<li><b>${s.label}</b>${pend}: ${ins||"—"}</li>`;}).join("");
+  const ratios=Object.entries(k.derived_metrics).map(([n,d])=>
+    `<tr><td><code>${n}</code></td><td>${d}</td></tr>`).join("");
+  document.getElementById("scoreKey").innerHTML=
+    `<p><b>Composite scores</b> (0–100, average percentile rank among the 15 Davis County cities):</p>
+     <ul>${scoreList}</ul><p style="margin-top:10px"><b>Derived ratios</b></p><table><tbody>${ratios}</tbody></table>`;
+}
+
+/* ---------- tooltip ---------- */
+const tip=document.getElementById("tip");
+function showTip(ev,html){tip.innerHTML=html;tip.style.opacity=1;
+  tip.style.left=(ev.clientX+12)+"px";tip.style.top=(ev.clientY+12)+"px";}
+function hideTip(){tip.style.opacity=0;}
+
+boot().catch(e=>{document.getElementById("ctx").textContent="Error: "+e.message;console.error(e);});
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# Secrets
+.env
+.env.local
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.cache/
+
+# Local harness config (contains machine-specific absolute paths)
+.claude/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# NOTE: /data is intentionally committed. The static web page reads those JSON
+# files directly (GitHub Pages / Netlify), so they are build output we keep.

@@ -1,0 +1,117 @@
+# Data sources and the EXACT table/variable IDs the pipeline pulls.
+# Every ID here was verified against the live Census API on 2026-10-16.
+# Phase 1 uses only the Census ACS 5-Year Detailed Tables. Other sources
+# (Building Permits, HUD, BLS, NCES) are listed under `planned_sources` and
+# wired up in later steps.
+
+dataset:
+  acs5:
+    name: ACS 5-Year Detailed Tables
+    base_url: https://api.census.gov/data
+    path: acs/acs5
+    current_vintage: 2024          # 2020-2024 5-year estimates (current release)
+    trend_vintages: [2019, 2021, 2022, 2023, 2024]  # for population 1/3/5-year change
+    key_env: CENSUS_API_KEY
+    # ACS returns negative "jam" values when an estimate cannot be computed.
+    # The client treats any negative count/dollar value as null.
+    null_sentinels_are_negative: true
+
+# Full tables pulled with get=group(TABLE). Listed for documentation; the
+# client requests each group and the metrics below pick the variables used.
+tables:
+  B01001: Sex by Age
+  B01002: Median Age by Sex
+  B01003: Total Population
+  B19013: Median Household Income
+  B19001: Household Income (distribution)
+  B19301: Per Capita Income
+  B23025: Employment Status (pop 16+)
+  B25002: Occupancy Status
+  B25003: Tenure (owner/renter)
+  B25014: Occupants per Room (overcrowding)
+  B25024: Units in Structure
+  B25034: Year Structure Built
+  B25064: Median Gross Rent
+  B25077: Median Home Value
+
+# Named metrics -> Census variable(s). `var` = single estimate; `sum` = add the
+# listed estimates (combined MOE = sqrt of sum of squared MOEs). `moe` names the
+# margin-of-error variable to store alongside the estimate.
+metrics:
+  population:          {var: B01003_001E, moe: B01003_001M}
+  median_age:          {var: B01002_001E, moe: B01002_001M}
+  median_hh_income:    {var: B19013_001E, moe: B19013_001M}
+  per_capita_income:   {var: B19301_001E, moe: B19301_001M}
+  median_gross_rent:   {var: B25064_001E, moe: B25064_001M}
+  median_home_value:   {var: B25077_001E, moe: B25077_001M}
+
+  housing_units:       {var: B25002_001E, moe: B25002_001M}   # occupied + vacant
+  occupied_units:      {var: B25002_002E, moe: B25002_002M}
+  vacant_units:        {var: B25002_003E, moe: B25002_003M}
+
+  owner_occupied:      {var: B25003_002E, moe: B25003_002M}
+  renter_occupied:     {var: B25003_003E, moe: B25003_003M}
+  tenure_total:        {var: B25003_001E, moe: B25003_001M}   # = occupied units
+
+  pop_under5:          {sum: [B01001_003E, B01001_027E]}       # male + female under 5
+  pop_5to9:            {sum: [B01001_004E, B01001_028E]}       # male + female 5-9
+
+  labor_force:         {var: B23025_003E, moe: B23025_003M}    # civilian labor force
+  employed:            {var: B23025_004E, moe: B23025_004M}
+  unemployed:          {var: B23025_005E, moe: B23025_005M}
+
+  # Units in structure
+  units_1_detached:    {var: B25024_002E}
+  units_1_attached:    {var: B25024_003E}
+  units_2:             {var: B25024_004E}
+  units_3_4:           {var: B25024_005E}
+  units_5plus:         {sum: [B25024_006E, B25024_007E, B25024_008E, B25024_009E]}
+  units_mobile:        {var: B25024_010E}
+  units_structure_total: {var: B25024_001E}
+
+  # Year built (pre-1980 = 1979 or earlier)
+  built_total:         {var: B25034_001E}
+  built_pre1980:       {sum: [B25034_007E, B25034_008E, B25034_009E, B25034_010E, B25034_011E]}
+
+  # Overcrowding (> 1.0 occupants per room), owner + renter
+  crowd_total:         {var: B25014_001E}
+  overcrowded:         {sum: [B25014_005E, B25014_006E, B25014_007E, B25014_011E, B25014_012E, B25014_013E]}
+
+# Household income distribution brackets (for the affordability view), in order.
+income_distribution:
+  total: B19001_001E
+  brackets:
+    - {label: "< $10k",        var: B19001_002E}
+    - {label: "$10-15k",       var: B19001_003E}
+    - {label: "$15-20k",       var: B19001_004E}
+    - {label: "$20-25k",       var: B19001_005E}
+    - {label: "$25-30k",       var: B19001_006E}
+    - {label: "$30-35k",       var: B19001_007E}
+    - {label: "$35-40k",       var: B19001_008E}
+    - {label: "$40-45k",       var: B19001_009E}
+    - {label: "$45-50k",       var: B19001_010E}
+    - {label: "$50-60k",       var: B19001_011E}
+    - {label: "$60-75k",       var: B19001_012E}
+    - {label: "$75-100k",      var: B19001_013E}
+    - {label: "$100-125k",     var: B19001_014E}
+    - {label: "$125-150k",     var: B19001_015E}
+    - {label: "$150-200k",     var: B19001_016E}
+    - {label: "$200k+",        var: B19001_017E}
+
+# Not yet wired up — added in later Phase 1 steps / phases. Verify each before use.
+planned_sources:
+  building_permits:
+    name: Census Building Permits Survey (BPS)
+    note: Flat files (not the ACS API). Place & county, annual. Feeds permit_rate + supply score.
+  hud_income_limits:
+    name: HUD Income Limits (AMI)
+    note: County & metro, annual. Feeds affordability (income_vs_ami).
+  bls:
+    name: BLS LAUS (unemployment) + QCEW (wages/employment)
+    note: County, monthly/quarterly. Feeds current unemployment + employment_growth.
+  nces:
+    name: NCES Common Core of Data + Utah State Board of Education
+    note: Enrollment by grade, charter, school locations. Feeds the schools module.
+  pep_annual:
+    name: Census Population Estimates (vintage 2024) flat files
+    note: PEP API is unavailable for the 2020s; add true annual county/state pop from files later.

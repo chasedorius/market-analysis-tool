@@ -1,0 +1,88 @@
+{
+  "derived_metrics": {
+    "growth_1y": "(population[2024] - population[2023]) / population[2023]",
+    "growth_3y": "(population[2024] - population[2021]) / population[2021]",
+    "growth_5y": "(population[2024] - population[2019]) / population[2019]",
+    "vacancy_rate": "vacant_units / housing_units",
+    "owner_share": "owner_occupied / tenure_total",
+    "renter_share": "renter_occupied / tenure_total",
+    "pipeline_ratio": "pop_under5 / pop_5to9",
+    "rent_to_income": "median_gross_rent * 12 / median_hh_income",
+    "price_to_income": "median_home_value / median_hh_income",
+    "unemployment_rate": "unemployed / labor_force",
+    "pre1980_share": "built_pre1980 / built_total",
+    "overcrowded_share": "overcrowded / crowd_total",
+    "attached_share": "(units_1_attached + units_2 + units_3_4) / units_structure_total",
+    "multifamily_share": "units_5plus / units_structure_total"
+  },
+  "scores": {
+    "demand": {
+      "label": "Demand",
+      "inputs": [
+        "growth_5y",
+        "growth_1y",
+        "pipeline_ratio"
+      ],
+      "status": null
+    },
+    "affordability": {
+      "label": "Affordability",
+      "inputs": [
+        {
+          "metric": "rent_to_income",
+          "invert": true
+        },
+        {
+          "metric": "price_to_income",
+          "invert": true
+        }
+      ],
+      "status": null
+    },
+    "supply_tightness": {
+      "label": "Supply tightness",
+      "inputs": [
+        {
+          "metric": "vacancy_rate",
+          "invert": true
+        }
+      ],
+      "status": null
+    },
+    "economic": {
+      "label": "Economic",
+      "inputs": [
+        "median_hh_income",
+        {
+          "metric": "unemployment_rate",
+          "invert": true
+        }
+      ],
+      "status": null
+    },
+    "stock_quality": {
+      "label": "Stock quality",
+      "inputs": [
+        {
+          "metric": "pre1980_share",
+          "invert": true
+        },
+        {
+          "metric": "overcrowded_share",
+          "invert": true
+        }
+      ],
+      "status": null
+    },
+    "school_demand": {
+      "label": "School demand",
+      "inputs": [
+        "enrollment_trend",
+        "pipeline_ratio",
+        "projected_new_students"
+      ],
+      "status": "pending_data"
+    }
+  },
+  "percentile_method": "average_rank"
+}
