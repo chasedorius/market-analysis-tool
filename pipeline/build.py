@@ -112,6 +112,15 @@ def main() -> None:
     else:
         print("No data/schools.json (run pipeline.fetch_schools) — school metrics will be null")
 
+    # HUD income limits / AMI (from pipeline.fetch_hud), if present.
+    hud_doc = {}
+    hudf = DATA / "hud.json"
+    if hudf.exists():
+        hud_doc = json.loads(hudf.read_text(encoding="utf-8"))
+        print(f"Loaded HUD AMI ${hud_doc.get('ami'):,} ({hud_doc.get('area_name')})")
+    else:
+        print("No data/hud.json (run pipeline.fetch_hud) — income_vs_ami will be null")
+
     client = CensusClient(acs["base_url"], acs["path"], acs["key_env"])
 
     print(f"Fetching ACS {year} (acs/acs5) for Utah, Davis County, and places...")
@@ -150,6 +159,9 @@ def main() -> None:
         derived["student_yield"] = student_yield
         derived["projected_new_students"] = (round(perm3 * student_yield)
                                              if perm3 is not None and student_yield else None)
+        ami = hud_doc.get("ami")
+        mfi = mm["metrics"].get("median_family_income")
+        derived["income_vs_ami"] = round(mfi / ami, 3) if (mfi and ami) else None
         rec = {
             "geoid": geoid,
             "level": level,
@@ -167,6 +179,7 @@ def main() -> None:
             rec["overlap_share"] = davis_places[geoid]["overlap_share"]
         if level == "county":
             rec["schools"] = schools_doc
+            rec["hud"] = hud_doc
         return rec, {**mm["metrics"], **derived}
 
     for gid, vm in state_vars.items():

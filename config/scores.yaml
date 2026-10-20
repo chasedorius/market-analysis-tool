@@ -24,6 +24,7 @@ derived_metrics:
   student_yield:     "county K-12 enrollment / county occupied housing units"
   projected_new_students: "units permitted last 3 years * student_yield (estimate of future students)"
   charter_share:     "charter enrollment / total enrollment (county, district-based)"
+  income_vs_ami:     "place median family income / area median income (HUD AMI)"
   attached_share:    "(units_1_attached + units_2 + units_3_4) / units_structure_total"
   multifamily_share: "units_5plus / units_structure_total"
   # permit_rate:     "permits_per_year / population * 1000"   # pending Building Permits Survey
@@ -39,7 +40,7 @@ scores:
     inputs:
       - {metric: rent_to_income, invert: true}
       - {metric: price_to_income, invert: true}
-      # - {metric: income_vs_ami}        # pending HUD income limits
+      - income_vs_ami    # local family income vs area AMI (higher = more income cushion)
   supply_tightness:
     label: Supply tightness
     inputs:

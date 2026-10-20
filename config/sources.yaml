@@ -23,6 +23,7 @@ tables:
   B01002: Median Age by Sex
   B01003: Total Population
   B19013: Median Household Income
+  B19113: Median Family Income
   B19001: Household Income (distribution)
   B19301: Per Capita Income
   B23025: Employment Status (pop 16+)
@@ -41,6 +42,7 @@ metrics:
   population:          {var: B01003_001E, moe: B01003_001M}
   median_age:          {var: B01002_001E, moe: B01002_001M}
   median_hh_income:    {var: B19013_001E, moe: B19013_001M}
+  median_family_income: {var: B19113_001E, moe: B19113_001M}  # for income-vs-AMI
   per_capita_income:   {var: B19301_001E, moe: B19301_001M}
   median_gross_rent:   {var: B25064_001E, moe: B25064_001M}
   median_home_value:   {var: B25077_001E, moe: B25077_001M}

@@ -207,6 +207,25 @@
     <p class="note">School figures are district-based (schools don't nest in cities). Projected new students = recent 3-yr permits × district student yield (an estimate). Source: NCES Common Core of Data.</p>
   </section>
 
+  <!-- AFFORDABILITY -->
+  <section class="card full">
+    <h2>Affordability · HUD income limits</h2>
+    <div class="h2sub" id="affCap"></div>
+    <div class="row2">
+      <div>
+        <table id="amiTable">
+          <thead><tr><th>Household size</th><th class="n">Ext. low (30%)</th>
+            <th class="n">Very low (50%)</th><th class="n">Low (80%)</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div>
+        <div class="stockstats" id="affStats"></div>
+        <p class="note" id="affNote"></p>
+      </div>
+    </div>
+  </section>
+
   <!-- ROW: income distribution | metrics table -->
   <section class="full row2">
     <div class="card">
@@ -432,7 +451,7 @@ function select(gid){
   document.getElementById("selMetrics").innerHTML=rows.map(([k,v,x])=>
     `<tr><td>${k}</td><td>${v}<span class="moe">${x}</span></td></tr>`).join("");
 
-  drawPopTrend(a); drawRadar(gid); drawTrend(); drawHousing(a); drawPermits(a); drawSchools(a); drawIncome(a); highlight();
+  drawPopTrend(a); drawRadar(gid); drawTrend(); drawHousing(a); drawPermits(a); drawSchools(a); drawAffordability(a); drawIncome(a); highlight();
 }
 
 /* ---------- line chart helper ---------- */
@@ -620,6 +639,34 @@ function toggleSchools(on){
       color:"#0e1626",weight:1,fillColor:l.charter?CAT[1]:CAT[0],fillOpacity:.9})
       .bindTooltip(`<b>${l.name}</b><br>${l.charter?"Charter":"District"} · ${l.enrollment||"—"} students`)
   )).addTo(S.map);
+}
+
+/* ---------- affordability (HUD AMI + income limits) ---------- */
+function drawAffordability(a){
+  const hud=(S.byId["49011"].hud)||{};
+  const cap=document.getElementById("affCap");
+  if(!hud.ami){cap.textContent="No HUD data.";return;}
+  const L=hud.limits;
+  document.querySelector("#amiTable tbody").innerHTML=[1,2,3,4,5,6,7,8].map(n=>
+    `<tr><td>${n} ${n===1?"person":"people"}</td>
+     <td class="n">${fmt.usd0(L.extremely_low_30[n])}</td>
+     <td class="n">${fmt.usd0(L.very_low_50[n])}</td>
+     <td class="n">${fmt.usd0(L.low_80[n])}</td></tr>`).join("");
+  const d=a.derived,m=a.metrics,mfi=m.median_family_income;
+  document.getElementById("affStats").innerHTML=[
+    [fmt.usd0(hud.ami),"Area median income"],
+    [fmt.usd0(mfi),short(a)+" family income"],
+    [d.income_vs_ami==null?"—":(d.income_vs_ami*100).toFixed(0)+"%","Income vs AMI"],
+    [fmt.pct(d.rent_to_income),"Rent-to-income"],
+    [fmt.ratio(d.price_to_income)+"×","Price-to-income"],
+  ].map(([v,l])=>`<div class="s"><b>${v}</b><span>${l}</span></div>`).join("");
+  cap.textContent=`${hud.area_name} · FY${hud.year} · Area Median Income ${fmt.usd0(hud.ami)} (HUD).`;
+  const needRent=m.median_gross_rent?Math.round(m.median_gross_rent*12/0.30):null;
+  const needHome=m.median_home_value?Math.round(m.median_home_value/3):null;
+  const verdict=(need)=>(mfi&&need)?(mfi>=need?"— local family income clears it":"— local family income is below it"):"";
+  document.getElementById("affNote").innerHTML=
+    `Income to afford the median rent at the 30% rule: <b>${fmt.usd0(needRent)}</b> ${verdict(needRent)}. `+
+    `Income to afford the median home at 3× price-to-income: <b>${fmt.usd0(needHome)}</b> ${verdict(needHome)}.`;
 }
 
 /* ---------- income distribution ---------- */

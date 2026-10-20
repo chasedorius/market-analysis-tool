@@ -1,6 +1,6 @@
 {
   "meta": {
-    "built_at": "2026-10-18T03:10:51+00:00",
+    "built_at": "2026-10-20T17:57:15+00:00",
     "acs_dataset": "acs/acs5",
     "current_vintage": 2024,
     "trend_vintages": [
@@ -104,6 +104,7 @@
         "population": 3392331,
         "median_age": 32,
         "median_hh_income": 95166,
+        "median_family_income": 109675,
         "per_capita_income": 40873,
         "median_gross_rent": 1496,
         "median_home_value": 489400,
@@ -199,6 +200,7 @@
       "moe": {
         "median_age": 0.1,
         "median_hh_income": 774,
+        "median_family_income": 766,
         "per_capita_income": 264,
         "median_gross_rent": 9,
         "median_home_value": 1629,
@@ -229,7 +231,8 @@
         "multifamily_share": 0.16065561175282067,
         "permit_rate": null,
         "student_yield": 0.7074163855795857,
-        "projected_new_students": null
+        "projected_new_students": null,
+        "income_vs_ami": 0.93
       }
     },
     {
@@ -350,6 +353,7 @@
         "population": 370924,
         "median_age": 32.5,
         "median_hh_income": 110884,
+        "median_family_income": 123351,
         "per_capita_income": 42483,
         "median_gross_rent": 1621,
         "median_home_value": 505500,
@@ -445,6 +449,7 @@
       "moe": {
         "median_age": 0.2,
         "median_hh_income": 2880,
+        "median_family_income": 1979,
         "per_capita_income": 846,
         "median_gross_rent": 36,
         "median_home_value": 8456,
@@ -475,7 +480,8 @@
         "multifamily_share": 0.11343574979938616,
         "permit_rate": 3.958,
         "student_yield": 0.7074163855795857,
-        "projected_new_students": 3671
+        "projected_new_students": 3671,
+        "income_vs_ami": 1.046
       },
       "schools": {
         "source": "NCES Common Core of Data via Urban Institute Education Data API",
@@ -1565,6 +1571,45 @@
             "high": 12
           }
         ]
+      },
+      "hud": {
+        "source": "HUD Income Limits FY2026 (HUD User API)",
+        "year": "2026",
+        "county_geoid": "49011",
+        "area_name": "Ogden, UT MSA",
+        "ami": 117900,
+        "limits": {
+          "extremely_low_30": {
+            "1": 24750,
+            "2": 28300,
+            "3": 31850,
+            "4": 35350,
+            "5": 38680,
+            "6": 44360,
+            "7": 50040,
+            "8": 55720
+          },
+          "very_low_50": {
+            "1": 41300,
+            "2": 47200,
+            "3": 53100,
+            "4": 58950,
+            "5": 63700,
+            "6": 68400,
+            "7": 73100,
+            "8": 77850
+          },
+          "low_80": {
+            "1": 66050,
+            "2": 75450,
+            "3": 84900,
+            "4": 94300,
+            "5": 101850,
+            "6": 109400,
+            "7": 116950,
+            "8": 124500
+          }
+        }
       }
     },
     {
@@ -1685,6 +1730,7 @@
         "population": 45023,
         "median_age": 32.7,
         "median_hh_income": 104785,
+        "median_family_income": 121124,
         "per_capita_income": 42416,
         "median_gross_rent": 1565,
         "median_home_value": 532200,
@@ -1781,6 +1827,7 @@
         "population": 46,
         "median_age": 1.2,
         "median_hh_income": 8822,
+        "median_family_income": 5623,
         "per_capita_income": 2461,
         "median_gross_rent": 110,
         "median_home_value": 23211,
@@ -1811,7 +1858,8 @@
         "multifamily_share": 0.134809111324992,
         "permit_rate": 1.199,
         "student_yield": 0.7074163855795857,
-        "projected_new_students": 275
+        "projected_new_students": 275,
+        "income_vs_ami": 1.027
       },
       "overlap_share": 1.0
     },
@@ -1933,6 +1981,7 @@
         "population": 16679,
         "median_age": 39.5,
         "median_hh_income": 123130,
+        "median_family_income": 137311,
         "per_capita_income": 48984,
         "median_gross_rent": 1918,
         "median_home_value": 531200,
@@ -2029,6 +2078,7 @@
         "population": 33,
         "median_age": 2.9,
         "median_hh_income": 8415,
+        "median_family_income": 9889,
         "per_capita_income": 2981,
         "median_gross_rent": 238,
         "median_home_value": 36005,
@@ -2059,7 +2109,8 @@
         "multifamily_share": 0.11673605328892589,
         "permit_rate": 1.019,
         "student_yield": 0.7074163855795857,
-        "projected_new_students": 62
+        "projected_new_students": 62,
+        "income_vs_ami": 1.165
       },
       "overlap_share": 1.0
     },
@@ -2181,6 +2232,7 @@
         "population": 33523,
         "median_age": 30.3,
         "median_hh_income": 75495,
+        "median_family_income": 86155,
         "per_capita_income": 31758,
         "median_gross_rent": 1579,
         "median_home_value": 373900,
@@ -2277,6 +2329,7 @@
         "population": 43,
         "median_age": 1,
         "median_hh_income": 6364,
+        "median_family_income": 5593,
         "per_capita_income": 2125,
         "median_gross_rent": 73,
         "median_home_value": 11643,
@@ -2307,7 +2360,8 @@
         "multifamily_share": 0.18377345955821292,
         "permit_rate": 5.399,
         "student_yield": 0.7074163855795857,
-        "projected_new_students": 389
+        "projected_new_students": 389,
+        "income_vs_ami": 0.731
       },
       "overlap_share": 1.0
     },
@@ -2429,6 +2483,7 @@
         "population": 23612,
         "median_age": 33,
         "median_hh_income": 116194,
+        "median_family_income": 121797,
         "per_capita_income": 36709,
         "median_gross_rent": 1698,
         "median_home_value": 449100,
@@ -2525,6 +2580,7 @@
         "population": 33,
         "median_age": 1.3,
         "median_hh_income": 7839,
+        "median_family_income": 5955,
         "per_capita_income": 2503,
         "median_gross_rent": 223,
         "median_home_value": 11372,
@@ -2555,7 +2611,8 @@
         "multifamily_share": 0.024315218983448073,
         "permit_rate": 2.202,
         "student_yield": 0.7074163855795857,
-        "projected_new_students": 124
+        "projected_new_students": 124,
+        "income_vs_ami": 1.033
       },
       "overlap_share": 1.0
     },
@@ -2677,6 +2734,7 @@
         "population": 25389,
         "median_age": 32.6,
         "median_hh_income": 127338,
+        "median_family_income": 141340,
         "per_capita_income": 46413,
         "median_gross_rent": 1769,
         "median_home_value": 650700,
@@ -2773,6 +2831,7 @@
         "population": 73,
         "median_age": 1.2,
         "median_hh_income": 10136,
+        "median_family_income": 5621,
         "per_capita_income": 3003,
         "median_gross_rent": 132,
         "median_home_value": 19893,
@@ -2803,7 +2862,8 @@
         "multifamily_share": 0.1250168214237653,
         "permit_rate": 3.978,
         "student_yield": 0.7074163855795857,
-        "projected_new_students": 217
+        "projected_new_students": 217,
+        "income_vs_ami": 1.199
       },
       "overlap_share": 1.0
     },
@@ -2925,6 +2985,7 @@
         "population": 6023,
         "median_age": 41.5,
         "median_hh_income": 140679,
+        "median_family_income": 143532,
         "per_capita_income": 69387,
         "median_gross_rent": 1932,
         "median_home_value": 667700,
@@ -3021,6 +3082,7 @@
         "population": 26,
         "median_age": 3.9,
         "median_hh_income": 13965,
+        "median_family_income": 12198,
         "per_capita_income": 16633,
         "median_gross_rent": 343,
         "median_home_value": 34611,
@@ -3051,7 +3113,8 @@
         "multifamily_share": 0.026905829596412557,
         "permit_rate": 0.83,
         "student_yield": 0.7074163855795857,
-        "projected_new_students": 13
+        "projected_new_students": 13,
+        "income_vs_ami": 1.217
       },
       "overlap_share": 1.0
     },
@@ -3173,6 +3236,7 @@
         "population": 33053,
         "median_age": 32.4,
         "median_hh_income": 133026,
+        "median_family_income": 150485,
         "per_capita_income": 46147,
         "median_gross_rent": 1538,
         "median_home_value": 623700,
@@ -3269,6 +3333,7 @@
         "population": 40,
         "median_age": 2,
         "median_hh_income": 15048,
+        "median_family_income": 12531,
         "per_capita_income": 2773,
         "median_gross_rent": 228,
         "median_home_value": 26456,
@@ -3299,7 +3364,8 @@
         "multifamily_share": 0.023398089513791992,
         "permit_rate": 1.634,
         "student_yield": 0.7074163855795857,
-        "projected_new_students": 192
+        "projected_new_students": 192,
+        "income_vs_ami": 1.276
       },
       "overlap_share": 1.0
     },
@@ -3421,6 +3487,7 @@
         "population": 83286,
         "median_age": 32.3,
         "median_hh_income": 102480,
+        "median_family_income": 121078,
         "per_capita_income": 42444,
         "median_gross_rent": 1538,
         "median_home_value": 477700,
@@ -3517,6 +3584,7 @@
         "population": 57,
         "median_age": 1,
         "median_hh_income": 4649,
+        "median_family_income": 6435,
         "per_capita_income": 1762,
         "median_gross_rent": 80,
         "median_home_value": 10695,
@@ -3547,7 +3615,8 @@
         "multifamily_share": 0.16353970159492368,
         "permit_rate": 5.223,
         "student_yield": 0.7074163855795857,
-        "projected_new_students": 899
+        "projected_new_students": 899,
+        "income_vs_ami": 1.027
       },
       "overlap_share": 1.0
     },
@@ -3669,6 +3738,7 @@
         "population": 23474,
         "median_age": 32.7,
         "median_hh_income": 101447,
+        "median_family_income": 113481,
         "per_capita_income": 43892,
         "median_gross_rent": 1667,
         "median_home_value": 497700,
@@ -3765,6 +3835,7 @@
         "population": 35,
         "median_age": 2.1,
         "median_hh_income": 9849,
+        "median_family_income": 10615,
         "per_capita_income": 3701,
         "median_gross_rent": 99,
         "median_home_value": 27581,
@@ -3795,7 +3866,8 @@
         "multifamily_share": 0.20215209769072665,
         "permit_rate": 0.937,
         "student_yield": 0.7074163855795857,
-        "projected_new_students": 63
+        "projected_new_students": 63,
+        "income_vs_ami": 0.963
       },
       "overlap_share": 1.0
     },
@@ -3917,6 +3989,7 @@
         "population": 8115,
         "median_age": 34.4,
         "median_hh_income": 138600,
+        "median_family_income": 143935,
         "per_capita_income": 42924,
         "median_gross_rent": 1469,
         "median_home_value": 549200,
@@ -4013,6 +4086,7 @@
         "population": 34,
         "median_age": 3,
         "median_hh_income": 15060,
+        "median_family_income": 16066,
         "per_capita_income": 3937,
         "median_gross_rent": 711,
         "median_home_value": 42170,
@@ -4043,7 +4117,8 @@
         "multifamily_share": 0.021205821205821207,
         "permit_rate": 3.574,
         "student_yield": 0.7074163855795857,
-        "projected_new_students": 44
+        "projected_new_students": 44,
+        "income_vs_ami": 1.221
       },
       "overlap_share": 1.0
     },
@@ -4165,6 +4240,7 @@
         "population": 5587,
         "median_age": 30.4,
         "median_hh_income": 76364,
+        "median_family_income": 77440,
         "per_capita_income": 29527,
         "median_gross_rent": 1156,
         "median_home_value": 332500,
@@ -4261,6 +4337,7 @@
         "population": 492,
         "median_age": 2.2,
         "median_hh_income": 13558,
+        "median_family_income": 18160,
         "per_capita_income": 3110,
         "median_gross_rent": 88,
         "median_home_value": 14034,
@@ -4291,7 +4368,8 @@
         "multifamily_share": 0.07426018983807929,
         "permit_rate": 13.066,
         "student_yield": 0.7074163855795857,
-        "projected_new_students": 63
+        "projected_new_students": 63,
+        "income_vs_ami": 0.657
       },
       "overlap_share": 1.0
     },
@@ -4413,6 +4491,7 @@
         "population": 35488,
         "median_age": 28.7,
         "median_hh_income": 133443,
+        "median_family_income": 138740,
         "per_capita_income": 41662,
         "median_gross_rent": 2140,
         "median_home_value": 573300,
@@ -4509,6 +4588,7 @@
         "population": 50,
         "median_age": 1.8,
         "median_hh_income": 4452,
+        "median_family_income": 8293,
         "per_capita_income": 2689,
         "median_gross_rent": 102,
         "median_home_value": 14033,
@@ -4539,7 +4619,8 @@
         "multifamily_share": 0.01800815839219978,
         "permit_rate": 8.989,
         "student_yield": 0.7074163855795857,
-        "projected_new_students": 998
+        "projected_new_students": 998,
+        "income_vs_ami": 1.177
       },
       "overlap_share": 1.0
     },
@@ -4661,6 +4742,7 @@
         "population": 5915,
         "median_age": 42.3,
         "median_hh_income": 135179,
+        "median_family_income": 137054,
         "per_capita_income": 49903,
         "median_gross_rent": 1547,
         "median_home_value": 579400,
@@ -4757,6 +4839,7 @@
         "population": 20,
         "median_age": 7.2,
         "median_hh_income": 29868,
+        "median_family_income": 23400,
         "per_capita_income": 9888,
         "median_gross_rent": 1034,
         "median_home_value": 43724,
@@ -4787,7 +4870,8 @@
         "multifamily_share": 0.0,
         "permit_rate": 0.676,
         "student_yield": 0.7074163855795857,
-        "projected_new_students": 13
+        "projected_new_students": 13,
+        "income_vs_ami": 1.162
       },
       "overlap_share": 1.0
     },
@@ -4909,6 +4993,7 @@
         "population": 11929,
         "median_age": 33.9,
         "median_hh_income": 120687,
+        "median_family_income": 122139,
         "per_capita_income": 43310,
         "median_gross_rent": 1783,
         "median_home_value": 491100,
@@ -5005,6 +5090,7 @@
         "population": 28,
         "median_age": 4.2,
         "median_hh_income": 10156,
+        "median_family_income": 18387,
         "per_capita_income": 4863,
         "median_gross_rent": 186,
         "median_home_value": 35457,
@@ -5035,7 +5121,8 @@
         "multifamily_share": 0.020640956002172733,
         "permit_rate": 9.305,
         "student_yield": 0.7074163855795857,
-        "projected_new_students": 284
+        "projected_new_students": 284,
+        "income_vs_ami": 1.036
       },
       "overlap_share": 1.0
     },
@@ -5157,6 +5244,7 @@
         "population": 11531,
         "median_age": 32.1,
         "median_hh_income": 120543,
+        "median_family_income": 134634,
         "per_capita_income": 46530,
         "median_gross_rent": 1771,
         "median_home_value": 497400,
@@ -5253,6 +5341,7 @@
         "population": 20,
         "median_age": 2.8,
         "median_hh_income": 12989,
+        "median_family_income": 12138,
         "per_capita_income": 5887,
         "median_gross_rent": 165,
         "median_home_value": 33357,
@@ -5283,7 +5372,8 @@
         "multifamily_share": 0.12128851540616246,
         "permit_rate": 0.781,
         "student_yield": 0.7074163855795857,
-        "projected_new_students": 30
+        "projected_new_students": 30,
+        "income_vs_ami": 1.142
       },
       "overlap_share": 1.0
     }
