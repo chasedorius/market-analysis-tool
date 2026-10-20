@@ -185,6 +185,23 @@ def main() -> None:
         ami = hud_counties.get(cc, {}).get("ami")
         mfi = mm["metrics"].get("median_family_income")
         derived["income_vs_ami"] = round(mfi / ami, 3) if (mfi and ami) else None
+        # trend-based population projection (5-yr CAGR extrapolated, clamped)
+        pt = trend.get(geoid, {})
+        pop24 = mm["metrics"].get("population")
+        pop19 = pt.get(2019)
+        projection = None
+        if pop24 and pop19 and pop19 > 0:
+            cagr = max(-0.04, min(0.08, (pop24 / pop19) ** (1 / 5) - 1))
+            k12_share = (mm["metrics"].get("pop_k12") or 0) / pop24
+
+            def _p(yr, _c=cagr, _b=pop24, _s=k12_share):
+                p = round(_b * (1 + _c) ** (yr - 2024))
+                return {"pop": p, "net": p - _b, "growth_pct": round(p / _b - 1, 5),
+                        "k12": round(p * _s)}
+
+            projection = {"method": "trend: 5-yr CAGR (ACS 2019→2024), clamped to -4%..+8%/yr",
+                          "base_year": 2024, "base_pop": pop24, "cagr": round(cagr, 5),
+                          "y2030": _p(2030), "y2040": _p(2040)}
         rec = {
             "geoid": geoid,
             "level": level,
@@ -194,6 +211,7 @@ def main() -> None:
             "pop_trend": {str(y): trend.get(geoid, {}).get(y) for y in SERIES_YEARS},
             "series": series.get(geoid, {}),
             "permits": perm,
+            "projection": projection,
             "metrics": mm["metrics"],
             "moe": mm["moe"],
             "derived": derived,

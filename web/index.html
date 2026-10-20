@@ -162,11 +162,16 @@
 
   <!-- DELTAS + POP TREND -->
   <section class="card">
-    <h2>Population growth · point-in-time deltas</h2>
+    <h2>Population growth &amp; forecast</h2>
     <div class="selhead"><span class="name" id="selName">—</span>
       <span class="pop" id="selPop"></span></div>
     <div class="deltas" id="deltas"></div>
-    <svg id="popTrend" viewBox="0 0 440 150" width="100%" height="150" role="img"></svg>
+    <div class="chips" style="margin:2px 0 4px">
+      <span class="chip on" id="fcToggle">Show 2030 / 2040 forecast →</span>
+      <span class="note" id="fcNote" style="margin:0 0 0 4px"></span>
+    </div>
+    <svg id="popTrend" viewBox="0 0 440 210" width="100%" height="210" role="img"></svg>
+    <div class="deltas" id="fcStats" style="margin-top:8px"></div>
   </section>
 
   <!-- ROW: radar | trend | housing -->
@@ -205,6 +210,17 @@
     </div>
   </section>
 
+  <!-- AGE DISTRIBUTION -->
+  <section class="card full">
+    <h2>Age distribution</h2>
+    <div class="h2sub" id="ageCap"></div>
+    <div class="chips" style="margin-bottom:6px">
+      <span class="chip on" data-agemode="count">Count</span>
+      <span class="chip" data-agemode="pct">Share %</span>
+    </div>
+    <svg id="ageChart" viewBox="0 0 900 220" width="100%" height="220" role="img"></svg>
+  </section>
+
   <!-- PERMITS -->
   <section class="card full">
     <h2>Permits &amp; new homes · 2019 → 2024</h2>
@@ -231,7 +247,8 @@
         <div class="stockstats" id="schoolStats"></div>
       </div>
     </div>
-    <p class="note">School figures are county/district-based (schools don't nest in cities). Projected new students = recent 3-yr permits × county student yield (an estimate). Source: NCES Common Core of Data. Toggle "Show schools" on the map for locations.</p>
+    <p class="note" id="schoolAgeNote" style="color:var(--ink)"></p>
+    <p class="note">School figures are county/district-based (schools don't nest in cities). Projected new students = recent 3-yr permits × county student yield (an estimate). School-age population and K-12 forecast are for the selected area. Source: NCES Common Core of Data + ACS age.</p>
   </section>
 
   <!-- AFFORDABILITY -->
@@ -378,7 +395,8 @@ const fmt={
 const S={meta:{},byId:{},places:[],counties:[],scores:{},key:{},
   countyGeo:null,placeGeo:null,drill:null,
   metric:"pop_growth",period:5,sel:null,map:null,countyLayer:null,placeLayer:null,
-  trendOn:Object.fromEntries(TREND_SERIES.map(s=>[s.key,s.on])),buyBox:[]};
+  trendOn:Object.fromEntries(TREND_SERIES.map(s=>[s.key,s.on])),buyBox:[],
+  showForecast:true,ageMode:"count"};
 function countyRecOf(a){return a&&a.level==="county"?a:(a?S.byId[a.county_geoid]:null);}
 function countyName(gid){const a=S.byId[gid];return a?a.name:gid;}
 
@@ -416,6 +434,14 @@ async function boot(){
   document.getElementById("loading").style.display="none";
 
   document.getElementById("backBtn").onclick=()=>{S.drill=null;refreshMetric();};
+  document.getElementById("fcToggle").onclick=function(){
+    S.showForecast=!S.showForecast;this.classList.toggle("on",S.showForecast);
+    this.textContent=S.showForecast?"Show 2030 / 2040 forecast →":"Forecast hidden";
+    drawPopTrend(S.byId[S.sel]);};
+  document.querySelectorAll("[data-agemode]").forEach(c=>c.onclick=()=>{
+    S.ageMode=c.dataset.agemode;
+    document.querySelectorAll("[data-agemode]").forEach(x=>x.classList.toggle("on",x===c));
+    drawAge(S.byId[S.sel]);});
   document.querySelectorAll("#growthToggle button").forEach(b=>b.onclick=()=>{
     document.querySelectorAll("#growthToggle button").forEach(x=>x.classList.remove("on"));
     b.classList.add("on"); S.period=+b.dataset.p; refreshMetric();
@@ -576,7 +602,7 @@ function select(gid){
   document.getElementById("selMetrics").innerHTML=rows.map(([k,v,x])=>
     `<tr><td>${k}</td><td>${v}<span class="moe">${x}</span></td></tr>`).join("");
 
-  drawPopTrend(a); drawRadar(gid); drawTrend(); drawHousing(a); drawPermits(a); drawSchools(a); drawAffordability(a); drawIncome(a); highlight();
+  drawPopTrend(a); drawAge(a); drawRadar(gid); drawTrend(); drawHousing(a); drawPermits(a); drawSchools(a); drawAffordability(a); drawIncome(a); highlight();
 }
 
 /* ---------- line chart helper ---------- */
@@ -611,11 +637,36 @@ function lineChart(svg,{series,xvals,yfmt,ymin=null}){
   });
 }
 function drawPopTrend(a){
-  const xs=Object.keys(a.pop_trend).map(Number).sort((x,y)=>x-y);
-  const pts=xs.map(y=>({x:y,y:a.pop_trend[String(y)]}));
-  lineChart(document.getElementById("popTrend"),
-    {series:[{color:CAT[0],pts,endLabel:fmt.num(pts[pts.length-1].y),name:"Population",vtip:fmt.num}],
-     xvals:xs,yfmt:v=>Math.round(v/1000)+"k"});
+  const svg=document.getElementById("popTrend");svg.innerHTML="";
+  const W=440,H=210,L=48,R=16,T=14,B=26;
+  const hist=Object.keys(a.pop_trend).map(Number).sort((x,y)=>x-y)
+    .map(y=>({x:y,y:a.pop_trend[String(y)]})).filter(p=>p.y!=null);
+  const pr=a.projection;const showFc=S.showForecast&&pr;
+  const fc=showFc?[{x:2024,y:pr.base_pop},{x:2030,y:pr.y2030.pop},{x:2040,y:pr.y2040.pop}]:[];
+  const all=hist.concat(fc);const xs=all.map(p=>p.x);
+  const xmin=Math.min(...xs),xmax=Math.max(...xs);
+  const ys=all.map(p=>p.y);let lo=Math.min(...ys),hi=Math.max(...ys);
+  const pad=(hi-lo)*0.12||1;lo=Math.max(0,lo-pad);hi+=pad;
+  const X=x=>L+(x-xmin)/((xmax-xmin)||1)*(W-L-R);
+  const Y=v=>T+(1-(v-lo)/((hi-lo)||1))*(H-T-B);
+  for(let i=0;i<=4;i++){const v=lo+(hi-lo)*i/4,yy=Y(v);
+    svg.appendChild(el("line",{x1:L,y1:yy,x2:W-R,y2:yy,stroke:"#24324e","stroke-width":1}));
+    const t=el("text",{x:L-6,y:yy+3,fill:"#6b7a9c","font-size":10,"text-anchor":"end"});t.textContent=Math.round(v/1000)+"k";svg.appendChild(t);}
+  [...new Set(xs)].sort((p,q)=>p-q).forEach(xv=>{const t=el("text",{x:X(xv),y:H-8,fill:"#6b7a9c","font-size":10,"text-anchor":"middle"});t.textContent=xv;svg.appendChild(t);});
+  svg.appendChild(el("path",{d:hist.map((p,i)=>(i?"L":"M")+X(p.x)+" "+Y(p.y)).join(" "),fill:"none",stroke:CAT[0],"stroke-width":2.4}));
+  hist.forEach(p=>svg.appendChild(tipOn(el("circle",{cx:X(p.x),cy:Y(p.y),r:3.5,fill:CAT[0]}),`${p.x}: <b>${fmt.num(p.y)}</b>`)));
+  if(showFc){
+    svg.appendChild(el("path",{d:fc.map((p,i)=>(i?"L":"M")+X(p.x)+" "+Y(p.y)).join(" "),fill:"none",stroke:CAT[2],"stroke-width":2.4,"stroke-dasharray":"5 4"}));
+    fc.slice(1).forEach(p=>svg.appendChild(tipOn(el("circle",{cx:X(p.x),cy:Y(p.y),r:3.5,fill:CAT[2]}),`${p.x} forecast: <b>${fmt.num(p.y)}</b>`)));
+  }
+  const fs=document.getElementById("fcStats");
+  if(showFc){
+    const card=(yr,o)=>`<div class="delta"><div class="k">${yr} FORECAST</div>
+      <div class="v ${o.net>=0?'up':'down'}">${fmt.num(o.pop)}</div>
+      <div class="from">${o.net>=0?'+':''}${fmt.num(o.net)} · ${(o.growth_pct*100).toFixed(0)}%</div></div>`;
+    fs.innerHTML=card(2030,pr.y2030)+card(2040,pr.y2040);
+    document.getElementById("fcNote").textContent=pr.method;
+  }else{fs.innerHTML="";document.getElementById("fcNote").textContent="";}
 }
 function drawTrend(){
   const a=S.byId[S.sel];const yrs=Object.keys(a.series).map(Number).sort((x,y)=>x-y);
@@ -627,6 +678,29 @@ function drawTrend(){
   lineChart(document.getElementById("trend"),{series,xvals:yrs,yfmt:v=>v.toFixed(0)});
   document.getElementById("trendLegend").innerHTML=TREND_SERIES.map(s=>
     `<span style="opacity:${S.trendOn[s.key]?1:.4}"><span class="dot" style="background:${s.color}"></span>${s.label}</span>`).join("");
+}
+
+/* ---------- age distribution ---------- */
+function drawAge(a){
+  const svg=document.getElementById("ageChart");svg.innerHTML="";
+  const bands=a.metrics.age_distribution||[];const tot=bands.reduce((s,b)=>s+(b.count||0),0)||1;
+  const pct=S.ageMode==="pct";
+  const W=900,H=220,L=48,R=16,T=14,B=30;
+  const vals=bands.map(b=>pct?(b.count||0)/tot*100:(b.count||0));
+  const max=Math.max(...vals,1),step=(W-L-R)/bands.length,bw=step*0.66;
+  const Y=v=>T+(1-v/max)*(H-T-B);
+  for(let i=0;i<=4;i++){const v=max*i/4,yy=Y(v);
+    svg.appendChild(el("line",{x1:L,y1:yy,x2:W-R,y2:yy,stroke:"#24324e","stroke-width":1}));
+    const t=el("text",{x:L-6,y:yy+3,fill:"#6b7a9c","font-size":9,"text-anchor":"end"});
+    t.textContent=pct?v.toFixed(0)+"%":(v/1000).toFixed(0)+"k";svg.appendChild(t);}
+  bands.forEach((b,i)=>{const cx=L+step*i+step/2,v=vals[i],y1=Y(v);
+    const sa=["5-9","10-14","15-19"].includes(b.band);
+    svg.appendChild(tipOn(el("rect",{x:cx-bw/2,y:y1,width:bw,height:Math.max(0,Y(0)-y1),fill:sa?CAT[4]:CAT[0],rx:2}),
+      `Age ${b.band}: <b>${fmt.num(b.count)}</b> (${((b.count||0)/tot*100).toFixed(1)}%)`));
+    const xl=el("text",{x:cx,y:H-8,fill:"#6b7a9c","font-size":9,"text-anchor":"middle"});xl.textContent=b.band;svg.appendChild(xl);});
+  const k12=a.metrics.pop_k12||0;
+  document.getElementById("ageCap").textContent=
+    `${short(a)} · median age ${fmt.ratio(a.metrics.median_age)} · school-age (5–17) ${fmt.num(k12)} (${(k12/tot*100).toFixed(1)}%). Green bars = school-age.`;
 }
 
 /* ---------- radar ---------- */
@@ -730,6 +804,10 @@ function drawMiniLine(svg,obj,color){
 function drawSchools(a){
   const crec=countyRecOf(a);const sc=crec&&crec.schools;
   const cap=document.getElementById("schoolCap");
+  const m0=a.metrics,pr0=a.projection;
+  document.getElementById("schoolAgeNote").innerHTML=
+    `School-age population in ${short(a)}: K–6 ≈ <b>${fmt.num(m0.pop_k6)}</b> · grades 7–12 ≈ <b>${fmt.num(m0.pop_7_12)}</b> · K–12 ≈ <b>${fmt.num(m0.pop_k12)}</b>`+
+    (pr0?` · trend forecast K–12 by 2040 ≈ <b>${fmt.num(pr0.y2040.k12)}</b>.`:".");
   if(!sc){cap.textContent="No school data for this area.";
     document.getElementById("gradeChart").innerHTML="";
     document.getElementById("charterDonut").innerHTML="";

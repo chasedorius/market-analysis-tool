@@ -9,6 +9,27 @@ from __future__ import annotations
 
 import math
 
+# Age bands from B01001 (Sex by Age): female var index = male index + 24.
+# Each band lists the male estimate suffixes; the female mirror is added in code.
+AGE_BANDS = [
+    ("0-4", [3]), ("5-9", [4]), ("10-14", [5]), ("15-19", [6, 7]),
+    ("20-24", [8, 9, 10]), ("25-34", [11, 12]), ("35-44", [13, 14]),
+    ("45-54", [15, 16]), ("55-64", [17, 18, 19]), ("65-74", [20, 21, 22]),
+    ("75-84", [23, 24]), ("85+", [25]),
+]
+
+
+def _age_sum(varmap: dict, male_suffixes: list[int]):
+    total = 0
+    any_val = False
+    for s in male_suffixes:
+        for idx in (s, s + 24):  # male, then female mirror
+            v = varmap.get(f"B01001_{idx:03d}E")
+            if v is not None:
+                total += v
+                any_val = True
+    return total if any_val else None
+
 
 def resolve_metric(spec: dict, varmap: dict):
     """Resolve one metric spec to (value, moe). Handles single vars and sums.
@@ -48,6 +69,20 @@ def compute_metrics(varmap: dict, cfg: dict) -> dict:
     for b in cfg["income_distribution"]["brackets"]:
         dist.append({"label": b["label"], "count": varmap.get(b["var"])})
     metrics["income_distribution"] = dist
+
+    # age distribution + school-age populations (from B01001)
+    metrics["age_distribution"] = [
+        {"band": label, "count": _age_sum(varmap, suf)} for label, suf in AGE_BANDS]
+    age_5_9 = _age_sum(varmap, [4]) or 0
+    age_10_14 = _age_sum(varmap, [5]) or 0
+    age_15_17 = _age_sum(varmap, [6]) or 0   # B01001 male 15-17 = _006 (+female _030)
+    metrics["age_5_9"] = age_5_9
+    metrics["age_10_14"] = age_10_14
+    metrics["age_15_17"] = age_15_17
+    # K-12 ~ ages 5-17; K-6 ~ ages 5-11; grades 7-12 ~ ages 12-17 (10-14 split 2/5 : 3/5)
+    metrics["pop_k12"] = age_5_9 + age_10_14 + age_15_17
+    metrics["pop_k6"] = round(age_5_9 + age_10_14 * 0.4)
+    metrics["pop_7_12"] = round(age_10_14 * 0.6 + age_15_17)
 
     return {"metrics": metrics, "moe": moe}
 
