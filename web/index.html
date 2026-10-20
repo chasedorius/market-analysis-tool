@@ -53,6 +53,21 @@
   .seg button.on{background:var(--accent);color:#06222e;font-weight:650}
   select{background:var(--card2);color:var(--ink);border:1px solid var(--line);
     border-radius:8px;padding:6px 10px;font:inherit}
+  .buybox{margin-bottom:12px}
+  .bb-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .bb-row input{width:82px;background:var(--card2);color:var(--ink);border:1px solid var(--line);
+    border-radius:8px;padding:6px 8px;font:inherit}
+  .bb-row #bbAdd{background:var(--accent);color:#06222e;border:0;border-radius:8px;
+    padding:6px 12px;cursor:pointer;font-weight:650}
+  .bb-row #bbExport{background:var(--card2);color:var(--ink);border:1px solid var(--line);
+    border-radius:8px;padding:6px 12px;cursor:pointer}
+  .bb-sep{width:1px;height:22px;background:var(--line);margin:0 2px}
+  .bb-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+  .bb-chip{background:#24406a;border:1px solid var(--line);border-radius:999px;
+    padding:4px 10px;font-size:12.5px;display:inline-flex;gap:8px;align-items:center}
+  .bb-chip .x{cursor:pointer;color:var(--muted);font-weight:700}
+  .bb-count{margin-top:10px;color:var(--muted);font-size:13px}
+  tbody tr.nomatch{opacity:.3}
   #map{height:420px;border-radius:12px;border:1px solid var(--line);background:#0c1322}
   .leaflet-tile{filter:grayscale(.3) brightness(.78) contrast(1.02)}
   .leaflet-container{background:#0c1322}
@@ -241,7 +256,24 @@
 
   <!-- SCREENER -->
   <section class="card full">
-    <h2>Cities ranked by selected metric</h2>
+    <h2>Screener · buy box</h2>
+    <div class="buybox">
+      <div class="bb-row">
+        <select id="bbField"></select>
+        <input id="bbMin" type="number" step="any" placeholder="min" />
+        <input id="bbMax" type="number" step="any" placeholder="max" />
+        <button id="bbAdd">Add filter</button>
+        <span class="bb-sep"></span>
+        <button class="chip" data-preset="growth">Growth market</button>
+        <button class="chip" data-preset="rental">Rental play</button>
+        <button class="chip" data-preset="afford">Affordable &amp; growing</button>
+        <button class="chip" data-preset="schools">School demand</button>
+        <button class="chip" id="bbClear">Clear</button>
+        <button id="bbExport" style="margin-left:auto">⤓ Export CSV</button>
+      </div>
+      <div class="bb-chips" id="bbChips"></div>
+      <div class="bb-count" id="bbCount"></div>
+    </div>
     <table>
       <thead><tr>
         <th>#</th><th>City</th><th class="n" id="rankHdr">Value</th><th class="n">Pop</th>
@@ -295,6 +327,35 @@ const TREND_SERIES=[
 const RADAR_AXES=[["demand","Demand"],["affordability","Afford."],
   ["supply_tightness","Supply"],["economic","Economic"],["stock_quality","Stock"],
   ["school_demand","School"]];
+// Buy-box screener: any metric or score, with min/max. pct fields are entered in %.
+const BB_FIELDS=[
+  {k:"growth_5y",label:"5-yr growth %",kind:"pct",get:a=>a.derived.growth_5y},
+  {k:"growth_1y",label:"1-yr growth %",kind:"pct",get:a=>a.derived.growth_1y},
+  {k:"population",label:"Population",kind:"num",get:a=>a.population},
+  {k:"median_hh_income",label:"Median HH income $",kind:"usd",get:a=>a.metrics.median_hh_income},
+  {k:"median_home_value",label:"Median home value $",kind:"usd",get:a=>a.metrics.median_home_value},
+  {k:"median_gross_rent",label:"Median rent $",kind:"usd",get:a=>a.metrics.median_gross_rent},
+  {k:"rent_to_income",label:"Rent-to-income %",kind:"pct",get:a=>a.derived.rent_to_income},
+  {k:"price_to_income",label:"Price-to-income x",kind:"ratio",get:a=>a.derived.price_to_income},
+  {k:"vacancy_rate",label:"Vacancy %",kind:"pct",get:a=>a.derived.vacancy_rate},
+  {k:"renter_share",label:"Renter share %",kind:"pct",get:a=>a.derived.renter_share},
+  {k:"permit_rate",label:"Permits / 1k",kind:"num",get:a=>a.derived.permit_rate},
+  {k:"income_vs_ami",label:"Income vs AMI %",kind:"pct",get:a=>a.derived.income_vs_ami},
+  {k:"demand",label:"Demand score",kind:"score",get:a=>(S.scores[a.geoid]||{}).demand},
+  {k:"affordability",label:"Affordability score",kind:"score",get:a=>(S.scores[a.geoid]||{}).affordability},
+  {k:"supply_tightness",label:"Supply score",kind:"score",get:a=>(S.scores[a.geoid]||{}).supply_tightness},
+  {k:"economic",label:"Economic score",kind:"score",get:a=>(S.scores[a.geoid]||{}).economic},
+  {k:"stock_quality",label:"Stock score",kind:"score",get:a=>(S.scores[a.geoid]||{}).stock_quality},
+  {k:"school_demand",label:"School-demand score",kind:"score",get:a=>(S.scores[a.geoid]||{}).school_demand},
+];
+const BB_BY_KEY=Object.fromEntries(BB_FIELDS.map(f=>[f.k,f]));
+// Example presets (edit freely; real buy boxes can live in config/modules.yaml).
+const BB_PRESETS={
+  growth:[{k:"growth_5y",min:5},{k:"vacancy_rate",max:8}],
+  rental:[{k:"renter_share",min:25},{k:"vacancy_rate",max:6}],
+  afford:[{k:"rent_to_income",max:22},{k:"growth_5y",min:3}],
+  schools:[{k:"school_demand",min:60}],
+};
 
 const fmt={
   usd0:v=>v==null?"—":"$"+Math.round(v).toLocaleString(),
@@ -304,7 +365,7 @@ const fmt={
 };
 const S={meta:{},byId:{},places:[],scores:{},geo:null,key:{},
   metric:"pop_growth",period:5,sel:null,layer:null,map:null,
-  trendOn:Object.fromEntries(TREND_SERIES.map(s=>[s.key,s.on]))};
+  trendOn:Object.fromEntries(TREND_SERIES.map(s=>[s.key,s.on])),buyBox:[]};
 
 function el(tag,attrs){const e=document.createElementNS(SVGNS,tag);
   for(const k in attrs) e.setAttribute(k,attrs[k]); return e;}
@@ -342,6 +403,24 @@ async function boot(){
   document.getElementById("schoolToggle").onclick=function(){
     this.classList.toggle("on"); toggleSchools(this.classList.contains("on"));
   };
+  // buy-box screener
+  document.getElementById("bbField").innerHTML=
+    BB_FIELDS.map(f=>`<option value="${f.k}">${f.label}</option>`).join("");
+  document.getElementById("bbAdd").onclick=()=>{
+    const mn=parseFloat(document.getElementById("bbMin").value),
+          mx=parseFloat(document.getElementById("bbMax").value);
+    if(isNaN(mn)&&isNaN(mx))return;
+    S.buyBox.push({k:document.getElementById("bbField").value,
+      min:isNaN(mn)?null:mn,max:isNaN(mx)?null:mx});
+    document.getElementById("bbMin").value="";document.getElementById("bbMax").value="";
+    renderChips();renderRank();
+  };
+  document.querySelectorAll("[data-preset]").forEach(b=>b.onclick=()=>{
+    S.buyBox=BB_PRESETS[b.dataset.preset].map(f=>({k:f.k,min:f.min??null,max:f.max??null}));
+    renderChips();renderRank();
+  });
+  document.getElementById("bbClear").onclick=()=>{S.buyBox=[];renderChips();renderRank();};
+  document.getElementById("bbExport").onclick=exportCSV;
 }
 
 function buildMetricChips(){
@@ -691,15 +770,50 @@ function drawIncome(a){
 function renderRank(){
   const m=MAP_METRICS[S.metric];document.getElementById("rankHdr").textContent=m.label;
   const rows=S.places.map(a=>({a,v:mval(a,S.metric,S.period)})).sort((x,y)=>(y.v??-1e9)-(x.v??-1e9));
+  let matches=0;
   document.getElementById("rankBody").innerHTML=rows.map((r,i)=>{
     const s=S.scores[r.a.geoid]||{};const g=k=>s[k]==null?"—":s[k].toFixed(0);
-    return `<tr class="clickable" data-geoid="${r.a.geoid}"><td>${i+1}</td><td>${short(r.a)}</td>
+    const pass=passesBuyBox(r.a);if(pass)matches++;
+    return `<tr class="clickable${pass?'':' nomatch'}" data-geoid="${r.a.geoid}"><td>${i+1}</td><td>${short(r.a)}</td>
       <td class="n">${fmt[m.fmt](r.v)}</td><td class="n">${fmt.num(r.a.population)}</td>
       <td class="n">${g("demand")}</td><td class="n">${g("affordability")}</td>
       <td class="n">${g("supply_tightness")}</td><td class="n">${g("economic")}</td>
       <td class="n">${g("stock_quality")}</td><td class="n">${g("school_demand")}</td></tr>`;}).join("");
   document.querySelectorAll("#rankBody tr").forEach(tr=>tr.onclick=()=>select(tr.dataset.geoid));
+  document.getElementById("bbCount").textContent = S.buyBox.length
+    ? `${matches} of ${S.places.length} cities match the buy box (non-matching dimmed).`
+    : `${S.places.length} cities · add filters to screen them.`;
   highlight();
+}
+
+/* ---------- buy box ---------- */
+function passesBuyBox(a){
+  for(const f of S.buyBox){const F=BB_BY_KEY[f.k];let v=F.get(a);
+    if(v==null)return false; if(F.kind==="pct")v*=100;
+    if(f.min!=null&&v<f.min)return false; if(f.max!=null&&v>f.max)return false;}
+  return true;
+}
+function renderChips(){
+  const el=document.getElementById("bbChips");
+  el.innerHTML=S.buyBox.map((f,i)=>{const L=BB_BY_KEY[f.k];
+    const r=`${f.min!=null?"≥ "+f.min:""}${f.min!=null&&f.max!=null?" · ":""}${f.max!=null?"≤ "+f.max:""}`;
+    return `<span class="bb-chip">${L.label} ${r}<span class="x" data-i="${i}">×</span></span>`;}).join("");
+  el.querySelectorAll(".x").forEach(x=>x.onclick=()=>{S.buyBox.splice(+x.dataset.i,1);renderChips();renderRank();});
+}
+function exportCSV(){
+  const rows=S.places.filter(passesBuyBox);
+  const head=["City","Population","Growth_5y_%","Median_HH_income","Rent_to_income_%","Price_to_income_x",
+    "Vacancy_%","Permits_per_1k","Income_vs_AMI_%","Demand","Affordability","Supply","Economic","Stock","School_demand"];
+  const p=x=>x==null?"":(x*100).toFixed(1);
+  const line=a=>{const s=S.scores[a.geoid]||{},d=a.derived;
+    return [short(a),a.population,p(d.growth_5y),a.metrics.median_hh_income,p(d.rent_to_income),
+      d.price_to_income==null?"":d.price_to_income.toFixed(2),p(d.vacancy_rate),
+      d.permit_rate==null?"":d.permit_rate,p(d.income_vs_ami),
+      s.demand,s.affordability,s.supply_tightness,s.economic,s.stock_quality,s.school_demand].join(",");};
+  const csv=[head.join(","),...rows.map(line)].join("\n");
+  const url=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));
+  const aEl=document.createElement("a");aEl.href=url;aEl.download="davis-screener.csv";aEl.click();
+  URL.revokeObjectURL(url);
 }
 
 /* ---------- score key ---------- */
