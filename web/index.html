@@ -70,6 +70,17 @@
   tbody tr.nomatch{opacity:.3}
   #backBtn{background:var(--accent);color:#06222e;border:0;border-radius:999px;
     padding:5px 12px;cursor:pointer;font:inherit;font-weight:650;margin-right:4px}
+  .screenwrap{max-height:540px;overflow:auto;border-radius:10px;border:1px solid var(--line)}
+  .screenwrap table{border-collapse:separate;border-spacing:0}
+  .screenwrap thead th{position:sticky;top:0;background:#1f2b47;z-index:1}
+  .tablewrap{overflow-x:auto}
+  #loading{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;
+    justify-content:center;gap:10px;color:var(--muted);font-size:15px;z-index:50}
+  #loading .spin{width:18px;height:18px;border:2px solid var(--line);border-top-color:var(--accent);
+    border-radius:50%;animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media(max-width:700px){#map{height:320px}.deltas{grid-template-columns:1fr}
+    main{padding:12px}.topbar{padding:10px 14px}.brand{font-size:15px}}
   #map{height:420px;border-radius:12px;border:1px solid var(--line);background:#0c1322}
   .leaflet-tile{filter:grayscale(.3) brightness(.78) contrast(1.02)}
   .leaflet-container{background:#0c1322}
@@ -121,6 +132,7 @@
 </style>
 </head>
 <body>
+<div id="loading"><span class="spin"></span> Loading Utah data…</div>
 <div class="topbar">
   <div class="brand">◈ <span>Census</span> Market Dashboard</div>
   <div class="ctx" id="ctx">Loading…</div>
@@ -227,7 +239,7 @@
     <h2>Affordability · HUD income limits</h2>
     <div class="h2sub" id="affCap"></div>
     <div class="row2">
-      <div>
+      <div class="tablewrap">
         <table id="amiTable">
           <thead><tr><th>Household size</th><th class="n">Ext. low (30%)</th>
             <th class="n">Very low (50%)</th><th class="n">Low (80%)</th></tr></thead>
@@ -274,14 +286,14 @@
       <div class="bb-chips" id="bbChips"></div>
       <div class="bb-count" id="bbCount"></div>
     </div>
-    <table>
+    <div class="screenwrap"><table>
       <thead><tr>
         <th>#</th><th>City</th><th class="n" id="rankHdr">Value</th><th class="n">Pop</th>
         <th class="n">Demand</th><th class="n">Afford</th><th class="n">Supply</th>
         <th class="n">Econ</th><th class="n">Stock</th><th class="n">School</th>
       </tr></thead>
       <tbody id="rankBody"></tbody>
-    </table>
+    </table></div>
   </section>
 
   <!-- SCORE KEY -->
@@ -401,6 +413,7 @@ async function boot(){
 
   buildMetricChips(); buildTrendChips(); buildScoreKey();
   initMap(); select(meta.focus_county||S.counties[0].geoid); refreshMetric();
+  document.getElementById("loading").style.display="none";
 
   document.getElementById("backBtn").onclick=()=>{S.drill=null;refreshMetric();};
   document.querySelectorAll("#growthToggle button").forEach(b=>b.onclick=()=>{
@@ -590,7 +603,8 @@ function lineChart(svg,{series,xvals,yfmt,ymin=null}){
     const pts=s.pts.filter(p=>p.y!=null);
     if(pts.length>1){const dpath=pts.map((p,i)=>(i?"L":"M")+X(p.x)+" "+Y(p.y)).join(" ");
       svg.appendChild(el("path",{d:dpath,fill:"none",stroke:s.color,"stroke-width":2.2}));}
-    pts.forEach(p=>svg.appendChild(el("circle",{cx:X(p.x),cy:Y(p.y),r:3,fill:s.color})));
+    pts.forEach(p=>svg.appendChild(tipOn(el("circle",{cx:X(p.x),cy:Y(p.y),r:3.5,fill:s.color}),
+      `${s.name?s.name+' · ':''}${p.x}: <b>${s.vtip?s.vtip(p.y):yfmt(p.y)}</b>`)));
     if(pts.length){const last=pts[pts.length-1];
       const t=el("text",{x:X(last.x)+5,y:Y(last.y)+3,fill:s.color,"font-size":10});
       t.textContent=s.endLabel||"";svg.appendChild(t);}
@@ -600,13 +614,13 @@ function drawPopTrend(a){
   const xs=Object.keys(a.pop_trend).map(Number).sort((x,y)=>x-y);
   const pts=xs.map(y=>({x:y,y:a.pop_trend[String(y)]}));
   lineChart(document.getElementById("popTrend"),
-    {series:[{color:CAT[0],pts,endLabel:fmt.num(pts[pts.length-1].y)}],xvals:xs,
-     yfmt:v=>Math.round(v/1000)+"k"});
+    {series:[{color:CAT[0],pts,endLabel:fmt.num(pts[pts.length-1].y),name:"Population",vtip:fmt.num}],
+     xvals:xs,yfmt:v=>Math.round(v/1000)+"k"});
 }
 function drawTrend(){
   const a=S.byId[S.sel];const yrs=Object.keys(a.series).map(Number).sort((x,y)=>x-y);
   const series=TREND_SERIES.filter(s=>S.trendOn[s.key]).map(s=>({
-    color:s.color,
+    color:s.color,name:s.label,vtip:v=>v.toFixed(s.scale===1?2:1),
     pts:yrs.map(y=>({x:y,y:a.series[String(y)][s.key]==null?null:a.series[String(y)][s.key]*s.scale})),
     endLabel:(()=>{const v=a.series["2024"][s.key];return v==null?"":(s.scale===1?v.toFixed(1):(v*100).toFixed(1));})()
   }));
@@ -630,7 +644,7 @@ function drawRadar(gid){
   const poly=RADAR_AXES.map((ax,i)=>{const v=sc[ax[0]];return pt(i,v==null?0:R*v/100).join(",");}).join(" ");
   svg.appendChild(el("polygon",{points:poly,fill:"rgba(31,159,212,.25)",stroke:CAT[0],"stroke-width":2}));
   RADAR_AXES.forEach((ax,i)=>{const v=sc[ax[0]];if(v==null)return;const[x,y]=pt(i,R*v/100);
-    svg.appendChild(el("circle",{cx:x,cy:y,r:3,fill:CAT[0]}));});
+    svg.appendChild(tipOn(el("circle",{cx:x,cy:y,r:4,fill:CAT[0]}),`${ax[1]}: <b>${v.toFixed(0)}</b> / 100`));});
   document.getElementById("radarCity").textContent=short(S.byId[gid])+
     (S.byId[gid].level==="county"?" vs. all Utah counties":" vs. all Utah cities");
   document.getElementById("radarName").textContent=short(S.byId[gid]);
@@ -643,8 +657,9 @@ function donut(svg,slices){
   slices.forEach(s=>{const a1=a0+s.v/tot*2*Math.PI;
     const x0=cx+Math.cos(a0)*r,y0=cy+Math.sin(a0)*r,x1=cx+Math.cos(a1)*r,y1=cy+Math.sin(a1)*r;
     const large=(a1-a0)>Math.PI?1:0;
-    svg.appendChild(el("path",{d:`M ${x0} ${y0} A ${r} ${r} 0 ${large} 1 ${x1} ${y1}`,
-      fill:"none",stroke:s.c,"stroke-width":w,"stroke-linecap":"butt"}));
+    svg.appendChild(tipOn(el("path",{d:`M ${x0} ${y0} A ${r} ${r} 0 ${large} 1 ${x1} ${y1}`,
+      fill:"none",stroke:s.c,"stroke-width":w,"stroke-linecap":"butt"}),
+      `${s.label||''}: <b>${fmt.num(s.v)}</b> (${(s.v/tot*100).toFixed(1)}%)`));
     a0=a1;});
 }
 function drawHousing(a){
@@ -653,9 +668,10 @@ function drawHousing(a){
   const mf=(m.units_5plus||0);const mid=(m.units_2||0)+(m.units_3_4||0);
   const other=(m.units_mobile||0)+Math.max(0,(m.units_structure_total||0)-sf-mf-mid);
   donut(document.getElementById("donutStruct"),
-    [{v:sf,c:CAT[0]},{v:mid,c:CAT[3]},{v:mf,c:CAT[1]},{v:other,c:CAT[5]}]);
+    [{v:sf,c:CAT[0],label:"Single-family"},{v:mid,c:CAT[3],label:"2–4 units"},
+     {v:mf,c:CAT[1],label:"Multifamily 5+"},{v:other,c:CAT[5],label:"Mobile/other"}]);
   donut(document.getElementById("donutTenure"),
-    [{v:m.owner_occupied||0,c:CAT[0]},{v:m.renter_occupied||0,c:CAT[1]}]);
+    [{v:m.owner_occupied||0,c:CAT[0],label:"Owner-occupied"},{v:m.renter_occupied||0,c:CAT[1],label:"Renter-occupied"}]);
   document.getElementById("structLegend").innerHTML=
     [["Single-family",CAT[0]],["2–4 units",CAT[3]],["Multifamily 5+",CAT[1]],["Mobile/other",CAT[5]],
      ["Owner",CAT[0]],["Renter",CAT[1]]].slice(0,4).map(([l,c])=>
@@ -683,7 +699,8 @@ function drawPermits(a){
     t.textContent=Math.round(v);svg.appendChild(t);}
   yrs.forEach((y,i)=>{const cx=L+step*i+step/2;let base=0;const p=a.permits[String(y)];
     keys.forEach(k=>{const v=p[k[0]]||0;if(v<=0)return;const y0=Y(base),y1=Y(base+v);
-      svg.appendChild(el("rect",{x:cx-bw/2,y:y1,width:bw,height:Math.max(0,y0-y1-2),fill:k[2],rx:2}));
+      svg.appendChild(tipOn(el("rect",{x:cx-bw/2,y:y1,width:bw,height:Math.max(0,y0-y1-2),fill:k[2],rx:2}),
+        `${y} · ${k[1]}: <b>${v}</b> units`));
       base+=v;});
     const tt=el("text",{x:cx,y:Y(base)-5,fill:"#c6d2ea","font-size":11,"text-anchor":"middle"});
     tt.textContent=totals[i];svg.appendChild(tt);
@@ -729,11 +746,13 @@ function drawSchools(a){
     const t=el("text",{x:L-6,y:yy+3,fill:"#6b7a9c","font-size":9,"text-anchor":"end"});t.textContent=(v/1000).toFixed(0)+"k";svg.appendChild(t);}
   const pts=yrs.map(y=>[X(y),Y(tr[String(y)])]);
   svg.appendChild(el("path",{d:pts.map((p,i)=>(i?"L":"M")+p[0]+" "+p[1]).join(" "),fill:"none",stroke:CAT[4],"stroke-width":2.4}));
-  pts.forEach((p,i)=>{svg.appendChild(el("circle",{cx:p[0],cy:p[1],r:3,fill:CAT[4]}));
+  pts.forEach((p,i)=>{svg.appendChild(tipOn(el("circle",{cx:p[0],cy:p[1],r:4,fill:CAT[4]}),
+      `${yrs[i]}: <b>${fmt.num(tr[String(yrs[i])])}</b> students`));
     const t=el("text",{x:X(yrs[i]),y:H-8,fill:"#6b7a9c","font-size":9,"text-anchor":"middle"});t.textContent=yrs[i];svg.appendChild(t);});
   // charter donut
   const dist=(sc.total_enrollment||0)-(sc.charter_enrollment||0);
-  donut(document.getElementById("charterDonut"),[{v:dist,c:CAT[0]},{v:sc.charter_enrollment||0,c:CAT[1]}]);
+  donut(document.getElementById("charterDonut"),
+    [{v:dist,c:CAT[0],label:"District"},{v:sc.charter_enrollment||0,c:CAT[1],label:"Charter"}]);
   // stats
   const d=a.derived,sd=(S.scores[a.geoid]||{}).school_demand;
   document.getElementById("schoolStats").innerHTML=[
@@ -794,7 +813,8 @@ function drawIncome(a){
   const W=440,H=260,L=70,R=40,T=8,B=8;const n=dist.length;const bh=(H-T-B)/n;
   const max=Math.max(...dist.map(b=>b.count||0))||1;
   dist.forEach((b,i)=>{const y=T+i*bh;const w=(b.count||0)/max*(W-L-R);
-    svg.appendChild(el("rect",{x:L,y:y+2,width:Math.max(0,w),height:bh-4,rx:3,fill:CAT[0],opacity:.85}));
+    svg.appendChild(tipOn(el("rect",{x:L,y:y+2,width:Math.max(0,w),height:bh-4,rx:3,fill:CAT[0],opacity:.85}),
+      `${b.label}: <b>${fmt.num(b.count)}</b> households (${((b.count||0)/tot*100).toFixed(1)}%)`));
     const lab=el("text",{x:L-6,y:y+bh/2+3,fill:"#95a3c4","font-size":10,"text-anchor":"end"});
     lab.textContent=b.label;svg.appendChild(lab);
     const val=el("text",{x:L+w+5,y:y+bh/2+3,fill:"#6b7a9c","font-size":10});
@@ -876,8 +896,11 @@ const tip=document.getElementById("tip");
 function showTip(ev,html){tip.innerHTML=html;tip.style.opacity=1;
   tip.style.left=(ev.clientX+12)+"px";tip.style.top=(ev.clientY+12)+"px";}
 function hideTip(){tip.style.opacity=0;}
+function tipOn(node,html){node.addEventListener("mousemove",e=>showTip(e,html));
+  node.addEventListener("mouseout",hideTip);node.style.cursor="crosshair";return node;}
 
-boot().catch(e=>{document.getElementById("ctx").textContent="Error: "+e.message;console.error(e);});
+boot().catch(e=>{document.getElementById("loading").textContent="Error loading data: "+e.message;
+  document.getElementById("ctx").textContent="Error: "+e.message;console.error(e);});
 </script>
 </body>
 </html>

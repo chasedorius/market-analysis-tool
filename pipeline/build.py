@@ -26,6 +26,21 @@ def load_yaml(name: str) -> dict:
     return yaml.safe_load((CONFIG / name).read_text(encoding="utf-8"))
 
 
+def _round_floats(o, nd=5):
+    """Round floats to shrink JSON (display formatting rounds anyway)."""
+    if isinstance(o, float):
+        return round(o, nd)
+    if isinstance(o, dict):
+        return {k: _round_floats(v, nd) for k, v in o.items()}
+    if isinstance(o, list):
+        return [_round_floats(v, nd) for v in o]
+    return o
+
+
+def _compact(obj) -> str:
+    return json.dumps(_round_floats(obj), separators=(",", ":"))
+
+
 def fetch_level(client, year, tables, for_geo, in_geo=None) -> dict[str, dict]:
     """Merge every table group for one geography level into {geoid: varmap}."""
     merged: dict[str, dict] = {}
@@ -237,10 +252,10 @@ def main() -> None:
 
     DATA.mkdir(exist_ok=True)
     (DATA / "areas.json").write_text(
-        json.dumps({"meta": meta, "areas": areas}, indent=2), encoding="utf-8")
+        _compact({"meta": meta, "areas": areas}), encoding="utf-8")
     name_by_id = {a["geoid"]: a["name"] for a in areas}
     level_by_id = {a["geoid"]: a["level"] for a in areas}
-    (DATA / "scores.json").write_text(json.dumps({
+    (DATA / "scores.json").write_text(_compact({
         "peer_set": meta["peer_set"],
         "vintage": year,
         "method": "average-rank percentile among same-level peers, 0-100",
@@ -249,7 +264,7 @@ def main() -> None:
              "scores": scored[g]["scores"], "input_pct": scored[g]["input_pct"]}
             for g in sorted(scored)
         ],
-    }, indent=2), encoding="utf-8")
+    }), encoding="utf-8")
     (DATA / "meta.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
 
     # Score key for the in-app "Score key" view — single source of truth is scores.yaml.
