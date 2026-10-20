@@ -1,5 +1,5 @@
 {
-  "built_at": "2026-10-20T17:57:15+00:00",
+  "built_at": "2026-10-20T21:55:50+00:00",
   "acs_dataset": "acs/acs5",
   "current_vintage": 2024,
   "trend_vintages": [
@@ -9,15 +9,20 @@
     2023,
     2024
   ],
-  "county": "Davis County, Utah (49011)",
-  "peer_set": "Davis County cities (15)",
-  "n_places": 15,
+  "state": "Utah (49)",
+  "focus_county": "49011",
+  "peer_set": "all Utah places (cities) / all Utah counties",
+  "n_places": 334,
+  "n_counties": 29,
   "sources": [
-    "U.S. Census Bureau, ACS 5-Year Detailed Tables"
+    "U.S. Census Bureau, ACS 5-Year Detailed Tables",
+    "U.S. Census Bureau, Building Permits Survey",
+    "NCES Common Core of Data (Urban Institute Education Data API)",
+    "HUD Income Limits"
   ],
   "notes": [
-    "Population and 1/3/5-year change come from ACS B01003 across vintages (5-year period estimates); the PEP API is unavailable for the 2020s.",
-    "Phase 1 scores rank Davis County cities against each other; all-Utah ranking arrives in Phase 2.",
-    "School demand score and the schools/industrial/retail modules await non-Census sources (NCES, BLS, HUD, Building Permits)."
+    "Population and 1/3/5-year change come from ACS B01003 across vintages.",
+    "Phase 2: scores rank places among all Utah places and counties among all Utah counties.",
+    "School + AMI figures are county/district-based; place->county via a point-in-polygon crosswalk."
   ]
 }

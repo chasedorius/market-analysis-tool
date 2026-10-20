@@ -13,7 +13,7 @@ from pathlib import Path
 import yaml
 
 from pipeline.census_client import CensusClient, geoid_of, load_env
-from pipeline.crosswalks import davis_place_overlap
+from pipeline.crosswalks import load_crosswalk
 from pipeline.scores import build_scores
 from pipeline.transform import compute_derived, compute_metrics
 
@@ -63,18 +63,16 @@ def _series_point(vm: dict) -> dict:
     }
 
 
-def build_series(client, years, state, county, davis_ids) -> dict[str, dict]:
-    """{geoid: {year: snapshot}} for state, county, and Davis County places."""
+def build_series(client, years, state) -> dict[str, dict]:
+    """{geoid: {year: snapshot}} for the state, all counties, and all places."""
     out: dict[str, dict] = {}
     levels = [(f"state:{state}", None),
-              (f"county:{county}", f"state:{state}"),
+              ("county:*", f"state:{state}"),
               ("place:*", f"state:{state}")]
     for year in years:
         for for_geo, in_geo in levels:
             vmap = fetch_level(client, year, SERIES_TABLES, for_geo, in_geo)
             for gid, vm in vmap.items():
-                if for_geo == "place:*" and gid not in davis_ids:
-                    continue
                 out.setdefault(gid, {})[str(year)] = _series_point(vm)
     return out
 
@@ -91,8 +89,7 @@ def main() -> None:
     tables = list(sources["tables"].keys())
 
     state = geography["state_fips"]
-    county = geography["county_fips"]
-    davis_places = davis_place_overlap(geography)
+    crosswalk = load_crosswalk()   # {place_geoid: {county_geoid, overlap_share, name}}
 
     # Building Permits Survey data (from pipeline.fetch_bps), if present.
     permits_doc = {}
@@ -108,47 +105,57 @@ def main() -> None:
     schf = DATA / "schools.json"
     if schf.exists():
         schools_doc = json.loads(schf.read_text(encoding="utf-8"))
-        print(f"Loaded schools (enrollment {schools_doc.get('county_total_enrollment'):,})")
+        print(f"Loaded schools for {len(schools_doc.get('counties', {}))} counties")
     else:
         print("No data/schools.json (run pipeline.fetch_schools) — school metrics will be null")
+    schools_counties = schools_doc.get("counties", {})
 
     # HUD income limits / AMI (from pipeline.fetch_hud), if present.
     hud_doc = {}
     hudf = DATA / "hud.json"
     if hudf.exists():
         hud_doc = json.loads(hudf.read_text(encoding="utf-8"))
-        print(f"Loaded HUD AMI ${hud_doc.get('ami'):,} ({hud_doc.get('area_name')})")
+        print(f"Loaded HUD AMI for {len(hud_doc.get('counties', {}))} counties")
     else:
         print("No data/hud.json (run pipeline.fetch_hud) — income_vs_ami will be null")
+    hud_counties = hud_doc.get("counties", {})
 
     client = CensusClient(acs["base_url"], acs["path"], acs["key_env"])
 
-    print(f"Fetching ACS {year} (acs/acs5) for Utah, Davis County, and places...")
+    print(f"Fetching ACS {year} (acs/acs5) for Utah: state, all counties, all places...")
     state_vars = fetch_level(client, year, tables, f"state:{state}")
-    county_vars = fetch_level(client, year, tables, f"county:{county}", f"state:{state}")
-    place_vars_all = fetch_level(client, year, tables, "place:*", f"state:{state}")
-    place_vars = {gid: v for gid, v in place_vars_all.items() if gid in davis_places}
-    print(f"  places in Utah: {len(place_vars_all)}; kept in Davis County: {len(place_vars)}")
+    county_vars = fetch_level(client, year, tables, "county:*", f"state:{state}")
+    place_vars = fetch_level(client, year, tables, "place:*", f"state:{state}")
+    print(f"  counties: {len(county_vars)} | places: {len(place_vars)}")
 
-    # Student yield (county-level): K-12 enrollment per occupied housing unit.
-    county_occ = county_vars.get(geography["county_geoid"], {}).get("B25002_002E")
-    school_total = schools_doc.get("county_total_enrollment")
-    student_yield = (school_total / county_occ) if (school_total and county_occ) else None
+    # Student yield per county: K-12 enrollment / occupied housing units.
+    yield_by_county = {}
+    for cc, vm in county_vars.items():
+        occ = vm.get("B25002_002E")
+        enr = schools_counties.get(cc, {}).get("total_enrollment")
+        yield_by_county[cc] = (enr / occ) if (enr and occ) else None
 
     print(f"Fetching per-year time series {SERIES_YEARS}...")
-    series = build_series(client, SERIES_YEARS, state, county, set(davis_places))
+    series = build_series(client, SERIES_YEARS, state)
     # population trend (int-year keys) derived from the series, for growth ratios
     trend = {gid: {int(y): snap["population"] for y, snap in yrs.items()}
              for gid, yrs in series.items()}
 
     # Assemble area records
     areas = []
-    area_values_for_scoring: dict[str, dict] = {}
+
+    def county_of(geoid, level):
+        if level == "county":
+            return geoid
+        if level == "place":
+            return crosswalk.get(geoid, {}).get("county_geoid")
+        return None
 
     def build_area(geoid, level, varmap):
         name = varmap.get("NAME", geoid)
         mm = compute_metrics(varmap, sources)
         derived = compute_derived(mm["metrics"], trend.get(geoid, {}))
+        cc = county_of(geoid, level)
         perm = permits_doc.get(geoid, {})
         cur = perm.get(str(year))
         pop = mm["metrics"].get("population")
@@ -156,10 +163,11 @@ def main() -> None:
                                   if cur and pop else None)
         perm3 = (sum((perm.get(str(y)) or {}).get("total", 0) for y in (2022, 2023, 2024))
                  if perm else None)
-        derived["student_yield"] = student_yield
-        derived["projected_new_students"] = (round(perm3 * student_yield)
-                                             if perm3 is not None and student_yield else None)
-        ami = hud_doc.get("ami")
+        sy = yield_by_county.get(cc)
+        derived["student_yield"] = sy
+        derived["projected_new_students"] = (round(perm3 * sy)
+                                             if perm3 is not None and sy else None)
+        ami = hud_counties.get(cc, {}).get("ami")
         mfi = mm["metrics"].get("median_family_income")
         derived["income_vs_ami"] = round(mfi / ami, 3) if (mfi and ami) else None
         rec = {
@@ -176,24 +184,32 @@ def main() -> None:
             "derived": derived,
         }
         if level == "place":
-            rec["overlap_share"] = davis_places[geoid]["overlap_share"]
+            rec["county_geoid"] = cc
+            rec["overlap_share"] = crosswalk.get(geoid, {}).get("overlap_share", 1.0)
         if level == "county":
-            rec["schools"] = schools_doc
-            rec["hud"] = hud_doc
+            rec["schools"] = schools_counties.get(geoid)
+            hc = hud_counties.get(geoid)
+            if hc:
+                rec["hud"] = {**hc, "year": hud_doc.get("year")}
         return rec, {**mm["metrics"], **derived}
 
+    place_vals, county_vals = {}, {}
     for gid, vm in state_vars.items():
         rec, _ = build_area(gid, "state", vm)
         areas.append(rec)
-    for gid, vm in county_vars.items():
-        rec, _ = build_area(gid, "county", vm)
+    for gid, vm in sorted(county_vars.items()):
+        rec, flat = build_area(gid, "county", vm)
         areas.append(rec)
+        county_vals[gid] = flat
     for gid, vm in sorted(place_vars.items()):
         rec, flat = build_area(gid, "place", vm)
         areas.append(rec)
-        area_values_for_scoring[gid] = flat  # peer set = Davis County cities
+        place_vals[gid] = flat
 
-    scored = build_scores(area_values_for_scoring, scores_cfg)
+    # Scores: places ranked among all Utah places; counties among all Utah counties.
+    scored = {}
+    scored.update(build_scores(place_vals, scores_cfg))
+    scored.update(build_scores(county_vals, scores_cfg))
 
     built_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
     meta = {
@@ -201,29 +217,35 @@ def main() -> None:
         "acs_dataset": "acs/acs5",
         "current_vintage": year,
         "trend_vintages": trend_vintages,
-        "county": f"{geography['county_name']}, {geography['state_name']} ({geography['county_geoid']})",
-        "peer_set": "Davis County cities (15)",
+        "state": f"{geography['state_name']} ({state})",
+        "focus_county": geography.get("county_geoid"),
+        "peer_set": "all Utah places (cities) / all Utah counties",
         "n_places": len(place_vars),
-        "sources": ["U.S. Census Bureau, ACS 5-Year Detailed Tables"],
+        "n_counties": len(county_vars),
+        "sources": [
+            "U.S. Census Bureau, ACS 5-Year Detailed Tables",
+            "U.S. Census Bureau, Building Permits Survey",
+            "NCES Common Core of Data (Urban Institute Education Data API)",
+            "HUD Income Limits",
+        ],
         "notes": [
-            "Population and 1/3/5-year change come from ACS B01003 across vintages "
-            "(5-year period estimates); the PEP API is unavailable for the 2020s.",
-            "Phase 1 scores rank Davis County cities against each other; all-Utah "
-            "ranking arrives in Phase 2.",
-            "School demand score and the schools/industrial/retail modules await "
-            "non-Census sources (NCES, BLS, HUD, Building Permits).",
+            "Population and 1/3/5-year change come from ACS B01003 across vintages.",
+            "Phase 2: scores rank places among all Utah places and counties among all Utah counties.",
+            "School + AMI figures are county/district-based; place->county via a point-in-polygon crosswalk.",
         ],
     }
 
     DATA.mkdir(exist_ok=True)
     (DATA / "areas.json").write_text(
         json.dumps({"meta": meta, "areas": areas}, indent=2), encoding="utf-8")
+    name_by_id = {a["geoid"]: a["name"] for a in areas}
+    level_by_id = {a["geoid"]: a["level"] for a in areas}
     (DATA / "scores.json").write_text(json.dumps({
         "peer_set": meta["peer_set"],
         "vintage": year,
-        "method": "average-rank percentile among peers, 0-100",
+        "method": "average-rank percentile among same-level peers, 0-100",
         "areas": [
-            {"geoid": g, "name": next(a["name"] for a in areas if a["geoid"] == g),
+            {"geoid": g, "name": name_by_id.get(g), "level": level_by_id.get(g),
              "scores": scored[g]["scores"], "input_pct": scored[g]["input_pct"]}
             for g in sorted(scored)
         ],
@@ -262,11 +284,13 @@ def _print_verification(areas, scored):
         print(f"  Pop trend: {c['pop_trend']}")
         print(f"  Growth 5y: {c['derived']['growth_5y']:.3%}  1y: {c['derived']['growth_1y']:.3%}")
 
-    print("\n=== Davis County cities: population + scores ===")
+    n_places = sum(1 for a in areas if a["level"] == "place")
+    n_counties = sum(1 for a in areas if a["level"] == "county")
+    print(f"\n=== Top Utah cities by population (of {n_places} places, {n_counties} counties) ===")
     print(f"  {'City':<18}{'Pop':>9}{'Demand':>9}{'Afford':>9}{'Supply':>9}{'Econ':>9}")
     places = sorted((a for a in areas if a["level"] == "place"),
                     key=lambda a: -(a["population"] or 0))
-    for a in places:
+    for a in places[:12]:
         s = scored[a["geoid"]]["scores"]
         def f(x):
             return f"{x:>9.1f}" if x is not None else f"{'n/a':>9}"

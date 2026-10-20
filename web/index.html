@@ -68,6 +68,8 @@
   .bb-chip .x{cursor:pointer;color:var(--muted);font-weight:700}
   .bb-count{margin-top:10px;color:var(--muted);font-size:13px}
   tbody tr.nomatch{opacity:.3}
+  #backBtn{background:var(--accent);color:#06222e;border:0;border-radius:999px;
+    padding:5px 12px;cursor:pointer;font:inherit;font-weight:650;margin-right:4px}
   #map{height:420px;border-radius:12px;border:1px solid var(--line);background:#0c1322}
   .leaflet-tile{filter:grayscale(.3) brightness(.78) contrast(1.02)}
   .leaflet-container{background:#0c1322}
@@ -132,6 +134,7 @@
   <section class="card">
     <div class="chips" id="metricChips"></div>
     <div class="chips" style="margin-top:-4px">
+      <button id="backBtn" hidden>← All Utah</button>
       <span class="seg" id="growthToggle">
         <button data-p="1">1Y</button><button data-p="3">3Y</button>
         <button data-p="5" class="on">5Y</button>
@@ -201,25 +204,22 @@
 
   <!-- SCHOOLS -->
   <section class="card full">
-    <h2>Schools · Davis School District + charters</h2>
+    <h2>Schools · district + charters (county-based)</h2>
     <div class="h2sub" id="schoolCap"></div>
     <div class="row2">
       <div>
         <svg id="gradeChart" viewBox="0 0 560 220" width="100%" height="220" role="img"></svg>
-        <div class="chartlegend"><span><span class="dot" style="background:var(--c0)"></span>Enrollment by grade (Davis School District)</span></div>
+        <div class="chartlegend"><span><span class="dot" style="background:var(--c4)"></span>County K-12 enrollment, 2019–2023</span></div>
       </div>
       <div>
         <div class="donuts">
           <div><svg id="charterDonut" viewBox="0 0 150 150" width="150" height="150"></svg>
             <div class="donut-cap">Charter vs district</div></div>
-          <div style="align-self:center">
-            <svg id="enrollTrend" viewBox="0 0 230 120" width="230" height="120"></svg>
-            <div class="donut-cap">District enrollment '19–'23</div></div>
         </div>
         <div class="stockstats" id="schoolStats"></div>
       </div>
     </div>
-    <p class="note">School figures are district-based (schools don't nest in cities). Projected new students = recent 3-yr permits × district student yield (an estimate). Source: NCES Common Core of Data.</p>
+    <p class="note">School figures are county/district-based (schools don't nest in cities). Projected new students = recent 3-yr permits × county student yield (an estimate). Source: NCES Common Core of Data. Toggle "Show schools" on the map for locations.</p>
   </section>
 
   <!-- AFFORDABILITY -->
@@ -363,39 +363,46 @@ const fmt={
   ratio:v=>v==null?"—":v.toFixed(2),
   num:v=>v==null?"—":Math.round(v).toLocaleString(),
 };
-const S={meta:{},byId:{},places:[],scores:{},geo:null,key:{},
-  metric:"pop_growth",period:5,sel:null,layer:null,map:null,
+const S={meta:{},byId:{},places:[],counties:[],scores:{},key:{},
+  countyGeo:null,placeGeo:null,drill:null,
+  metric:"pop_growth",period:5,sel:null,map:null,countyLayer:null,placeLayer:null,
   trendOn:Object.fromEntries(TREND_SERIES.map(s=>[s.key,s.on])),buyBox:[]};
+function countyRecOf(a){return a&&a.level==="county"?a:(a?S.byId[a.county_geoid]:null);}
+function countyName(gid){const a=S.byId[gid];return a?a.name:gid;}
 
 function el(tag,attrs){const e=document.createElementNS(SVGNS,tag);
   for(const k in attrs) e.setAttribute(k,attrs[k]); return e;}
-function short(a){return a.name.replace(/ (city|town|CDP), Utah$/,"");}
+function short(a){return a.name.replace(/ (city|town|CDP), Utah$/,"").replace(/, Utah$/,"");}
 function mval(a,key,period){
   if(key==="pop_growth") return a.derived["growth_"+period+"y"];
   const m=MAP_METRICS[key]; return (m&&m.derived?a.derived:a.metrics)[key];
 }
 
 async function boot(){
-  const [meta,areas,scores,key,geo]=await Promise.all([
+  const [meta,areas,scores,key,cgeo,pgeo]=await Promise.all([
     fetch(`${DATA}/meta.json`).then(r=>r.json()),
     fetch(`${DATA}/areas.json`).then(r=>r.json()),
     fetch(`${DATA}/scores.json`).then(r=>r.json()),
     fetch(`${DATA}/score_key.json`).then(r=>r.json()),
-    fetch(`${DATA}/geo/davis_places.geojson`).then(r=>r.json()),
+    fetch(`${DATA}/geo/ut_counties.geojson`).then(r=>r.json()),
+    fetch(`${DATA}/geo/ut_places.geojson`).then(r=>r.json()),
   ]);
-  S.meta=meta; S.geo=geo; S.key=key;
+  S.meta=meta; S.key=key; S.countyGeo=cgeo; S.placeGeo=pgeo;
   S.byId=Object.fromEntries(areas.areas.map(a=>[a.geoid,a]));
   S.places=areas.areas.filter(a=>a.level==="place").sort((a,b)=>(b.population||0)-(a.population||0));
+  S.counties=areas.areas.filter(a=>a.level==="county").sort((a,b)=>(b.population||0)-(a.population||0));
   S.scores=Object.fromEntries(scores.areas.map(s=>[s.geoid,s.scores]));
 
   document.getElementById("ctx").textContent=
-    `${meta.county} · ACS ${meta.current_vintage} 5-year · built ${meta.built_at.slice(0,10)}`;
+    `${meta.state} · ACS ${meta.current_vintage} 5-year · ${S.counties.length} counties · ${S.places.length} cities · built ${meta.built_at.slice(0,10)}`;
   document.getElementById("foot").textContent="Source: "+meta.sources.join("; ")+". "+meta.notes.join(" ");
   document.getElementById("pillYear").textContent=meta.current_vintage;
+  document.getElementById("pillCounty").textContent="Utah";
 
   buildMetricChips(); buildTrendChips(); buildScoreKey();
-  initMap(); select(S.places[0].geoid); refreshMetric();
+  initMap(); select(meta.focus_county||S.counties[0].geoid); refreshMetric();
 
+  document.getElementById("backBtn").onclick=()=>{S.drill=null;refreshMetric();};
   document.querySelectorAll("#growthToggle button").forEach(b=>b.onclick=()=>{
     document.querySelectorAll("#growthToggle button").forEach(x=>x.classList.remove("on"));
     b.classList.add("on"); S.period=+b.dataset.p; refreshMetric();
@@ -460,30 +467,55 @@ function seqColor(v,brk){if(v==null)return"#2a3550";let i=0;while(i<brk.length&&
 function colorFor(a){const m=MAP_METRICS[S.metric];const v=mval(a,S.metric,S.period);
   return m.growth?growthColor(v):seqColor(v,S._brk);}
 
+function displayedAreas(){return S.drill?S.places.filter(a=>a.county_geoid===S.drill):S.counties;}
 function refreshMetric(){
   const m=MAP_METRICS[S.metric];
-  const vals=S.places.map(a=>mval(a,S.metric,S.period));
+  const vals=displayedAreas().map(a=>mval(a,S.metric,S.period));
   S._brk=m.growth?null:bins(vals);
-  if(S.layer)S.layer.remove();
-  S.layer=L.geoJSON(S.geo,{
-    style:f=>styleFor(f.properties.geoid),
-    onEachFeature:(f,l)=>{const a=S.byId[f.properties.geoid];
-      l.on("click",()=>select(f.properties.geoid));
-      l.on("mousemove",e=>showTip(e.originalEvent,`<b>${short(a)}</b><br>${m.label}: ${fmt[m.fmt](mval(a,S.metric,S.period))}`));
+  if(S.countyLayer)S.countyLayer.remove();
+  if(S.placeLayer){S.placeLayer.remove();S.placeLayer=null;}
+  S.countyLayer=L.geoJSON(S.countyGeo,{
+    style:f=>countyStyle(f.properties.geoid),
+    onEachFeature:(f,l)=>{const gid=f.properties.geoid;const a=S.byId[gid];
+      l.on("click",()=>{S.drill=gid;select(gid);refreshMetric();});
+      l.on("mousemove",e=>showTip(e.originalEvent,`<b>${f.properties.name}</b>${S.drill?'':`<br>${m.label}: ${a?fmt[m.fmt](mval(a,S.metric,S.period)):'—'}`}`));
       l.on("mouseout",hideTip);}
   }).addTo(S.map);
-  S.map.fitBounds(S.layer.getBounds(),{padding:[14,14]});
+  if(S.drill){
+    const fc={type:"FeatureCollection",features:S.placeGeo.features.filter(f=>f.properties.county_geoid===S.drill)};
+    S.placeLayer=L.geoJSON(fc,{
+      style:f=>placeStyle(f.properties.geoid),
+      onEachFeature:(f,l)=>{const gid=f.properties.geoid;const a=S.byId[gid];
+        l.on("click",()=>select(gid));
+        l.on("mousemove",e=>showTip(e.originalEvent,`<b>${a?short(a):f.properties.name}</b><br>${m.label}: ${a?fmt[m.fmt](mval(a,S.metric,S.period)):'—'}`));
+        l.on("mouseout",hideTip);}
+    }).addTo(S.map);
+    try{S.map.fitBounds(S.placeLayer.getBounds(),{padding:[14,14]});}catch(e){}
+  }else{
+    try{S.map.fitBounds(S.countyLayer.getBounds(),{padding:[14,14]});}catch(e){}
+  }
+  document.getElementById("backBtn").hidden=!S.drill;
   document.getElementById("growthToggle").hidden=!m.growth;
-  document.getElementById("metricNote").textContent=m.note||"";
+  document.getElementById("metricNote").textContent=
+    (S.drill?`Cities in ${countyName(S.drill)} — click one. `:"Utah counties — click one to drill into its cities. ")+(m.note||"");
   renderRamp(m,vals); renderRank(); highlight();
 }
-function styleFor(gid){const sel=gid===S.sel;
-  return{color:sel?"#ffffff":"#0e1626",weight:sel?3:1,fillOpacity:.85,fillColor:colorFor(S.byId[gid])};}
-function highlight(){if(!S.layer)return;
-  S.layer.eachLayer(l=>{l.setStyle(styleFor(l.feature.properties.geoid));
-    if(l.feature.properties.geoid===S.sel)l.bringToFront();});
-  document.querySelectorAll("#rankBody tr").forEach(tr=>
-    tr.classList.toggle("active",tr.dataset.geoid===S.sel));}
+function countyStyle(gid){
+  if(S.drill){return gid===S.drill?{color:"#ffffff",weight:2,fill:false}
+    :{color:"#2b3a5c",weight:1,fillColor:"#17223a",fillOpacity:.4};}
+  const sel=gid===S.sel;
+  return{color:sel?"#ffffff":"#0e1626",weight:sel?3:1,fillOpacity:.85,fillColor:colorFor(S.byId[gid])};
+}
+function placeStyle(gid){const a=S.byId[gid];const sel=gid===S.sel;
+  if(!a)return{color:"#33425f",weight:1,fillColor:"#2a3550",fillOpacity:.5};
+  return{color:sel?"#ffffff":"#0e1626",weight:sel?3:1,fillOpacity:.85,fillColor:colorFor(a)};
+}
+function highlight(){
+  if(S.countyLayer)S.countyLayer.eachLayer(l=>l.setStyle(countyStyle(l.feature.properties.geoid)));
+  if(S.placeLayer)S.placeLayer.eachLayer(l=>{l.setStyle(placeStyle(l.feature.properties.geoid));
+    if(l.feature.properties.geoid===S.sel&&l.bringToFront)l.bringToFront();});
+  document.querySelectorAll("#rankBody tr").forEach(tr=>tr.classList.toggle("active",tr.dataset.geoid===S.sel));
+}
 function renderRamp(m,vals){
   const bar=document.getElementById("rampbar");
   const vv=vals.filter(x=>x!=null);
@@ -504,7 +536,8 @@ function renderRamp(m,vals){
 function select(gid){
   S.sel=gid; const a=S.byId[gid]; const d=a.derived;
   document.getElementById("selName").textContent=short(a);
-  document.getElementById("selPop").textContent=`${fmt.num(a.population)} people · GEOID ${gid}`;
+  const sub=a.level==="county"?"County":("City · "+(countyName(a.county_geoid)||"Utah"));
+  document.getElementById("selPop").textContent=`${sub} · ${fmt.num(a.population)} people`;
   const card=(k,yrs,p)=>{const v=d["growth_"+p+"y"];const cls=v==null?"":v>=0?"up":"down";
     const s=v==null?"—":(v>=0?"+":"")+(v*100).toFixed(1)+"%";
     const base=a.pop_trend[String(2024-p)];
@@ -598,7 +631,8 @@ function drawRadar(gid){
   svg.appendChild(el("polygon",{points:poly,fill:"rgba(31,159,212,.25)",stroke:CAT[0],"stroke-width":2}));
   RADAR_AXES.forEach((ax,i)=>{const v=sc[ax[0]];if(v==null)return;const[x,y]=pt(i,R*v/100);
     svg.appendChild(el("circle",{cx:x,cy:y,r:3,fill:CAT[0]}));});
-  document.getElementById("radarCity").textContent=short(S.byId[gid])+" vs. the 15 Davis County cities";
+  document.getElementById("radarCity").textContent=short(S.byId[gid])+
+    (S.byId[gid].level==="county"?" vs. all Utah counties":" vs. all Utah cities");
   document.getElementById("radarName").textContent=short(S.byId[gid]);
 }
 
@@ -677,42 +711,47 @@ function drawMiniLine(svg,obj,color){
   [0,ys.length-1].forEach(i=>{const t=el("text",{x:X(ys[i]),y:H-6,fill:"#6b7a9c","font-size":9,"text-anchor":"middle"});t.textContent=ys[i];svg.appendChild(t);});
 }
 function drawSchools(a){
-  const sc=(S.byId["49011"].schools)||{};
+  const crec=countyRecOf(a);const sc=crec&&crec.schools;
   const cap=document.getElementById("schoolCap");
-  if(!sc.enrollment_by_grade){cap.textContent="No school data.";return;}
-  // enrollment by grade bars
+  if(!sc){cap.textContent="No school data for this area.";
+    document.getElementById("gradeChart").innerHTML="";
+    document.getElementById("charterDonut").innerHTML="";
+    document.getElementById("schoolStats").innerHTML="";return;}
+  // county K-12 enrollment trend (line)
   const svg=document.getElementById("gradeChart");svg.innerHTML="";
-  const g=sc.enrollment_by_grade;const W=560,H=220,L=40,R=10,T=12,B=26;
-  const max=Math.max(...g.map(x=>x.enrollment),1),step=(W-L-R)/g.length,bw=step*0.68;
-  const Y=v=>T+(1-v/max)*(H-T-B);
-  for(let i=0;i<=4;i++){const v=max*i/4,yy=Y(v);
+  const tr=sc.enrollment_trend||{};const yrs=Object.keys(tr).map(Number).sort((x,y)=>x-y);
+  const vals=yrs.map(y=>tr[String(y)]);const W=560,H=220,L=48,R=16,T=14,B=26;
+  const mn=Math.min(...vals),mx=Math.max(...vals),pad=(mx-mn)*0.35||1,lo=Math.max(0,mn-pad),hi=mx+pad;
+  const X=x=>L+(x-yrs[0])/((yrs.at(-1)-yrs[0])||1)*(W-L-R);
+  const Y=v=>T+(1-(v-lo)/((hi-lo)||1))*(H-T-B);
+  for(let i=0;i<=4;i++){const v=lo+(hi-lo)*i/4,yy=Y(v);
     svg.appendChild(el("line",{x1:L,y1:yy,x2:W-R,y2:yy,stroke:"#24324e","stroke-width":1}));
-    const t=el("text",{x:L-5,y:yy+3,fill:"#6b7a9c","font-size":9,"text-anchor":"end"});t.textContent=(v/1000).toFixed(0)+"k";svg.appendChild(t);}
-  g.forEach((x,i)=>{const cx=L+step*i+step/2,y1=Y(x.enrollment);
-    svg.appendChild(el("rect",{x:cx-bw/2,y:y1,width:bw,height:Math.max(0,Y(0)-y1),fill:CAT[0],rx:2}));
-    const xl=el("text",{x:cx,y:H-8,fill:"#6b7a9c","font-size":9,"text-anchor":"middle"});xl.textContent=x.grade;svg.appendChild(xl);});
-  // charter donut + trend
-  const dist=sc.county_total_enrollment-sc.charter_enrollment;
-  donut(document.getElementById("charterDonut"),[{v:dist,c:CAT[0]},{v:sc.charter_enrollment,c:CAT[1]}]);
-  drawMiniLine(document.getElementById("enrollTrend"),sc.enrollment_trend,CAT[4]);
+    const t=el("text",{x:L-6,y:yy+3,fill:"#6b7a9c","font-size":9,"text-anchor":"end"});t.textContent=(v/1000).toFixed(0)+"k";svg.appendChild(t);}
+  const pts=yrs.map(y=>[X(y),Y(tr[String(y)])]);
+  svg.appendChild(el("path",{d:pts.map((p,i)=>(i?"L":"M")+p[0]+" "+p[1]).join(" "),fill:"none",stroke:CAT[4],"stroke-width":2.4}));
+  pts.forEach((p,i)=>{svg.appendChild(el("circle",{cx:p[0],cy:p[1],r:3,fill:CAT[4]}));
+    const t=el("text",{x:X(yrs[i]),y:H-8,fill:"#6b7a9c","font-size":9,"text-anchor":"middle"});t.textContent=yrs[i];svg.appendChild(t);});
+  // charter donut
+  const dist=(sc.total_enrollment||0)-(sc.charter_enrollment||0);
+  donut(document.getElementById("charterDonut"),[{v:dist,c:CAT[0]},{v:sc.charter_enrollment||0,c:CAT[1]}]);
   // stats
   const d=a.derived,sd=(S.scores[a.geoid]||{}).school_demand;
   document.getElementById("schoolStats").innerHTML=[
-    [fmt.num(sc.county_total_enrollment),"Enrollment"],
+    [fmt.num(sc.total_enrollment),"Enrollment"],
     [`${sc.n_schools} (${sc.n_charter} chtr)`,"Schools"],
     [fmt.pct(sc.charter_share),"Charter share"],
     [d.student_yield==null?"—":d.student_yield.toFixed(2),"Student yield"],
     [fmt.num(d.projected_new_students),short(a)+" proj."],
     [sd==null?"—":sd.toFixed(0),"School demand"],
   ].map(([v,l])=>`<div class="s"><b>${v}</b><span>${l}</span></div>`).join("");
-  const yrs=Object.keys(sc.enrollment_trend);const first=sc.enrollment_trend[yrs[0]],last=sc.enrollment_trend[yrs.at(-1)];
-  const dir=last>first?"up":last<first?"down":"flat";
-  cap.textContent=`${sc.district.name}: ${fmt.num(sc.county_total_enrollment)} students across ${sc.n_schools} schools (${sc.n_charter} charter, ${fmt.pct(sc.charter_share)}). District enrollment ${dir} 2019→2023.`;
+  const dir=vals.at(-1)>vals[0]?"up":vals.at(-1)<vals[0]?"down":"flat";
+  cap.textContent=`${countyName(crec.geoid)}: ${fmt.num(sc.total_enrollment)} K-12 students across ${sc.n_schools} schools (${sc.n_charter} charter, ${fmt.pct(sc.charter_share)}). Enrollment ${dir} 2019→2023.`;
 }
 function toggleSchools(on){
   if(S.schoolLayer){S.schoolLayer.remove();S.schoolLayer=null;}
   if(!on)return;
-  const locs=((S.byId["49011"].schools||{}).locations)||[];
+  const crec=countyRecOf(S.byId[S.sel]);
+  const locs=((crec&&crec.schools||{}).locations)||[];
   S.schoolLayer=L.layerGroup(locs.filter(l=>l.lat&&l.lon).map(l=>
     L.circleMarker([l.lat,l.lon],{radius:Math.max(3,Math.sqrt(l.enrollment||100)/6),
       color:"#0e1626",weight:1,fillColor:l.charter?CAT[1]:CAT[0],fillOpacity:.9})
@@ -722,7 +761,7 @@ function toggleSchools(on){
 
 /* ---------- affordability (HUD AMI + income limits) ---------- */
 function drawAffordability(a){
-  const hud=(S.byId["49011"].hud)||{};
+  const hud=((countyRecOf(a)||{}).hud)||{};
   const cap=document.getElementById("affCap");
   if(!hud.ami){cap.textContent="No HUD data.";return;}
   const L=hud.limits;
@@ -769,7 +808,8 @@ function drawIncome(a){
 /* ---------- screener ---------- */
 function renderRank(){
   const m=MAP_METRICS[S.metric];document.getElementById("rankHdr").textContent=m.label;
-  const rows=S.places.map(a=>({a,v:mval(a,S.metric,S.period)})).sort((x,y)=>(y.v??-1e9)-(x.v??-1e9));
+  const scope=S.drill?S.places.filter(a=>a.county_geoid===S.drill):S.places;
+  const rows=scope.map(a=>({a,v:mval(a,S.metric,S.period)})).sort((x,y)=>(y.v??-1e9)-(x.v??-1e9));
   let matches=0;
   document.getElementById("rankBody").innerHTML=rows.map((r,i)=>{
     const s=S.scores[r.a.geoid]||{};const g=k=>s[k]==null?"—":s[k].toFixed(0);
@@ -780,9 +820,10 @@ function renderRank(){
       <td class="n">${g("supply_tightness")}</td><td class="n">${g("economic")}</td>
       <td class="n">${g("stock_quality")}</td><td class="n">${g("school_demand")}</td></tr>`;}).join("");
   document.querySelectorAll("#rankBody tr").forEach(tr=>tr.onclick=()=>select(tr.dataset.geoid));
+  const scopeLbl=S.drill?`${countyName(S.drill)} cities`:`all ${rows.length} Utah cities`;
   document.getElementById("bbCount").textContent = S.buyBox.length
-    ? `${matches} of ${S.places.length} cities match the buy box (non-matching dimmed).`
-    : `${S.places.length} cities · add filters to screen them.`;
+    ? `${matches} of ${rows.length} (${scopeLbl}) match the buy box — non-matching dimmed.`
+    : `Screening ${scopeLbl}. Click a county on the map to narrow, or add buy-box filters below.`;
   highlight();
 }
 
@@ -826,7 +867,7 @@ function buildScoreKey(){
   const ratios=Object.entries(k.derived_metrics).map(([n,d])=>
     `<tr><td><code>${n}</code></td><td>${d}</td></tr>`).join("");
   document.getElementById("scoreKey").innerHTML=
-    `<p><b>Composite scores</b> (0–100, average percentile rank among the 15 Davis County cities):</p>
+    `<p><b>Composite scores</b> (0–100, average percentile rank among same-level peers — all Utah cities, or all Utah counties):</p>
      <ul>${scoreList}</ul><p style="margin-top:10px"><b>Derived ratios</b></p><table><tbody>${ratios}</tbody></table>`;
 }
 

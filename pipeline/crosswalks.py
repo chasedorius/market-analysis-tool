@@ -1,20 +1,18 @@
-"""Geography crosswalks.
+"""Place -> county crosswalk.
 
-Phase 1: the Davis County place list (with overlap shares) is curated in
-config/geography.yaml. This module exposes it as a dict keyed by GEOID so the
-build can filter the statewide ACS place pull down to Davis County.
-
-Phase 2 replaces `davis_place_overlap()` with a crosswalk derived from an
-authoritative Census relationship file, so cities crossing county lines get a
-fractional overlap share. The rest of the pipeline won't change.
+Built by pipeline.fetch_geo via point-in-polygon of each place's internal point
+against county polygons, stored in data/crosswalk_place_county.json as
+{place_geoid: {name, county_geoid, overlap_share}}.
 """
 
 from __future__ import annotations
 
+import json
+from pathlib import Path
 
-def davis_place_overlap(geography: dict) -> dict[str, dict]:
-    """Return {place_geoid: {name, overlap_share}} for Davis County cities."""
-    return {
-        p["geoid"]: {"name": p["name"], "overlap_share": p["overlap_share"]}
-        for p in geography["places"]
-    }
+ROOT = Path(__file__).resolve().parent.parent
+
+
+def load_crosswalk() -> dict:
+    p = ROOT / "data" / "crosswalk_place_county.json"
+    return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}

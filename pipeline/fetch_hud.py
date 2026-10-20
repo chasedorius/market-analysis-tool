@@ -44,43 +44,49 @@ def main() -> None:
         raise SystemExit("HUD_TOKEN not set. Add it to .env (free token at "
                          "huduser.gov/portal/dataset/fmr-api.html).")
 
-    geo = yaml.safe_load((CONFIG / "geography.yaml").read_text(encoding="utf-8"))
-    entity = geo["county_geoid"] + "99999"
-
-    data = None
-    for year in YEARS:
-        try:
-            d = _get(entity, year, token).get("data")
-            if d and d.get("median_income"):
-                data = d
-                break
-        except Exception as e:  # pragma: no cover
-            print(f"  year {year}: {e}")
-    if not data:
-        raise SystemExit("No HUD income-limits data returned for " + entity)
+    # county list from the Utah counties geojson (built by pipeline.fetch_geo)
+    counties_geo = json.loads((ROOT / "data" / "geo" / "ut_counties.geojson")
+                              .read_text(encoding="utf-8"))
+    county_geoids = sorted(f["properties"]["geoid"] for f in counties_geo["features"])
 
     def series(block: dict, pct: int) -> dict:
         return {str(n): block.get(f"il{pct}_p{n}") for n in range(1, 9)}
 
+    counties = {}
+    year_used = None
+    for geoid in county_geoids:
+        entity = geoid + "99999"
+        data = None
+        for year in YEARS:
+            try:
+                d = _get(entity, year, token).get("data")
+                if d and d.get("median_income"):
+                    data = d
+                    break
+            except Exception:
+                continue
+        if not data:
+            print(f"  no data for {geoid}")
+            continue
+        year_used = data["year"]
+        counties[geoid] = {
+            "area_name": data.get("area_name"),
+            "ami": data.get("median_income"),
+            "limits": {
+                "extremely_low_30": series(data["extremely_low"], 30),
+                "very_low_50": series(data["very_low"], 50),
+                "low_80": series(data["low"], 80),
+            },
+        }
+
     out = {
-        "source": f"HUD Income Limits FY{data['year']} (HUD User API)",
-        "year": data["year"],
-        "county_geoid": geo["county_geoid"],
-        "area_name": data.get("area_name"),
-        "ami": data.get("median_income"),           # Area Median (family) Income
-        "limits": {
-            "extremely_low_30": series(data["extremely_low"], 30),
-            "very_low_50": series(data["very_low"], 50),
-            "low_80": series(data["low"], 80),
-        },
+        "source": f"HUD Income Limits FY{year_used} (HUD User API)",
+        "year": year_used,
+        "counties": counties,
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(out, indent=2), encoding="utf-8")
-    print(f"Wrote data/hud.json — {out['area_name']} FY{out['year']}: "
-          f"AMI ${out['ami']:,}; limits 30/50/80% (4-person) "
-          f"${out['limits']['extremely_low_30']['4']:,} / "
-          f"${out['limits']['very_low_50']['4']:,} / "
-          f"${out['limits']['low_80']['4']:,}")
+    print(f"Wrote data/hud.json — {len(counties)} Utah counties, FY{year_used}")
 
 
 if __name__ == "__main__":

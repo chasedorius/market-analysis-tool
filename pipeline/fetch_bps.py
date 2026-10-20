@@ -59,33 +59,28 @@ def _point(r, c):
 def main() -> None:
     geo = yaml.safe_load((CONFIG / "geography.yaml").read_text(encoding="utf-8"))
     state = geo["state_fips"]
-    county = geo["county_fips"]
-    davis_place_fips = {p["place_fips"]: p["geoid"] for p in geo["places"]}
 
     out: dict[str, dict] = {}
 
     for year in YEARS:
-        # --- county total ---
+        # --- all Utah counties ---
         for r in _rows(f"{BASE}/County/co{year}a.txt"):
             c = COUNTY_COLS
-            if len(r) <= c["mf"]:
+            if len(r) <= c["mf"] or r[c["state"]].strip() != state:
                 continue
-            if r[c["state"]].strip() == state and r[c["county"]].strip() == county:
-                out.setdefault(geo["county_geoid"], {})[str(year)] = _point(r, c)
-                break
+            out.setdefault(state + r[c["county"]].strip(), {})[str(year)] = _point(r, c)
 
-        # --- places in Davis County (West region file) ---
+        # --- all Utah places (West region file) ---
         url = f"{BASE}/Place/{urllib.parse.quote('West Region')}/we{year}a.txt"
         for r in _rows(url):
             c = PLACE_COLS
-            if len(r) <= c["mf"]:
-                continue
-            if r[c["state"]].strip() != state or r[c["county"]].strip() != county:
+            if len(r) <= c["mf"] or r[c["state"]].strip() != state:
                 continue
             fips = r[c["fips_place"]].strip()
-            if fips in davis_place_fips:
-                out.setdefault(davis_place_fips[fips], {})[str(year)] = _point(r, c)
-        print(f"  {year}: parsed county + places")
+            if fips == "99990":       # county unincorporated remainder
+                continue
+            out.setdefault(state + fips, {})[str(year)] = _point(r, c)
+        print(f"  {year}: parsed Utah counties + places")
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps({

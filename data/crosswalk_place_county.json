@@ -1,0 +1,1672 @@
+{
+  "4974920": {
+    "name": "Tabiona town",
+    "county_geoid": "49013",
+    "overlap_share": 1.0
+  },
+  "4937924": {
+    "name": "Interlaken town",
+    "county_geoid": "49051",
+    "overlap_share": 1.0
+  },
+  "4900760": {
+    "name": "Altamont town",
+    "county_geoid": "49013",
+    "overlap_share": 1.0
+  },
+  "4915720": {
+    "name": "Copperton city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4972940": {
+    "name": "Sterling town",
+    "county_geoid": "49039",
+    "overlap_share": 1.0
+  },
+  "4940030": {
+    "name": "Kanarraville town",
+    "county_geoid": "49021",
+    "overlap_share": 1.0
+  },
+  "4980860": {
+    "name": "Wales town",
+    "county_geoid": "49039",
+    "overlap_share": 1.0
+  },
+  "4925070": {
+    "name": "Fayette town",
+    "county_geoid": "49039",
+    "overlap_share": 1.0
+  },
+  "4905490": {
+    "name": "Bicknell town",
+    "county_geoid": "49055",
+    "overlap_share": 1.0
+  },
+  "4925290": {
+    "name": "Fielding town",
+    "county_geoid": "49003",
+    "overlap_share": 1.0
+  },
+  "4929580": {
+    "name": "Glenwood town",
+    "county_geoid": "49041",
+    "overlap_share": 1.0
+  },
+  "4948830": {
+    "name": "Meadow town",
+    "county_geoid": "49027",
+    "overlap_share": 1.0
+  },
+  "4954440": {
+    "name": "New Harmony town",
+    "county_geoid": "49053",
+    "overlap_share": 1.0
+  },
+  "4980970": {
+    "name": "Wallsburg town",
+    "county_geoid": "49051",
+    "overlap_share": 1.0
+  },
+  "4935960": {
+    "name": "Holden town",
+    "county_geoid": "49027",
+    "overlap_share": 1.0
+  },
+  "4957960": {
+    "name": "Paragonah town",
+    "county_geoid": "49021",
+    "overlap_share": 1.0
+  },
+  "4922540": {
+    "name": "Elmo town",
+    "county_geoid": "49015",
+    "overlap_share": 1.0
+  },
+  "4964120": {
+    "name": "River Heights city",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4901750": {
+    "name": "Annabella town",
+    "county_geoid": "49041",
+    "overlap_share": 1.0
+  },
+  "4940250": {
+    "name": "Kanosh town",
+    "county_geoid": "49027",
+    "overlap_share": 1.0
+  },
+  "4985260": {
+    "name": "Woodruff town",
+    "county_geoid": "49033",
+    "overlap_share": 1.0
+  },
+  "4954550": {
+    "name": "Newton town",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4930130": {
+    "name": "Goshen town",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4944650": {
+    "name": "Levan town",
+    "county_geoid": "49023",
+    "overlap_share": 1.0
+  },
+  "4967990": {
+    "name": "Scofield town",
+    "county_geoid": "49007",
+    "overlap_share": 1.0
+  },
+  "4913190": {
+    "name": "Clarkston town",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4948720": {
+    "name": "Mayfield town",
+    "county_geoid": "49039",
+    "overlap_share": 1.0
+  },
+  "4939370": {
+    "name": "Joseph town",
+    "county_geoid": "49041",
+    "overlap_share": 1.0
+  },
+  "4914070": {
+    "name": "Cleveland town",
+    "county_geoid": "49015",
+    "overlap_share": 1.0
+  },
+  "4961260": {
+    "name": "Plymouth town",
+    "county_geoid": "49003",
+    "overlap_share": 1.0
+  },
+  "4984050": {
+    "name": "White City city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4913300": {
+    "name": "Clawson town",
+    "county_geoid": "49015",
+    "overlap_share": 1.0
+  },
+  "4945530": {
+    "name": "Loa town",
+    "county_geoid": "49055",
+    "overlap_share": 1.0
+  },
+  "4941680": {
+    "name": "Koosharem town",
+    "county_geoid": "49041",
+    "overlap_share": 1.0
+  },
+  "4902740": {
+    "name": "Aurora city",
+    "county_geoid": "49041",
+    "overlap_share": 1.0
+  },
+  "4963240": {
+    "name": "Redmond town",
+    "county_geoid": "49041",
+    "overlap_share": 1.0
+  },
+  "4947620": {
+    "name": "Manila town",
+    "county_geoid": "49009",
+    "overlap_share": 1.0
+  },
+  "4967880": {
+    "name": "Scipio town",
+    "county_geoid": "49027",
+    "overlap_share": 1.0
+  },
+  "4953340": {
+    "name": "Myton city",
+    "county_geoid": "49013",
+    "overlap_share": 1.0
+  },
+  "4968650": {
+    "name": "Sigurd town",
+    "county_geoid": "49041",
+    "overlap_share": 1.0
+  },
+  "4952130": {
+    "name": "Moroni city",
+    "county_geoid": "49039",
+    "overlap_share": 1.0
+  },
+  "4955430": {
+    "name": "Oak City town",
+    "county_geoid": "49027",
+    "overlap_share": 1.0
+  },
+  "4924630": {
+    "name": "Fairview city",
+    "county_geoid": "49039",
+    "overlap_share": 1.0
+  },
+  "4977890": {
+    "name": "Uintah town",
+    "county_geoid": "49057",
+    "overlap_share": 1.0
+  },
+  "4922870": {
+    "name": "Emery town",
+    "county_geoid": "49015",
+    "overlap_share": 1.0
+  },
+  "4926720": {
+    "name": "Fountain Green city",
+    "county_geoid": "49039",
+    "overlap_share": 1.0
+  },
+  "4934750": {
+    "name": "Henrieville town",
+    "county_geoid": "49017",
+    "overlap_share": 1.0
+  },
+  "4963020": {
+    "name": "Randolph town",
+    "county_geoid": "49033",
+    "overlap_share": 1.0
+  },
+  "4957850": {
+    "name": "Paradise town",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4974480": {
+    "name": "Sunset city",
+    "county_geoid": "49011",
+    "overlap_share": 1.0
+  },
+  "4956860": {
+    "name": "Orangeville city",
+    "county_geoid": "49015",
+    "overlap_share": 1.0
+  },
+  "4924080": {
+    "name": "Eureka city",
+    "county_geoid": "49023",
+    "overlap_share": 1.0
+  },
+  "4971730": {
+    "name": "Spring City city",
+    "county_geoid": "49039",
+    "overlap_share": 1.0
+  },
+  "4949160": {
+    "name": "Mendon city",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4969970": {
+    "name": "Snowville town",
+    "county_geoid": "49003",
+    "overlap_share": 1.0
+  },
+  "4943880": {
+    "name": "Leamington town",
+    "county_geoid": "49027",
+    "overlap_share": 1.0
+  },
+  "4964590": {
+    "name": "Rocky Ridge town",
+    "county_geoid": "49023",
+    "overlap_share": 1.0
+  },
+  "4937060": {
+    "name": "Huntsville town",
+    "county_geoid": "49057",
+    "overlap_share": 1.0
+  },
+  "4977010": {
+    "name": "Torrey town",
+    "county_geoid": "49055",
+    "overlap_share": 1.0
+  },
+  "4973050": {
+    "name": "Stockton town",
+    "county_geoid": "49045",
+    "overlap_share": 1.0
+  },
+  "4933100": {
+    "name": "Hanksville town",
+    "county_geoid": "49055",
+    "overlap_share": 1.0
+  },
+  "4946410": {
+    "name": "Lyman town",
+    "county_geoid": "49055",
+    "overlap_share": 1.0
+  },
+  "4934530": {
+    "name": "Helper city",
+    "county_geoid": "49007",
+    "overlap_share": 1.0
+  },
+  "4903950": {
+    "name": "Bear River City city",
+    "county_geoid": "49003",
+    "overlap_share": 1.0
+  },
+  "4911870": {
+    "name": "Centerfield town",
+    "county_geoid": "49039",
+    "overlap_share": 1.0
+  },
+  "4933760": {
+    "name": "Hatch town",
+    "county_geoid": "49017",
+    "overlap_share": 1.0
+  },
+  "4928150": {
+    "name": "Garland city",
+    "county_geoid": "49003",
+    "overlap_share": 1.0
+  },
+  "4982070": {
+    "name": "Washington Terrace city",
+    "county_geoid": "49057",
+    "overlap_share": 1.0
+  },
+  "4950040": {
+    "name": "Milford city",
+    "county_geoid": "49001",
+    "overlap_share": 1.0
+  },
+  "4912260": {
+    "name": "Central Valley town",
+    "county_geoid": "49041",
+    "overlap_share": 1.0
+  },
+  "4910660": {
+    "name": "Castle Dale city",
+    "county_geoid": "49015",
+    "overlap_share": 1.0
+  },
+  "4936950": {
+    "name": "Huntington city",
+    "county_geoid": "49015",
+    "overlap_share": 1.0
+  },
+  "4950590": {
+    "name": "Minersville town",
+    "county_geoid": "49001",
+    "overlap_share": 1.0
+  },
+  "4925180": {
+    "name": "Ferron city",
+    "county_geoid": "49015",
+    "overlap_share": 1.0
+  },
+  "4900870": {
+    "name": "Alton town",
+    "county_geoid": "49025",
+    "overlap_share": 1.0
+  },
+  "4927490": {
+    "name": "Fruit Heights city",
+    "county_geoid": "49011",
+    "overlap_share": 1.0
+  },
+  "4942560": {
+    "name": "Laketown town",
+    "county_geoid": "49033",
+    "overlap_share": 1.0
+  },
+  "4985050": {
+    "name": "Woodland Hills city",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4950370": {
+    "name": "Millville city",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4961590": {
+    "name": "Portage town",
+    "county_geoid": "49003",
+    "overlap_share": 1.0
+  },
+  "4934640": {
+    "name": "Henefer town",
+    "county_geoid": "49043",
+    "overlap_share": 1.0
+  },
+  "4920340": {
+    "name": "Duchesne city",
+    "county_geoid": "49013",
+    "overlap_share": 1.0
+  },
+  "4911440": {
+    "name": "Cedar Hills city",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4951140": {
+    "name": "Mona city",
+    "county_geoid": "49023",
+    "overlap_share": 1.0
+  },
+  "4922650": {
+    "name": "Elsinore town",
+    "county_geoid": "49041",
+    "overlap_share": 1.0
+  },
+  "4922370": {
+    "name": "Elk Ridge city",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4953010": {
+    "name": "Mount Pleasant city",
+    "county_geoid": "49039",
+    "overlap_share": 1.0
+  },
+  "4951910": {
+    "name": "Morgan city",
+    "county_geoid": "49029",
+    "overlap_share": 1.0
+  },
+  "4933540": {
+    "name": "Harrisville city",
+    "county_geoid": "49057",
+    "overlap_share": 1.0
+  },
+  "4947730": {
+    "name": "Manti city",
+    "county_geoid": "49039",
+    "overlap_share": 1.0
+  },
+  "4946740": {
+    "name": "Lynndyl town",
+    "county_geoid": "49027",
+    "overlap_share": 1.0
+  },
+  "4957740": {
+    "name": "Panguitch city",
+    "county_geoid": "49017",
+    "overlap_share": 1.0
+  },
+  "4912420": {
+    "name": "Charleston town",
+    "county_geoid": "49051",
+    "overlap_share": 1.0
+  },
+  "4908787": {
+    "name": "Bryce Canyon City town",
+    "county_geoid": "49017",
+    "overlap_share": 1.0
+  },
+  "4951580": {
+    "name": "Monticello city",
+    "county_geoid": "49037",
+    "overlap_share": 1.0
+  },
+  "4982840": {
+    "name": "West Bountiful city",
+    "county_geoid": "49011",
+    "overlap_share": 1.0
+  },
+  "4923750": {
+    "name": "Escalante city",
+    "county_geoid": "49017",
+    "overlap_share": 1.0
+  },
+  "4918140": {
+    "name": "Daniel town",
+    "county_geoid": "49051",
+    "overlap_share": 1.0
+  },
+  "4910330": {
+    "name": "Cannonville town",
+    "county_geoid": "49017",
+    "overlap_share": 1.0
+  },
+  "4951360": {
+    "name": "Monroe city",
+    "county_geoid": "49041",
+    "overlap_share": 1.0
+  },
+  "4963680": {
+    "name": "Richmond city",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4901090": {
+    "name": "Amalga town",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4915830": {
+    "name": "Corinne city",
+    "county_geoid": "49003",
+    "overlap_share": 1.0
+  },
+  "4985370": {
+    "name": "Woods Cross city",
+    "county_geoid": "49011",
+    "overlap_share": 1.0
+  },
+  "4926940": {
+    "name": "Francis town",
+    "county_geoid": "49043",
+    "overlap_share": 1.0
+  },
+  "4970960": {
+    "name": "South Ogden city",
+    "county_geoid": "49057",
+    "overlap_share": 1.0
+  },
+  "4962360": {
+    "name": "Providence city",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4935120": {
+    "name": "Hideout town",
+    "county_geoid": "49051",
+    "overlap_share": 1.0
+  },
+  "4939810": {
+    "name": "Kamas city",
+    "county_geoid": "49043",
+    "overlap_share": 1.0
+  },
+  "4980090": {
+    "name": "Vernal city",
+    "county_geoid": "49047",
+    "overlap_share": 1.0
+  },
+  "4971180": {
+    "name": "South Weber city",
+    "county_geoid": "49011",
+    "overlap_share": 1.0
+  },
+  "4971840": {
+    "name": "Springdale town",
+    "county_geoid": "49053",
+    "overlap_share": 1.0
+  },
+  "4954660": {
+    "name": "Nibley city",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4964010": {
+    "name": "Riverdale city",
+    "county_geoid": "49057",
+    "overlap_share": 1.0
+  },
+  "4940470": {
+    "name": "Kearns city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4900650": {
+    "name": "Alta town",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4942010": {
+    "name": "Lake Point city",
+    "county_geoid": "49045",
+    "overlap_share": 1.0
+  },
+  "4962030": {
+    "name": "Price city",
+    "county_geoid": "49007",
+    "overlap_share": 1.0
+  },
+  "4935740": {
+    "name": "Hinckley town",
+    "county_geoid": "49027",
+    "overlap_share": 1.0
+  },
+  "4947840": {
+    "name": "Mantua town",
+    "county_geoid": "49003",
+    "overlap_share": 1.0
+  },
+  "4980420": {
+    "name": "Vineyard town",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4937390": {
+    "name": "Hyde Park city",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4932660": {
+    "name": "Gunnison city",
+    "county_geoid": "49039",
+    "overlap_share": 1.0
+  },
+  "4950700": {
+    "name": "Moab city",
+    "county_geoid": "49019",
+    "overlap_share": 1.0
+  },
+  "4915940": {
+    "name": "Cornish town",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4941350": {
+    "name": "Kingston town",
+    "county_geoid": "49031",
+    "overlap_share": 1.0
+  },
+  "4982510": {
+    "name": "Wellington city",
+    "county_geoid": "49007",
+    "overlap_share": 1.0
+  },
+  "4923530": {
+    "name": "Ephraim city",
+    "county_geoid": "49039",
+    "overlap_share": 1.0
+  },
+  "4954220": {
+    "name": "Nephi city",
+    "county_geoid": "49023",
+    "overlap_share": 1.0
+  },
+  "4914840": {
+    "name": "Coalville city",
+    "county_geoid": "49043",
+    "overlap_share": 1.0
+  },
+  "4949820": {
+    "name": "Midway city",
+    "county_geoid": "49051",
+    "overlap_share": 1.0
+  },
+  "4967660": {
+    "name": "Santa Clara city",
+    "county_geoid": "49053",
+    "overlap_share": 1.0
+  },
+  "4984710": {
+    "name": "Willard city",
+    "county_geoid": "49003",
+    "overlap_share": 1.0
+  },
+  "4969640": {
+    "name": "Smithfield city",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4965880": {
+    "name": "Salina city",
+    "county_geoid": "49041",
+    "overlap_share": 1.0
+  },
+  "4911980": {
+    "name": "Centerville city",
+    "county_geoid": "49011",
+    "overlap_share": 1.0
+  },
+  "4905534": {
+    "name": "Big Water town",
+    "county_geoid": "49025",
+    "overlap_share": 1.0
+  },
+  "4949710": {
+    "name": "Midvale city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4920780": {
+    "name": "Dutch John town",
+    "county_geoid": "49009",
+    "overlap_share": 1.0
+  },
+  "4914290": {
+    "name": "Clinton city",
+    "county_geoid": "49011",
+    "overlap_share": 1.0
+  },
+  "4924850": {
+    "name": "Farr West city",
+    "county_geoid": "49057",
+    "overlap_share": 1.0
+  },
+  "4908020": {
+    "name": "Brian Head town",
+    "county_geoid": "49021",
+    "overlap_share": 1.0
+  },
+  "4953560": {
+    "name": "Naples city",
+    "county_geoid": "49047",
+    "overlap_share": 1.0
+  },
+  "4963570": {
+    "name": "Richfield city",
+    "county_geoid": "49041",
+    "overlap_share": 1.0
+  },
+  "4937500": {
+    "name": "Hyrum city",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4944100": {
+    "name": "Leeds town",
+    "county_geoid": "49053",
+    "overlap_share": 1.0
+  },
+  "4919680": {
+    "name": "Deweyville town",
+    "county_geoid": "49003",
+    "overlap_share": 1.0
+  },
+  "4954990": {
+    "name": "North Logan city",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4964670": {
+    "name": "Roosevelt city",
+    "county_geoid": "49013",
+    "overlap_share": 1.0
+  },
+  "4925510": {
+    "name": "Fillmore city",
+    "county_geoid": "49027",
+    "overlap_share": 1.0
+  },
+  "4961150": {
+    "name": "Pleasant View city",
+    "county_geoid": "49057",
+    "overlap_share": 1.0
+  },
+  "4929360": {
+    "name": "Glendale town",
+    "county_geoid": "49025",
+    "overlap_share": 1.0
+  },
+  "4955650": {
+    "name": "Oakley city",
+    "county_geoid": "49043",
+    "overlap_share": 1.0
+  },
+  "4904060": {
+    "name": "Beaver city",
+    "county_geoid": "49001",
+    "overlap_share": 1.0
+  },
+  "4971070": {
+    "name": "South Salt Lake city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4900540": {
+    "name": "Alpine city",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4913850": {
+    "name": "Clearfield city",
+    "county_geoid": "49011",
+    "overlap_share": 1.0
+  },
+  "4959390": {
+    "name": "Perry city",
+    "county_geoid": "49003",
+    "overlap_share": 1.0
+  },
+  "4977560": {
+    "name": "Tropic town",
+    "county_geoid": "49017",
+    "overlap_share": 1.0
+  },
+  "4923200": {
+    "name": "Enoch city",
+    "county_geoid": "49021",
+    "overlap_share": 1.0
+  },
+  "4948300": {
+    "name": "Marriott-Slaterville city",
+    "county_geoid": "49057",
+    "overlap_share": 1.0
+  },
+  "4982620": {
+    "name": "Wellsville city",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4983390": {
+    "name": "West Point city",
+    "county_geoid": "49011",
+    "overlap_share": 1.0
+  },
+  "4955100": {
+    "name": "North Ogden city",
+    "county_geoid": "49057",
+    "overlap_share": 1.0
+  },
+  "4958510": {
+    "name": "Parowan city",
+    "county_geoid": "49021",
+    "overlap_share": 1.0
+  },
+  "4918910": {
+    "name": "Delta city",
+    "county_geoid": "49027",
+    "overlap_share": 1.0
+  },
+  "4923420": {
+    "name": "Enterprise city",
+    "county_geoid": "49053",
+    "overlap_share": 1.0
+  },
+  "4927930": {
+    "name": "Garden City town",
+    "county_geoid": "49033",
+    "overlap_share": 1.0
+  },
+  "4982730": {
+    "name": "Wendover city",
+    "county_geoid": "49045",
+    "overlap_share": 1.0
+  },
+  "4922760": {
+    "name": "Elwood town",
+    "county_geoid": "49003",
+    "overlap_share": 1.0
+  },
+  "4911000": {
+    "name": "Castle Valley town",
+    "county_geoid": "49019",
+    "overlap_share": 1.0
+  },
+  "4964560": {
+    "name": "Rockville town",
+    "county_geoid": "49053",
+    "overlap_share": 1.0
+  },
+  "4935190": {
+    "name": "Highland city",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4955210": {
+    "name": "North Salt Lake city",
+    "county_geoid": "49011",
+    "overlap_share": 1.0
+  },
+  "4977120": {
+    "name": "Tremonton city",
+    "county_geoid": "49003",
+    "overlap_share": 1.0
+  },
+  "4936070": {
+    "name": "Holladay city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4977230": {
+    "name": "Trenton town",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4945090": {
+    "name": "Lindon city",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4980200": {
+    "name": "Vernon town",
+    "county_geoid": "49045",
+    "overlap_share": 1.0
+  },
+  "4965110": {
+    "name": "Roy city",
+    "county_geoid": "49057",
+    "overlap_share": 1.0
+  },
+  "4901860": {
+    "name": "Antimony town",
+    "county_geoid": "49017",
+    "overlap_share": 1.0
+  },
+  "4924740": {
+    "name": "Farmington city",
+    "county_geoid": "49011",
+    "overlap_share": 1.0
+  },
+  "4957080": {
+    "name": "Orderville town",
+    "county_geoid": "49025",
+    "overlap_share": 1.0
+  },
+  "4916270": {
+    "name": "Cottonwood Heights city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4938710": {
+    "name": "Ivins city",
+    "county_geoid": "49053",
+    "overlap_share": 1.0
+  },
+  "4960930": {
+    "name": "Pleasant Grove city",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4935300": {
+    "name": "Hildale city",
+    "county_geoid": "49053",
+    "overlap_share": 1.0
+  },
+  "4920890": {
+    "name": "East Carbon city",
+    "county_geoid": "49007",
+    "overlap_share": 1.0
+  },
+  "4912970": {
+    "name": "Circleville town",
+    "county_geoid": "49031",
+    "overlap_share": 1.0
+  },
+  "4975360": {
+    "name": "Taylorsville city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4906810": {
+    "name": "Bluffdale city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4901310": {
+    "name": "American Fork city",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4982930": {
+    "name": "West Haven city",
+    "county_geoid": "49057",
+    "overlap_share": 1.0
+  },
+  "4967770": {
+    "name": "Santaquin city",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4974810": {
+    "name": "Syracuse city",
+    "county_geoid": "49011",
+    "overlap_share": 1.0
+  },
+  "4940360": {
+    "name": "Kaysville city",
+    "county_geoid": "49011",
+    "overlap_share": 1.0
+  },
+  "4958730": {
+    "name": "Payson city",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4928810": {
+    "name": "Genola town",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4947950": {
+    "name": "Mapleton city",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4950150": {
+    "name": "Millcreek city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4939590": {
+    "name": "Junction town",
+    "county_geoid": "49031",
+    "overlap_share": 1.0
+  },
+  "4906370": {
+    "name": "Blanding city",
+    "county_geoid": "49037",
+    "overlap_share": 1.0
+  },
+  "4943440": {
+    "name": "La Verkin city",
+    "county_geoid": "49053",
+    "overlap_share": 1.0
+  },
+  "4907690": {
+    "name": "Bountiful city",
+    "county_geoid": "49011",
+    "overlap_share": 1.0
+  },
+  "4964340": {
+    "name": "Riverton city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4980530": {
+    "name": "Virgin town",
+    "county_geoid": "49053",
+    "overlap_share": 1.0
+  },
+  "4960710": {
+    "name": "Plain City city",
+    "county_geoid": "49057",
+    "overlap_share": 1.0
+  },
+  "4965770": {
+    "name": "Salem city",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4953230": {
+    "name": "Murray city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4936290": {
+    "name": "Honeyville city",
+    "county_geoid": "49003",
+    "overlap_share": 1.0
+  },
+  "4908570": {
+    "name": "Brighton town",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4939920": {
+    "name": "Kanab city",
+    "county_geoid": "49025",
+    "overlap_share": 1.0
+  },
+  "4972280": {
+    "name": "Springville city",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4903345": {
+    "name": "Ballard town",
+    "county_geoid": "49047",
+    "overlap_share": 1.0
+  },
+  "4934970": {
+    "name": "Herriman city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4976680": {
+    "name": "Tooele city",
+    "county_geoid": "49045",
+    "overlap_share": 1.0
+  },
+  "4907470": {
+    "name": "Boulder town",
+    "county_geoid": "49017",
+    "overlap_share": 1.0
+  },
+  "4911430": {
+    "name": "Cedar Fort town",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4976900": {
+    "name": "Toquerville city",
+    "county_geoid": "49053",
+    "overlap_share": 1.0
+  },
+  "4958070": {
+    "name": "Park City city",
+    "county_geoid": "49043",
+    "overlap_share": 1.0
+  },
+  "4943660": {
+    "name": "Layton city",
+    "county_geoid": "49011",
+    "overlap_share": 1.0
+  },
+  "4967825": {
+    "name": "Saratoga Springs city",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4948610": {
+    "name": "Marysvale town",
+    "county_geoid": "49031",
+    "overlap_share": 1.0
+  },
+  "4957300": {
+    "name": "Orem city",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4947290": {
+    "name": "Magna city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4965240": {
+    "name": "Rush Valley town",
+    "county_geoid": "49045",
+    "overlap_share": 1.0
+  },
+  "4945860": {
+    "name": "Logan city",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4971290": {
+    "name": "Spanish Fork city",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4922875": {
+    "name": "Emigration Canyon city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4906700": {
+    "name": "Bluff town",
+    "county_geoid": "49037",
+    "overlap_share": 1.0
+  },
+  "4936620": {
+    "name": "Howell town",
+    "county_geoid": "49003",
+    "overlap_share": 1.0
+  },
+  "4983470": {
+    "name": "West Valley City city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4982950": {
+    "name": "West Jordan city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4981960": {
+    "name": "Washington city",
+    "county_geoid": "49053",
+    "overlap_share": 1.0
+  },
+  "4944320": {
+    "name": "Lehi city",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4911320": {
+    "name": "Cedar City city",
+    "county_geoid": "49021",
+    "overlap_share": 1.0
+  },
+  "4937690": {
+    "name": "Independence town",
+    "county_geoid": "49051",
+    "overlap_share": 1.0
+  },
+  "4967440": {
+    "name": "Sandy city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4920120": {
+    "name": "Draper city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4970850": {
+    "name": "South Jordan city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4931670": {
+    "name": "Green River city",
+    "county_geoid": "49015",
+    "overlap_share": 1.0
+  },
+  "4934200": {
+    "name": "Heber city",
+    "county_geoid": "49051",
+    "overlap_share": 1.0
+  },
+  "4944760": {
+    "name": "Lewiston city",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4924410": {
+    "name": "Fairfield town",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4955980": {
+    "name": "Ogden city",
+    "county_geoid": "49057",
+    "overlap_share": 1.0
+  },
+  "4908460": {
+    "name": "Brigham City city",
+    "county_geoid": "49003",
+    "overlap_share": 1.0
+  },
+  "4967000": {
+    "name": "Salt Lake City city",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4901905": {
+    "name": "Apple Valley town",
+    "county_geoid": "49053",
+    "overlap_share": 1.0
+  },
+  "4936400": {
+    "name": "Hooper city",
+    "county_geoid": "49057",
+    "overlap_share": 1.0
+  },
+  "4923640": {
+    "name": "Erda city",
+    "county_geoid": "49045",
+    "overlap_share": 1.0
+  },
+  "4931120": {
+    "name": "Grantsville city",
+    "county_geoid": "49045",
+    "overlap_share": 1.0
+  },
+  "4920810": {
+    "name": "Eagle Mountain city",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4965330": {
+    "name": "St. George city",
+    "county_geoid": "49053",
+    "overlap_share": 1.0
+  },
+  "4962470": {
+    "name": "Provo city",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4937170": {
+    "name": "Hurricane city",
+    "county_geoid": "49053",
+    "overlap_share": 1.0
+  },
+  "4956750": {
+    "name": "Ophir CDP",
+    "county_geoid": "49045",
+    "overlap_share": 1.0
+  },
+  "4913740": {
+    "name": "Clear Creek CDP",
+    "county_geoid": "49007",
+    "overlap_share": 1.0
+  },
+  "4950810": {
+    "name": "Modena CDP",
+    "county_geoid": "49021",
+    "overlap_share": 1.0
+  },
+  "4955760": {
+    "name": "Oasis CDP",
+    "county_geoid": "49027",
+    "overlap_share": 1.0
+  },
+  "4974040": {
+    "name": "Summit CDP",
+    "county_geoid": "49021",
+    "overlap_share": 1.0
+  },
+  "4942890": {
+    "name": "Lapoint CDP",
+    "county_geoid": "49047",
+    "overlap_share": 1.0
+  },
+  "4941020": {
+    "name": "Kenilworth CDP",
+    "county_geoid": "49007",
+    "overlap_share": 1.0
+  },
+  "4921880": {
+    "name": "Echo CDP",
+    "county_geoid": "49043",
+    "overlap_share": 1.0
+  },
+  "4930900": {
+    "name": "Granite CDP",
+    "county_geoid": "49035",
+    "overlap_share": 1.0
+  },
+  "4911435": {
+    "name": "Cedar Highlands CDP",
+    "county_geoid": "49021",
+    "overlap_share": 1.0
+  },
+  "4922210": {
+    "name": "Elberta CDP",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4983730": {
+    "name": "West Wood CDP",
+    "county_geoid": "49007",
+    "overlap_share": 1.0
+  },
+  "4974260": {
+    "name": "Sundance CDP",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4972170": {
+    "name": "Spring Lake CDP",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4905380": {
+    "name": "Beryl Junction CDP",
+    "county_geoid": "49021",
+    "overlap_share": 1.0
+  },
+  "4927270": {
+    "name": "Fremont CDP",
+    "county_geoid": "49055",
+    "overlap_share": 1.0
+  },
+  "4980310": {
+    "name": "Veyo CDP",
+    "county_geoid": "49053",
+    "overlap_share": 1.0
+  },
+  "4985040": {
+    "name": "Woodland CDP",
+    "county_geoid": "49043",
+    "overlap_share": 1.0
+  },
+  "4935823": {
+    "name": "Hobble Creek CDP",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4974590": {
+    "name": "Sutherland CDP",
+    "county_geoid": "49027",
+    "overlap_share": 1.0
+  },
+  "4984160": {
+    "name": "Whiterocks CDP",
+    "county_geoid": "49047",
+    "overlap_share": 1.0
+  },
+  "4925910": {
+    "name": "Flaming Gorge CDP",
+    "county_geoid": "49009",
+    "overlap_share": 1.0
+  },
+  "4912200": {
+    "name": "Central CDP",
+    "county_geoid": "49053",
+    "overlap_share": 1.0
+  },
+  "4967400": {
+    "name": "Samak CDP",
+    "county_geoid": "49043",
+    "overlap_share": 1.0
+  },
+  "4972720": {
+    "name": "Stansbury Park CDP",
+    "county_geoid": "49045",
+    "overlap_share": 1.0
+  },
+  "4906920": {
+    "name": "Bonanza CDP",
+    "county_geoid": "49047",
+    "overlap_share": 1.0
+  },
+  "4919020": {
+    "name": "Deseret CDP",
+    "county_geoid": "49027",
+    "overlap_share": 1.0
+  },
+  "4976180": {
+    "name": "Thompson Springs CDP",
+    "county_geoid": "49019",
+    "overlap_share": 1.0
+  },
+  "4939040": {
+    "name": "Jensen CDP",
+    "county_geoid": "49047",
+    "overlap_share": 1.0
+  },
+  "4984950": {
+    "name": "Wolf Creek CDP",
+    "county_geoid": "49057",
+    "overlap_share": 1.0
+  },
+  "4972060": {
+    "name": "Spring Glen CDP",
+    "county_geoid": "49007",
+    "overlap_share": 1.0
+  },
+  "4960270": {
+    "name": "Pine Valley CDP",
+    "county_geoid": "49053",
+    "overlap_share": 1.0
+  },
+  "4959280": {
+    "name": "Peoa CDP",
+    "county_geoid": "49043",
+    "overlap_share": 1.0
+  },
+  "4954110": {
+    "name": "Neola CDP",
+    "county_geoid": "49013",
+    "overlap_share": 1.0
+  },
+  "4923310": {
+    "name": "Enterprise CDP",
+    "county_geoid": "49029",
+    "overlap_share": 1.0
+  },
+  "4975470": {
+    "name": "Teasdale CDP",
+    "county_geoid": "49055",
+    "overlap_share": 1.0
+  },
+  "4954330": {
+    "name": "Newcastle CDP",
+    "county_geoid": "49021",
+    "overlap_share": 1.0
+  },
+  "4921990": {
+    "name": "Eden CDP",
+    "county_geoid": "49057",
+    "overlap_share": 1.0
+  },
+  "4936730": {
+    "name": "Hoytsville CDP",
+    "county_geoid": "49043",
+    "overlap_share": 1.0
+  },
+  "4981190": {
+    "name": "Wanship CDP",
+    "county_geoid": "49043",
+    "overlap_share": 1.0
+  },
+  "4948170": {
+    "name": "Marion CDP",
+    "county_geoid": "49043",
+    "overlap_share": 1.0
+  },
+  "4918090": {
+    "name": "Dammeron Valley CDP",
+    "county_geoid": "49053",
+    "overlap_share": 1.0
+  },
+  "4971255": {
+    "name": "South Willard CDP",
+    "county_geoid": "49003",
+    "overlap_share": 1.0
+  },
+  "4962910": {
+    "name": "Randlett CDP",
+    "county_geoid": "49047",
+    "overlap_share": 1.0
+  },
+  "4920450": {
+    "name": "Dugway CDP",
+    "county_geoid": "49045",
+    "overlap_share": 1.0
+  },
+  "4910440": {
+    "name": "Carbonville CDP",
+    "county_geoid": "49007",
+    "overlap_share": 1.0
+  },
+  "4909725": {
+    "name": "Cache CDP",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4952460": {
+    "name": "Mountain Green CDP",
+    "county_geoid": "49029",
+    "overlap_share": 1.0
+  },
+  "4944870": {
+    "name": "Liberty CDP",
+    "county_geoid": "49057",
+    "overlap_share": 1.0
+  },
+  "4964230": {
+    "name": "Riverside CDP",
+    "county_geoid": "49003",
+    "overlap_share": 1.0
+  },
+  "4957630": {
+    "name": "Palmyra CDP",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4947180": {
+    "name": "Maeser CDP",
+    "county_geoid": "49047",
+    "overlap_share": 1.0
+  },
+  "4902960": {
+    "name": "Avon CDP",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4926610": {
+    "name": "Fort Duchesne CDP",
+    "county_geoid": "49047",
+    "overlap_share": 1.0
+  },
+  "4942230": {
+    "name": "Lake Shore CDP",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4904720": {
+    "name": "Benjamin CDP",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4976280": {
+    "name": "Timber Lakes CDP",
+    "county_geoid": "49051",
+    "overlap_share": 1.0
+  },
+  "4949380": {
+    "name": "Mexican Hat CDP",
+    "county_geoid": "49037",
+    "overlap_share": 1.0
+  },
+  "4906590": {
+    "name": "Bluebell CDP",
+    "county_geoid": "49013",
+    "overlap_share": 1.0
+  },
+  "4920850": {
+    "name": "East Basin CDP",
+    "county_geoid": "49043",
+    "overlap_share": 1.0
+  },
+  "4901530": {
+    "name": "Aneth CDP",
+    "county_geoid": "49037",
+    "overlap_share": 1.0
+  },
+  "4970190": {
+    "name": "Snyderville CDP",
+    "county_geoid": "49043",
+    "overlap_share": 1.0
+  },
+  "4969280": {
+    "name": "Silver Summit CDP",
+    "county_geoid": "49043",
+    "overlap_share": 1.0
+  },
+  "4983252": {
+    "name": "West Mountain CDP",
+    "county_geoid": "49049",
+    "overlap_share": 1.0
+  },
+  "4933027": {
+    "name": "Halls Crossing CDP",
+    "county_geoid": "49037",
+    "overlap_share": 1.0
+  },
+  "4974095": {
+    "name": "Summit Park CDP",
+    "county_geoid": "49043",
+    "overlap_share": 1.0
+  },
+  "4951470": {
+    "name": "Montezuma Creek CDP",
+    "county_geoid": "49037",
+    "overlap_share": 1.0
+  },
+  "4975800": {
+    "name": "Thatcher CDP",
+    "county_geoid": "49003",
+    "overlap_share": 1.0
+  },
+  "4933002": {
+    "name": "Halchita CDP",
+    "county_geoid": "49037",
+    "overlap_share": 1.0
+  },
+  "4984095": {
+    "name": "White Mesa CDP",
+    "county_geoid": "49037",
+    "overlap_share": 1.0
+  },
+  "4971455": {
+    "name": "Spanish Valley CDP",
+    "county_geoid": "49037",
+    "overlap_share": 1.0
+  },
+  "4916490": {
+    "name": "Cove CDP",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4959555": {
+    "name": "Peter CDP",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4977697": {
+    "name": "Tselakai Dezza CDP",
+    "county_geoid": "49037",
+    "overlap_share": 1.0
+  },
+  "4953890": {
+    "name": "Navajo Mountain CDP",
+    "county_geoid": "49037",
+    "overlap_share": 1.0
+  },
+  "4905050": {
+    "name": "Benson CDP",
+    "county_geoid": "49005",
+    "overlap_share": 1.0
+  },
+  "4927902": {
+    "name": "Garden CDP",
+    "county_geoid": "49033",
+    "overlap_share": 1.0
+  },
+  "4956440": {
+    "name": "Oljato-Monument Valley CDP",
+    "county_geoid": "49037",
+    "overlap_share": 1.0
+  },
+  "4943110": {
+    "name": "La Sal CDP",
+    "county_geoid": "49037",
+    "overlap_share": 1.0
+  }
+}
