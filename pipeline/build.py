@@ -155,6 +155,10 @@ def main() -> None:
     # population trend (int-year keys) derived from the series, for growth ratios
     trend = {gid: {int(y): snap["population"] for y, snap in yrs.items()}
              for gid, yrs in series.items()}
+    # statewide 5-yr CAGR: projections fade each area's growth toward this long-run rate
+    _st = trend.get(state, {})
+    state_cagr = ((((_st.get(2024) or 0) / _st[2019]) ** (1 / 5) - 1)
+                  if _st.get(2019) and _st.get(2024) else 0.013)
 
     # Assemble area records
     areas = []
@@ -191,16 +195,23 @@ def main() -> None:
         pop19 = pt.get(2019)
         projection = None
         if pop24 and pop19 and pop19 > 0:
-            cagr = max(-0.04, min(0.08, (pop24 / pop19) ** (1 / 5) - 1))
+            area_cagr = max(-0.04, min(0.08, (pop24 / pop19) ** (1 / 5) - 1))
             k12_share = (mm["metrics"].get("pop_k12") or 0) / pop24
 
-            def _p(yr, _c=cagr, _b=pop24, _s=k12_share):
-                p = round(_b * (1 + _c) ** (yr - 2024))
+            def _p(yr, _a=area_cagr, _s=state_cagr, _b=pop24, _k=k12_share):
+                # growth decays from the area's rate toward the state rate each year
+                pop = _b
+                for t in range(1, yr - 2024 + 1):
+                    g = _s + (_a - _s) * (0.82 ** t)
+                    pop *= (1 + g)
+                p = round(pop)
                 return {"pop": p, "net": p - _b, "growth_pct": round(p / _b - 1, 5),
-                        "k12": round(p * _s)}
+                        "k12": round(p * _k)}
 
-            projection = {"method": "trend: 5-yr CAGR (ACS 2019→2024), clamped to -4%..+8%/yr",
-                          "base_year": 2024, "base_pop": pop24, "cagr": round(cagr, 5),
+            projection = {"method": "trend: recent growth fading toward the Utah rate "
+                                     "(damped 5-yr CAGR) — a scenario, not an official forecast",
+                          "base_year": 2024, "base_pop": pop24,
+                          "area_cagr": round(area_cagr, 5), "state_cagr": round(state_cagr, 5),
                           "y2030": _p(2030), "y2040": _p(2040)}
         rec = {
             "geoid": geoid,
