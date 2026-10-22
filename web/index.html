@@ -90,6 +90,8 @@
   .legend .sw{display:flex;align-items:center;gap:6px}
   .legend i{width:13px;height:13px;border-radius:3px;display:inline-block}
   .note{color:var(--faint);font-size:12px;margin-top:8px}
+  .srclink,.foot a{color:var(--accent);text-decoration:none;white-space:nowrap}
+  .srclink:hover,.foot a:hover{text-decoration:underline}
   /* deltas */
   .selhead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:10px}
   .selhead .name{font-size:20px;font-weight:700}
@@ -167,9 +169,13 @@
       <span class="pop" id="selPop"></span></div>
     <div class="deltas" id="deltas"></div>
     <div class="chips" style="margin:2px 0 4px">
-      <span class="chip on" id="fcToggle">Show 2030 / 2040 forecast →</span>
-      <span class="note" id="fcNote" style="margin:0 0 0 4px"></span>
+      <span class="chip on" id="fcToggle">Forecast</span>
+      <span class="seg" id="fcHorizon">
+        <button data-h="5">5y</button><button data-h="7">7y</button>
+        <button data-h="10" class="on">10y</button><button data-h="15">15y</button>
+      </span>
     </div>
+    <div class="note" id="fcNote" style="margin:0 0 4px"></div>
     <svg id="popTrend" viewBox="0 0 440 210" width="100%" height="210" role="img"></svg>
     <div class="deltas" id="fcStats" style="margin-top:8px"></div>
   </section>
@@ -219,6 +225,7 @@
       <span class="chip" data-agemode="pct">Share %</span>
     </div>
     <svg id="ageChart" viewBox="0 0 900 220" width="100%" height="220" role="img"></svg>
+    <p class="note">Source: <a class="srclink" href="https://data.census.gov/" target="_blank" rel="noopener">Census ACS, Sex by Age (B01001) ↗</a>. School-age bands (5–17) highlighted.</p>
   </section>
 
   <!-- PERMITS -->
@@ -227,7 +234,9 @@
     <div class="h2sub" id="permCap"></div>
     <svg id="permChart" viewBox="0 0 900 230" width="100%" height="230" role="img"></svg>
     <div class="chartlegend" id="permLegend"></div>
-    <p class="note">Permitted housing units by structure type (U.S. Census Building Permits Survey, annual). 5+ unit = multifamily.</p>
+    <p class="note">Permitted housing units by structure type (residential only). 5+ unit = multifamily.
+      Source: <a class="srclink" href="https://www.census.gov/construction/bps/" target="_blank" rel="noopener">Census Building Permits Survey ↗</a>
+      (county + place annual files; verified matching the raw files).</p>
   </section>
 
   <!-- SCHOOLS -->
@@ -248,7 +257,9 @@
       </div>
     </div>
     <p class="note" id="schoolAgeNote" style="color:var(--ink)"></p>
-    <p class="note">School figures are county/district-based (schools don't nest in cities). Projected new students = recent 3-yr permits × county student yield (an estimate). School-age population and K-12 forecast are for the selected area. Source: NCES Common Core of Data + ACS age.</p>
+    <p class="note">School figures are county/district-based (schools don't nest in cities). Projected new students = recent 3-yr permits × county student yield (an estimate). School-age population and K-12 forecast are for the selected area.
+      Source: <a class="srclink" href="https://educationdata.urban.org/" target="_blank" rel="noopener">NCES Common Core of Data ↗</a>
+      + <a class="srclink" href="https://data.census.gov/" target="_blank" rel="noopener">Census ACS ↗</a> (age).</p>
   </section>
 
   <!-- AFFORDABILITY -->
@@ -268,6 +279,8 @@
         <p class="note" id="affNote"></p>
       </div>
     </div>
+    <p class="note">Source: <a class="srclink" href="https://www.huduser.gov/portal/datasets/il.html" target="_blank" rel="noopener">HUD Income Limits ↗</a>
+      · income from <a class="srclink" href="https://data.census.gov/" target="_blank" rel="noopener">Census ACS ↗</a>.</p>
   </section>
 
   <!-- ROW: income distribution | metrics table -->
@@ -396,7 +409,10 @@ const S={meta:{},byId:{},places:[],counties:[],scores:{},key:{},
   countyGeo:null,placeGeo:null,drill:null,
   metric:"pop_growth",period:5,sel:null,map:null,countyLayer:null,placeLayer:null,
   trendOn:Object.fromEntries(TREND_SERIES.map(s=>[s.key,s.on])),buyBox:[],
-  showForecast:true,ageMode:"count"};
+  showForecast:true,ageMode:"count",fcHorizon:10};
+function projectPop(pr,years){let pop=pr.base_pop;
+  for(let t=1;t<=years;t++){const g=pr.state_cagr+(pr.area_cagr-pr.state_cagr)*Math.pow(0.82,t);pop*=(1+g);}
+  return Math.round(pop);}
 function countyRecOf(a){return a&&a.level==="county"?a:(a?S.byId[a.county_geoid]:null);}
 function countyName(gid){const a=S.byId[gid];return a?a.name:gid;}
 
@@ -425,7 +441,13 @@ async function boot(){
 
   document.getElementById("ctx").textContent=
     `${meta.state} · ACS ${meta.current_vintage} 5-year · ${S.counties.length} counties · ${S.places.length} cities · built ${meta.built_at.slice(0,10)}`;
-  document.getElementById("foot").textContent="Source: "+meta.sources.join("; ")+". "+meta.notes.join(" ");
+  const SRCL={"U.S. Census Bureau, ACS 5-Year Detailed Tables":"https://data.census.gov/",
+    "U.S. Census Bureau, Building Permits Survey":"https://www.census.gov/construction/bps/",
+    "NCES Common Core of Data (Urban Institute Education Data API)":"https://educationdata.urban.org/",
+    "HUD Income Limits":"https://www.huduser.gov/portal/datasets/il.html"};
+  document.getElementById("foot").innerHTML="Sources: "+
+    meta.sources.map(s=>SRCL[s]?`<a href="${SRCL[s]}" target="_blank" rel="noopener">${s} ↗</a>`:s).join(" · ")+
+    "<br>"+meta.notes.join(" ");
   document.getElementById("pillYear").textContent=meta.current_vintage;
   document.getElementById("pillCounty").textContent="Utah";
 
@@ -436,8 +458,12 @@ async function boot(){
   document.getElementById("backBtn").onclick=()=>{S.drill=null;refreshMetric();};
   document.getElementById("fcToggle").onclick=function(){
     S.showForecast=!S.showForecast;this.classList.toggle("on",S.showForecast);
-    this.textContent=S.showForecast?"Show 2030 / 2040 forecast →":"Forecast hidden";
-    drawPopTrend(S.byId[S.sel]);};
+    document.getElementById("fcHorizon").style.opacity=S.showForecast?1:.4;
+    drawPopTrend(S.byId[S.sel]);drawSchools(S.byId[S.sel]);};
+  document.querySelectorAll("#fcHorizon button").forEach(b=>b.onclick=()=>{
+    document.querySelectorAll("#fcHorizon button").forEach(x=>x.classList.remove("on"));
+    b.classList.add("on");S.fcHorizon=+b.dataset.h;
+    drawPopTrend(S.byId[S.sel]);drawSchools(S.byId[S.sel]);});
   document.querySelectorAll("[data-agemode]").forEach(c=>c.onclick=()=>{
     S.ageMode=c.dataset.agemode;
     document.querySelectorAll("[data-agemode]").forEach(x=>x.classList.toggle("on",x===c));
@@ -641,8 +667,9 @@ function drawPopTrend(a){
   const W=440,H=210,L=48,R=16,T=14,B=26;
   const hist=Object.keys(a.pop_trend).map(Number).sort((x,y)=>x-y)
     .map(y=>({x:y,y:a.pop_trend[String(y)]})).filter(p=>p.y!=null);
-  const pr=a.projection;const showFc=S.showForecast&&pr;
-  const fc=showFc?[{x:2024,y:pr.base_pop},{x:2030,y:pr.y2030.pop},{x:2040,y:pr.y2040.pop}]:[];
+  const pr=a.projection;const showFc=S.showForecast&&pr;const H0=S.fcHorizon;const baseY=pr?pr.base_year:2024;
+  const fc=[];
+  if(showFc){for(let t=0;t<=H0;t++)fc.push({x:baseY+t,y:projectPop(pr,t)});}
   const all=hist.concat(fc);const xs=all.map(p=>p.x);
   const xmin=Math.min(...xs),xmax=Math.max(...xs);
   const ys=all.map(p=>p.y);let lo=Math.min(...ys),hi=Math.max(...ys);
@@ -657,14 +684,15 @@ function drawPopTrend(a){
   hist.forEach(p=>svg.appendChild(tipOn(el("circle",{cx:X(p.x),cy:Y(p.y),r:3.5,fill:CAT[0]}),`${p.x}: <b>${fmt.num(p.y)}</b>`)));
   if(showFc){
     svg.appendChild(el("path",{d:fc.map((p,i)=>(i?"L":"M")+X(p.x)+" "+Y(p.y)).join(" "),fill:"none",stroke:CAT[2],"stroke-width":2.4,"stroke-dasharray":"5 4"}));
-    fc.slice(1).forEach(p=>svg.appendChild(tipOn(el("circle",{cx:X(p.x),cy:Y(p.y),r:3.5,fill:CAT[2]}),`${p.x} forecast: <b>${fmt.num(p.y)}</b>`)));
+    fc.forEach((p,i)=>{if(i>0 && ((p.x-baseY)%5===0 || i===fc.length-1))
+      svg.appendChild(tipOn(el("circle",{cx:X(p.x),cy:Y(p.y),r:3.5,fill:CAT[2]}),`${p.x} forecast: <b>${fmt.num(p.y)}</b>`));});
   }
   const fs=document.getElementById("fcStats");
   if(showFc){
-    const card=(yr,o)=>`<div class="delta"><div class="k">${yr} FORECAST</div>
-      <div class="v ${o.net>=0?'up':'down'}">${fmt.num(o.pop)}</div>
-      <div class="from">${o.net>=0?'+':''}${fmt.num(o.net)} · ${(o.growth_pct*100).toFixed(0)}%</div></div>`;
-    fs.innerHTML=card(2030,pr.y2030)+card(2040,pr.y2040);
+    const endPop=projectPop(pr,H0),net=endPop-pr.base_pop,pct=endPop/pr.base_pop-1;
+    fs.innerHTML=`<div class="delta"><div class="k">+${H0}-YR FORECAST · ${baseY+H0}</div>
+      <div class="v ${net>=0?'up':'down'}">${fmt.num(endPop)}</div>
+      <div class="from">${net>=0?'+':''}${fmt.num(net)} people · ${(pct*100).toFixed(0)}%</div></div>`;
     document.getElementById("fcNote").textContent=pr.method;
   }else{fs.innerHTML="";document.getElementById("fcNote").textContent="";}
 }
@@ -805,9 +833,11 @@ function drawSchools(a){
   const crec=countyRecOf(a);const sc=crec&&crec.schools;
   const cap=document.getElementById("schoolCap");
   const m0=a.metrics,pr0=a.projection;
+  let fcK12="";
+  if(pr0&&pr0.base_pop&&S.showForecast){const share=(m0.pop_k12||0)/pr0.base_pop;const yr=pr0.base_year+S.fcHorizon;
+    fcK12=` · trend forecast K–12 by ${yr} ≈ <b>${fmt.num(Math.round(projectPop(pr0,S.fcHorizon)*share))}</b>`;}
   document.getElementById("schoolAgeNote").innerHTML=
-    `School-age population in ${short(a)}: K–6 ≈ <b>${fmt.num(m0.pop_k6)}</b> · grades 7–12 ≈ <b>${fmt.num(m0.pop_7_12)}</b> · K–12 ≈ <b>${fmt.num(m0.pop_k12)}</b>`+
-    (pr0?` · trend forecast K–12 by 2040 ≈ <b>${fmt.num(pr0.y2040.k12)}</b>.`:".");
+    `School-age population in ${short(a)}: K–6 ≈ <b>${fmt.num(m0.pop_k6)}</b> · grades 7–12 ≈ <b>${fmt.num(m0.pop_7_12)}</b> · K–12 ≈ <b>${fmt.num(m0.pop_k12)}</b>${fcK12}.`;
   if(!sc){cap.textContent="No school data for this area.";
     document.getElementById("gradeChart").innerHTML="";
     document.getElementById("charterDonut").innerHTML="";
