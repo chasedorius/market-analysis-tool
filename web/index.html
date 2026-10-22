@@ -30,6 +30,17 @@
   .topbar .spacer{flex:1}
   .pill{background:var(--card);border:1px solid var(--line);border-radius:999px;
     padding:5px 12px;color:var(--ink);font-size:13px}
+  .searchbox{position:relative}
+  #search{background:var(--card);border:1px solid var(--line);color:var(--ink);border-radius:999px;
+    padding:6px 12px;font:inherit;font-size:13px;width:220px;outline:none}
+  #search:focus{border-color:var(--accent)}
+  #search::placeholder{color:var(--faint)}
+  .search-results{position:absolute;top:116%;left:0;right:0;background:var(--card);
+    border:1px solid var(--line);border-radius:10px;z-index:30;display:none;max-height:320px;overflow-y:auto;
+    box-shadow:0 8px 24px rgba(0,0,0,.4)}
+  .search-results div{padding:8px 12px;cursor:pointer;font-size:13px;border-bottom:1px solid var(--bg2)}
+  .search-results div:hover,.search-results div.hl{background:var(--card2)}
+  .search-results .lvl{color:var(--faint);font-size:11px;margin-left:8px}
   main{max-width:1320px;margin:0 auto;padding:16px;display:grid;gap:16px;
     grid-template-columns:1.35fr 1fr}
   @media(max-width:1000px){main{grid-template-columns:1fr}}
@@ -80,7 +91,8 @@
     border-radius:50%;animation:spin .8s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
   @media(max-width:700px){#map{height:320px}.deltas{grid-template-columns:1fr}
-    main{padding:12px}.topbar{padding:10px 14px}.brand{font-size:15px}}
+    main{padding:12px}.topbar{padding:10px 14px}.brand{font-size:15px}
+    .searchbox{width:100%}#search{width:100%}}
   #map{height:420px;border-radius:12px;border:1px solid var(--line);background:#0c1322}
   .leaflet-tile{filter:grayscale(.3) brightness(.78) contrast(1.02)}
   .leaflet-container{background:#0c1322}
@@ -139,7 +151,11 @@
   <div class="brand">◈ <span>Census</span> Market Dashboard</div>
   <div class="ctx" id="ctx">Loading…</div>
   <div class="spacer"></div>
-  <span class="pill" id="pillCounty">Davis County</span>
+  <div class="searchbox">
+    <input id="search" type="search" placeholder="🔍 Search city or county…" autocomplete="off" />
+    <div id="searchResults" class="search-results"></div>
+  </div>
+  <span class="pill" id="pillCounty">Utah</span>
   <span class="pill" id="pillYear">2024</span>
 </div>
 
@@ -415,6 +431,15 @@ function projectPop(pr,years){let pop=pr.base_pop;
   return Math.round(pop);}
 function countyRecOf(a){return a&&a.level==="county"?a:(a?S.byId[a.county_geoid]:null);}
 function countyName(gid){const a=S.byId[gid];return a?a.name:gid;}
+function goToArea(geoid){
+  const a=S.byId[geoid];if(!a)return;
+  S.drill = a.level==="place" ? a.county_geoid : null;
+  select(geoid); refreshMetric();
+  const row=document.querySelector(`#rankBody tr[data-geoid="${geoid}"]`);
+  if(row)row.scrollIntoView({block:"center",behavior:"smooth"});
+  const si=document.getElementById("search");if(si)si.value=short(a);
+  const sr=document.getElementById("searchResults");if(sr)sr.style.display="none";
+}
 
 function el(tag,attrs){const e=document.createElementNS(SVGNS,tag);
   for(const k in attrs) e.setAttribute(k,attrs[k]); return e;}
@@ -493,6 +518,29 @@ async function boot(){
   });
   document.getElementById("bbClear").onclick=()=>{S.buyBox=[];renderChips();renderRank();};
   document.getElementById("bbExport").onclick=exportCSV;
+
+  // search / type-ahead (city or county)
+  const SEARCH=S.counties.map(a=>({n:short(a),g:a.geoid,lvl:"county"}))
+    .concat(S.places.map(a=>({n:short(a),g:a.geoid,lvl:"city · "+short(S.byId[a.county_geoid]||{name:"Utah"})})));
+  const si=document.getElementById("search"),sr=document.getElementById("searchResults");
+  function renderResults(q){
+    q=q.trim().toLowerCase();
+    if(!q){sr.style.display="none";return;}
+    const starts=SEARCH.filter(x=>x.n.toLowerCase().startsWith(q));
+    const contains=SEARCH.filter(x=>!x.n.toLowerCase().startsWith(q)&&x.n.toLowerCase().includes(q));
+    const hits=starts.concat(contains).slice(0,10);
+    sr.innerHTML=hits.length?hits.map((x,i)=>
+      `<div class="${i===0?'hl':''}" data-g="${x.g}">${x.n}<span class="lvl">${x.lvl}</span></div>`).join("")
+      :`<div style="color:var(--faint)">No match</div>`;
+    sr.style.display="block";
+    sr.querySelectorAll("div[data-g]").forEach(d=>d.onmousedown=e=>{e.preventDefault();goToArea(d.dataset.g);});
+  }
+  si.oninput=()=>renderResults(si.value);
+  si.onfocus=()=>{if(si.value)renderResults(si.value);};
+  si.onkeydown=e=>{
+    if(e.key==="Enter"){const f=sr.querySelector("div[data-g]");if(f)goToArea(f.dataset.g);}
+    else if(e.key==="Escape"){sr.style.display="none";si.blur();}};
+  si.onblur=()=>setTimeout(()=>{sr.style.display="none";},150);
 }
 
 function buildMetricChips(){
