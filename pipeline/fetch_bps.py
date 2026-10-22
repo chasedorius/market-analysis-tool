@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parent.parent
 CONFIG = ROOT / "config"
 OUT = ROOT / "data" / "permits.json"
 
-YEARS = [2019, 2020, 2021, 2022, 2023, 2024]
+YEARS = [2019, 2020, 2021, 2022, 2023, 2024, 2025]  # latest full-year BPS annual
 BASE = "https://www2.census.gov/econ/bps"
 
 # 0-based column indices for UNITS by structure type (verified against the files).

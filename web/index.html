@@ -246,7 +246,7 @@
 
   <!-- PERMITS -->
   <section class="card full">
-    <h2>Permits &amp; new homes · 2019 → 2024</h2>
+    <h2>Permits &amp; new homes</h2>
     <div class="h2sub" id="permCap"></div>
     <svg id="permChart" viewBox="0 0 900 230" width="100%" height="230" role="img"></svg>
     <div class="chartlegend" id="permLegend"></div>
@@ -670,7 +670,8 @@ function select(gid){
     ["Price-to-income",fmt.ratio(d.price_to_income)+"×",""],
     ["Under-5 pipeline ratio",fmt.ratio(d.pipeline_ratio),""],
     ["Median age",fmt.ratio(a.metrics.median_age),""],
-    ["Permits 2024 (units)",fmt.num((a.permits&&a.permits["2024"]||{}).total),""],
+    ["Permits "+(Object.keys(a.permits||{}).map(Number).sort((x,y)=>x-y).at(-1)||"")+" (units)",
+      fmt.num((a.permits&&a.permits[String(Object.keys(a.permits||{}).map(Number).sort((x,y)=>x-y).at(-1))]||{}).total),""],
     ["Permits / 1,000 residents",fmt.ratio(d.permit_rate),""],
   ];
   document.getElementById("selMetrics").innerHTML=rows.map(([k,v,x])=>
@@ -857,8 +858,8 @@ function drawPermits(a){
     const xl=el("text",{x:cx,y:H-8,fill:"#6b7a9c","font-size":11,"text-anchor":"middle"});
     xl.textContent=y;svg.appendChild(xl);});
   leg.innerHTML=keys.map(k=>`<span><span class="dot" style="background:${k[2]}"></span>${k[1]}</span>`).join("");
-  const cur=a.permits["2024"]||{};const rate=a.derived.permit_rate;
-  cap.textContent=`${short(a)}: ${cur.total||0} units permitted in 2024 `+
+  const latY=yrs.at(-1);const cur=a.permits[String(latY)]||{};const rate=a.derived.permit_rate;
+  cap.textContent=`${short(a)}: ${cur.total||0} units permitted in ${latY} `+
     `(${cur.single_family||0} SF / ${cur.units_2_4||0} in 2–4 / ${cur.multifamily_5plus||0} in 5+) · `+
     `${rate==null?"—":rate.toFixed(1)} per 1,000 residents`;
 }

@@ -176,12 +176,13 @@ def main() -> None:
         derived = compute_derived(mm["metrics"], trend.get(geoid, {}))
         cc = county_of(geoid, level)
         perm = permits_doc.get(geoid, {})
-        cur = perm.get(str(year))
+        perm_years = sorted(int(y) for y in perm) if perm else []
+        cur = perm.get(str(perm_years[-1])) if perm_years else None   # latest permit year
         pop = mm["metrics"].get("population")
         derived["permit_rate"] = (round(cur["total"] / pop * 1000, 3)
                                   if cur and pop else None)
-        perm3 = (sum((perm.get(str(y)) or {}).get("total", 0) for y in (2022, 2023, 2024))
-                 if perm else None)
+        perm3 = (sum((perm.get(str(y)) or {}).get("total", 0) for y in perm_years[-3:])
+                 if perm_years else None)
         sy = yield_by_county.get(cc)
         derived["student_yield"] = sy
         derived["projected_new_students"] = (round(perm3 * sy)

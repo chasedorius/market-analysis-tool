@@ -6,7 +6,8 @@
     2021,
     2022,
     2023,
-    2024
+    2024,
+    2025
   ],
   "note": "Permitted housing units by structure type. 5+ unit = multifamily.",
   "areas": {
@@ -46,6 +47,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 39
+      },
+      "2025": {
+        "single_family": 38,
+        "units_2_4": 0,
+        "multifamily_5plus": 10,
+        "total": 48
       }
     },
     "49003": {
@@ -84,6 +91,12 @@
         "units_2_4": 8,
         "multifamily_5plus": 74,
         "total": 479
+      },
+      "2025": {
+        "single_family": 369,
+        "units_2_4": 35,
+        "multifamily_5plus": 52,
+        "total": 456
       }
     },
     "49005": {
@@ -122,6 +135,12 @@
         "units_2_4": 4,
         "multifamily_5plus": 146,
         "total": 1021
+      },
+      "2025": {
+        "single_family": 850,
+        "units_2_4": 0,
+        "multifamily_5plus": 262,
+        "total": 1112
       }
     },
     "49007": {
@@ -160,6 +179,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 168,
         "total": 196
+      },
+      "2025": {
+        "single_family": 45,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 45
       }
     },
     "49009": {
@@ -198,6 +223,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 10
+      },
+      "2025": {
+        "single_family": 17,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 17
       }
     },
     "49011": {
@@ -236,6 +267,12 @@
         "units_2_4": 40,
         "multifamily_5plus": 508,
         "total": 1468
+      },
+      "2025": {
+        "single_family": 841,
+        "units_2_4": 80,
+        "multifamily_5plus": 996,
+        "total": 1917
       }
     },
     "49013": {
@@ -274,6 +311,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 123
+      },
+      "2025": {
+        "single_family": 123,
+        "units_2_4": 4,
+        "multifamily_5plus": 0,
+        "total": 127
       }
     },
     "49015": {
@@ -312,6 +355,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 55
+      },
+      "2025": {
+        "single_family": 77,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 77
       }
     },
     "49017": {
@@ -350,6 +399,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 57
+      },
+      "2025": {
+        "single_family": 27,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 27
       }
     },
     "49019": {
@@ -388,6 +443,12 @@
         "units_2_4": 18,
         "multifamily_5plus": 100,
         "total": 238
+      },
+      "2025": {
+        "single_family": 42,
+        "units_2_4": 6,
+        "multifamily_5plus": 76,
+        "total": 124
       }
     },
     "49021": {
@@ -426,6 +487,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 655
+      },
+      "2025": {
+        "single_family": 678,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 678
       }
     },
     "49023": {
@@ -464,6 +531,12 @@
         "units_2_4": 28,
         "multifamily_5plus": 7,
         "total": 107
+      },
+      "2025": {
+        "single_family": 71,
+        "units_2_4": 23,
+        "multifamily_5plus": 8,
+        "total": 102
       }
     },
     "49025": {
@@ -502,6 +575,12 @@
         "units_2_4": 6,
         "multifamily_5plus": 0,
         "total": 202
+      },
+      "2025": {
+        "single_family": 122,
+        "units_2_4": 8,
+        "multifamily_5plus": 16,
+        "total": 146
       }
     },
     "49027": {
@@ -540,6 +619,12 @@
         "units_2_4": 17,
         "multifamily_5plus": 0,
         "total": 93
+      },
+      "2025": {
+        "single_family": 67,
+        "units_2_4": 6,
+        "multifamily_5plus": 0,
+        "total": 73
       }
     },
     "49029": {
@@ -578,6 +663,12 @@
         "units_2_4": 35,
         "multifamily_5plus": 29,
         "total": 196
+      },
+      "2025": {
+        "single_family": 92,
+        "units_2_4": 54,
+        "multifamily_5plus": 46,
+        "total": 192
       }
     },
     "49031": {
@@ -616,6 +707,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 25
+      },
+      "2025": {
+        "single_family": 21,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 21
       }
     },
     "49033": {
@@ -654,6 +751,12 @@
         "units_2_4": 6,
         "multifamily_5plus": 19,
         "total": 97
+      },
+      "2025": {
+        "single_family": 62,
+        "units_2_4": 4,
+        "multifamily_5plus": 16,
+        "total": 82
       }
     },
     "49035": {
@@ -692,6 +795,12 @@
         "units_2_4": 123,
         "multifamily_5plus": 1579,
         "total": 4550
+      },
+      "2025": {
+        "single_family": 2576,
+        "units_2_4": 169,
+        "multifamily_5plus": 4434,
+        "total": 7179
       }
     },
     "49037": {
@@ -730,6 +839,12 @@
         "units_2_4": 4,
         "multifamily_5plus": 0,
         "total": 52
+      },
+      "2025": {
+        "single_family": 49,
+        "units_2_4": 6,
+        "multifamily_5plus": 0,
+        "total": 55
       }
     },
     "49039": {
@@ -768,6 +883,12 @@
         "units_2_4": 12,
         "multifamily_5plus": 44,
         "total": 266
+      },
+      "2025": {
+        "single_family": 190,
+        "units_2_4": 36,
+        "multifamily_5plus": 12,
+        "total": 238
       }
     },
     "49041": {
@@ -806,6 +927,12 @@
         "units_2_4": 18,
         "multifamily_5plus": 0,
         "total": 109
+      },
+      "2025": {
+        "single_family": 97,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 97
       }
     },
     "49043": {
@@ -844,6 +971,12 @@
         "units_2_4": 2,
         "multifamily_5plus": 529,
         "total": 919
+      },
+      "2025": {
+        "single_family": 334,
+        "units_2_4": 10,
+        "multifamily_5plus": 219,
+        "total": 563
       }
     },
     "49045": {
@@ -882,6 +1015,12 @@
         "units_2_4": 133,
         "multifamily_5plus": 87,
         "total": 897
+      },
+      "2025": {
+        "single_family": 439,
+        "units_2_4": 47,
+        "multifamily_5plus": 37,
+        "total": 523
       }
     },
     "49047": {
@@ -920,6 +1059,12 @@
         "units_2_4": 12,
         "multifamily_5plus": 0,
         "total": 86
+      },
+      "2025": {
+        "single_family": 98,
+        "units_2_4": 4,
+        "multifamily_5plus": 68,
+        "total": 170
       }
     },
     "49049": {
@@ -958,6 +1103,12 @@
         "units_2_4": 107,
         "multifamily_5plus": 1040,
         "total": 6321
+      },
+      "2025": {
+        "single_family": 5324,
+        "units_2_4": 191,
+        "multifamily_5plus": 1687,
+        "total": 7202
       }
     },
     "49051": {
@@ -996,6 +1147,12 @@
         "units_2_4": 29,
         "multifamily_5plus": 22,
         "total": 835
+      },
+      "2025": {
+        "single_family": 786,
+        "units_2_4": 0,
+        "multifamily_5plus": 342,
+        "total": 1128
       }
     },
     "49053": {
@@ -1034,6 +1191,12 @@
         "units_2_4": 35,
         "multifamily_5plus": 650,
         "total": 3152
+      },
+      "2025": {
+        "single_family": 2497,
+        "units_2_4": 34,
+        "multifamily_5plus": 326,
+        "total": 2857
       }
     },
     "49055": {
@@ -1072,6 +1235,12 @@
         "units_2_4": 3,
         "multifamily_5plus": 0,
         "total": 24
+      },
+      "2025": {
+        "single_family": 29,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 29
       }
     },
     "49057": {
@@ -1110,6 +1279,12 @@
         "units_2_4": 65,
         "multifamily_5plus": 521,
         "total": 1630
+      },
+      "2025": {
+        "single_family": 813,
+        "units_2_4": 63,
+        "multifamily_5plus": 614,
+        "total": 1490
       }
     },
     "4900540": {
@@ -1148,6 +1323,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 22
+      },
+      "2025": {
+        "single_family": 21,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 21
       }
     },
     "4900650": {
@@ -1186,6 +1367,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 0
+      },
+      "2025": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 12,
+        "total": 12
       }
     },
     "4900870": {
@@ -1220,6 +1407,12 @@
         "total": 0
       },
       "2024": {
+        "single_family": 3,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 3
+      },
+      "2025": {
         "single_family": 3,
         "units_2_4": 0,
         "multifamily_5plus": 0,
@@ -1262,6 +1455,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 150
+      },
+      "2025": {
+        "single_family": 190,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 190
       }
     },
     "4901905": {
@@ -1300,6 +1499,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 10
+      },
+      "2025": {
+        "single_family": 8,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 8
       }
     },
     "4903345": {
@@ -1338,6 +1543,12 @@
         "units_2_4": 2,
         "multifamily_5plus": 0,
         "total": 11
+      },
+      "2025": {
+        "single_family": 6,
+        "units_2_4": 4,
+        "multifamily_5plus": 0,
+        "total": 10
       }
     },
     "4903950": {
@@ -1376,6 +1587,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 7
+      },
+      "2025": {
+        "single_family": 3,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 3
       }
     },
     "4904060": {
@@ -1414,6 +1631,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 23
+      },
+      "2025": {
+        "single_family": 21,
+        "units_2_4": 0,
+        "multifamily_5plus": 10,
+        "total": 31
       }
     },
     "4905490": {
@@ -1448,6 +1671,12 @@
         "total": 2
       },
       "2024": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 0
+      },
+      "2025": {
         "single_family": 0,
         "units_2_4": 0,
         "multifamily_5plus": 0,
@@ -1490,6 +1719,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 1
+      },
+      "2025": {
+        "single_family": 7,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 7
       }
     },
     "4906370": {
@@ -1526,6 +1761,12 @@
       "2024": {
         "single_family": 3,
         "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 3
+      },
+      "2025": {
+        "single_family": 1,
+        "units_2_4": 2,
         "multifamily_5plus": 0,
         "total": 3
       }
@@ -1566,6 +1807,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 76
+      },
+      "2025": {
+        "single_family": 13,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 13
       }
     },
     "4907470": {
@@ -1624,6 +1871,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 27,
         "total": 54
+      },
+      "2025": {
+        "single_family": 13,
+        "units_2_4": 28,
+        "multifamily_5plus": 0,
+        "total": 41
       }
     },
     "4908460": {
@@ -1662,6 +1915,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 46,
         "total": 137
+      },
+      "2025": {
+        "single_family": 135,
+        "units_2_4": 0,
+        "multifamily_5plus": 8,
+        "total": 143
       }
     },
     "4910660": {
@@ -1720,6 +1979,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 369
+      },
+      "2025": {
+        "single_family": 381,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 381
       }
     },
     "4911430": {
@@ -1754,6 +2019,12 @@
         "total": 0
       },
       "2024": {
+        "single_family": 1,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 1
+      },
+      "2025": {
         "single_family": 1,
         "units_2_4": 0,
         "multifamily_5plus": 0,
@@ -1822,6 +2093,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 0
+      },
+      "2025": {
+        "single_family": 3,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 3
       }
     },
     "4911980": {
@@ -1860,6 +2137,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 17
+      },
+      "2025": {
+        "single_family": 26,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 26
       }
     },
     "4912420": {
@@ -1898,6 +2181,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 4
+      },
+      "2025": {
+        "single_family": 1,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 1
       }
     },
     "4913190": {
@@ -1936,6 +2225,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 1
+      },
+      "2025": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 0
       }
     },
     "4913850": {
@@ -1974,6 +2269,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 181
+      },
+      "2025": {
+        "single_family": 33,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 33
       }
     },
     "4914070": {
@@ -2032,6 +2333,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 52
+      },
+      "2025": {
+        "single_family": 47,
+        "units_2_4": 0,
+        "multifamily_5plus": 15,
+        "total": 62
       }
     },
     "4914840": {
@@ -2069,6 +2376,12 @@
         "single_family": 13,
         "units_2_4": 0,
         "multifamily_5plus": 0,
+        "total": 13
+      },
+      "2025": {
+        "single_family": 4,
+        "units_2_4": 4,
+        "multifamily_5plus": 5,
         "total": 13
       }
     },
@@ -2108,6 +2421,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 0
+      },
+      "2025": {
+        "single_family": 2,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 2
       }
     },
     "4916270": {
@@ -2146,6 +2465,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 19
+      },
+      "2025": {
+        "single_family": 7,
+        "units_2_4": 2,
+        "multifamily_5plus": 36,
+        "total": 45
       }
     },
     "4918140": {
@@ -2180,6 +2505,12 @@
         "total": 0
       },
       "2024": {
+        "single_family": 1,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 1
+      },
+      "2025": {
         "single_family": 1,
         "units_2_4": 0,
         "multifamily_5plus": 0,
@@ -2222,6 +2553,12 @@
         "units_2_4": 17,
         "multifamily_5plus": 0,
         "total": 28
+      },
+      "2025": {
+        "single_family": 9,
+        "units_2_4": 2,
+        "multifamily_5plus": 0,
+        "total": 11
       }
     },
     "4919680": {
@@ -2260,6 +2597,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 8
+      },
+      "2025": {
+        "single_family": 4,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 4
       }
     },
     "4920120": {
@@ -2298,6 +2641,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 58,
         "total": 300
+      },
+      "2025": {
+        "single_family": 222,
+        "units_2_4": 0,
+        "multifamily_5plus": 58,
+        "total": 280
       }
     },
     "4920340": {
@@ -2336,6 +2685,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 6
+      },
+      "2025": {
+        "single_family": 3,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 3
       }
     },
     "4920780": {
@@ -2370,6 +2725,12 @@
         "total": 0
       },
       "2024": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 0
+      },
+      "2025": {
         "single_family": 0,
         "units_2_4": 0,
         "multifamily_5plus": 0,
@@ -2412,6 +2773,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 1136
+      },
+      "2025": {
+        "single_family": 1148,
+        "units_2_4": 0,
+        "multifamily_5plus": 20,
+        "total": 1168
       }
     },
     "4920890": {
@@ -2470,6 +2837,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 11
+      },
+      "2025": {
+        "single_family": 9,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 9
       }
     },
     "4922540": {
@@ -2528,6 +2901,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 16
+      },
+      "2025": {
+        "single_family": 13,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 13
       }
     },
     "4922870": {
@@ -2586,6 +2965,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 107
+      },
+      "2025": {
+        "single_family": 135,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 135
       }
     },
     "4923420": {
@@ -2624,6 +3009,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 22
+      },
+      "2025": {
+        "single_family": 20,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 20
       }
     },
     "4924080": {
@@ -2658,6 +3049,12 @@
         "total": 2
       },
       "2024": {
+        "single_family": 1,
+        "units_2_4": 2,
+        "multifamily_5plus": 0,
+        "total": 3
+      },
+      "2025": {
         "single_family": 1,
         "units_2_4": 2,
         "multifamily_5plus": 0,
@@ -2700,6 +3097,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 1
+      },
+      "2025": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 0
       }
     },
     "4924740": {
@@ -2738,6 +3141,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 101
+      },
+      "2025": {
+        "single_family": 88,
+        "units_2_4": 0,
+        "multifamily_5plus": 540,
+        "total": 628
       }
     },
     "4924850": {
@@ -2776,6 +3185,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 24
+      },
+      "2025": {
+        "single_family": 34,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 34
       }
     },
     "4925180": {
@@ -2834,6 +3249,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 0
+      },
+      "2025": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 0
       }
     },
     "4925510": {
@@ -2872,6 +3293,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 15
+      },
+      "2025": {
+        "single_family": 12,
+        "units_2_4": 4,
+        "multifamily_5plus": 0,
+        "total": 16
       }
     },
     "4926940": {
@@ -2910,6 +3337,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 88
+      },
+      "2025": {
+        "single_family": 46,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 46
       }
     },
     "4927490": {
@@ -2948,6 +3381,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 5
+      },
+      "2025": {
+        "single_family": 9,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 9
       }
     },
     "4927930": {
@@ -2986,6 +3425,12 @@
         "units_2_4": 6,
         "multifamily_5plus": 19,
         "total": 54
+      },
+      "2025": {
+        "single_family": 22,
+        "units_2_4": 4,
+        "multifamily_5plus": 16,
+        "total": 42
       }
     },
     "4928150": {
@@ -3024,6 +3469,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 12,
         "total": 51
+      },
+      "2025": {
+        "single_family": 23,
+        "units_2_4": 27,
+        "multifamily_5plus": 0,
+        "total": 50
       }
     },
     "4928810": {
@@ -3062,6 +3513,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 10
+      },
+      "2025": {
+        "single_family": 12,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 12
       }
     },
     "4929360": {
@@ -3096,6 +3553,12 @@
         "total": 8
       },
       "2024": {
+        "single_family": 6,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 6
+      },
+      "2025": {
         "single_family": 6,
         "units_2_4": 0,
         "multifamily_5plus": 0,
@@ -3138,6 +3601,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 4
+      },
+      "2025": {
+        "single_family": 3,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 3
       }
     },
     "4931120": {
@@ -3176,6 +3645,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 236
+      },
+      "2025": {
+        "single_family": 118,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 118
       }
     },
     "4931670": {
@@ -3234,6 +3709,12 @@
         "units_2_4": 8,
         "multifamily_5plus": 25,
         "total": 66
+      },
+      "2025": {
+        "single_family": 36,
+        "units_2_4": 16,
+        "multifamily_5plus": 59,
+        "total": 111
       }
     },
     "4934200": {
@@ -3272,6 +3753,12 @@
         "units_2_4": 26,
         "multifamily_5plus": 11,
         "total": 443
+      },
+      "2025": {
+        "single_family": 284,
+        "units_2_4": 0,
+        "multifamily_5plus": 318,
+        "total": 602
       }
     },
     "4934640": {
@@ -3310,6 +3797,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 3
+      },
+      "2025": {
+        "single_family": 2,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 2
       }
     },
     "4934970": {
@@ -3348,6 +3841,12 @@
         "units_2_4": 13,
         "multifamily_5plus": 30,
         "total": 441
+      },
+      "2025": {
+        "single_family": 401,
+        "units_2_4": 22,
+        "multifamily_5plus": 198,
+        "total": 621
       }
     },
     "4935120": {
@@ -3386,6 +3885,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 82
+      },
+      "2025": {
+        "single_family": 74,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 74
       }
     },
     "4935190": {
@@ -3424,6 +3929,12 @@
         "units_2_4": 27,
         "multifamily_5plus": 62,
         "total": 199
+      },
+      "2025": {
+        "single_family": 76,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 76
       }
     },
     "4935300": {
@@ -3462,6 +3973,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 17
+      },
+      "2025": {
+        "single_family": 14,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 14
       }
     },
     "4935740": {
@@ -3500,6 +4017,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 8
+      },
+      "2025": {
+        "single_family": 5,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 5
       }
     },
     "4935960": {
@@ -3534,6 +4057,12 @@
         "total": 0
       },
       "2024": {
+        "single_family": 1,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 1
+      },
+      "2025": {
         "single_family": 1,
         "units_2_4": 0,
         "multifamily_5plus": 0,
@@ -3576,6 +4105,12 @@
         "units_2_4": 16,
         "multifamily_5plus": 0,
         "total": 28
+      },
+      "2025": {
+        "single_family": 10,
+        "units_2_4": 14,
+        "multifamily_5plus": 0,
+        "total": 24
       }
     },
     "4936290": {
@@ -3614,6 +4149,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 9
+      },
+      "2025": {
+        "single_family": 10,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 10
       }
     },
     "4936400": {
@@ -3652,6 +4193,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 67
+      },
+      "2025": {
+        "single_family": 21,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 21
       }
     },
     "4936620": {
@@ -3690,6 +4237,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 0
+      },
+      "2025": {
+        "single_family": 1,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 1
       }
     },
     "4936950": {
@@ -3748,6 +4301,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 7,
         "total": 12
+      },
+      "2025": {
+        "single_family": 11,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 11
       }
     },
     "4937170": {
@@ -3786,6 +4345,12 @@
         "units_2_4": 11,
         "multifamily_5plus": 107,
         "total": 548
+      },
+      "2025": {
+        "single_family": 472,
+        "units_2_4": 4,
+        "multifamily_5plus": 82,
+        "total": 558
       }
     },
     "4937390": {
@@ -3824,6 +4389,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 38
+      },
+      "2025": {
+        "single_family": 63,
+        "units_2_4": 0,
+        "multifamily_5plus": 16,
+        "total": 79
       }
     },
     "4937690": {
@@ -3858,6 +4429,12 @@
         "total": 0
       },
       "2024": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 0
+      },
+      "2025": {
         "single_family": 0,
         "units_2_4": 0,
         "multifamily_5plus": 0,
@@ -3900,6 +4477,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 0
+      },
+      "2025": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 0
       }
     },
     "4938710": {
@@ -3938,6 +4521,12 @@
         "units_2_4": 8,
         "multifamily_5plus": 182,
         "total": 265
+      },
+      "2025": {
+        "single_family": 96,
+        "units_2_4": 4,
+        "multifamily_5plus": 0,
+        "total": 100
       }
     },
     "4939810": {
@@ -3976,6 +4565,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 2
+      },
+      "2025": {
+        "single_family": 4,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 4
       }
     },
     "4939920": {
@@ -4014,6 +4609,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 75
+      },
+      "2025": {
+        "single_family": 33,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 33
       }
     },
     "4940030": {
@@ -4060,6 +4661,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 0
+      },
+      "2025": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 0
       }
     },
     "4940360": {
@@ -4098,6 +4705,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 54
+      },
+      "2025": {
+        "single_family": 75,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 75
       }
     },
     "4943440": {
@@ -4136,6 +4749,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 10
+      },
+      "2025": {
+        "single_family": 13,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 13
       }
     },
     "4943660": {
@@ -4174,6 +4793,12 @@
         "units_2_4": 12,
         "multifamily_5plus": 298,
         "total": 435
+      },
+      "2025": {
+        "single_family": 80,
+        "units_2_4": 6,
+        "multifamily_5plus": 402,
+        "total": 488
       }
     },
     "4944100": {
@@ -4208,6 +4833,12 @@
         "total": 0
       },
       "2024": {
+        "single_family": 3,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 3
+      },
+      "2025": {
         "single_family": 3,
         "units_2_4": 0,
         "multifamily_5plus": 0,
@@ -4250,6 +4881,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 294,
         "total": 1027
+      },
+      "2025": {
+        "single_family": 829,
+        "units_2_4": 0,
+        "multifamily_5plus": 304,
+        "total": 1133
       }
     },
     "4944650": {
@@ -4288,6 +4925,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 7
+      },
+      "2025": {
+        "single_family": 6,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 6
       }
     },
     "4944760": {
@@ -4322,6 +4965,12 @@
         "total": 5
       },
       "2024": {
+        "single_family": 4,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 4
+      },
+      "2025": {
         "single_family": 4,
         "units_2_4": 0,
         "multifamily_5plus": 0,
@@ -4364,6 +5013,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 59
+      },
+      "2025": {
+        "single_family": 88,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 88
       }
     },
     "4945530": {
@@ -4398,6 +5053,12 @@
         "total": 0
       },
       "2024": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 0
+      },
+      "2025": {
         "single_family": 0,
         "units_2_4": 0,
         "multifamily_5plus": 0,
@@ -4440,6 +5101,12 @@
         "units_2_4": 4,
         "multifamily_5plus": 116,
         "total": 286
+      },
+      "2025": {
+        "single_family": 194,
+        "units_2_4": 0,
+        "multifamily_5plus": 236,
+        "total": 430
       }
     },
     "4946740": {
@@ -4478,6 +5145,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 2
+      },
+      "2025": {
+        "single_family": 1,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 1
       }
     },
     "4947620": {
@@ -4516,6 +5189,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 8
+      },
+      "2025": {
+        "single_family": 7,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 7
       }
     },
     "4947840": {
@@ -4554,6 +5233,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 12
+      },
+      "2025": {
+        "single_family": 7,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 7
       }
     },
     "4947950": {
@@ -4592,6 +5277,12 @@
         "units_2_4": 4,
         "multifamily_5plus": 186,
         "total": 498
+      },
+      "2025": {
+        "single_family": 191,
+        "units_2_4": 41,
+        "multifamily_5plus": 300,
+        "total": 532
       }
     },
     "4948610": {
@@ -4630,6 +5321,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 24
+      },
+      "2025": {
+        "single_family": 21,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 21
       }
     },
     "4948300": {
@@ -4668,6 +5365,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 20
+      },
+      "2025": {
+        "single_family": 4,
+        "units_2_4": 0,
+        "multifamily_5plus": 20,
+        "total": 24
       }
     },
     "4949160": {
@@ -4706,6 +5409,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 3
+      },
+      "2025": {
+        "single_family": 7,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 7
       }
     },
     "4949710": {
@@ -4744,6 +5453,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 20,
         "total": 54
+      },
+      "2025": {
+        "single_family": 22,
+        "units_2_4": 48,
+        "multifamily_5plus": 22,
+        "total": 92
       }
     },
     "4949820": {
@@ -4782,6 +5497,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 69
+      },
+      "2025": {
+        "single_family": 58,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 58
       }
     },
     "4950040": {
@@ -4820,6 +5541,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 2
+      },
+      "2025": {
+        "single_family": 6,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 6
       }
     },
     "4950150": {
@@ -4858,6 +5585,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 93
+      },
+      "2025": {
+        "single_family": 51,
+        "units_2_4": 10,
+        "multifamily_5plus": 0,
+        "total": 61
       }
     },
     "4950700": {
@@ -4896,6 +5629,12 @@
         "units_2_4": 6,
         "multifamily_5plus": 80,
         "total": 92
+      },
+      "2025": {
+        "single_family": 8,
+        "units_2_4": 6,
+        "multifamily_5plus": 76,
+        "total": 90
       }
     },
     "4951140": {
@@ -4934,6 +5673,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 4
+      },
+      "2025": {
+        "single_family": 3,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 3
       }
     },
     "4951580": {
@@ -4972,6 +5717,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 2
+      },
+      "2025": {
+        "single_family": 3,
+        "units_2_4": 2,
+        "multifamily_5plus": 0,
+        "total": 5
       }
     },
     "4951910": {
@@ -5009,6 +5760,12 @@
         "single_family": 21,
         "units_2_4": 15,
         "multifamily_5plus": 11,
+        "total": 47
+      },
+      "2025": {
+        "single_family": 17,
+        "units_2_4": 4,
+        "multifamily_5plus": 26,
         "total": 47
       }
     },
@@ -5048,6 +5805,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 107,
         "total": 316
+      },
+      "2025": {
+        "single_family": 39,
+        "units_2_4": 0,
+        "multifamily_5plus": 41,
+        "total": 80
       }
     },
     "4953340": {
@@ -5082,6 +5845,12 @@
         "total": 2
       },
       "2024": {
+        "single_family": 5,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 5
+      },
+      "2025": {
         "single_family": 5,
         "units_2_4": 0,
         "multifamily_5plus": 0,
@@ -5124,6 +5893,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 6
+      },
+      "2025": {
+        "single_family": 7,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 7
       }
     },
     "4954220": {
@@ -5162,6 +5937,12 @@
         "units_2_4": 26,
         "multifamily_5plus": 7,
         "total": 66
+      },
+      "2025": {
+        "single_family": 44,
+        "units_2_4": 15,
+        "multifamily_5plus": 8,
+        "total": 67
       }
     },
     "4954550": {
@@ -5200,6 +5981,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 1
+      },
+      "2025": {
+        "single_family": 4,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 4
       }
     },
     "4954660": {
@@ -5238,6 +6025,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 30,
         "total": 148
+      },
+      "2025": {
+        "single_family": 137,
+        "units_2_4": 0,
+        "multifamily_5plus": 10,
+        "total": 147
       }
     },
     "4954990": {
@@ -5276,6 +6069,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 28
+      },
+      "2025": {
+        "single_family": 17,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 17
       }
     },
     "4955100": {
@@ -5314,6 +6113,12 @@
         "units_2_4": 47,
         "multifamily_5plus": 60,
         "total": 220
+      },
+      "2025": {
+        "single_family": 59,
+        "units_2_4": 6,
+        "multifamily_5plus": 40,
+        "total": 105
       }
     },
     "4955210": {
@@ -5352,6 +6157,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 17,
         "total": 22
+      },
+      "2025": {
+        "single_family": 80,
+        "units_2_4": 0,
+        "multifamily_5plus": 10,
+        "total": 90
       }
     },
     "4955430": {
@@ -5390,6 +6201,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 3
+      },
+      "2025": {
+        "single_family": 2,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 2
       }
     },
     "4955650": {
@@ -5424,6 +6241,12 @@
         "total": 2
       },
       "2024": {
+        "single_family": 5,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 5
+      },
+      "2025": {
         "single_family": 5,
         "units_2_4": 0,
         "multifamily_5plus": 0,
@@ -5466,6 +6289,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 279,
         "total": 417
+      },
+      "2025": {
+        "single_family": 121,
+        "units_2_4": 0,
+        "multifamily_5plus": 342,
+        "total": 463
       }
     },
     "4956860": {
@@ -5524,6 +6353,12 @@
         "units_2_4": 4,
         "multifamily_5plus": 0,
         "total": 12
+      },
+      "2025": {
+        "single_family": 9,
+        "units_2_4": 4,
+        "multifamily_5plus": 0,
+        "total": 13
       }
     },
     "4957300": {
@@ -5562,6 +6397,12 @@
         "units_2_4": 6,
         "multifamily_5plus": 0,
         "total": 40
+      },
+      "2025": {
+        "single_family": 26,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 26
       }
     },
     "4957960": {
@@ -5608,6 +6449,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 529,
         "total": 560
+      },
+      "2025": {
+        "single_family": 82,
+        "units_2_4": 0,
+        "multifamily_5plus": 25,
+        "total": 107
       }
     },
     "4958730": {
@@ -5646,6 +6493,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 120
+      },
+      "2025": {
+        "single_family": 166,
+        "units_2_4": 28,
+        "multifamily_5plus": 0,
+        "total": 194
       }
     },
     "4959390": {
@@ -5684,6 +6537,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 40
+      },
+      "2025": {
+        "single_family": 13,
+        "units_2_4": 4,
+        "multifamily_5plus": 0,
+        "total": 17
       }
     },
     "4960710": {
@@ -5722,6 +6581,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 119
+      },
+      "2025": {
+        "single_family": 39,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 39
       }
     },
     "4960930": {
@@ -5760,6 +6625,12 @@
         "units_2_4": 3,
         "multifamily_5plus": 0,
         "total": 83
+      },
+      "2025": {
+        "single_family": 74,
+        "units_2_4": 0,
+        "multifamily_5plus": 193,
+        "total": 267
       }
     },
     "4961150": {
@@ -5798,6 +6669,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 27
+      },
+      "2025": {
+        "single_family": 30,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 30
       }
     },
     "4961260": {
@@ -5836,6 +6713,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 9
+      },
+      "2025": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 0
       }
     },
     "4961590": {
@@ -5870,6 +6753,12 @@
         "total": 0
       },
       "2024": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 0
+      },
+      "2025": {
         "single_family": 0,
         "units_2_4": 0,
         "multifamily_5plus": 0,
@@ -5944,6 +6833,12 @@
         "units_2_4": 28,
         "multifamily_5plus": 125,
         "total": 286
+      },
+      "2025": {
+        "single_family": 73,
+        "units_2_4": 34,
+        "multifamily_5plus": 244,
+        "total": 351
       }
     },
     "4963240": {
@@ -6028,6 +6923,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 4
+      },
+      "2025": {
+        "single_family": 30,
+        "units_2_4": 14,
+        "multifamily_5plus": 25,
+        "total": 69
       }
     },
     "4964340": {
@@ -6066,6 +6967,12 @@
         "units_2_4": 39,
         "multifamily_5plus": 168,
         "total": 323
+      },
+      "2025": {
+        "single_family": 89,
+        "units_2_4": 0,
+        "multifamily_5plus": 275,
+        "total": 364
       }
     },
     "4964560": {
@@ -6104,6 +7011,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 3
+      },
+      "2025": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 0
       }
     },
     "4964590": {
@@ -6142,6 +7055,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 6
+      },
+      "2025": {
+        "single_family": 6,
+        "units_2_4": 6,
+        "multifamily_5plus": 0,
+        "total": 12
       }
     },
     "4964670": {
@@ -6180,6 +7099,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 53
+      },
+      "2025": {
+        "single_family": 52,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 52
       }
     },
     "4965110": {
@@ -6218,6 +7143,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 38,
         "total": 52
+      },
+      "2025": {
+        "single_family": 25,
+        "units_2_4": 21,
+        "multifamily_5plus": 128,
+        "total": 174
       }
     },
     "4965240": {
@@ -6252,6 +7183,12 @@
         "total": 1
       },
       "2024": {
+        "single_family": 1,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 1
+      },
+      "2025": {
         "single_family": 1,
         "units_2_4": 0,
         "multifamily_5plus": 0,
@@ -6294,6 +7231,12 @@
         "units_2_4": 20,
         "multifamily_5plus": 97,
         "total": 341
+      },
+      "2025": {
+        "single_family": 388,
+        "units_2_4": 77,
+        "multifamily_5plus": 237,
+        "total": 702
       }
     },
     "4967000": {
@@ -6332,6 +7275,12 @@
         "units_2_4": 11,
         "multifamily_5plus": 875,
         "total": 1283
+      },
+      "2025": {
+        "single_family": 380,
+        "units_2_4": 2,
+        "multifamily_5plus": 2835,
+        "total": 3217
       }
     },
     "4967440": {
@@ -6368,6 +7317,12 @@
       "2024": {
         "single_family": 17,
         "units_2_4": 8,
+        "multifamily_5plus": 0,
+        "total": 25
+      },
+      "2025": {
+        "single_family": 25,
+        "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 25
       }
@@ -6408,6 +7363,12 @@
         "units_2_4": 12,
         "multifamily_5plus": 44,
         "total": 266
+      },
+      "2025": {
+        "single_family": 190,
+        "units_2_4": 36,
+        "multifamily_5plus": 12,
+        "total": 238
       }
     },
     "4967660": {
@@ -6446,6 +7407,12 @@
         "units_2_4": 8,
         "multifamily_5plus": 0,
         "total": 59
+      },
+      "2025": {
+        "single_family": 36,
+        "units_2_4": 22,
+        "multifamily_5plus": 12,
+        "total": 70
       }
     },
     "4967770": {
@@ -6484,6 +7451,12 @@
         "units_2_4": 12,
         "multifamily_5plus": 80,
         "total": 268
+      },
+      "2025": {
+        "single_family": 157,
+        "units_2_4": 4,
+        "multifamily_5plus": 70,
+        "total": 231
       }
     },
     "4967825": {
@@ -6522,6 +7495,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 100,
         "total": 1357
+      },
+      "2025": {
+        "single_family": 1522,
+        "units_2_4": 0,
+        "multifamily_5plus": 60,
+        "total": 1582
       }
     },
     "4967880": {
@@ -6560,6 +7539,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 2
+      },
+      "2025": {
+        "single_family": 3,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 3
       }
     },
     "4969640": {
@@ -6612,6 +7597,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 1
+      },
+      "2025": {
+        "single_family": 1,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 1
       }
     },
     "4970850": {
@@ -6650,6 +7641,12 @@
         "units_2_4": 2,
         "multifamily_5plus": 223,
         "total": 706
+      },
+      "2025": {
+        "single_family": 525,
+        "units_2_4": 6,
+        "multifamily_5plus": 223,
+        "total": 754
       }
     },
     "4970960": {
@@ -6686,6 +7683,12 @@
       "2024": {
         "single_family": 1,
         "units_2_4": 2,
+        "multifamily_5plus": 0,
+        "total": 3
+      },
+      "2025": {
+        "single_family": 3,
+        "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 3
       }
@@ -6726,6 +7729,12 @@
         "units_2_4": 7,
         "multifamily_5plus": 78,
         "total": 125
+      },
+      "2025": {
+        "single_family": 37,
+        "units_2_4": 0,
+        "multifamily_5plus": 255,
+        "total": 292
       }
     },
     "4971180": {
@@ -6764,6 +7773,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 29
+      },
+      "2025": {
+        "single_family": 40,
+        "units_2_4": 6,
+        "multifamily_5plus": 0,
+        "total": 46
       }
     },
     "4971290": {
@@ -6802,6 +7817,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 96,
         "total": 492
+      },
+      "2025": {
+        "single_family": 157,
+        "units_2_4": 0,
+        "multifamily_5plus": 20,
+        "total": 177
       }
     },
     "4971840": {
@@ -6840,6 +7861,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 8
+      },
+      "2025": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 0
       }
     },
     "4972280": {
@@ -6878,6 +7905,12 @@
         "units_2_4": 7,
         "multifamily_5plus": 0,
         "total": 81
+      },
+      "2025": {
+        "single_family": 51,
+        "units_2_4": 7,
+        "multifamily_5plus": 5,
+        "total": 63
       }
     },
     "4965330": {
@@ -6916,6 +7949,12 @@
         "units_2_4": 8,
         "multifamily_5plus": 346,
         "total": 1281
+      },
+      "2025": {
+        "single_family": 822,
+        "units_2_4": 4,
+        "multifamily_5plus": 110,
+        "total": 936
       }
     },
     "4973050": {
@@ -6950,6 +7989,12 @@
         "total": 0
       },
       "2024": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 0
+      },
+      "2025": {
         "single_family": 0,
         "units_2_4": 0,
         "multifamily_5plus": 0,
@@ -6992,6 +8037,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 73,
         "total": 73
+      },
+      "2025": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 0
       }
     },
     "4974810": {
@@ -7030,6 +8081,12 @@
         "units_2_4": 4,
         "multifamily_5plus": 81,
         "total": 319
+      },
+      "2025": {
+        "single_family": 186,
+        "units_2_4": 24,
+        "multifamily_5plus": 24,
+        "total": 234
       }
     },
     "4975360": {
@@ -7068,6 +8125,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 17
+      },
+      "2025": {
+        "single_family": 16,
+        "units_2_4": 0,
+        "multifamily_5plus": 125,
+        "total": 141
       }
     },
     "4976680": {
@@ -7106,6 +8169,12 @@
         "units_2_4": 133,
         "multifamily_5plus": 87,
         "total": 433
+      },
+      "2025": {
+        "single_family": 208,
+        "units_2_4": 47,
+        "multifamily_5plus": 37,
+        "total": 292
       }
     },
     "4976900": {
@@ -7144,6 +8213,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 9
+      },
+      "2025": {
+        "single_family": 34,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 34
       }
     },
     "4977120": {
@@ -7182,6 +8257,12 @@
         "units_2_4": 4,
         "multifamily_5plus": 16,
         "total": 99
+      },
+      "2025": {
+        "single_family": 63,
+        "units_2_4": 0,
+        "multifamily_5plus": 44,
+        "total": 107
       }
     },
     "4977890": {
@@ -7220,6 +8301,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 0
+      },
+      "2025": {
+        "single_family": 5,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 5
       }
     },
     "4980090": {
@@ -7258,6 +8345,12 @@
         "units_2_4": 10,
         "multifamily_5plus": 0,
         "total": 25
+      },
+      "2025": {
+        "single_family": 32,
+        "units_2_4": 0,
+        "multifamily_5plus": 68,
+        "total": 100
       }
     },
     "4980420": {
@@ -7296,6 +8389,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 91
+      },
+      "2025": {
+        "single_family": 90,
+        "units_2_4": 0,
+        "multifamily_5plus": 234,
+        "total": 324
       }
     },
     "4980530": {
@@ -7334,6 +8433,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 5
+      },
+      "2025": {
+        "single_family": 8,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 8
       }
     },
     "4981960": {
@@ -7372,6 +8477,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 15,
         "total": 840
+      },
+      "2025": {
+        "single_family": 857,
+        "units_2_4": 0,
+        "multifamily_5plus": 122,
+        "total": 979
       }
     },
     "4982070": {
@@ -7410,6 +8521,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 2
+      },
+      "2025": {
+        "single_family": 4,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 4
       }
     },
     "4982730": {
@@ -7444,6 +8561,12 @@
         "total": 0
       },
       "2024": {
+        "single_family": 0,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 0
+      },
+      "2025": {
         "single_family": 0,
         "units_2_4": 0,
         "multifamily_5plus": 0,
@@ -7486,6 +8609,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 4
+      },
+      "2025": {
+        "single_family": 9,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 9
       }
     },
     "4982930": {
@@ -7524,6 +8653,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 112,
         "total": 386
+      },
+      "2025": {
+        "single_family": 215,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 215
       }
     },
     "4982950": {
@@ -7562,6 +8697,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 296
+      },
+      "2025": {
+        "single_family": 424,
+        "units_2_4": 0,
+        "multifamily_5plus": 336,
+        "total": 760
       }
     },
     "4983390": {
@@ -7600,6 +8741,12 @@
         "units_2_4": 24,
         "multifamily_5plus": 12,
         "total": 111
+      },
+      "2025": {
+        "single_family": 136,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 136
       }
     },
     "4983470": {
@@ -7638,6 +8785,12 @@
         "units_2_4": 27,
         "multifamily_5plus": 20,
         "total": 68
+      },
+      "2025": {
+        "single_family": 64,
+        "units_2_4": 57,
+        "multifamily_5plus": 12,
+        "total": 133
       }
     },
     "4984710": {
@@ -7676,6 +8829,12 @@
         "units_2_4": 4,
         "multifamily_5plus": 0,
         "total": 45
+      },
+      "2025": {
+        "single_family": 31,
+        "units_2_4": 4,
+        "multifamily_5plus": 0,
+        "total": 35
       }
     },
     "4985050": {
@@ -7714,6 +8873,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 11
+      },
+      "2025": {
+        "single_family": 14,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 14
       }
     },
     "4985370": {
@@ -7752,6 +8917,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 9
+      },
+      "2025": {
+        "single_family": 19,
+        "units_2_4": 16,
+        "multifamily_5plus": 5,
+        "total": 40
       }
     },
     "4923640": {
@@ -7766,6 +8937,12 @@
         "units_2_4": 0,
         "multifamily_5plus": 0,
         "total": 8
+      },
+      "2025": {
+        "single_family": 7,
+        "units_2_4": 0,
+        "multifamily_5plus": 0,
+        "total": 7
       }
     }
   }
